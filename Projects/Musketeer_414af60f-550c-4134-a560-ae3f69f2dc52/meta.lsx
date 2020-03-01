@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<save>
+    <header version="2" />
+    <version major="3" minor="6" revision="6" build="0" />
+    <region id="MetaData">
+        <node id="root">
+            <attribute id="Module" value="414af60f-550c-4134-a560-ae3f69f2dc52" type="23" />
+            <attribute id="Name" value="Musketeer" type="23" />
+            <attribute id="Type" value="Add-on" type="23" />
+            <attribute id="UUID" value="0ee49e7e-23b9-4d00-a841-db18b4efa183" type="23" />
+        </node>
+    </region>
+</save>

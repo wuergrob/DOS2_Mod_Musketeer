@@ -1,0 +1,119 @@
+# SourceControlGenerator #
+##########################
+SourceControlGenerator.json
+
+# Levels
+######################
+Mods/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/Levels/*
+Mods/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/Globals/*
+Editor/Mods/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/Levels/*
+
+# Story files        #
+######################
+*.div
+*.raw
+story_orphanqueries_ignore.txt
+Mods/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/Story/Dialogs/Autosave/*
+Mods/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/Story/Dialogs/Recovered/*
+
+# Asset Folders      #
+######################
+Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/Assets/*
+#Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/*
+
+# Editor files       #
+######################
+RootTemplateSelectorConfig_*
+ResourceSelectorConfig_*
+StatsEditorConfig.xml
+EffectEditorConfig.xml
+DockPanel.config
+EditorBrowserMetadata_*
+EditorBrowserMetadata.xml
+Autosave/*
+Recovered/*
+ReConHistory.txt
+story.debugInfo
+
+# Assets             #
+######################
+*.gr2
+*.dae
+*.swf
+*.bullet
+*.dds
+*.tga
+*.png
+*.ttf
+*.lsb
+*.lsf
+*.lsfx
+*.lsefx
+#*.lsx
+*.lsmg
+
+# Logs               #
+######################
+*.log
+*.ailog
+log.txt
+errors.txt
+dialoglog.txt
+personallog.txt
+
+# Binary Files       #
+######################
+*.dat
+*.data
+*.bik
+*.bnk
+*.bshd
+*.cur
+*.fnt
+*.iggy
+*.iggytex
+*.osi
+*.patch
+*.tmpl
+
+# Dump files         #
+######################
+*.stackdump
+*.dmp
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# VS Code #
+############
+launch.json
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.lnk
+
+
