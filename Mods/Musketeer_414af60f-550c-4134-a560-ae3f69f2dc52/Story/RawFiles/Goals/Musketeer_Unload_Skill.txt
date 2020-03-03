@@ -1,0 +1,41 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+// Unload makes the user unload his whole magazine. Since loops don't appear to be available, i tried
+// a recursive approach.
+IF
+CharacterUsedSkillAtPosition(_Character, _X, _Y, _Z, "Projectile_Unload", _, _)
+AND
+DB_IsPlayer(_Character)
+AND
+CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
+AND
+ItemGetCharges((ITEMGUID)_Weapon, _AmmoCount)
+AND
+IntegerProduct(-1, _AmmoCount, _NegAmmoCount)
+THEN
+ItemAddCharges((ITEMGUID)_Weapon, _NegAmmoCount);
+Musketeer_Recursive_Unload(_Character, _AmmoCount, _Weapon, _X, _Y, _Z);
+//CharacterSetAnimationOverride(_Character, "skill_cast_shout_01_cast");
+Musketeer_Update_Ammo_Skills(_Character);
+
+PROC
+Musketeer_Recursive_Unload((CHARACTERGUID)_Character, (INTEGER)_CurrentAmmo, (ITEMGUID)_Weapon, (REAL)_X, (REAL)_Y, (REAL)_Z)
+AND
+IntegerMin(_CurrentAmmo, 1, 1)
+AND
+IntegerSubtract(_CurrentAmmo, 1, _ReducedAmmoCount)
+THEN
+DebugBreak("[WT_FS] Executed recursive PROC.");
+CharacterUseSkillAtPosition(_Character, "Projectile_Unload_Instance", _X, _Y, _Z, 0, 1);
+Musketeer_Recursive_Unload(_Character, _ReducedAmmoCount, _Weapon, _X, _Y, _Z);
+
+
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "Musketeer_Mod"

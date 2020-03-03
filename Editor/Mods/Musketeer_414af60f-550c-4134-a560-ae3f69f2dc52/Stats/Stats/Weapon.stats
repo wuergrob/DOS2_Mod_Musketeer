@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="a1fa1d2f-c335-4902-898c-4228c3c07d52">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="_Rifles" />
+        <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Crossbows" />
+        <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ModifierType" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Finesse 12" />
+        <field name="IsTwoHanded" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AttackAPCost" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="150" />
+        <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="WeaponRange" type="IntegerStatObjectFieldDefinition" value="1300" />
+        <field name="Durability" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="DurabilityDegradeSpeed" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="Qualifier" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="Weight" type="IntegerStatObjectFieldDefinition" value="3000" />
+        <field name="Movement" type="IntegerStatObjectFieldDefinition" value="-200" />
+        <field name="WeaponType" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="WeaponType" />
+        <field name="Slot" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="Itemslot" />
+        <field name="Projectile" type="StringStatObjectFieldDefinition" value="c18e979b-b3be-4a62-bbec-cbe53fcf0e15" />
+        <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AccuracyBoost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="InventoryTab" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="InventoryTabs" />
+        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DefaultGray" />
+        <field name="RuneSlots" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="RuneSlots_V1" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Skills" type="StringStatObjectFieldDefinition" value="Shout_Musketeer_Passive" />
+        <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="_Npc_Rifles" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifles" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
+        <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="5" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

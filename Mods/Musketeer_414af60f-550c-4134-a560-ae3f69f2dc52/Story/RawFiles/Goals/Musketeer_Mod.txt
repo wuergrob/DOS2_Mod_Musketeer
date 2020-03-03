@@ -1,0 +1,23 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_Musketeer_ModStarted(1);
+KBSECTION
+IF
+DB_Musketeer_ModStarted(1)
+THEN
+DebugBreak("[WT_FS] Musketeer Mod has initialized.");
+
+
+PROC
+PROC_SelectRandomStartOrigin()
+THEN
+PROC_TrySelectRandomStartOrigin(0,0,(CHARACTERGUID)S_Player_Lohse_bb932b13-8ebf-4ab4-aac0-83e6924e4295);
+
+
+GoalCompleted;
+EXITSECTION
+
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"

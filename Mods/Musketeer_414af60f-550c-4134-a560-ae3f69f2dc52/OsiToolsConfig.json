@@ -1,0 +1,6 @@
+{
+    "RequiredExtensionVersion": 39,
+    "FeatureFlags": [
+        "OsirisExtensions"
+    ]
+}
