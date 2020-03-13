@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="e2a8d59b-0e34-4a7c-bf5f-db7a2bb34cde">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RELOAD_DEBUFF" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reloading" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_FleshSacrifice" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Reload_Debuff" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Reload_Debuff" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>
