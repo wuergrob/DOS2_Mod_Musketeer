@@ -16,5 +16,80 @@
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RELOAD_INCENDIARY" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Incendiary Ammo Loaded!" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_FleshSacrifice" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Incendiary_Ammo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Incendiary_Ammo" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RELOAD_EXPLOSIVE" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Explosive Ammo Loaded!" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_FleshSacrifice" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Explosive_Ammo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Explosive_Ammo" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RELOAD_FREEZING" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Freezing Ammo Loaded!" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_FleshSacrifice" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Freezing_Ammo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Freezing_Ammo" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RELOAD_SILVER" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Silver Ammo Loaded!" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_FleshSacrifice" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Silver_Ammo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Silver_Ammo" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RELOAD_HOLY" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Holy Ammo Loaded!" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_FleshSacrifice" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Holy_Ammo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Holy_Ammo" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

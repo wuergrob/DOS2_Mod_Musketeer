@@ -24,5 +24,70 @@
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Incendiary_Ammo" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Duration" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="Skill_Fire_BoostPerception" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Explosive_Ammo" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Duration" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="Skill_Fire_BoostPerception" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Freezing_Ammo" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Duration" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="Skill_Fire_BoostPerception" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Silver_Ammo" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Duration" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="Skill_Fire_BoostPerception" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Holy_Ammo" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Duration" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="Skill_Fire_BoostPerception" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Steadfast" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Duration" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="unknown" />
+        <field name="Constitution" type="EnumerationStatObjectFieldDefinition" value="141" enumeration_type_name="Penalty PreciseQualifier" />
+        <field name="PhysicalResistance" type="IntegerStatObjectFieldDefinition" value="25" />
+        <field name="RangeBoost" type="IntegerStatObjectFieldDefinition" value="200" />
+        <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="-100" />
+        <field name="DodgeBoost" type="IntegerStatObjectFieldDefinition" value="-30" />
+        <field name="Flags" type="EnumerationListStatObjectFieldDefinition" value="33" enumeration_type_name="AttributeFlags" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

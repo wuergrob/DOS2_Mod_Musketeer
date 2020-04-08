@@ -29,7 +29,7 @@
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,2" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -42,6 +42,161 @@
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Passive desc" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="More specific desc" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Incendiary" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Warrior_Inspire" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Incendiary" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Encourage allies around you, increasing their primary attributes." />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_INCENDIARY,100,4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Explosive" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Warrior_Inspire" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Explosive" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Encourage allies around you, increasing their primary attributes." />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_EXPLOSIVE,100,4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Freezing" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Warrior_Inspire" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Freezing" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Encourage allies around you, increasing their primary attributes." />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_FREEZING,100,4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Silver" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Warrior_Inspire" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Silver" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Encourage allies around you, increasing their primary attributes." />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_SILVER,100,4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Holy" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Warrior_Inspire" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Holy" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Encourage allies around you, increasing their primary attributes." />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_HOLY,100,4" />
       </fields>
     </stat_object>
   </stat_objects>

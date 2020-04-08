@@ -6,12 +6,12 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Unload_Test" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
-        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
@@ -26,8 +26,7 @@
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Earth_Prepare_Weapon_ArrowFx_01:Dummy_ProjectileFX" />
-        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_target_voodoo_01_cast" />
-        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="noprepare" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
@@ -66,6 +65,133 @@
         <field name="CastSelfAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Voodoo_Cast_Blood_Shout_Root_01;RS3_FX_Skills_Voodoo_Cast_Challenge_Icon_01:Dummy_OverheadFX:shout" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Unload_Buffer" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="noprepare" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="noprepare" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="noprepare" />
+        <field name="CastSelfAnimation" type="StringStatObjectFieldDefinition" value="noprepare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Flare_Test_Target" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Damage Type" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="6" />
+        <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Earth_RockSpikes" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Impalement" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Rock Spikes strike all characters, crippling them and dealing [1] damage. Creates an oil puddle in the area.|" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Earth_Prepare_Earth_Foot_01,KeepRot,Detach:Dummy_Root:foot01;RS3_FX_Skills_Earth_Prepare_Earth_Foot_02,KeepRot,Detach:Dummy_Root:foot02;RS3_FX_Skills_Earth_Prepare_Earth_Root_01,KeepRot,Detach:Dummy_Root:root01;RS3_FX_Skills_Earth_Prepare_Earth_Root_01_Addon_Oil,KeepRot,Detach:Dummy_Root:root01;RS3_FX_Skills_Earth_Prepare_Earth_Hand_01_Oil:Dummy_L_HandFX;RS3_FX_Skills_Earth_Prepare_Earth_Hand_01_Oil:Dummy_R_HandFX" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="Musketeer_Rifle_Singleshot" />
+        <field name="CastSelfAnimation" type="StringStatObjectFieldDefinition" value="Musketeer_Rifle_Singleshot" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
+        <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
+        <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="SkillRequirement" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ElementalArrowheads" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="SELF:IF(Surface:Fire):ARROWHEAD_FIRE,100,2;SELF:IF(Surface:Water&amp;!Surface:Electrified):ARROWHEAD_WATER,100,2;SELF:IF(Surface:Blood&amp;!Surface:Electrified):ARROWHEAD_BLOOD,100,2;SELF:IF(Surface:Electrified):ARROWHEAD_ELECTRIC,100,2;SELF:IF(Surface:Poison):ARROWHEAD_POISON,100,2;SELF:IF(Surface:Oil):ARROWHEAD_OIL,100,2;SELF:IF(Surface:Lava):ARROWHEAD_FIRE,100,2;" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="IsMelee" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value="RangerLore 1" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Surface:Fire|Surface:Water|Surface:Blood|Surface:Poison|Surface:Oil|Surface:Lava" />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Ranger_ElementalArrowheads" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Elemental Arrowheads|" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Target Surface in melee radius. You gain status that add elemental damage for one turn will deal damage corresponding to the surface you targeted.|" />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_fire_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_fire_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Air_ElementalArrowheads_Prepare_Root_01,KeepRot:root;RS3_FX_Skills_Air_ElementalArrowheads_Prepare_LRHandFX_01:Dummy_L_HandFX,Dummy_R_HandFX" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_ground_fire_01_cast" />
+        <field name="CastSelfAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_ground_fire_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Air_ElementalArrowheads_Cast_CastFX_01:Dummy_L_HandFX,Dummy_R_HandFX:cast;RS3_FX_Skills_Air_ElementalArrowheads_Cast_01_DummyFX_01:Dummy_ArrowFX:cast" />
+        <field name="TargetEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Air_ElementalArrowheads_TargetEffect_01,FaceSource:Dummy_BodyFX:cast" />
+        <field name="TargetGroundEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Air_ElementalArrowheads_TargetEffect_01,FaceSource:Dummy_BodyFX:cast" />
+        <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Steadfast" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="5" enumeration_type_name="SkillAbility" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="Musketeer_Steadfast_Status,100,3;" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="IsMelee" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Character;" />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Rogue_KneeBreaker" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Steadfast|" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Deal [1] to target character. Set a status that deals them piercing damage when they try to walk.|" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Voodoo_Prepare_Weapon_Purple_Hand_01:Dummy_R_HandFX,Dummy_L_HandFX;RS3_FX_Skills_Voodoo_Prepare_Weapon_Purple_Root_01,KeepRot:Dummy_Root" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_attack_precision_01_cast" />
+        <field name="CastSelfAnimation" type="StringStatObjectFieldDefinition" value="skill_attack_precision_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Voodoo_Attack_Precision_Purple_Hand_02:Dummy_R_HandFX;RS3_FX_Skills_Voodoo_Attack_Precision_Purple_Hand_01:Dummy_CastFX:cast" />
+        <field name="TargetEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Voodoo_KneeBreaker_TargetEffect_01:Dummy_BodyFX:cast" />
+        <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
+        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Damage Type" />
       </fields>
     </stat_object>
   </stat_objects>

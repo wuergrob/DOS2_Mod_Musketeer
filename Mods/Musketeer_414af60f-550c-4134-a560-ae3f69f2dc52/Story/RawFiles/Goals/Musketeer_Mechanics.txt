@@ -4,10 +4,11 @@ INITSECTION
 DB_Musketeer_RifleEquipped((CHARACTERGUID)NULL_00000000-0000-0000-0000-000000000000,0);
 
 // Reload is special exception and not included in the skill-database.
-DB_Musketeer_Skillist((STRING)"Projectile_Snipe", -1);
-DB_Musketeer_Skillist((STRING)"Projectile_Unload", 0);
-DB_Musketeer_Skillist((STRING)"Target_Mark_Target", 0);
-DB_Musketeer_Skillist((STRING)"Projectile_Rend_The_Marked", -1);
+DB_Musketeer_Skillist("Projectile_Snipe", -1);
+DB_Musketeer_Skillist("Projectile_Unload", 0);
+DB_Musketeer_Skillist("Target_Unload_Test", 0);
+DB_Musketeer_Skillist("Target_Mark_Target", 0);
+DB_Musketeer_Skillist("Projectile_Rend_The_Marked", -1);
 
 
 KBSECTION
@@ -20,14 +21,27 @@ CharacterGetEquippedWeapon(_Player, _Weapon)
 THEN
 DisplayText(_Player, "<font color='#00FF00' size='30'>Armed with pew pew</font>");
 CharacterAddSkill(_Player, "Shout_Reload");
-CharacterRemoveSkill(_Player, "Target_Unload_Test");
-CharacterAddSkill(_Player, "Projectile_Unload");
+//CharacterRemoveSkill(_Player, "Target_Unload_Test");
+//CharacterAddSkill(_Player, "Projectile_Unload");
 CharacterAddSkill(_Player, "Projectile_Snipe");
 CharacterAddSkill(_Player, "Target_Mark_Target");
 CharacterAddSkill(_Player, "Projectile_Rend_The_Marked");
-CharacterAddSkill(_Player, "Projectile_FlareStart");
+//CharacterAddSkill(_Player, "Projectile_FlareStart");
+CharacterAddSkill(_Player, "Target_Musk_Flare_Test_Target");
+CharacterAddSkill(_Player, "Target_Unload_Test");
 CharacterAddSkill(_Player, "Projectile_Buckshot");
-CharacterLevelUpTo(_Player, 5);
+CharacterAddSkill(_Player, "Projectile_Shoot_Flare");
+CharacterAddSkill(_Player, "Projectile_Rapidfire");
+CharacterAddSkill(_Player, "Projectile_Double_Up");
+CharacterAddSkill(_Player, "Shout_Reload_Incendiary");
+CharacterAddSkill(_Player, "Shout_Reload_Explosive");
+CharacterAddSkill(_Player, "Shout_Reload_Freezing");
+CharacterAddSkill(_Player, "Shout_Reload_Silver");
+CharacterAddSkill(_Player, "Shout_Reload_Holy");
+CharacterAddSkill(_Player, "Projectile_Bullethell");
+CharacterAddSkill(_Player, "Target_Musk_Steadfast");
+CharacterAddSkill(_Player, "Projectile_LaunchTripwireFlare");
+CharacterLevelUpTo(_Player, 10);
 SetTag(_Player, "Rifle_Armed");
 DB_Musketeer_RifleEquipped(_Player, 1);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Player);
@@ -50,7 +64,7 @@ ClearTag(_Player, "Musketeer_AtLeast_Two_Left");
 
 
 // Auto-Reload weapon before combat begins.
-// QoL, seems tedious that a player has to remember to reload before every fight tbh.
+// QoL, seems tedious that a player has to remember to reload before every fight.
 IF
 CombatStarted(_Combat)
 AND
@@ -67,7 +81,8 @@ Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 
 // Consume item charges when player uses a Rifle-Skill
 IF
-CharacterUsedSkill(_Character, _Skill, _, _)
+//CharacterUsedSkill(_Character, _Skill, _, _)
+SKillCast(_Character, _Skill, _, _)
 AND
 DB_Musketeer_Skillist(_Skill, _Amount)
 AND
@@ -79,6 +94,72 @@ CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
 Musketeer_Consume_Ammo((ITEMGUID)_Weapon, (INTEGER)_Amount, _Character);
 Musketeer_Update_Ammo_Skills(_Character);
+
+
+// Auto-Attacking also consumes Ammo. A player should not be able to basic attack when out of ammo.
+
+// If Character has no ammo left, he cannot basic attack.
+IF
+CharacterStartAttackObject(_, _, _Character)
+AND
+IsTagged(_Character, "Musketeer_None_Left", 1)
+AND
+DB_IsPlayer(_Character)
+THEN
+//ApplyStatus(_Character, "DISARMED", 0.0);
+CharacterUseSkill(_Character, "Target_Unload_Buffer", _Character);
+CharacterAddActionPoints(_Character, 2);
+//DisplayText(_Character, "<font color='#00FF00' size='30'>Out of Ammo!</font>");
+
+
+IF
+CharacterStartAttackPosition(_, _, _, _, _Character)
+AND
+IsTagged(_Character, "Musketeer_None_Left", 1)
+AND
+DB_IsPlayer(_Character)
+THEN
+CharacterUseSkill(_Character, "Target_Unload_Buffer", _Character);
+CharacterAddActionPoints(_Character, 2);
+//DisplayText(_Character, "<font color='#00FF00' size='30'>Out of Ammo!</font>");
+
+
+// Consume 1 Ammo when Character uses basic attack.
+IF
+CharacterStartAttackObject(_, _, _Character)
+AND
+IsTagged(_Character, "Musketeer_None_Left", 0)
+AND
+IsTagged(_Character, "Musketeer_AtLeast_One_Left", 1)
+AND
+DB_IsPlayer(_Character)
+AND
+CharacterIsInCombat(_Character, 0)
+AND
+CharacterGetEquippedWeapon(_Character, _Weapon)
+THEN
+//ApplyStatus(_Character, "DISARMED", 0.0);
+Musketeer_Consume_Ammo((ITEMGUID)_Weapon, -1, _Character);
+//DisplayText(_Character, "<font color='#00FF00' size='30'>Out of Ammo!</font>");
+
+
+IF
+CharacterStartAttackPosition(_, _, _, _, _Character)
+AND
+IsTagged(_Character, "Musketeer_None_Left", 0)
+AND
+IsTagged(_Character, "Musketeer_AtLeast_One_Left", 1)
+AND
+DB_IsPlayer(_Character)
+AND
+CharacterIsInCombat(_Character, 0)
+AND
+CharacterGetEquippedWeapon(_Character, _Weapon)
+THEN
+Musketeer_Consume_Ammo((ITEMGUID)_Weapon, -1, _Character);
+
+
+
 
 
 PROC 
@@ -103,17 +184,19 @@ Musketeer_Ammo_Requirement_Tags(_Weapon, _Character);
 
 // The following PROCs handle the Remaining-Ammo tagging of a character.
 // I currently plan to have skills that require 1 or 2 ammo when used.
+// When the character is out of ammo, he is disarmed. (REMOVED)
 
 PROC
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Character)
 AND
 ItemGetCharges(_Weapon, _RemainingAmmo)
 AND
-IntegerMax(_RemainingAmmo, 0, 0)
+_RemainingAmmo <= 0
 THEN
 SetTag(_Character, "Musketeer_None_Left");
 ClearTag(_Character, "Musketeer_AtLeast_One_Left");
 ClearTag(_Character, "Musketeer_AtLeast_Two_Left");
+//ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
 DebugBreak("[WT_FS] No Ammo left.");
 
 PROC
@@ -124,6 +207,7 @@ AND
 IntegerMin(_RemainingAmmo, 1, 1)
 THEN
 SetTag(_Character, "Musketeer_AtLeast_One_Left");
+//RemoveStatus(_Character, "DISARMED");
 ClearTag(_Character, "Musketeer_None_Left");
 DebugBreak("[WT_FS] At least 1 round left.");
 
@@ -135,10 +219,9 @@ AND
 IntegerMin(_RemainingAmmo, 2, 2)
 THEN
 SetTag(_Character, "Musketeer_AtLeast_Two_Left");
+//RemoveStatus(_Character, "DISARMED");
 ClearTag(_Character, "Musketeer_None_Left");
 DebugBreak("[WT_FS] At least 2 rounds left.");
-
-
 
 
 

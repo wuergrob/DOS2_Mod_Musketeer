@@ -1,0 +1,10 @@
+new itemgroup "Musk_Rifles"
+
+add levelgroup 1,2,"Common"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908",""
+add namegroup "Basic_Musk_Rifle","",""
+
+add levelgroup 2,30,"Common"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
+add namegroup "Basic_Musk_Rifle","",""
+

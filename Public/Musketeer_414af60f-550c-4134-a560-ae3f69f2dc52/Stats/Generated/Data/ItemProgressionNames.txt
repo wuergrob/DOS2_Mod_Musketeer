@@ -1,0 +1,4 @@
+new namegroup "Basic_Musk_Rifle"
+add name "Basic_Musk_Rifle",""
+add namecool "Coolio Rifle",""
+

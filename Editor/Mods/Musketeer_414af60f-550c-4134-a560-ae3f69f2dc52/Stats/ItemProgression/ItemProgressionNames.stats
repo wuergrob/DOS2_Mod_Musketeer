@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="a46ee13b-92c9-474f-9b83-2561b63cf414">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Basic_Musk_Rifle" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Basic_Musk_Rifle" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Coolio Rifle" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

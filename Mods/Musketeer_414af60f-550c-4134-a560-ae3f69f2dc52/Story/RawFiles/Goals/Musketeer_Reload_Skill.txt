@@ -19,8 +19,85 @@ THEN
 ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
+RemoveStatus(_Character, "RELOAD_INCENDIARY");
+RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
 //SetTag(_Character, "Musketeer_Reloading_State");
 // I don't dislike this effect, so the whole UI refresh is not a big deal.
+
+IF
+CharacterUsedSkill(_Character, "Shout_Reload_Incendiary", _, _)
+AND
+DB_IsPlayer(_Character)
+AND
+DB_Musketeer_RifleEquipped(_Character, 1)
+AND
+CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
+THEN
+ItemResetChargesToMax((ITEMGUID)_Weapon);
+Musketeer_Update_Ammo_Skills(_Character);
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
+RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
+//ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
+
+IF
+CharacterUsedSkill(_Character, "Shout_Reload_Explosive", _, _)
+AND
+DB_IsPlayer(_Character)
+AND
+DB_Musketeer_RifleEquipped(_Character, 1)
+AND
+CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
+THEN
+ItemResetChargesToMax((ITEMGUID)_Weapon);
+Musketeer_Update_Ammo_Skills(_Character);
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
+RemoveStatus(_Character, "RELOAD_INCENDIARY");
+//ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
+
+IF
+CharacterUsedSkill(_Character, "Shout_Reload_Freezing", _, _)
+AND
+DB_IsPlayer(_Character)
+AND
+DB_Musketeer_RifleEquipped(_Character, 1)
+AND
+CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
+THEN
+ItemResetChargesToMax((ITEMGUID)_Weapon);
+Musketeer_Update_Ammo_Skills(_Character);
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
+RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
+//ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
+
+IF
+CharacterUsedSkill(_Character, "Shout_Reload_Silver", _, _)
+AND
+DB_IsPlayer(_Character)
+AND
+DB_Musketeer_RifleEquipped(_Character, 1)
+AND
+CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
+THEN
+ItemResetChargesToMax((ITEMGUID)_Weapon);
+Musketeer_Update_Ammo_Skills(_Character);
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
+RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
+//ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
+
+IF
+CharacterUsedSkill(_Character, "Shout_Reload_Holy", _, _)
+AND
+DB_IsPlayer(_Character)
+AND
+DB_Musketeer_RifleEquipped(_Character, 1)
+AND
+CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
+THEN
+ItemResetChargesToMax((ITEMGUID)_Weapon);
+Musketeer_Update_Ammo_Skills(_Character);
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
+RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
+//ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
 
 IF

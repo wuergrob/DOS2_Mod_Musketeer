@@ -1,0 +1,45 @@
+#INCLUDE AttackTargetOutOfCombat
+INIT
+
+CHARACTER:__Me
+USING SHARED AttackTargetOutOfCombat
+EXTERN ITEM:%AttackTarget=null
+EXTERN STRING:%AutomatedDialog=null
+EXTERN FLOAT:%SleepTime=1
+EXTERN INT:%RifleEquipped=1
+EXTERN INT:%HasAmmoLeft=0
+
+BEHAVIOUR
+REACTION AttackTarget, 250 OVERRIDE
+USAGE PEACE
+VARS
+	FIXEDSTRING:_RandomAction
+	FIXEDSTRING:_RandomAnimation
+
+CHECK "!c1&!c2&c3&((c4&c5)|!c4)"
+	IsEqual(%AttackTarget,null)
+	IsInDialog(__Me)
+	CharacterCanShoot(__Me,%AttackTarget)
+	IsEqual(%RifleEquipped, 1)
+	IsEqual(%HasAmmoLeft, 1)
+ACTIONS
+	CharacterAttack(%AttackTarget)
+	GetWeightedRandom(_RandomAction,"PlayAnimation",INT:2,"Dialog",INT:1,"Sleep",INT:3)
+	IF "c1"
+		IsEqual(_RandomAction,"Dialog")
+	THEN	
+		IF "!c1"
+			IsEqual(%AutomatedDialog,null)
+		THEN
+			DialogStart(_,%AutomatedDialog,__Me)
+		ELSE
+			Sleep(%SleepTime)	
+		ENDIF
+	ELIF "c1"
+		IsEqual(_RandomAction,"PlayAnimation")
+	THEN
+		GetRandom(_RandomAnimation,"use_drink","use_inspect")
+		CharacterPlayAnimation(_RandomAnimation)
+	ELSE
+		Sleep(%SleepTime)	
+	ENDIF

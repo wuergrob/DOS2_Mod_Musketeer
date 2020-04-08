@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="10aadbe5-69dc-4c3b-8458-59ff17fcc6f8">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musketeer_Steadfast_Status" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Steadfast|" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is holding his ground, increasing it's range, accuracy and damage resistance. Effect is lost upon moving.|" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Rogue_KneeBreaker" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_BrokenKnee_01:Dummy_Root" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Musk_Steadfast" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_Steadfast" />
+        <field name="DamageEvent" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="StatusEvent" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Steadfast_Remove_On_Movement" />
+        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="Death Type" />
+        <field name="DamageCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DamageItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DamageTorches" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="PermanentOnTorch" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="SpawnBlood" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

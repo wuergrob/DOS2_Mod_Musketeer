@@ -1,0 +1,26 @@
+INIT
+
+EVENTS
+EVENT Musketeer_FlareCast
+VARS
+    CHARACTER:_Char
+    FLOAT3:_TargetPos
+ON
+    OnSkillCast(_Char, Target_Musk_Flare_Test_Target)
+ACTIONS
+		IF "c1"
+			GetVar(_TargetPos, _Char, "Musketeer_FlareCast_Pos_X")
+		THEN
+		ShootLocalProjectileAt(Projectile_Flare_Explosion, _Char, {0.0;1.0;0.0}, _TargetPos, 1, _Char)
+		DisplayText(_Char, "wuuuuuuuuuu", 2.0)
+		//DisplayText(_TargetPos, "wuuuuuuuuuu", 2.0)
+	/*
+        IF "c1"
+            CharacterIsAlly(_Char, _Target)
+        THEN
+            ShootLocalProjectileAt(Projectile_SPARK_SPITTER_PROJECTILE_UF_HEAL, _Char, {0.0;1.0;0.0}, _Target, _Level, _Char)
+        ELSE
+            ShootLocalProjectileAt(Projectile_SPARK_SPITTER_DAMAGE_PROJECTILE, _Char, {0.0;1.0;0.0}, _Target, _Level, _Char)
+        ENDIF
+	*/
+    ENDIF

@@ -1,0 +1,152 @@
+#INCLUDE DisplayTextOnCharacter
+/*
+* Musketeer_Tripwire_Flare.itemScript
+* Starts timer to check characters nearby. If found within %Radius, starts %ExplosionDelayTime to catch more than one character.
+* At the end of count sets "Explode" event.
+* On "Explode" event or on any damage calls ExplodeAt with %MineProjectile projectile and %MineLevel caster level.
+*
+* Based on the ProximityMine script, slightly modified behaviour.
+*/
+
+INIT
+	USING SHARED DisplayTextOnCharacter
+	EXTERN STRING:%DialogKey="GEN_AD_DisarmTrap"
+	ITEM:__Me
+	EXTERN FLOAT:%Radius=3.0
+	EXTERN FLOAT:%DeploymentTime=6.0
+	EXTERN FLOAT:%ExplosionDelayTime=1.0
+	EXTERN FLOAT:%LifeTime=60.0
+	
+	INT:%Deployed=0
+	INT:%Warning=0
+	INT:%Exploded=0
+	
+	EXTERN SKILL:%MineProjectile=Projectile_Tripwire_Flare_Explosion
+	EXTERN SKILL:%FlareProjectile=Projectile_Flare_Tripwire_Explosion
+	EXTERN INT:%MineLevel=-1
+	
+	INT64:%EffectHandle
+
+EVENTS
+
+EVENT ProximityMine_Shutdown
+ON
+	OnShutdown()
+ACTIONS
+	StopTimer("UpdateProximityMine")
+
+EVENT Update
+ON
+	OnTimer("UpdateProximityMine")
+ACTIONS
+	IterateCharactersNear(__Me,%Radius,"IterateProximity")
+	
+EVENT ProximityMine_Iterate
+VARS
+CHARACTER:_Char
+ON
+	OnIterateCharacter(_Char,"IterateProximity")
+ACTIONS
+	IF "!c1&c2"
+		CharacterIsDead(_Char)
+		IsEqual(%Warning,0)
+	THEN
+		Set(%Warning,1)
+	ENDIF
+	
+// When changing this event please apply them on the FetchSkillOnDamage event as well
+EVENT ProximityMine_Explode
+VARS
+	CHARACTER:_Character
+	INT:_TrapLevel
+	FLOAT3:_MyPos
+ON
+	OnItemEvent(__Me,"Explode")
+	OnDamage(_,_,_Character,_)
+ACTIONS
+	GetPosition(__Me, _MyPos)
+	Add(_MyPos, {0.0;9.0;0.0})
+	IF "c1"
+		IsEqual(%Exploded,0)
+	THEN
+		Set(%Exploded,1)
+	ELSE
+		RETURN()
+	ENDIF	
+	
+	IF "!c1"
+		GetLevelOverrideCurrent(__Me, _TrapLevel)
+	THEN
+		Set(_TrapLevel, -1)
+	ENDIF
+	
+	IF "c1"
+		IsEqual(_Character,null)
+	THEN
+		ExplodeAt(__Me,%MineProjectile,_TrapLevel,__Me)
+		ShootLocalProjectileAt(%FlareProjectile, __Me, {0.0;0.5;0.0}, _MyPos, _TrapLevel, __Me)
+	ELSE
+		ExplodeAt(__Me,%MineProjectile,_TrapLevel,_Character)
+		ShootLocalProjectileAt(%FlareProjectile, __Me, {0.0;0.5;0.0}, _MyPos, _TrapLevel, __Me)
+	ENDIF
+	StopLoopEffect(%EffectHandle)
+	ItemDie(__Me)
+
+EVENT FetchSkillOnDamage
+ON
+	FetchItemSkillOnDamage(_,_)
+VARS
+	INT:_TrapLevel
+ACTIONS
+	IF "c1"
+		GetLevelOverrideCurrent(__Me, _TrapLevel)
+	THEN
+		RETURN(1, %MineProjectile, _TrapLevel)
+	ELSE
+		RETURN(1, %MineProjectile, -1)
+	ENDIF
+
+EVENT ProximityMine_Timeout
+ON
+	OnTimer("TimeoutProximityMine")
+ACTIONS
+	ItemEvent(__Me,"Explode")
+	
+BEHAVIOUR
+REACTION ProximityMine_PeaceDeployment,101
+USAGE PEACE
+CHECK "c1"
+	IsEqual(%Deployed,0)
+ACTIONS
+	Sleep(%DeploymentTime)
+	Set(%Deployed, 1)
+	Transform(__Me, ITEMTEMPLATE:ITEMGUID_PUZ_Trap_Mine_A_Skill_8d82440e-0520-458b-8954-af73521fb100, "RS3_FX_Skills_Rogue_TrapActivate_01", 0)
+	SetCanFight(__Me,0)
+	StartTimer("TimeoutProximityMine",%LifeTime,0)
+	StartTimer("UpdateProximityMine",0.1,-1)
+	
+BEHAVIOUR
+REACTION ProximityMine_CombatDeployment,101
+USAGE COMBAT
+ACTIONS
+	IF "c1"
+		IsEqual(%Deployed,0)
+	THEN
+		Set(%Deployed, 1)
+		Transform(__Me, ITEMTEMPLATE:ITEMGUID_PUZ_Trap_Mine_A_Skill_8d82440e-0520-458b-8954-af73521fb100, "RS3_FX_Skills_Rogue_TrapActivate_01", 0)
+		StartTimer("UpdateProximityMine",0.1,-1)
+		Sleep(0.1)
+		SetCanFight(__Me,0)
+	ENDIF
+	StopTimer("TimeoutProximityMine")
+	EndTurn(__Me)
+	
+BEHAVIOUR
+REACTION ProximityMine_Warning,100
+USAGE ALL
+CHECK "c1&c2"
+	IsEqual(%Deployed,1)
+	IsEqual(%Warning,1)
+ACTIONS
+	Sleep(%ExplosionDelayTime)
+	ItemEvent(__Me,"Explode")

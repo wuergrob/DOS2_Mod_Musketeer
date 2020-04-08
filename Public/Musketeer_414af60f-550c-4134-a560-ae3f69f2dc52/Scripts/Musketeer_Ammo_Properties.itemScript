@@ -1,0 +1,93 @@
+INIT
+
+ITEM:__Me
+EXTERN FLOAT:%LifeTime=0
+
+SKILL:%ProjectileSkill=null
+CHARACTER:%Caster=null
+INT:%Exploded=0
+
+EVENTS
+
+EVENT GrenadeInit
+ON 
+	OnInit()
+ACTIONS
+	IF "c1"
+		ItemGetSkillId(__Me,%ProjectileSkill)
+	THEN
+	ENDIF
+	
+EVENT GrenadeDestroy
+VARS
+	ITEM:_ItemSource
+ON
+	OnItemDestroyed(__Me)
+	OnFunction("GrenadeDestroy")
+	OnDamage(_,_,_,_ItemSource)
+ACTIONS
+	IF "!c1&!c2"
+		IsEqual(__Me,_ItemSource)
+		IsEqual(%Exploded,1)
+	THEN
+
+		
+		StopTimer("GrenadeTick")
+		ExplodeAt(__Me,%ProjectileSkill, -1,%Caster)
+		Set(%Exploded,1)
+		ItemDestroy(__Me)
+	ENDIF
+
+EVENT GrenadeLand
+VARS 
+	INT:_hitObstacle
+	CHARACTER:_caster	
+ON
+	OnGrenadeLand(_hitObstacle, _caster)
+ACTIONS
+	Set(%Caster, _caster)
+	IF "c1|!c2"
+		IsEqual(_hitObstacle,1)
+		IsGreaterThen(%LifeTime,0)
+	THEN
+		IF "c1"
+			CharacterHasStatus(%Caster, "RELOAD_INCENDIARY")
+		THEN
+			Set(%ProjectileSkill,"Projectile_Ammo_Incendiary")
+		ELIF "c1"
+			CharacterHasStatus(%Caster, "RELOAD_EXPLOSIVE")
+		THEN
+			// Buckshot_Fire
+			//Set(%ProjectileSkill,"Projectile_Ammo_Explosive")
+			Set(%ProjectileSkill,"Projectile_Ammo_Explosive")
+		ELIF "c1"
+			CharacterHasStatus(%Caster, "RELOAD_FREEZING")
+		THEN
+			Set(%ProjectileSkill,"Projectile_Ammo_Freezing")
+		ELIF "c1"
+			CharacterHasStatus(%Caster, "RELOAD_SILVER")
+		THEN
+			Set(%ProjectileSkill,"Projectile_Ammo_Silver")
+		ELIF "c1"
+			CharacterHasStatus(%Caster, "RELOAD_HOLY")
+		THEN
+			Set(%ProjectileSkill,"ProjectileStrike_MeteorShower")
+		ELSE
+			Set(%ProjectileSkill,"Projectile_Ammo_Default")
+		ENDIF
+		//DebugText(%Caster, "Huiiiii")
+		//DisplayText(%Caster, "wuuuuuuuuuu", 2.0)
+		//CombatLogText(%Caster, "Uaaaah?", 2, 2)
+		
+		CallFunction("GrenadeDestroy")		
+	ELSE
+		StartTimer("GrenadeTick",%LifeTime,-1)
+	ENDIF
+
+EVENT GrenadeTimer
+ON
+	OnTimer("GrenadeTick")
+ACTIONS
+	StopTimer("GrenadeTick")	
+	CallFunction("GrenadeDestroy")
+	

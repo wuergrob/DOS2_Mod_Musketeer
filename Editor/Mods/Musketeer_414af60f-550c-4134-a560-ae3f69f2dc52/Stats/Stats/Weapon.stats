@@ -4,7 +4,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="_Rifles" />
-        <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Crossbows" />
+        <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Rifles" />
         <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ModifierType" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Finesse 12" />
@@ -24,7 +24,7 @@
         <field name="Movement" type="IntegerStatObjectFieldDefinition" value="-200" />
         <field name="WeaponType" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="WeaponType" />
         <field name="Slot" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="Itemslot" />
-        <field name="Projectile" type="StringStatObjectFieldDefinition" value="c18e979b-b3be-4a62-bbec-cbe53fcf0e15" />
+        <field name="Projectile" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="AccuracyBoost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="InventoryTab" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="InventoryTabs" />
@@ -35,6 +35,7 @@
         <field name="Skills" type="StringStatObjectFieldDefinition" value="Shout_Musketeer_Passive" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="-2" />
+        <field name="AnimType" type="EnumerationStatObjectFieldDefinition" value="9" enumeration_type_name="AnimType" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -55,7 +56,7 @@
         <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="5" />
       </fields>
     </stat_object>
@@ -68,6 +69,24 @@
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="25" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="0" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Status_RifleAmmo_Incendiary" />
+        <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ModifierType" />
+        <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="Damage Type" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="40" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Steadfast_Remove_On_Movement" />
+        <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ModifierType" />
+        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="Musketeer_Steadfast_Status,100,0" />
       </fields>
     </stat_object>
   </stat_objects>
