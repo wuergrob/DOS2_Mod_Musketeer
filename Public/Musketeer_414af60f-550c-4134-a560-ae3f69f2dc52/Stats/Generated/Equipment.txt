@@ -1,0 +1,180 @@
+new equipment "Class_Musketeer_Elves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Ranger_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Gloves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Boots"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+
+new equipment "Class_Musketeer_Lizards"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Ranger_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Gloves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Boots"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+
+new equipment "Class_Musketeer_Dwarves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Ranger_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Gloves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Boots"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+
+new equipment "Class_Musketeer_Humans"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Ranger_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Gloves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Boots"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+
+new equipment "Class_Musketeer_Start_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+
+new equipment "Class_Musketeer_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+
+new equipment "Class_Headhunter_Start_Undead"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Purge_Boots"
+add equipmentgroup
+add equipment entry "ARM_Purge_Gloves"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+add equipmentgroup
+add equipment entry "CON_Potion_Poison_A"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+
+new equipment "Class_Headhunter_Start"
+add equipmentgroup
+add equipment entry "ARM_Purge_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Purge_LowerBody"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+add equipmentgroup
+add equipment entry "POTION_Minor_Healing_Potion"
+add equipmentgroup
+add equipment entry "SCROLL_Resurrect"
+add equipmentgroup
+add equipment entry "CONT_Backpack_A_SourceHunter"
+
+new equipment "Class_Headhunter_Elves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Ranger_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Gloves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Boots"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+
+new equipment "Class_Headhunter_Lizards"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Ranger_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Gloves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Boots"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+
+new equipment "Class_Headhunter_Dwarves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Ranger_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Gloves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Boots"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+
+new equipment "Class_Headhunter_Humans"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Helmet"
+add equipmentgroup
+add equipment entry "ARM_Ranger_UpperBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_LowerBody"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Gloves"
+add equipmentgroup
+add equipment entry "ARM_Ranger_Boots"
+add equipmentgroup
+add equipment entry "WPN_Rifle_Start"
+

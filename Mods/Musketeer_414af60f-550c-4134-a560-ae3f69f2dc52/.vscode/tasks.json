@@ -1,0 +1,24 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "divinity.task.compiler",
+			"gameDataPath": "x:\\Program Files\\Steam\\steamapps\\common\\Divinity Original Sin 2\\DefEd\\Data",
+			"output": "x:\\Program Files\\Steam\\steamapps\\common\\Divinity Original Sin 2\\DefEd\\Data\\Mods\\Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52\\Story\\story.div.osi",
+			"mod": [
+				"Shared",
+				"DivinityOrigins_1301db3d-1f54-4e98-9be5-5094030916e4",
+				"AnimationsPlus_326b8784-edd7-4950-86d8-fcae9f5c457c",
+				"Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52"
+			],
+			"game": "dos2de",
+			"debugInfo": "x:\\Program Files\\Steam\\steamapps\\common\\Divinity Original Sin 2\\DefEd\\Data\\Mods\\Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52\\Story\\story.debugInfo",
+			"reload": "reloadLevelAndStory",
+			"problemMatcher": [
+				"$divinity.problemMatcher"
+			],
+			"group": "build",
+			"label": "Musketeer: Compile, reload story and level"
+		}
+	]
+}

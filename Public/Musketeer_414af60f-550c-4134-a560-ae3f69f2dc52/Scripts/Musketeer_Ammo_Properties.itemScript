@@ -12,11 +12,13 @@ EVENTS
 EVENT GrenadeInit
 ON 
 	OnInit()
+	OnActivate()
 ACTIONS
 	IF "c1"
 		ItemGetSkillId(__Me,%ProjectileSkill)
 	THEN
 	ENDIF
+
 	
 EVENT GrenadeDestroy
 VARS
@@ -30,8 +32,6 @@ ACTIONS
 		IsEqual(__Me,_ItemSource)
 		IsEqual(%Exploded,1)
 	THEN
-
-		
 		StopTimer("GrenadeTick")
 		ExplodeAt(__Me,%ProjectileSkill, -1,%Caster)
 		Set(%Exploded,1)
@@ -75,10 +75,6 @@ ACTIONS
 		ELSE
 			Set(%ProjectileSkill,"Projectile_Ammo_Default")
 		ENDIF
-		//DebugText(%Caster, "Huiiiii")
-		//DisplayText(%Caster, "wuuuuuuuuuu", 2.0)
-		//CombatLogText(%Caster, "Uaaaah?", 2, 2)
-		
 		CallFunction("GrenadeDestroy")		
 	ELSE
 		StartTimer("GrenadeTick",%LifeTime,-1)

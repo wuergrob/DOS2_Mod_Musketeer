@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="cc1701fc-f374-4681-a3ec-29a5ce8d05e8">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Musketeer_Elves" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Helmet" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_UpperBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_LowerBody" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Gloves" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Boots" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Musketeer_Lizards" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Helmet" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_UpperBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_LowerBody" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Gloves" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Boots" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Musketeer_Dwarves" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Helmet" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_UpperBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_LowerBody" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Gloves" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Boots" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Musketeer_Humans" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Helmet" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_UpperBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_LowerBody" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Gloves" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Boots" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Musketeer_Start_Undead" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_UpperBody" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_LowerBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_Helmet" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_Boots" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_Gloves" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+        <field name="7" type="StatReferenceStatObjectFieldDefinition" stat_name="CON_Potion_Poison_A" />
+        <field name="10" type="StatReferenceStatObjectFieldDefinition" stat_name="SCROLL_Resurrect" />
+        <field name="11" type="StatReferenceStatObjectFieldDefinition" stat_name="CONT_Backpack_A_SourceHunter" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Musketeer_Start" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_UpperBody" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_LowerBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="POTION_Minor_Healing_Potion" />
+        <field name="7" type="StatReferenceStatObjectFieldDefinition" stat_name="SCROLL_Resurrect" />
+        <field name="8" type="StatReferenceStatObjectFieldDefinition" stat_name="CONT_Backpack_A_SourceHunter" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Headhunter_Start_Undead" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_UpperBody" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_LowerBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_Helmet" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_Boots" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_Gloves" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+        <field name="7" type="StatReferenceStatObjectFieldDefinition" stat_name="CON_Potion_Poison_A" />
+        <field name="10" type="StatReferenceStatObjectFieldDefinition" stat_name="SCROLL_Resurrect" />
+        <field name="11" type="StatReferenceStatObjectFieldDefinition" stat_name="CONT_Backpack_A_SourceHunter" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Headhunter_Start" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_UpperBody" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Purge_LowerBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="POTION_Minor_Healing_Potion" />
+        <field name="7" type="StatReferenceStatObjectFieldDefinition" stat_name="SCROLL_Resurrect" />
+        <field name="8" type="StatReferenceStatObjectFieldDefinition" stat_name="CONT_Backpack_A_SourceHunter" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Headhunter_Elves" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Helmet" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_UpperBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_LowerBody" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Gloves" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Boots" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Headhunter_Lizards" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Helmet" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_UpperBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_LowerBody" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Gloves" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Boots" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Headhunter_Dwarves" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Helmet" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_UpperBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_LowerBody" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Gloves" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Boots" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Headhunter_Humans" />
+        <field name="1" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Helmet" />
+        <field name="2" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_UpperBody" />
+        <field name="3" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_LowerBody" />
+        <field name="4" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Gloves" />
+        <field name="5" type="StatReferenceStatObjectFieldDefinition" stat_name="ARM_Ranger_Boots" />
+        <field name="6" type="StatReferenceStatObjectFieldDefinition" stat_name="WPN_Rifle_Start" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

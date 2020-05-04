@@ -10,8 +10,8 @@
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|The character is marked and has a lowered dodge chance and less physical resistance.|" />
         <field name="DescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_DeathWish" />
-        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="FormatStringColor" />
-        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_Pain_Subject_01:Dummy_StatusFX" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Status_Marked;Musketeer_FX_Status_Marked_04:Dummy_StatusFX" />
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_MUSK_Marked" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stats_MUSK_Marked" />
         <field name="DamageEvent" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="StatusEvent" />
@@ -22,7 +22,6 @@
         <field name="DamageTorches" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="PermanentOnTorch" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="SpawnBlood" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="ScaleWithVitality" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -30,19 +29,118 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Mark Target Damage|" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Bonus Damage Status from being Marked and receiving bonus damage.|" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_DeathWish" />
-        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="FormatStringColor" />
-        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_DeathWish_01:Dummy_BodyFX;RS3_FX_GP_Status_DeathWish_StatusFX_01,KeepRot:Dummy_OverheadFX" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Mark_Status_Damage" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_MarkDmg" />
         <field name="DamageEvent" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="StatusEvent" />
-        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked" />
-        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Death Type" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_100" />
+        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Death Type" />
         <field name="DamageCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="DamageItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="DamageTorches" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="PermanentOnTorch" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="SpawnBlood" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Bonus Damage Status from being Marked and receiving bonus damage.|" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MUSK_MARK_HEAL_DUMMY" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stats_MUSK_Healdummy" />
+        <field name="DamageEvent" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="StatusEvent" />
+        <field name="DamageCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DamageItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DamageTorches" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="PermanentOnTorch" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="SpawnBlood" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Status_Healdummy" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_25" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_25" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Mark_Status_25" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_30" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_30" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_50" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_50" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_60" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_60" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_75" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_75" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_80" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_80" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_90" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_90" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_100" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_100" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_Steady_Shot" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_Steady_Shot" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_Final_Act" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_Final_Act" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MUSK_MARK_FINALACT_DUMMY" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stats_MUSK_Finalactdummy" />
+        <field name="DamageEvent" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="StatusEvent" />
+        <field name="DamageCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DamageItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DamageTorches" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="PermanentOnTorch" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="SpawnBlood" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Status_Finalactdummy" />
       </fields>
     </stat_object>
   </stat_objects>

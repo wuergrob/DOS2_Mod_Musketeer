@@ -11,16 +11,48 @@ ACTIONS
 		IF "c1"
 			GetVar(_TargetPos, _Char, "Musketeer_FlareCast_Pos_X")
 		THEN
-		ShootLocalProjectileAt(Projectile_Flare_Explosion, _Char, {0.0;1.0;0.0}, _TargetPos, 1, _Char)
-		DisplayText(_Char, "wuuuuuuuuuu", 2.0)
-		//DisplayText(_TargetPos, "wuuuuuuuuuu", 2.0)
-	/*
-        IF "c1"
-            CharacterIsAlly(_Char, _Target)
-        THEN
-            ShootLocalProjectileAt(Projectile_SPARK_SPITTER_PROJECTILE_UF_HEAL, _Char, {0.0;1.0;0.0}, _Target, _Level, _Char)
-        ELSE
-            ShootLocalProjectileAt(Projectile_SPARK_SPITTER_DAMAGE_PROJECTILE, _Char, {0.0;1.0;0.0}, _Target, _Level, _Char)
-        ENDIF
-	*/
-    ENDIF
+		ShootLocalProjectileAt(Projectile_Flare_Explosion, _Char, {0.0;1.0;0.0}, _TargetPos, 1, _Char)	
+	ENDIF
+
+
+EVENT Musketeer_Last_Act_Cast
+VARS
+    CHARACTER:_Char
+    //CHARACTER:_Target
+ON
+	OnCharacterEvent(_Char, "Musk_FinalAct_Executed")
+ACTIONS
+		IF "c1"
+			//CharacterHasStatus(_Target, MUSK_MARK_TARGET)
+			IsTagged(_Char, "Musketeer_Final_Act_Tag")
+		THEN
+			CharacterAddActionPoints(_Char, 1)
+			CharacterPlayEffect(_Char, "Musketeer_FX_Euphoria_Infuse")
+			CharacterApplyStatus(_Char, MUSK_EUPHORIA, 1, 1, _Char)
+			CharacterApplyStatus(_Char, MUSK_FINALACT_HEAL, 0, 1, _Char)
+			ClearTag(_Char, "Musketeer_Final_Act_Tag")
+		ELSE
+			CharacterAddActionPoints(_Char, 1)
+			CharacterPlayEffect(_Char, "Musketeer_FX_Haste_Infuse")
+			CharacterApplyStatus(_Char, HASTED, 1, 1, _Char)
+		ENDIF
+
+
+EVENT Musketeer_Executioner_Ammo_Refund
+VARS
+    CHARACTER:_Char
+    CHARACTER:_Target
+ON
+    //OnSkillCast(_Char, Projectile_Final_Act)
+	OnDie(_Target, _, _Char, _)
+ACTIONS
+		IF "c1&!c2&c3"
+			CharacterHasTalent(_Char, Executioner)
+			CharacterHasStatus(_Char, MUSK_EXECUTIONER)
+			IsTagged(_Char, "Rifle_Armed")
+		THEN
+			// Do the actual Ammo refunding in story script.
+			CharacterApplyStatus(_Char, MUSK_EXECUTIONER, -2, 1, _Char)
+		ENDIF
+
+

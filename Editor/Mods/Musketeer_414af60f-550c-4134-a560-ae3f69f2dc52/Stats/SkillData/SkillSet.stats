@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="68e50044-f0bd-499d-94ad-7aa52f7abe18">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Musketeer" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Rifle_Snipe" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Ranger_substat_0" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Musketeer" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Buckshot" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Ranger_substat_1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Musketeer" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Target_FirstAid" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Musketeer_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Rifle_Snipe" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Ranger_Act2_substat_0" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Musketeer_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Buckshot" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Ranger_Act2_substat_1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Musketeer_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Target_FirstAid" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Ranger_Act2_substat_2" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Musketeer_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Rapidfire" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Ranger_Act2_substat_3" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Musketeer_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Target_Musk_Steadfast" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Ranger_Act2_substat_4" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Musketeer_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Target_Musk_Flare_Test_Target" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Ranger_Act2_substat_5" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Musketeer_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Final_Act" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Ranger_Act2_substat_6" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Musketeer_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Target_Bless" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Headhunter" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Rifle_Snipe" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_0" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Tracking_Shot" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Rend_The_Marked" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Class_Headhunter_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Rifle_Snipe" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_1_substat_0" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Tracking_Shot" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_1_substat_1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Rend_The_Marked" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_1_substat_2" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Final_Act" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_1_substat_3" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Target_Musk_Steadfast" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_1_substat_4" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Target_BurnMyEyes" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_1_substat_5" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_LaunchTripwireFlare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_1_substat_6" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter_Act2" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Target_Bless" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

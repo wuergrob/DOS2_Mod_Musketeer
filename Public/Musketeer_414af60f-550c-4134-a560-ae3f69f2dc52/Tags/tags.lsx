@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<save>
+    <header version="2" />
+    <version major="3" minor="6" revision="6" build="0" />
+    <region id="Tags">
+        <node id="root">
+            <children>
+                <node id="Tag">
+                    <attribute id="Description" value="Character has a rifle equipped and is out of Ammunition." type="23" />
+                    <attribute id="Name" value="Musketeer_None_Left" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Story" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Character has a rifle equipped and has at least 1 Ammunition left." type="23" />
+                    <attribute id="Name" value="Musketeer_Atleast_One_Left" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Story" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Character has a rifle equipped and has at least 2 Ammunition left." type="23" />
+                    <attribute id="Name" value="Musketeer_AtLeast_Two_Left" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Story" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Character has a rifle equipped and has at least 3 Ammunition left." type="23" />
+                    <attribute id="Name" value="Musketeer_AtLeast_Three_Left" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Story" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Character has a rifle equipped and has exactly 1 Ammunition left." type="23" />
+                    <attribute id="Name" value="Musketeer_Exactly_One_Left" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Story" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Character has a rifle equipped and has exactly 2 Ammunition left." type="23" />
+                    <attribute id="Name" value="Musketeer_Exactly_Two_Left" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Story" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Character has a rifle equipped." type="23" />
+                    <attribute id="Name" value="Rifle_Armed" type="23" />
+                    <children>
+                        <node id="Categories">
+                            <children>
+                                <node id="Category">
+                                    <attribute id="Name" value="Code" type="23" />
+                                </node>
+                                <node id="Category">
+                                    <attribute id="Name" value="Story" type="23" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

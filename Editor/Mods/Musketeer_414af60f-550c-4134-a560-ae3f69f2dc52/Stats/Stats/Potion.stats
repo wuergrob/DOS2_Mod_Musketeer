@@ -11,6 +11,7 @@
         <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="statIcons_Crippled" />
         <field name="PiercingResistance" type="IntegerStatObjectFieldDefinition" value="-10" />
         <field name="PhysicalResistance" type="IntegerStatObjectFieldDefinition" value="-10" />
+        <field name="Flags" type="EnumerationListStatObjectFieldDefinition" value="60" enumeration_type_name="AttributeFlags" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -81,12 +82,54 @@
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Duration" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="unknown" />
-        <field name="Constitution" type="EnumerationStatObjectFieldDefinition" value="141" enumeration_type_name="Penalty PreciseQualifier" />
-        <field name="PhysicalResistance" type="IntegerStatObjectFieldDefinition" value="25" />
         <field name="RangeBoost" type="IntegerStatObjectFieldDefinition" value="200" />
-        <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="-100" />
-        <field name="DodgeBoost" type="IntegerStatObjectFieldDefinition" value="-30" />
-        <field name="Flags" type="EnumerationListStatObjectFieldDefinition" value="33" enumeration_type_name="AttributeFlags" />
+        <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="-35" />
+        <field name="Armor" type="IntegerStatObjectFieldDefinition" value="30" />
+        <field name="MagicArmor" type="IntegerStatObjectFieldDefinition" value="30" />
+        <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="AccuracyBoost" type="IntegerStatObjectFieldDefinition" value="20" />
+        <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="20" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_BOOST_TEST" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="BoostConditions" type="StringStatObjectFieldDefinition" value="OnWeaponBow;OnWeaponCrossbow" />
+        <field name="BonusWeapon" type="StringStatObjectFieldDefinition" value="Status_Musk_Auto_Test" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="SELF:EXPLODE,100,1,Projectile_Fireball" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Euphoria" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Movement" type="IntegerStatObjectFieldDefinition" value="300" />
+        <field name="APStart" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="APRecovery" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Duration" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="statIcons_Hasted" />
+        <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="25" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Null" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Duration" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Repair" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Executioner" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Repair" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Duration" type="IntegerStatObjectFieldDefinition" value="-2" />
       </fields>
     </stat_object>
   </stat_objects>

@@ -66,7 +66,8 @@ ACTIONS
 		ENDWHILE
 		*/
 		//PlayEffectAt(
-
+		//DebugText(%Caster,"Caster Level: [1]",%StrikeCount)
+		//DisplayText(%Caster, "hello?", 1.0)
 		StartTimer("Helper_Launch_Tick", 0.0, -1)
 			
 		//DebugText(%Caster, "Huiiiii")
@@ -84,6 +85,8 @@ VARS
 	ITEM:_ItemSource
 	FLOAT:_delay
 	FLOAT3:_targetPos
+	FLOAT:_casterLevel
+	INT:_casterLevelInt
 	//FLOAT:_targetYvar
 ON
 	OnTimer("Helper_Launch_Tick")
@@ -91,11 +94,15 @@ ACTIONS
 	GetPosition(__Me, _targetPos)
 	//GetRandomBetween(_targetYvar, 0.6, 1.2)
 	Add(_targetPos, {0.0;1.0;0.0})
-	IF "!c1"
+	IF "!c1&c2&c3"
 		IsEqual(__Me,_ItemSource)
+		CharacterGetStat(_casterLevel, %Caster, Level)
+		Cast(_casterLevelInt, _casterLevel)
 	THEN
+		//DisplayText(%Caster, "Ungabunga", 3.0)
+		//DebugText(%Caster, "Uff: [1]", _casterLevel)
 		//ShootLocalProjectileAt(ProjectileStrike_Grenade_ClusterBomb, %Caster, {0.0;2.5;0.5}, __Me, 1, %Caster)
-		ShootLocalProjectileAt(ProjectileStrike_Musk_Bullethell_Cluster, %Caster, {0.0;2.5;0.5}, _targetPos, 1, %Caster)
+		ShootLocalProjectileAt(ProjectileStrike_Musk_Bullethell_Cluster, %Caster, {0.0;2.5;0.5}, _targetPos, _casterLevelInt, %Caster)
 		StopTimer("Helper_Launch_Tick")
 		IF "c1"
 			IsLessThen(%StrikesLaunched, %StrikeCount)

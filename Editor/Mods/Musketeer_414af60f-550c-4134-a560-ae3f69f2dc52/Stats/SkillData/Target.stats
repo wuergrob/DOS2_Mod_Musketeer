@@ -19,9 +19,9 @@
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Origins_MaddeningSong" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="CoveringFire" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Unload|" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Characters in target area become Mad, attacking nearest character.|" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off all your current &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt; in a area around your target, each dealing &lt;font color='#FFFFFF'&gt;100% damage&lt;/font&gt;.&lt;br&gt;The scatter radius depends on your distance to the target. The greater the distance, the bigger the scatter radius.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes all remaining Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
@@ -54,15 +54,15 @@
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Warrior_Challenge" />
-        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Challenge|" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Mark target enemy. If they die in the next 3 turns, you are healed and receive damage and armor bonus. If target survives, their Vitality is healed to full and caster receives damage.|" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="MarkTarget" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Mark Target" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="&lt;font color='#FF1500'&gt;Mark&lt;/font&gt; a target, lowering it's resistances and reducing it's dodge chance.&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks target character&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
-        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
-        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_lash_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_lash_01_loop" />
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Voodoo_Prepare_Blood_Shout_Root_01" />
-        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
-        <field name="CastSelfAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_lash_01_cast" />
+        <field name="CastSelfAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_lash_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Voodoo_Cast_Blood_Shout_Root_01;RS3_FX_Skills_Voodoo_Cast_Challenge_Icon_01:Dummy_OverheadFX:shout" />
       </fields>
@@ -102,9 +102,9 @@
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Earth_RockSpikes" />
-        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Impalement" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Rock Spikes strike all characters, crippling them and dealing [1] damage. Creates an oil puddle in the area.|" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="BlazingFlare" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Blazing Flare" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a Flare into the air, which explodes at peak altitude and applies &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; to all enemies in it's area. Reveals invisible enemies.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks all enemies in it's area&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
@@ -160,13 +160,13 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Steadfast" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="5" enumeration_type_name="SkillAbility" />
+        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="0" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="Musketeer_Steadfast_Status,100,3;" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="MUSK_STEADFAST,100,3" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="8" />
         <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="IsMelee" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -179,9 +179,9 @@
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Rogue_KneeBreaker" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Steadfast" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Steadfast|" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Deal [1] to target character. Set a status that deals them piercing damage when they try to walk.|" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Increases the range of a targeted character's ranged attacks and skills by 2m. Also increases accuracy by 10% and Constitution by 5. &lt;br&gt;&lt;br&gt;&lt;font color='#8b4513'&gt;Decreases movement speed by 75% while active.&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Voodoo_Prepare_Weapon_Purple_Hand_01:Dummy_R_HandFX,Dummy_L_HandFX;RS3_FX_Skills_Voodoo_Prepare_Weapon_Purple_Root_01,KeepRot:Dummy_Root" />

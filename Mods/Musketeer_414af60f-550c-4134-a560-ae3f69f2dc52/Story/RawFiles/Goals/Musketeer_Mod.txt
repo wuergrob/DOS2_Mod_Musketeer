@@ -9,10 +9,10 @@ THEN
 DebugBreak("[WT_FS] Musketeer Mod has initialized.");
 
 
-PROC
-PROC_SelectRandomStartOrigin()
-THEN
-PROC_TrySelectRandomStartOrigin(0,0,(CHARACTERGUID)S_Player_Lohse_bb932b13-8ebf-4ab4-aac0-83e6924e4295);
+//PROC
+//PROC_SelectRandomStartOrigin()
+//THEN
+//PROC_TrySelectRandomStartOrigin(0,0,(CHARACTERGUID)S_Player_Lohse_bb932b13-8ebf-4ab4-aac0-83e6924e4295);
 
 
 GoalCompleted;

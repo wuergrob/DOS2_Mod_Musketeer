@@ -2,9 +2,10 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 DB_Musketeer_RifleEquipped((CHARACTERGUID)NULL_00000000-0000-0000-0000-000000000000,0);
+//DB_Musketeer_Executioner_AmmoRefunded((CHARACTERGUID)_Player, 0);
 
 // Reload is special exception and not included in the skill-database.
-DB_Musketeer_Skillist("Projectile_Snipe", -1);
+DB_Musketeer_Skillist("Projectile_Rifle_Snipe", -1);
 DB_Musketeer_Skillist("Projectile_Unload", 0);
 DB_Musketeer_Skillist("Target_Unload_Test", 0);
 DB_Musketeer_Skillist("Target_Mark_Target", 0);
@@ -12,7 +13,6 @@ DB_Musketeer_Skillist("Projectile_Rend_The_Marked", -1);
 
 
 KBSECTION
-
 // Instead of tracking Equip-Events of the weapon, we track when a player gets the Passive-skill that is automatically learned when equipping a rifle.
 IF
 SkillAdded(_Player, "Shout_Musketeer_Passive", 0)
@@ -23,7 +23,7 @@ DisplayText(_Player, "<font color='#00FF00' size='30'>Armed with pew pew</font>"
 CharacterAddSkill(_Player, "Shout_Reload");
 //CharacterRemoveSkill(_Player, "Target_Unload_Test");
 //CharacterAddSkill(_Player, "Projectile_Unload");
-CharacterAddSkill(_Player, "Projectile_Snipe");
+CharacterAddSkill(_Player, "Projectile_Rifle_Snipe");
 CharacterAddSkill(_Player, "Target_Mark_Target");
 CharacterAddSkill(_Player, "Projectile_Rend_The_Marked");
 //CharacterAddSkill(_Player, "Projectile_FlareStart");
@@ -41,9 +41,12 @@ CharacterAddSkill(_Player, "Shout_Reload_Holy");
 CharacterAddSkill(_Player, "Projectile_Bullethell");
 CharacterAddSkill(_Player, "Target_Musk_Steadfast");
 CharacterAddSkill(_Player, "Projectile_LaunchTripwireFlare");
+CharacterAddSkill(_Player, "Projectile_Tracking_Shot");
+CharacterAddSkill(_Player, "Projectile_Final_Act");
 CharacterLevelUpTo(_Player, 10);
 SetTag(_Player, "Rifle_Armed");
 DB_Musketeer_RifleEquipped(_Player, 1);
+
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Player);
 
 
@@ -61,6 +64,8 @@ ClearTag(_Player, "Rifle_Armed");
 ClearTag(_Player, "Musketeer_None_Left");
 ClearTag(_Player, "Musketeer_AtLeast_One_Left");
 ClearTag(_Player, "Musketeer_AtLeast_Two_Left");
+
+
 
 
 // Auto-Reload weapon before combat begins.
@@ -118,9 +123,12 @@ AND
 IsTagged(_Character, "Musketeer_None_Left", 1)
 AND
 DB_IsPlayer(_Character)
+AND
+CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN
 CharacterUseSkill(_Character, "Target_Unload_Buffer", _Character);
 CharacterAddActionPoints(_Character, 2);
+Musketeer_Consume_Ammo((ITEMGUID)_Weapon, 1, _Character);
 //DisplayText(_Character, "<font color='#00FF00' size='30'>Out of Ammo!</font>");
 
 
@@ -133,8 +141,8 @@ AND
 IsTagged(_Character, "Musketeer_AtLeast_One_Left", 1)
 AND
 DB_IsPlayer(_Character)
-AND
-CharacterIsInCombat(_Character, 0)
+//AND
+//CharacterIsInCombat(_Character, 0)
 AND
 CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN
@@ -151,15 +159,12 @@ AND
 IsTagged(_Character, "Musketeer_AtLeast_One_Left", 1)
 AND
 DB_IsPlayer(_Character)
-AND
-CharacterIsInCombat(_Character, 0)
+//AND
+//CharacterIsInCombat(_Character, 0)
 AND
 CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN
 Musketeer_Consume_Ammo((ITEMGUID)_Weapon, -1, _Character);
-
-
-
 
 
 PROC 
@@ -180,11 +185,14 @@ Musketeer_Consume_Ammo((ITEMGUID)_Weapon, (INTEGER)_Amount, (CHARACTERGUID)_Char
 THEN
 ItemAddCharges(_Weapon, _Amount);
 Musketeer_Ammo_Requirement_Tags(_Weapon, _Character);
+//ApplyStatus(_Character, "CLEAR_MINDED", 0.0, 1, _Character);
+// Apply a empty status to force a skillbar tag-requirement refresh.
+//ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
 
 
-// The following PROCs handle the Remaining-Ammo tagging of a character.
-// I currently plan to have skills that require 1 or 2 ammo when used.
-// When the character is out of ammo, he is disarmed. (REMOVED)
+// The following PROCs handle the Ammunition tagging.
+// the "MUSK_NULL_STATUS" grants +1 to "Repair" and forces a UI refresh.
+// Without that, tag requirements are not updated on the skills.
 
 PROC
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Character)
@@ -196,32 +204,43 @@ THEN
 SetTag(_Character, "Musketeer_None_Left");
 ClearTag(_Character, "Musketeer_AtLeast_One_Left");
 ClearTag(_Character, "Musketeer_AtLeast_Two_Left");
+ClearTag(_Character, "Musketeer_Exactly_One_Left");
 //ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
 DebugBreak("[WT_FS] No Ammo left.");
+ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
 
+// When exactly 1 Ammo remaining, set armed, Atleast one and clear Atleast two.
 PROC
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Character)
 AND
 ItemGetCharges(_Weapon, _RemainingAmmo)
 AND
-IntegerMin(_RemainingAmmo, 1, 1)
+_RemainingAmmo == 1
 THEN
+SetTag(_Character, "Musketeer_Exactly_One_Left");
+SetTag(_Character, "Musketeer_AtLeast_One_Left");
+ClearTag(_Character, "Musketeer_AtLeast_Two_Left");
+//RemoveStatus(_Character, "DISARMED");
+ClearTag(_Character, "Musketeer_None_Left");
+DebugBreak("[WT_FS] Exactly 1 round left.");
+ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
+
+// When at least 2 Ammo remaining, set armed, Atleast one, Atleast two.
+PROC
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Character)
+AND
+ItemGetCharges(_Weapon, _RemainingAmmo)
+AND
+_RemainingAmmo >= 2
+THEN
+SetTag(_Character, "Musketeer_AtLeast_Two_Left");
 SetTag(_Character, "Musketeer_AtLeast_One_Left");
 //RemoveStatus(_Character, "DISARMED");
 ClearTag(_Character, "Musketeer_None_Left");
-DebugBreak("[WT_FS] At least 1 round left.");
-
-PROC
-Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Character)
-AND
-ItemGetCharges(_Weapon, _RemainingAmmo)
-AND
-IntegerMin(_RemainingAmmo, 2, 2)
-THEN
-SetTag(_Character, "Musketeer_AtLeast_Two_Left");
-//RemoveStatus(_Character, "DISARMED");
-ClearTag(_Character, "Musketeer_None_Left");
+ClearTag(_Character, "Musketeer_Exactly_One_Left");
 DebugBreak("[WT_FS] At least 2 rounds left.");
+ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
+
 
 
 

@@ -107,17 +107,17 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Bullethell_Cluster" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SkillAbility" />
+        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="60" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="Damage Type" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
         <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="5" enumeration_type_name="Death Type" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="StrikeCount" type="IntegerStatObjectFieldDefinition" value="6" />
+        <field name="StrikeCount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="StrikeDelay" type="IntegerStatObjectFieldDefinition" value="200" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -161,7 +161,7 @@
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="4" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="40" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="60" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
         <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="Death Type" />

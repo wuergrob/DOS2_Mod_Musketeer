@@ -1,0 +1,44 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+// I wanted Rapidfire to have a On-Hit effect on marked targets, but couldn't
+// think of a interesting one. Damage is already on all the other ones and is
+// kinda boring, so i went with vitality restoration.
+// This should allow players to compensate a bit for the reduced range compared to Bows/XBows
+
+IF
+CharacterStatusApplied(_Target, "MUSK_MARK_HEAL_DUMMY", _Character)
+THEN
+RemoveStatus(_Target, "MUSK_MARK_HEAL_DUMMY");
+ApplyStatus(_Character, "MUSK_MARK_HEAL", 0.0);
+//DebugBreak("[WT_FS] Healing dummy status applied");
+
+
+IF
+CharacterStatusApplied(_Character, "MUSK_MARK_HEAL", _)
+THEN
+RemoveStatus(_Character, "MUSK_MARK_HEAL");
+//DebugBreak("[WT_FS] Healing from Rapidfire procced?");
+
+// Applying a status with 0 duration multiple times during a turn is pretty finicky it seems.
+// FX and Heal-Text will not always show when the healing occurs, so you often only see the healing
+// numbers 2 times when all 3 shots land and heal the caster. 
+// The following snipped checks actual heal events that occur, which get's triggered
+// correctly, thus healing is proccing as intended.
+/*
+IF
+NRD_OnHeal(_Target, _Character, _Amount, _)
+AND
+DB_IsPlayer(_Target)
+THEN
+NRD_DebugLog("Healing of Rapidfire on Marked did occur.");
+*/
+
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "Musketeer_Mod"

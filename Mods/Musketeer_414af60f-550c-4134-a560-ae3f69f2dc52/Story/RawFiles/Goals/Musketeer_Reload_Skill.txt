@@ -16,11 +16,9 @@ DB_Musketeer_RifleEquipped(_Character, 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
-ItemResetChargesToMax((ITEMGUID)_Weapon);
+//ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
-RemoveStatus(_Character, "RELOAD_INCENDIARY");
-RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
 //SetTag(_Character, "Musketeer_Reloading_State");
 // I don't dislike this effect, so the whole UI refresh is not a big deal.
 
@@ -33,10 +31,9 @@ DB_Musketeer_RifleEquipped(_Character, 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
-ItemResetChargesToMax((ITEMGUID)_Weapon);
+//ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
-RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
 IF
@@ -48,10 +45,9 @@ DB_Musketeer_RifleEquipped(_Character, 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
-ItemResetChargesToMax((ITEMGUID)_Weapon);
+//ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
-RemoveStatus(_Character, "RELOAD_INCENDIARY");
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
 IF
@@ -63,10 +59,9 @@ DB_Musketeer_RifleEquipped(_Character, 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
-ItemResetChargesToMax((ITEMGUID)_Weapon);
+//ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
-RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
 IF
@@ -78,10 +73,9 @@ DB_Musketeer_RifleEquipped(_Character, 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
-ItemResetChargesToMax((ITEMGUID)_Weapon);
+//ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
-RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
 IF
@@ -93,10 +87,10 @@ DB_Musketeer_RifleEquipped(_Character, 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
-ItemResetChargesToMax((ITEMGUID)_Weapon);
+//ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
-RemoveStatus(_Character, "RELOAD_EXPLOSIVE");
+
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
 
@@ -110,10 +104,15 @@ ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
 IF
 //ObjectLostTag(_Character, "Musketeer_Reloading_State")
 CharacterStatusRemoved(_Character, "RELOAD_DEBUFF", _)
+AND
+CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
+AND
+IsTagged(_Character, "Rifle_Armed", 1)
 THEN
 RemoveStatus(_Character, "MUTED");
 RemoveStatus(_Character, "DISARMED");
-
+ItemResetChargesToMax((ITEMGUID)_Weapon);
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 
 // Make the Mute and Disarmed Status uncleansable by reapplying them when removed, if the character has the
 // Reload debuff.

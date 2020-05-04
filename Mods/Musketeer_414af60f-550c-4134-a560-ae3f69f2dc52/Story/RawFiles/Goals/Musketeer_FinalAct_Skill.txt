@@ -1,0 +1,87 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+// NOTE: This effect probably doesn't work if you are hitting a character that is blocking
+// your target. In that case, i suppose you can kill a marked character and not trigger
+// this effect.
+
+
+// Attacking a character with the "Final Act" skill tags them for a short duration.
+// If the target dies while it has said tag applied, then we assume it's the skill
+// that killed it. We auto clear the tag after a few seconds, as it should
+// only persist during the "Final Act" skill stuff.
+IF
+CharacterStatusApplied(_Target, "MUSK_MARK_FINALACT_DUMMY", _Character)
+THEN
+RemoveStatus(_Target, "MUSK_MARK_FINALACT_DUMMY");
+ProcObjectTimerMusk(_Target, "Musketeer_Final_Act_Helper_Timer", 2, _Character);
+
+IF
+CharacterStatusAttempt(_Target, "MUSK_MARK_FINALACT_DUMMY", _Character)
+AND
+HasActiveStatus(_Target, "MUSK_MARK_TARGET", 1)
+THEN
+// Check this game in gamescript to determine wheter to apply Euphoria and heal or hasted on kill.
+SetTag(_Character, "Musketeer_Final_Act_Tag");
+
+// PROC's for storing key/value pairs along a timer name in the DB
+
+// -----------
+
+PROC
+ProcObjectTimerMusk((GUIDSTRING)_Target,(STRING)_TimerName,(INTEGER)_Time, (GUIDSTRING)_Causee)
+AND
+GetUUID(_Target,_UUID_Target)
+AND
+GetUUID(_Causee,_UUID_Causee)
+AND
+StringConcatenate(_UUID_Target,_TimerName,_ObjectTimerNameTemp)
+AND
+StringConcatenate(_ObjectTimerNameTemp,_UUID_Causee,_ObjectTimerName)
+THEN
+DB_ObjectTimerMusk(_Target,_ObjectTimerName,_TimerName, _Causee);
+TimerLaunch(_ObjectTimerName,_Time);
+
+IF
+TimerFinished(_ObjectTimerName)
+AND
+DB_ObjectTimerMusk(_Target,_ObjectTimerName,_TimerName,_Causee)
+THEN
+NOT DB_ObjectTimerMusk(_Target,_ObjectTimerName,_TimerName,_Causee);
+ProcObjectTimerFinishedMusk(_Target,_TimerName,_Causee);
+
+PROC
+ProcObjectTimerFinishedMusk((GUIDSTRING)_Object,(STRING)_TimerName,(GUIDSTRING)_Causee)
+THEN
+DB_NOOP(1);
+
+// -----------
+
+PROC
+ProcObjectTimerFinishedMusk((CHARACTERGUID)_Target, "Musketeer_Final_Act_Helper_Timer", (CHARACTERGUID)_Causee)
+AND
+CharacterIsDead(_Target, 1)
+THEN
+//ClearTag(_Target, "Musketeer_Final_Act_Tag");
+SetStoryEvent(_Causee, "Musk_FinalAct_Executed");
+//DisplayText(_Target, "<font color='#00FF00' size='30'>I got executed by FinalAct!</font>");
+//DisplayText(_Causee, "<font color='#00FF00' size='30'>What he said!</font>");
+
+PROC
+ProcObjectTimerFinishedMusk((CHARACTERGUID)_Target, "Musketeer_Final_Act_Helper_Timer", (CHARACTERGUID)_Causee)
+AND
+CharacterIsDead(_Target, 0)
+AND
+IsTagged(_Causee, "Musketeer_Final_Act_Tag", 1)
+THEN
+ClearTag(_Causee, "Musketeer_Final_Act_Tag");
+//DisplayText(_Target, "<font color='#00FF00' size='30'>Hit a marked target, but didn't kill it</font>");
+//DisplayText(_Causee, "<font color='#00FF00' size='30'>What he said!</font>");
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "Musketeer_Mod"

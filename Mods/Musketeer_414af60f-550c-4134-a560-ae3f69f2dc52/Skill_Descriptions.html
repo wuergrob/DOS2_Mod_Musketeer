@@ -1,0 +1,148 @@
+
+
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Musketeer Skill Markup</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <style>
+    body {background-color: #333333; color: #AAAAAA}
+    h1   {color: blue;}
+    p    {color: red;}
+    .skill {font-family: Charcoal, sans-serif; font-size:12px; max-width: 300px; min-width: 200px; margin: 5px;}
+    li {background-color: #222222; margin: 15px; border-color: black; border-radius: 8px; padding: 5px;}
+    ul {display: flex; flex-wrap: wrap;}
+   </style>
+
+
+</head>
+
+<body>
+    <ul>
+        <li class="skill">
+            <font size='4' color='#FFFFFF'>Musketeer Rifle Passive</font><br><br>
+            <font size='4' color='#00EFFF'>Ammunition</font><br><br>Rifle-Attacks consume <font color='#00EFFF'>Ammunition</font>,
+            requiring you to reload when empty, which <font color='#FFFFFF'>mutes</font>, <font color='#FFFFFF'>disarmes</font> and
+            <font color='#FFFFFF'>slows you by 75%</font> until your next turn. Basic attacks consume 1 <font color='#00EFFF'>
+                Ammunition</font>, skills have individual costs which are noted in their description.<br><br>The current and maximum
+            amount of <font color='#00EFFF'>Ammunition</font> can be checked in your characters inventory. (Item charges)<br><br>
+            <font size='4' color='#FF1500'>Mark interaction</font><br><br>Rifle based skills can have special interactions with
+            <font color='#FF1500'>Marked</font> characters, these interactions are also detailed on the individual skills
+            description.<br><br>
+            </li>
+        <li class="skill">
+            <font size='4' color='#FFFFFF'>Steady Shot</font><br><br>
+            Fire off a shot with exceptional aim, exceeding normal range and dealing [1] damage<br><br>
+            <font color='#00EFFF'>Consumes 1 Ammunition</font><br><br>
+            <font color='#FF1500'>Deals 25% bonus damage against Marked targets</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Final Act</font><br><br>
+            Fire off your last remaining round, dealing [1]<br><br>
+            <font color='#00EFFF'>Only useable when you have exactly 1 Ammunition left. Consumes 1 Ammunition</font><br><br>
+            <font color='#FF1500'>Deals 60% bonus damage against Marked targets </font><br><br>
+            <font color='#FF8C34'>If this skill kills a target, set <font color='#7D71D9'>Hasted</font> for 1 turn and recover 1 AP. 
+            Killing a <font color='#FF1500'>Marked</font> target replaces <font color='#7D71D9'>Hasted</font> with <font color='#FFFF00'>Euphoria</font></font><br><br>
+            <font color='#FFFF00'>Euphoria</font><font color='#FF4D00'> increases movement speed by 3m per AP, grants 2 AP recovery and 1 AP per turn. 
+            Additionally grants 25% Critical Chance and heals for 20% of your maximum vitality. </font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Reload</font><br><br>
+            Fully restore your <font color='#00EFFF'>Ammunition</font> next turn. Set <font color='#FFFFFF'>Muted</font>, <font
+                color='#FFFFFF'>Disarmed</font> and <font color='#FFFFFF'>Slowed</font> by 75% until your next turn.<br><br>
+                <font color='#00EFFF'>Fully restores Ammunition at the beginning of your next turn</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Rapid Fire</font><br><br>
+            Fire off 3 shots in rapid succession, quickly rechambering 1 round inbetween. Each shot deals [1] damage.<br><br>
+            <font color='#FF1500'>Each shot heals for 10% of your maximum vitality upon hitting a marked target.</font><br><br>
+            <font color='#00EFFF'>Consumes 2 Ammunition</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Buckshot</font><br><br>
+            Fire off a high caliber explosive round, dealing [1] damage and causing your target and you to get <font color='#FFFFFF'>knocked back</font>.<br>
+            Damages all enemies behind the target for [2] damage and creates a <font color='#FF1500'>fire surface</font>.<br><br>
+            <font color='#00EFFF'>Consumes 2 Ammunition</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Death Sentence</font><br><br>
+            <font color='#FF1500'>Mark</font> a target, lowering it's resistances and reducing it's dodge chance.<br><br>
+            <font color='#FF1500'>Marks target character</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Covering Fire</font><br><br>
+            Fire off all your current <font color='#00EFFF'>Ammunition</font> in a area around your target, each dealing [1] damage.<br>
+            The scatter radius depends on your distance to the target. The greater the distance, the bigger the scatter radius.<br><br>
+            <font color='#00EFFF'>Consumes all remaining Ammunition</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Rend the Marked</font><br><br>
+            Deals [1] damage and <font color='#FF8C34'>executes targets</font> that have 25% or less remaining Health.<br><br>
+            <font color='#00EFFF'>Consumes 1 Ammunition</font><br><br>
+            <font color='#FF1500'>Can only be cast on Marked targets</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Blazing Flare</font><br><br>
+            Fire a Flare into the air, which explodes at peak altitude and applies <font color='#FF1500'>Marked</font> to all enemies in it's area. Reveals invisible enemies.<br><br>
+            <font color='#00EFFF'>Consumes 1 Ammunition</font><br><br>
+            <font color='#FF1500'>Marks all enemies in it's area</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Tracking Shot</font><br><br>
+            Fire a tracking round on a target, dealing [1] damage and <font color='#FF1500'>Marking</font> it.<br><br>
+            <font color='#00EFFF'>Consumes 1 Ammunition</font><br><br>
+            <font color='#FF1500'>Marks target character</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Throw Trip Wire Flare</font><br><br>
+            Throw a Trip Wire Flare trap at target location. Trap takes a turn to activate. When active, trap will explode when a character approaches it and <font color='#FF1500'>Mark</font> it.<br><br>
+            <font color='#FF1500'>Marks affected character</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Seeker Strikedown</font><br><br>
+            Fire off <font color='#00EFFF'>7</font> deadly <font color='#FFFFFF'>seeker-missiles</font> on every single <font color='#FF1500'>Marked</font> enemy character around you, each dealing 60% damage in a small area around it's impact location.<br><br>
+            <font color='#FF1500'>Missiles are only cast on marked targets</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Steadfast</font><br><br>
+            Increases the range of a targeted character's <font color='#FFFFFF'>ranged attacks and skills by 2m</font>. Also increases <font color='#FFFFFF'>accuracy by 10%</font> and <font color='#FFFFFF'>Constitution by 5</font>. <br><br>
+            <font color='#8b4513'>Decreases movement speed by 75% while active.</font><br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Reload - Incendiary</font><br><br>
+            Reload your rifle with incendiary <font color='#00EFFF'>Ammunition</font>, causing your basic attacks and rifle based skills to deal bonus fire damage.<br>
+            Rifle based skills will also cause a fire surface behind the impact and ignite enemies.<br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Reload - Shrapnel</font><br><br>
+            Reload your rifle with explosive tip <font color='#00EFFF'>Ammunition</font>, causing your basic attacks to inflict bleeding.<br>
+            Rifle based skills will cause a small explosion on impact.<br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Reload - Freezing</font><br><br>
+            Reload your rifle with freezing <font color='#00EFFF'>Ammunition</font>, causing your basic attacks and rifle based skills to deal bonus water damage.<br>
+            Rifle based skills will cause a ice surface behind the impact and have a chance to freeze enemies.<br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#FFFFFF'>Reload - Doom</font><br><br>
+            Reload your rifle with experimental Doom <font color='#00EFFF'>Ammunition</font>, causing your basic attacks to deal greatly increased physical damage.<br>
+            Rifle based skills will cause big explosions on impact.<br><br>
+         </li>
+         <li class="skill">
+            <font size='4' color='#00FF00'>Talent - Executioner</font><br><br>
+            Gain 2 AP after dealing a killing blow.<br><br>
+            <font color='#00EFFF'>Additionally gain 1 Ammunition when a rifle is equipped.</font><br><br>
+         </li>
+
+
+
+
+    </ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+
+
+// Executioner Modification:
+// Grant 1 Ammunition along with 2 AP when landing the killing blow, limited to once per turn.
+// 
+// Main logic is in the Musketeer Gamescript, Ammunition refunding is done here to utilize the
+// Ammunition Handler PROC.
+
+IF
+CharacterStatusApplied(_Player, "MUSK_EXECUTIONER", _)
+AND
+CharacterGetEquippedWeapon(_Player, _Weapon)
+THEN
+//NRD_DebugLog("Executioner Status applied, can no longer refund.");
+Musketeer_Consume_Ammo((ITEMGUID)_Weapon, 1, _Player);
+//RemoveStatus(_Player, "MUSK_EXECUTIONER");
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "Musketeer_Mod"

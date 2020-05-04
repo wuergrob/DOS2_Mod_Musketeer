@@ -12,9 +12,9 @@
         <field name="AttackAPCost" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
         <field name="Damage" type="IntegerStatObjectFieldDefinition" value="0" />
-        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="100" />
-        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="150" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="120" />
+        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="160" />
         <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="WeaponRange" type="IntegerStatObjectFieldDefinition" value="1000" />
         <field name="Durability" type="IntegerStatObjectFieldDefinition" value="0" />
@@ -62,13 +62,17 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked" />
-        <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ModifierType" />
-        <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Damage Type" />
-        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="25" />
-        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Start" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="10" enumeration_type_name="ActPart" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Finesse 0" />
+        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
+        <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -87,6 +91,116 @@
         <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ModifierType" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="Musketeer_Steadfast_Status,100,0" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="_Boost_Musk_Test" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_BOOSTS_Weapon" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,1,Projectile_Fireball" />
+        <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="Damage Type" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="Projectile" type="StringStatObjectFieldDefinition" value="94fabe05-2334-430f-bb74-5959de40b4b1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Status_Musk_Auto_Test" />
+        <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="ModifierType" />
+        <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="Damage Type" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Projectile" type="StringStatObjectFieldDefinition" value="79971299-eed6-4880-a9db-2954cf93677a" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,1,Projectile_Fireball" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ModifierType" />
+        <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="-1" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="-1" />
+        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="0" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_25" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_25" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_30" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_30" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_50" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_50" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_60" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_60" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_75" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_75" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_80" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_80" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_90" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_90" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_100" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_100" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_Final_Act" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_Final_Act" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_Steady_Shot" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_Steady_Shot" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_LS_30" />
       </fields>
     </stat_object>
   </stat_objects>
