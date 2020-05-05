@@ -8,5 +8,194 @@
         <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Coolio Rifle" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Shoddy Musket" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Tarnished Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Tarnished Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Shoddy Musket 2" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Rusty Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Rusty Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Balanced Musket" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Balanced Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Balanced Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Balanced Musket 2" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Used Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Used Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Sturdy Musket" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Sturdy Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Sturdy Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Sturdy Musket 2" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Strong Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Strong Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Heavy Musket" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Heavy Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Heavy Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Heavy Musket 2" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Weighted Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Weighted Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Refined Musket" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Refined Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Refined Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Refined Musket 2" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Oiled Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Oiled Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Marksman's Musket" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Marksman's Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Marksman's Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Marksman's Musket 2" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Modded Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Modded Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Trueshot" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Trueshot" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Trueshot" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RG_Rifles_Rare" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Hunter's Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Hunter's Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RG_Rifles_Epic" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Elite Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Elite Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Shoddy Blunderbuss" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Rusty Blunderbuss" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Rusty Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Sawed off Blunderbuss" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Sawed off Blunderbuss" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Sawed off Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reliable Blunderbuss" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Reliable Blunderbuss" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Reliable Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Refined Blunderbuss" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Refined Blunderbuss" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Refined Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Heavy Blunderbuss" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Heavy Blunderbuss" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Heavy Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Hunter's Blunderbuss" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Hunter's Blunderbuss" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Hunter's Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RG_Blunderbuss_Rare" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Deadly Blunderbuss" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Deadly Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RG_Blunderbuss_Epic" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Guerilla Galore" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Guerilla Galore" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RG_Used_Matchlock" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Light Matchlock" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Light Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RG_Matchlock" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Sturdy Matchlock" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Sturdy Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RG_Tanegashima" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Tanegashima" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Tanegashima" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="RG_Mayumi" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Mayumi" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Big Dog's Pride" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

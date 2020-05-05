@@ -7,7 +7,7 @@
             <attribute id="ClassDescription" value="A cold blooded and proficient killer. Seeks the thrill of hunting and killing it's prey." handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
 			<attribute id="ClassLongDescription" value="The Headhunter specializes on single target damage, utilizing marks and solid range to take out it's target." handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
             <attribute id="ClassName" value="Headhunter" handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
-            <attribute id="ClassType" value="CustomClass" type="22" />
+            <attribute id="ClassType" value="Musketeer_Headhunter" type="22" />
             <attribute id="SkillSet" value="Class_Headhunter" type="22" />
             <attribute id="Voice" value="0" type="5" />
 			<attribute id="Icon" value="6" type="5" />
@@ -74,7 +74,7 @@
                             <attribute id="AmountIncreased" value="1" type="4" />
                         </node>
                         <node id="AbilityChange">
-                            <attribute id="Ability" value="RogueLore" type="23" />
+                            <attribute id="Ability" value="Barter" type="23" />
                             <attribute id="AmountIncreased" value="1" type="4" />
                         </node>
                     </children>

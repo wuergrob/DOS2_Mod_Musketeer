@@ -7,7 +7,7 @@
             <attribute id="ClassDescription" value="A champion Sharpshooter, trained in battle and bloodshed." handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
 			<attribute id="ClassLongDescription" value="The Musketeer excels in mid-range combat, dealing debilitating physical damage using their trusty musket." handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
             <attribute id="ClassName" value="Musketeer" handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
-            <attribute id="ClassType" value="CustomClass" type="22" />
+            <attribute id="ClassType" value="Musketeer_Musketeer" type="22" />
             <attribute id="SkillSet" value="Class_Musketeer" type="22" />
             <attribute id="Voice" value="0" type="5" />
 			<attribute id="Icon" value="6" type="5" />
@@ -74,7 +74,7 @@
                             <attribute id="AmountIncreased" value="1" type="4" />
                         </node>
                         <node id="AbilityChange">
-                            <attribute id="Ability" value="Leadership" type="23" />
+                            <attribute id="Ability" value="Luck" type="23" />
                             <attribute id="AmountIncreased" value="1" type="4" />
                         </node>
                     </children>

@@ -2,3 +2,111 @@ new namegroup "Basic_Musk_Rifle"
 add name "Basic_Musk_Rifle",""
 add namecool "Coolio Rifle",""
 
+new namegroup "Shoddy Musket"
+add name "Tarnished Musket",""
+add namecool "Tarnished Musket",""
+
+new namegroup "Shoddy Musket 2"
+add name "Rusty Musket",""
+add namecool "Rusty Musket",""
+
+new namegroup "Balanced Musket"
+add name "Balanced Musket",""
+add namecool "Balanced Musket",""
+
+new namegroup "Balanced Musket 2"
+add name "Used Musket",""
+add namecool "Used Musket",""
+
+new namegroup "Sturdy Musket"
+add name "Sturdy Musket",""
+add namecool "Sturdy Musket",""
+
+new namegroup "Sturdy Musket 2"
+add name "Strong Musket",""
+add namecool "Strong Musket",""
+
+new namegroup "Heavy Musket"
+add name "Heavy Musket",""
+add namecool "Heavy Musket",""
+
+new namegroup "Heavy Musket 2"
+add name "Weighted Musket",""
+add namecool "Weighted Musket",""
+
+new namegroup "Refined Musket"
+add name "Refined Musket",""
+add namecool "Refined Musket",""
+
+new namegroup "Refined Musket 2"
+add name "Oiled Musket",""
+add namecool "Oiled Musket",""
+
+new namegroup "Marksman's Musket"
+add name "Marksman's Musket",""
+add namecool "Marksman's Musket",""
+
+new namegroup "Marksman's Musket 2"
+add name "Modded Musket",""
+add namecool "Modded Musket",""
+
+new namegroup "Trueshot"
+add name "Trueshot",""
+add namecool "Trueshot",""
+
+new namegroup "RG_Rifles_Rare"
+add name "Hunter's Musket",""
+add namecool "Hunter's Musket",""
+
+new namegroup "RG_Rifles_Epic"
+add name "Elite Musket",""
+add namecool "Elite Musket",""
+
+new namegroup "Shoddy Blunderbuss"
+add name "Rusty Blunderbuss",""
+add namecool "Rusty Blunderbuss",""
+
+new namegroup "Sawed off Blunderbuss"
+add name "Sawed off Blunderbuss",""
+add namecool "Sawed off Blunderbuss",""
+
+new namegroup "Reliable Blunderbuss"
+add name "Reliable Blunderbuss",""
+add namecool "Reliable Blunderbuss",""
+
+new namegroup "Refined Blunderbuss"
+add name "Refined Blunderbuss",""
+add namecool "Refined Blunderbuss",""
+
+new namegroup "Heavy Blunderbuss"
+add name "Heavy Blunderbuss",""
+add namecool "Heavy Blunderbuss",""
+
+new namegroup "Hunter's Blunderbuss"
+add name "Hunter's Blunderbuss",""
+add namecool "Hunter's Blunderbuss",""
+
+new namegroup "RG_Blunderbuss_Rare"
+add name "Deadly Blunderbuss",""
+add namecool "Deadly Blunderbuss",""
+
+new namegroup "RG_Blunderbuss_Epic"
+add name "Guerilla Galore",""
+add namecool "Guerilla Galore",""
+
+new namegroup "RG_Used_Matchlock"
+add name "Light Matchlock",""
+add namecool "Light Matchlock",""
+
+new namegroup "RG_Matchlock"
+add name "Sturdy Matchlock",""
+add namecool "Sturdy Matchlock",""
+
+new namegroup "RG_Tanegashima"
+add name "Tanegashima",""
+add namecool "Tanegashima",""
+
+new namegroup "RG_Mayumi"
+add name "Mayumi",""
+add namecool "Big Dog's Pride",""
+

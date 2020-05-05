@@ -13,14 +13,891 @@
     </stat_object>
     <stat_object is_substat="true">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Crossbows_substat_0" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_0" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
-        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="2" />
-        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="30" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
         <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
         <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansCommon" />
-        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Basic_Musk_Rifle" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Shoddy Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Shoddy Musket 2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_2" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Balanced Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_3" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="6" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="6" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Balanced Musket 2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_4" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesShieldCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Sturdy Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_5" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesShieldCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Sturdy Musket 2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_6" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="9" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="9" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Heavy Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_7" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Heavy Musket 2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_8" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Refined Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_9" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Refined Musket 2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_10" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="14" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Marksman's Musket" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_11" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="16" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Marksman's Musket 2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_12" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="17" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Trueshot" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_13" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Shoddy Musket" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_14" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Shoddy Musket" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_15" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="6" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesShieldUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Balanced Musket" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_16" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Sturdy Musket" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_17" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="9" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Heavy Musket" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_18" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Refined Musket" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_19" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="14" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Marksman's Musket" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_20" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="16" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Marksman's Musket 2" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_21" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="17" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Trueshot" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_22" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_23" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_24" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_25" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_26" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="14" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_27" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="16" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_28" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="17" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="18" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_29" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="19" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_30" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesShieldEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_31" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_32" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_33" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_34" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_35" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="16" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="18" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Rifles_substat_36" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Rifles" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="19" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Rifles_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Shoddy Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_0" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Shoddy Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_2" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Sawed off Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_4" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesShieldCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Sawed off Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_6" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="9" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="9" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Reliable Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_8" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Reliable Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_10" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="14" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Refined Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_12" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="17" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Refined Blunderbuss" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_13" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Shoddy Blunderbuss" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_15" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="6" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesShieldUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Sawed off Blunderbuss" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_16" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Reliable Blunderbuss" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_17" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="9" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Heavy Blunderbuss" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_18" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Refined Blunderbuss" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_19" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="14" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Hunter's Blunderbuss" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_20" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="16" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Hunter's Blunderbuss" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_21" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="17" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Uncommon" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsUncommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Refined Blunderbuss" />
+        <field name="AffixType" type="StringStatObjectFieldDefinition" value="Cool" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_23" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_24" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_25" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_26" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="14" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_27" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="16" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_28" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="17" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="18" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_29" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="19" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesRare" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Rare" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_30" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesShieldEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_31" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_33" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_34" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_35" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="16" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="18" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_36" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="19" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="739c8317-e448-42d6-8e47-828306b787a4" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Blunderbuss_Epic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Rare" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="311d274a-e839-4020-bde4-38806cf5e0c9" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Used_Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_22" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="311d274a-e839-4020-bde4-38806cf5e0c9" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesShieldEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_16" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="311d274a-e839-4020-bde4-38806cf5e0c9" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_17" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="11" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="311d274a-e839-4020-bde4-38806cf5e0c9" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Tanegashima" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_18" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="311d274a-e839-4020-bde4-38806cf5e0c9" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Tanegashima" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_19" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="16" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="18" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="311d274a-e839-4020-bde4-38806cf5e0c9" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="LizardsEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Tanegashima" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_20" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="19" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Epic" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="38497173-8924-49b3-b491-b3eebb3a5c5a" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesEpic" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Mayumi" />
       </fields>
     </stat_object>
   </stat_objects>

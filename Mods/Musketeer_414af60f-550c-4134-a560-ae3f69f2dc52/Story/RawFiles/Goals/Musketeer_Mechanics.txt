@@ -10,10 +10,19 @@ DB_Musketeer_Skillist("Projectile_Unload", 0);
 DB_Musketeer_Skillist("Target_Unload_Test", 0);
 DB_Musketeer_Skillist("Target_Mark_Target", 0);
 DB_Musketeer_Skillist("Projectile_Rend_The_Marked", -1);
+DB_Musketeer_Skillist("Projectile_Buckshot", -2);
+DB_Musketeer_Skillist("Projectile_Final_Act", -1);
+DB_Musketeer_Skillist("Projectile_Tracking_Shot", -1);
+DB_Musketeer_Skillist("Projectile_Rapidfire", -2);
+DB_Musketeer_Skillist("Musk_Flare_Test_Target", -1);
+DB_Musketeer_Skillist("Target_Unload_Test", 0);
 
 
 KBSECTION
 // Instead of tracking Equip-Events of the weapon, we track when a player gets the Passive-skill that is automatically learned when equipping a rifle.
+
+// TEST STUFF, COMMENT OUT WHEN PLAYING NORMALLY
+/*
 IF
 SkillAdded(_Player, "Shout_Musketeer_Passive", 0)
 AND
@@ -46,9 +55,17 @@ CharacterAddSkill(_Player, "Projectile_Final_Act");
 CharacterLevelUpTo(_Player, 10);
 SetTag(_Player, "Rifle_Armed");
 DB_Musketeer_RifleEquipped(_Player, 1);
-
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Player);
-
+*/
+IF
+SkillAdded(_Player, "Shout_Musketeer_Passive", 0)
+AND
+CharacterGetEquippedWeapon(_Player, _Weapon)
+THEN
+SetTag(_Player, "Rifle_Armed");
+CharacterAddSkill(_Player, "Shout_Reload");
+DB_Musketeer_RifleEquipped(_Player, 1);
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Player);
 
 // When a player no longer has the Passive-Skill, then we know he doesn't have a rifle equipped anymore.
 // We clear all rifle-tags, otherwise they would persist when equipping another rifle.
@@ -57,7 +74,7 @@ SkillDeactivated(_Player, "Shout_Musketeer_Passive")
 AND
 CharacterHasSkill(_Player, "Shout_Musketeer_Passive", 0)
 THEN
-DisplayText(_Player, "<font color='#00FF00' size='30'>No longer pew pew ready</font>");
+//DisplayText(_Player, "<font color='#00FF00' size='30'>No longer pew pew ready</font>");
 //CharacterRemoveSkill(_Player, "Shout_Reload");
 DB_Musketeer_RifleEquipped(_Player, 0);
 ClearTag(_Player, "Rifle_Armed");
@@ -172,7 +189,7 @@ Musketeer_Update_Ammo_Skills((CHARACTERGUID)_Player)
 AND
 DB_IsPlayer(_Player)
 THEN
-DisplayText(_Player, "<font color='#00FF00' size='30'>Updating Ammo related stuff..</font>");
+//DisplayText(_Player, "<font color='#00FF00' size='30'>Updating Ammo related stuff..</font>");
 //Deactivate
 DebugBreak("[WT_FS] Ammo Update PROC.");
 
