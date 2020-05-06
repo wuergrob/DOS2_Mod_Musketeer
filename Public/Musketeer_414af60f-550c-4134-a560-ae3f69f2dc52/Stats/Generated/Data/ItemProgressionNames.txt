@@ -1,6 +1,6 @@
 new namegroup "Basic_Musk_Rifle"
-add name "Basic_Musk_Rifle",""
-add namecool "Coolio Rifle",""
+add name "Rusty Musket",""
+add namecool "Rusty Musket",""
 
 new namegroup "Shoddy Musket"
 add name "Tarnished Musket",""

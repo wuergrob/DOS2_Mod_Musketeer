@@ -4,8 +4,8 @@
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Basic_Musk_Rifle" />
-        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Basic_Musk_Rifle" />
-        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Coolio Rifle" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Rusty Musket" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Rusty Musket" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

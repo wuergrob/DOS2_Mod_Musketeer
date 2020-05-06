@@ -30,8 +30,6 @@
         <field name="InventoryTab" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="InventoryTabs" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DefaultGray" />
-        <field name="RuneSlots" type="IntegerStatObjectFieldDefinition" value="0" />
-        <field name="RuneSlots_V1" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Skills" type="StringStatObjectFieldDefinition" value="Shout_Musketeer_Passive" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="-2" />

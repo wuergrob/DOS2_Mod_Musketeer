@@ -1,0 +1,4 @@
+CategoryMap "Musk_Rifle","C_Ranged"
+SkillbookCounter "C_SkillbookPolymorph","1"
+ArmorCounter "C_LightGloves","1"
+

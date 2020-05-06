@@ -116,6 +116,7 @@
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="SkillRequirement" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; Tag Musketeer_AtLeast_One_Left" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
