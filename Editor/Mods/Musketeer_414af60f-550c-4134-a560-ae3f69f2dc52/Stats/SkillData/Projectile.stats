@@ -182,8 +182,8 @@
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="150" />
-        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="8" />
-        <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -210,11 +210,13 @@
         <field name="ProjectileTerrainOffset" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="BURNING,100,1;CreateConeSurface,6,,ExplosionCloud;Force,2;EXPLODE,100,,Projectile_Buckshot_Fire" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="BURNING,100,2;CreateConeSurface,6,,ExplosionCloud;Force,3;EXPLODE,100,,Projectile_Buckshot_Fire;TARGET:IF(HasStatus:MUSK_MARK_TARGET):KNOCKED_DOWN,100,1" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_AtLeast_Two_Left" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="20" />
+        <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -224,7 +226,7 @@
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="Damage Type" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateConeSurface,8,,Fire" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateConeSurface,8,,Fire;IF(HasStatus:MUSK_MARK_TARGET):KNOCKED_DOWN,100,1" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />

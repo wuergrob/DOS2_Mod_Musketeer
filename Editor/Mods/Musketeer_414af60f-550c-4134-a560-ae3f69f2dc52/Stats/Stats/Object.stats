@@ -5,7 +5,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_SteadyShot" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="1e754971-4ae6-49dd-8798-9c4febee16a3" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="0aa5208f-bda7-4832-991d-ef162d2caecc" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="120" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -21,7 +21,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_TrackingShot" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="1e754971-4ae6-49dd-8798-9c4febee16a3" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="93251abc-b05d-4685-a927-90547917c083" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="120" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -37,7 +37,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_Buckshot" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="1e754971-4ae6-49dd-8798-9c4febee16a3" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="37c4fcab-629b-4183-8cb9-1f99041cc984" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="120" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -53,7 +53,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_DeathSentence" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="1e754971-4ae6-49dd-8798-9c4febee16a3" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="a454e6c7-09a9-443f-9e71-1d9ed12d7e45" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="120" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -69,7 +69,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_RendTheMarked" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="1e754971-4ae6-49dd-8798-9c4febee16a3" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="4791048f-eb42-40a1-a9f4-9ca3b58b0b68" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="120" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -85,7 +85,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_CoveringFire" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="1e754971-4ae6-49dd-8798-9c4febee16a3" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="f407ed05-a075-4101-893b-4b78c60b03e6" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="120" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -101,7 +101,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_RapidFire" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="65b155c9-4c7c-4353-90c1-ca7e12773e94" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="8d28c1d1-62f0-4f01-9a91-de5ef6c043d7" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="190" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -117,7 +117,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_FinalAct" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="65b155c9-4c7c-4353-90c1-ca7e12773e94" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="8b65b5c3-3551-4663-b598-181fcfd8261d" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="5" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="190" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -133,7 +133,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_Steadfast" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="65b155c9-4c7c-4353-90c1-ca7e12773e94" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c9f74916-abe9-4edb-95df-f24bee814e24" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="5" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="190" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -149,7 +149,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_ThrowTripwireFlare" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="65b155c9-4c7c-4353-90c1-ca7e12773e94" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="68e48dc7-1401-4467-bd28-02ca5364a961" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="9" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="500" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -165,7 +165,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_BlazingFlare" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="871ef655-5a2a-41c6-ac18-018c5c22d63e" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="e8b8e453-541e-4789-9223-2fcaf4850ece" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="9" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="500" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
@@ -181,7 +181,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_SeekerStrikedown" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
-        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="f44f4c83-b545-4931-a3de-846e624239a2" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="02ffa478-b531-46ff-a24d-d9609b861ae1" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="16" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="3000" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRangerSource" />

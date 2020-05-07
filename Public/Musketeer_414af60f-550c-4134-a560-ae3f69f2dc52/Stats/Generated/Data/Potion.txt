@@ -105,3 +105,10 @@ data "Act part" "0"
 data "Repair" "1"
 data "Duration" "-2"
 
+new entry "Stats_Musk_Range10"
+type "Potion"
+data "Act" "1"
+data "Act part" "0"
+data "Repair" "1"
+data "Duration" "0"
+

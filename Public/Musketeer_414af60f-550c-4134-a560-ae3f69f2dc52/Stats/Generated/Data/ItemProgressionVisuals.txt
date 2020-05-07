@@ -17,286 +17,286 @@ add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
 add namegroup "Balanced Musket","",""
 
 add levelgroup 6,6,"Common"
-add rootgroup "b8da3005-cc77-4150-b9f3-23e1d3cc92e9","HumansCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
 add namegroup "Balanced Musket 2","",""
 
 add levelgroup 7,7,"Common"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","ElvesShieldCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesShieldCommon"
 add namegroup "Sturdy Musket","",""
 
 add levelgroup 8,8,"Common"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","ElvesShieldCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesShieldCommon"
 add namegroup "Sturdy Musket 2","",""
 
 add levelgroup 9,9,"Common"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesCommon"
 add namegroup "Heavy Musket","",""
 
 add levelgroup 10,10,"Common"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesCommon"
 add namegroup "Heavy Musket 2","",""
 
 add levelgroup 11,12,"Common"
-add rootgroup "f90aa559-4edb-4896-b48d-0bfd773e62de","LizardsCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsCommon"
 add namegroup "Refined Musket","",""
 
 add levelgroup 11,12,"Common"
-add rootgroup "f90aa559-4edb-4896-b48d-0bfd773e62de","LizardsCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsCommon"
 add namegroup "Refined Musket 2","",""
 
 add levelgroup 13,14,"Common"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesCommon"
 add namegroup "Marksman's Musket","",""
 
 add levelgroup 15,16,"Common"
-add rootgroup "4d624e7a-39e5-4111-907d-564f05ab2e3b","DwarvesCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesCommon"
 add namegroup "Marksman's Musket 2","",""
 
 add levelgroup 17,0,"Common"
-add rootgroup "906cdadd-fec3-487d-938c-3d3cd72df2ba","LizardsCommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsCommon"
 add namegroup "Trueshot","",""
 
 add levelgroup 1,2,"Uncommon"
-add rootgroup "a0dc4072-eb9c-43fe-8164-c0724876e332","HumansUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansUncommon"
 add namegroup "Shoddy Musket","Cool",""
 
 add levelgroup 3,4,"Uncommon"
-add rootgroup "b8da3005-cc77-4150-b9f3-23e1d3cc92e9","HumansUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansUncommon"
 add namegroup "Shoddy Musket","Cool",""
 
 add levelgroup 5,6,"Uncommon"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","ElvesShieldUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesShieldUncommon"
 add namegroup "Balanced Musket","Cool",""
 
 add levelgroup 7,8,"Uncommon"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesUncommon"
 add namegroup "Sturdy Musket","Cool",""
 
 add levelgroup 9,10,"Uncommon"
-add rootgroup "f90aa559-4edb-4896-b48d-0bfd773e62de","LizardsUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsUncommon"
 add namegroup "Heavy Musket","Cool",""
 
 add levelgroup 11,12,"Uncommon"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesUncommon"
 add namegroup "Refined Musket","Cool",""
 
 add levelgroup 13,14,"Uncommon"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesUncommon"
 add namegroup "Marksman's Musket","Cool",""
 
 add levelgroup 15,16,"Uncommon"
-add rootgroup "4d624e7a-39e5-4111-907d-564f05ab2e3b","DwarvesUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesUncommon"
 add namegroup "Marksman's Musket 2","Cool",""
 
 add levelgroup 17,0,"Uncommon"
-add rootgroup "906cdadd-fec3-487d-938c-3d3cd72df2ba","LizardsUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsUncommon"
 add namegroup "Trueshot","Cool",""
 
 add levelgroup 1,4,"Rare"
-add rootgroup "b8da3005-cc77-4150-b9f3-23e1d3cc92e9","HumansUncommon"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansUncommon"
 add namegroup "RG_Rifles_Rare","",""
 
 add levelgroup 5,7,"Rare"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","HumansRare"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansRare"
 add namegroup "RG_Rifles_Rare","",""
 
 add levelgroup 8,10,"Rare"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesRare"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesRare"
 add namegroup "RG_Rifles_Rare","",""
 
 add levelgroup 11,12,"Rare"
-add rootgroup "f90aa559-4edb-4896-b48d-0bfd773e62de","LizardsRare"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsRare"
 add namegroup "RG_Rifles_Rare","",""
 
 add levelgroup 13,14,"Rare"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesRare"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesRare"
 add namegroup "RG_Rifles_Rare","",""
 
 add levelgroup 15,16,"Rare"
-add rootgroup "4d624e7a-39e5-4111-907d-564f05ab2e3b","DwarvesRare"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesRare"
 add namegroup "RG_Rifles_Rare","",""
 
 add levelgroup 17,18,"Rare"
-add rootgroup "906cdadd-fec3-487d-938c-3d3cd72df2ba","LizardsRare"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsRare"
 add namegroup "RG_Rifles_Rare","",""
 
 add levelgroup 19,0,"Rare"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesRare"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesRare"
 add namegroup "RG_Rifles_Rare","",""
 
 add levelgroup 1,4,"Epic"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","ElvesShieldEpic"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesShieldEpic"
 add namegroup "RG_Rifles_Epic","",""
 
 add levelgroup 5,7,"Epic"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesEpic"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesEpic"
 add namegroup "RG_Rifles_Epic","",""
 
 add levelgroup 8,10,"Epic"
-add rootgroup "f90aa559-4edb-4896-b48d-0bfd773e62de","LizardsEpic"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsEpic"
 add namegroup "RG_Rifles_Epic","",""
 
 add levelgroup 11,12,"Epic"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesEpic"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesEpic"
 add namegroup "RG_Rifles_Epic","",""
 
 add levelgroup 13,15,"Epic"
-add rootgroup "4d624e7a-39e5-4111-907d-564f05ab2e3b","DwarvesEpic"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesEpic"
 add namegroup "RG_Rifles_Epic","",""
 
 add levelgroup 16,18,"Epic"
-add rootgroup "906cdadd-fec3-487d-938c-3d3cd72df2ba","LizardsEpic"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsEpic"
 add namegroup "RG_Rifles_Epic","",""
 
 add levelgroup 19,0,"Epic"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesEpic"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesEpic"
 add namegroup "RG_Rifles_Epic","",""
 
 new itemgroup "Musk_Blunderbuss"
 
 add levelgroup 1,2,"Common"
-add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908",""
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4",""
 add namegroup "Shoddy Blunderbuss","",""
 
 add levelgroup 3,3,"Common"
-add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","HumansCommon"
 add namegroup "Shoddy Blunderbuss","",""
 
 add levelgroup 5,5,"Common"
-add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","HumansCommon"
 add namegroup "Sawed off Blunderbuss","",""
 
 add levelgroup 7,7,"Common"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","ElvesShieldCommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesShieldCommon"
 add namegroup "Sawed off Blunderbuss","",""
 
 add levelgroup 9,9,"Common"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesCommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","DwarvesCommon"
 add namegroup "Reliable Blunderbuss","",""
 
 add levelgroup 11,12,"Common"
-add rootgroup "f90aa559-4edb-4896-b48d-0bfd773e62de","LizardsCommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","LizardsCommon"
 add namegroup "Reliable Blunderbuss","",""
 
 add levelgroup 13,14,"Common"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesCommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesCommon"
 add namegroup "Refined Blunderbuss","",""
 
 add levelgroup 17,0,"Common"
-add rootgroup "906cdadd-fec3-487d-938c-3d3cd72df2ba","LizardsCommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","LizardsCommon"
 add namegroup "Refined Blunderbuss","",""
 
 add levelgroup 1,2,"Uncommon"
-add rootgroup "a0dc4072-eb9c-43fe-8164-c0724876e332","HumansUncommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","HumansUncommon"
 add namegroup "Shoddy Blunderbuss","Cool",""
 
 add levelgroup 5,6,"Uncommon"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","ElvesShieldUncommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesShieldUncommon"
 add namegroup "Sawed off Blunderbuss","Cool",""
 
 add levelgroup 7,8,"Uncommon"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesUncommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","DwarvesUncommon"
 add namegroup "Reliable Blunderbuss","Cool",""
 
 add levelgroup 9,10,"Uncommon"
-add rootgroup "f90aa559-4edb-4896-b48d-0bfd773e62de","LizardsUncommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","LizardsUncommon"
 add namegroup "Heavy Blunderbuss","Cool",""
 
 add levelgroup 11,12,"Uncommon"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesUncommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesUncommon"
 add namegroup "Refined Blunderbuss","Cool",""
 
 add levelgroup 13,14,"Uncommon"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesUncommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesUncommon"
 add namegroup "Hunter's Blunderbuss","Cool",""
 
 add levelgroup 15,16,"Uncommon"
-add rootgroup "4d624e7a-39e5-4111-907d-564f05ab2e3b","DwarvesUncommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","DwarvesUncommon"
 add namegroup "Hunter's Blunderbuss","Cool",""
 
 add levelgroup 17,0,"Uncommon"
-add rootgroup "906cdadd-fec3-487d-938c-3d3cd72df2ba","LizardsUncommon"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","LizardsUncommon"
 add namegroup "Refined Blunderbuss","Cool",""
 
 add levelgroup 5,7,"Rare"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","HumansRare"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","HumansRare"
 add namegroup "RG_Blunderbuss_Rare","",""
 
 add levelgroup 8,10,"Rare"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesRare"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","DwarvesRare"
 add namegroup "RG_Blunderbuss_Rare","",""
 
 add levelgroup 11,12,"Rare"
-add rootgroup "f90aa559-4edb-4896-b48d-0bfd773e62de","LizardsRare"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","LizardsRare"
 add namegroup "RG_Blunderbuss_Rare","",""
 
 add levelgroup 13,14,"Rare"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesRare"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesRare"
 add namegroup "RG_Blunderbuss_Rare","",""
 
 add levelgroup 15,16,"Rare"
-add rootgroup "4d624e7a-39e5-4111-907d-564f05ab2e3b","DwarvesRare"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","DwarvesRare"
 add namegroup "RG_Blunderbuss_Rare","",""
 
 add levelgroup 17,18,"Rare"
-add rootgroup "906cdadd-fec3-487d-938c-3d3cd72df2ba","LizardsRare"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","LizardsRare"
 add namegroup "RG_Blunderbuss_Rare","",""
 
 add levelgroup 19,0,"Rare"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesRare"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesRare"
 add namegroup "RG_Blunderbuss_Rare","",""
 
 add levelgroup 1,4,"Epic"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","ElvesShieldEpic"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesShieldEpic"
 add namegroup "RG_Blunderbuss_Epic","",""
 
 add levelgroup 5,7,"Epic"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesEpic"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","DwarvesEpic"
 add namegroup "RG_Blunderbuss_Epic","",""
 
 add levelgroup 11,12,"Epic"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesEpic"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesEpic"
 add namegroup "RG_Blunderbuss_Epic","",""
 
 add levelgroup 13,15,"Epic"
-add rootgroup "4d624e7a-39e5-4111-907d-564f05ab2e3b","DwarvesEpic"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","DwarvesEpic"
 add namegroup "RG_Blunderbuss_Epic","",""
 
 add levelgroup 16,18,"Epic"
-add rootgroup "906cdadd-fec3-487d-938c-3d3cd72df2ba","LizardsEpic"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","LizardsEpic"
 add namegroup "RG_Blunderbuss_Epic","",""
 
 add levelgroup 19,0,"Epic"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesEpic"
+add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesEpic"
 add namegroup "RG_Blunderbuss_Epic","",""
 
 new itemgroup "Musk_Matchlock"
 
 add levelgroup 1,2,"Rare"
-add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908",""
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9",""
 add namegroup "RG_Used_Matchlock","",""
 
 add levelgroup 1,4,"Epic"
-add rootgroup "f5829ee3-3a9a-453b-b89f-c78aa2e28722","ElvesShieldEpic"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","ElvesShieldEpic"
 add namegroup "RG_Matchlock","",""
 
 add levelgroup 5,7,"Epic"
-add rootgroup "5745501b-8be7-49c9-9d53-4fd18f0d335d","DwarvesEpic"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","DwarvesEpic"
 add namegroup "RG_Matchlock","",""
 
 add levelgroup 11,12,"Epic"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesEpic"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","ElvesEpic"
 add namegroup "RG_Tanegashima","",""
 
 add levelgroup 13,15,"Epic"
-add rootgroup "4d624e7a-39e5-4111-907d-564f05ab2e3b","DwarvesEpic"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","DwarvesEpic"
 add namegroup "RG_Tanegashima","",""
 
 add levelgroup 16,18,"Epic"
-add rootgroup "906cdadd-fec3-487d-938c-3d3cd72df2ba","LizardsEpic"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","LizardsEpic"
 add namegroup "RG_Tanegashima","",""
 
 add levelgroup 19,0,"Epic"
-add rootgroup "1bf8d23b-4f71-4e2b-ab26-8dc179968f0b","ElvesEpic"
+add rootgroup "38497173-8924-49b3-b491-b3eebb3a5c5a","ElvesEpic"
 add namegroup "RG_Mayumi","",""
 

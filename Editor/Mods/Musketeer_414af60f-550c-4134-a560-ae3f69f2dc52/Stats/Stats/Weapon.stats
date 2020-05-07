@@ -39,6 +39,8 @@
         <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Sourcery" type="IntegerStatObjectFieldDefinition" value="6" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_10m" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -97,6 +99,7 @@
         <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_6m" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -117,6 +120,7 @@
         <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_12m" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
