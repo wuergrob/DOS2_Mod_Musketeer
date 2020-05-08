@@ -55,4 +55,3 @@ ACTIONS
 			CharacterApplyStatus(_Char, MUSK_EXECUTIONER, -2, 1, _Char)
 		ENDIF
 
-

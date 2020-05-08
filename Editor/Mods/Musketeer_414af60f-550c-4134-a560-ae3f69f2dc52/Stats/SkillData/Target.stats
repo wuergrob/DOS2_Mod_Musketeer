@@ -5,11 +5,11 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Unload_Test" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
-        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -20,7 +20,7 @@
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="CoveringFire" />
-        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Unload|" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Covering Fire" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off all your current &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt; in a area around your target, each dealing &lt;font color='#FFFFFF'&gt;100% damage&lt;/font&gt;.&lt;br&gt;The scatter radius depends on your distance to the target. The greater the distance, the bigger the scatter radius.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes all remaining Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
@@ -30,7 +30,7 @@
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
-        <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="SkillRequirement" />
+        <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="IsMelee" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; Tag Musketeer_AtLeast_One_Left" />
       </fields>
@@ -43,7 +43,7 @@
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="MUSK_MARK_TARGET,100,3" />
-        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -86,14 +86,14 @@
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Damage Type" />
-        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="6" />
-        <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -115,7 +115,7 @@
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
-        <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="SkillRequirement" />
+        <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; Tag Musketeer_AtLeast_One_Left" />
       </fields>
     </stat_object>
@@ -181,7 +181,7 @@
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Steadfast" />
-        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Steadfast|" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Steadfast" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Increases the range of a targeted character's ranged attacks and skills by 2m. Also increases accuracy by 10% and Constitution by 5. &lt;br&gt;&lt;br&gt;&lt;font color='#8b4513'&gt;Decreases movement speed by 75% while active.&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />

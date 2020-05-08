@@ -66,9 +66,11 @@ SetTag(_Player, "Rifle_Armed");
 CharacterAddSkill(_Player, "Shout_Reload");
 DB_Musketeer_RifleEquipped(_Player, 1);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Player);
-CharacterAddAbility(_Player, "Repair", 5);
-ApplyStatus(_Player, "MUSK_RANGE_10", -1.0, 1, _Player);
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
+//CharacterAddAbility(_Player, "Repair", 5);
+//ApplyStatus(_Player, "MUSK_RANGE_10", -1.0, 1, _Player);
 //Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player);
+
 
 
 // When a player no longer has the Passive-Skill, then we know he doesn't have a rifle equipped anymore.
@@ -86,15 +88,16 @@ ClearTag(_Player, "Musketeer_None_Left");
 ClearTag(_Player, "Musketeer_AtLeast_One_Left");
 ClearTag(_Player, "Musketeer_AtLeast_Two_Left");
 RemoveStatus(_Player, "MUSK_RANGE_10");
+RemoveStatus(_Player, "MUSK_RANGE_6");
+RemoveStatus(_Player, "MUSK_RANGE_8");
+RemoveStatus(_Player, "MUSK_RANGE_10_NEG");
+RemoveStatus(_Player, "MUSK_RANGE_6_NEG");
+RemoveStatus(_Player, "MUSK_RANGE_8_NEG");
+//RemoveStatus(_Player, "MUSK_RANGE_10");
 //CharacterRemoveAbility(_Player, "Repair", 5);
 
-PROC
-Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
-//AND
-//IsTagged(_Weapon, "Musk_Rifle_10m", 0)
-THEN
-DebugBreak("[WT_FS] Normal Range Rifle equipped.");
-CharacterAddAbility(_Player, "Barter", 5);
+
+
 
 
 // Auto-Reload weapon before combat begins.

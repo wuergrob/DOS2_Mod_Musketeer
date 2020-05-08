@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="43178832-7920-4a69-8b7e-bcebc518c388">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Skill Range Per Ability" />
+        <field name="Value" type="FloatStatObjectFieldDefinition" value="1" />
+        <field name="Comment" type="CommentStatObjectFieldDefinition" value="Experimental change, unused by vanilla skills?" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

@@ -1,0 +1,100 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+IF
+CharacterUnlockedTalent(_Player, "LoneWolf")
+AND
+IsTagged(_Player, "Rifle_Armed", 1)
+AND
+CharacterGetEquippedWeapon(_Player, _Weapon)
+THEN
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
+
+IF
+CharacterLockedTalent(_Player, "LoneWolf")
+AND
+IsTagged(_Player, "Rifle_Armed", 1)
+AND
+CharacterGetEquippedWeapon(_Player, _Weapon)
+THEN
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
+
+
+//REGION Musketeer_Range_Status_Proc
+
+// _Weapon var is currently unused, but i'm leaving it in in case
+// I'm gonna refactor this part and track weapon type by root template
+// instead of a tag.
+
+PROC
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+IsTagged(_Player, "Musk_Rifle_10m", 1)
+AND
+CharacterHasTalent(_Player, "LoneWolf", 0)
+THEN
+DebugBreak("[WT_FS] Normal Range Rifle equipped.");
+ApplyStatus(_Player, "MUSK_RANGE_10", -1.0, 1, _Player);
+
+PROC
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+IsTagged(_Player, "Musk_Rifle_6m", 1)
+AND
+CharacterHasTalent(_Player, "LoneWolf", 0)
+THEN
+DebugBreak("[WT_FS] Blunderbuss equipped.");
+ApplyStatus(_Player, "MUSK_RANGE_6", -1.0, 1, _Player);
+
+PROC
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+IsTagged(_Player, "Musk_Rifle_8m", 1)
+AND
+CharacterHasTalent(_Player, "LoneWolf", 0)
+THEN
+DebugBreak("[WT_FS] Matchlock Rifle equipped.");
+ApplyStatus(_Player, "MUSK_RANGE_8", -1.0, 1, _Player);
+
+
+PROC
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+IsTagged(_Player, "Musk_Rifle_10m", 1)
+AND
+CharacterHasTalent(_Player, "LoneWolf", 1)
+THEN
+ApplyStatus(_Player, "MUSK_RANGE_10_NEG", -1.0, 1, _Player);
+
+
+PROC
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+IsTagged(_Player, "Musk_Rifle_6m", 1)
+AND
+CharacterHasTalent(_Player, "LoneWolf", 1)
+THEN
+DebugBreak("[WT_FS] Normal Range Rifle equipped.");
+ApplyStatus(_Player, "MUSK_RANGE_6_NEG", -1.0, 1, _Player);
+
+PROC
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+IsTagged(_Player, "Musk_Rifle_8m", 1)
+AND
+CharacterHasTalent(_Player, "LoneWolf", 1)
+THEN
+DebugBreak("[WT_FS] Normal Range Rifle equipped.");
+ApplyStatus(_Player, "MUSK_RANGE_8_NEG", -1.0, 1, _Player);
+
+//END_REGION
+
+
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "Musketeer_Mod"
