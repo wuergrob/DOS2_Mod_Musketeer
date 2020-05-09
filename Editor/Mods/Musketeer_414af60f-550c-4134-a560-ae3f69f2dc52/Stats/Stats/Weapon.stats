@@ -54,7 +54,6 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifles" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
-        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
         <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
@@ -107,7 +106,6 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Blunderbuss" />
-        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="20" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="170" />
         <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="175" />
@@ -139,7 +137,6 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Matchlock" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Matchlock" />
-        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="12" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="145" />
         <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="165" />
