@@ -5,8 +5,8 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Unload_Test" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
-        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -41,7 +41,7 @@
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="MUSK_MARK_TARGET,100,3" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="AddWeaponRange" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -86,8 +86,8 @@
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Damage Type" />
@@ -98,7 +98,7 @@
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
