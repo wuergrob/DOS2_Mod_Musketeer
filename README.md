@@ -12,16 +12,14 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 
 # Current WIP Features
 - Reload Animation and SFX/FX
-- Skillbook Localization entries
-- Icons for weapons (Musket, Blunderbuss, Matchlock)
-- Skillbook Texture
-- Skillbook Icon
+- Better distribution of Rifles throughout the game
+- Finalize Alternative Reload variations
 
 
 # Known Bugs/Issues
 - Unload does not work correctly on some occasions (Maybe fixed)
-- SteadyShot SFX not playing correctly when caster is not visible on cast
-- Dynamic range not applying on some unknown occasions (perhaps level-up?)
+- Dynamic range not applying on some unknown occasions (perhaps level-up? After loading screen too)
+- Blazing Flare missing prepare effect
 
 # Planned Features
 - Improved Visualization of Remaining Ammo
