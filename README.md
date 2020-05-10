@@ -24,6 +24,8 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - Dynamic range not applying on some unknown occasions (perhaps level-up?)
 
 # Planned Features
+- Improved Visualization of Remaining Ammo
+UI Overlay Effect from a Status effect perhaps?
 - Skill "Enforced Vaccination"
 Ranged single-target rifle skill, damage enemies, heal allies. Set decaying on market enemies.
 - Additional Talent interactions with rifles
