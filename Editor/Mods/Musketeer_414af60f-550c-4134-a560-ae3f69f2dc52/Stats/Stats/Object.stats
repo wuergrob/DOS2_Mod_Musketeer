@@ -168,7 +168,7 @@
         <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="e8b8e453-541e-4789-9223-2fcaf4850ece" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="9" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="500" />
-        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRangerSource" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="RangerLore 3" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="SkillbookRangerMid" />
         <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />

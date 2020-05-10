@@ -1,21 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stats stat_object_definition_id="05f87e82-499d-4e0b-8dd7-859b8b3e5beb">
-  <stat_objects>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="OLD_RELOAD_DEBUFF" />
-        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reloading" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is reloading and cannot attack or cast spells. Movement speed is decreased.|" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="statIcons_Sleeping" />
-        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="22" enumeration_type_name="FormatStringColor" />
-        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_Sleeping_01:Dummy_OverheadFX" />
-        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
-        <field name="ImmuneFlag" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="AttributeFlag" />
-        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Reload_Debuff" />
-        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Reload_Debuff" />
-      </fields>
-    </stat_object>
-  </stat_objects>
+  <stat_objects />
 </stats>
