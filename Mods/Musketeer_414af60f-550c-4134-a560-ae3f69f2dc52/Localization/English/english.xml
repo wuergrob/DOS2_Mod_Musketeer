@@ -17,4 +17,5 @@
 	<content contentuid="hdd4eb621g5d7fg459ag933bgff901135d63b" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_TrackingShot">Tracking Shot Skillbook</content>
 	<content contentuid="ha3f71157ga32dg4745g8732g945f4256e48f" Source="WPN_Musketeer_Rifle_01">Crossbows</content>
     <content contentuid="h67e90c1eg8eefg4313ga2efg34d42f163756" OT="tag" Comment="For replacing 'Requires tag' when using tag requirements (Thanks LL)"></content>
+	<content contentuid="h01718eadg9b60g4d0bg8250ga98a6296e5a0">Executed! +[1]AP and 1 Ammunition.</content>
 </contentList>
