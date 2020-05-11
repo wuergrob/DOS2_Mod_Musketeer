@@ -20,6 +20,7 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - Unload does not work correctly on some occasions (Maybe fixed)
 - Dynamic range not applying on some unknown occasions (perhaps level-up? After loading screen too)
 - Blazing Flare missing prepare effect
+- Rifles have a chance to spawn with the SkyShot (Maybe other skills too) Skill
 
 # Planned Features
 - Improved Visualization of Remaining Ammo
