@@ -597,7 +597,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="ST_RangedNormal" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="3,1;4,2" />
+        <field name="DropCount" type="StringStatObjectFieldDefinition" value="3,1" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Bow" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
@@ -610,6 +610,70 @@
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
+        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_OneHandedNormal" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_0" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Shield" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Dagger" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_2" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_WandNormal" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_3" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_TwoHandedNormal" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_4" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_StaffNormal" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_5" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_RangedNormal" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="DropCount" type="StringStatObjectFieldDefinition" value="3,1" />
       </fields>
     </stat_object>
   </stat_objects>

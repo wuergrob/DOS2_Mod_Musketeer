@@ -72,6 +72,19 @@ Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
 //Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player);
 
 
+// Trigger dynamic range check on level up, as that might cause the range to reset.
+IF
+CharacterLeveledUp(_Player)
+AND
+CharacterIsPlayer(_Player, 1)
+AND
+CharacterHasSkill(_Player, "Shout_Musketeer_Passive", 1)
+AND
+CharacterGetEquippedWeapon(_Player, _Weapon)
+THEN
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
+
+
 
 // When a player no longer has the Passive-Skill, then we know he doesn't have a rifle equipped anymore.
 // We clear all rifle-tags, otherwise they would persist when equipping another rifle.
