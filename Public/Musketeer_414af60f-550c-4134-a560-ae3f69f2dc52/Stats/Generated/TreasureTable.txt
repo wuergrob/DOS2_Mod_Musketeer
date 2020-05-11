@@ -117,3 +117,7 @@ object category "I_SKILLBOOK_Musketeer_RapidFire",1,0,0,0,0,0,0,0
 new treasuretable "FTJ_Skillbook_RangerTrainer"
 new subtable "1,1"
 object category "T_FTJ_SkillbookRanger",1,0,0,0,0,0,0,0
+new treasuretable "ST_RangedNormal"
+new subtable "3,1;4,2"
+object category "Bow",1,1,0,0,0,0,0,0
+object category "Crossbow",1,1,0,0,0,0,0,0

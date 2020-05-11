@@ -11,5 +11,25 @@
         <field name="ArmorDefaultCounter" type="IntegerStatObjectFieldDefinition" value="1" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Blunderbuss" />
+        <field name="TreasureGroup" type="StringStatObjectFieldDefinition" value="C_Ranged" />
+        <field name="SkillbookTreasureGroup" type="StringStatObjectFieldDefinition" value="C_SkillbookPolymorph" />
+        <field name="SkillbookDefaultCounter" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="ArmorTreasureGroup" type="StringStatObjectFieldDefinition" value="C_LightGloves" />
+        <field name="ArmorDefaultCounter" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="TreasureGroup" type="StringStatObjectFieldDefinition" value="C_Ranged" />
+        <field name="SkillbookTreasureGroup" type="StringStatObjectFieldDefinition" value="C_SkillbookPolymorph" />
+        <field name="SkillbookDefaultCounter" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="ArmorTreasureGroup" type="StringStatObjectFieldDefinition" value="C_LightGloves" />
+        <field name="ArmorDefaultCounter" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

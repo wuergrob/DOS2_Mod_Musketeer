@@ -2,3 +2,11 @@ CategoryMap "Musk_Rifle","C_Ranged"
 SkillbookCounter "C_SkillbookPolymorph","1"
 ArmorCounter "C_LightGloves","1"
 
+CategoryMap "Musk_Blunderbuss","C_Ranged"
+SkillbookCounter "C_SkillbookPolymorph","1"
+ArmorCounter "C_LightGloves","1"
+
+CategoryMap "Musk_Matchlock","C_Ranged"
+SkillbookCounter "C_SkillbookPolymorph","1"
+ArmorCounter "C_LightGloves","1"
+

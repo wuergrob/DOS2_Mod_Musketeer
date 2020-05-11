@@ -594,5 +594,23 @@
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_RangedNormal" />
+        <field name="DropCount" type="StringStatObjectFieldDefinition" value="3,1;4,2" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Bow" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_RangedNormal_substat_0" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_RangedNormal" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>
