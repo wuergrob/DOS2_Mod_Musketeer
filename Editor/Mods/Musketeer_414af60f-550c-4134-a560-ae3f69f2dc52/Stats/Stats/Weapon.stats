@@ -99,6 +99,7 @@
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="35" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_10m" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Finesse 10" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -130,6 +131,7 @@
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_6m" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -160,6 +162,7 @@
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="7" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="7" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_8m" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

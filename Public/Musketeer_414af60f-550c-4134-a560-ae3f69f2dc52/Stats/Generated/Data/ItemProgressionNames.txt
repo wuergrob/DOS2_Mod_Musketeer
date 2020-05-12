@@ -110,3 +110,23 @@ new namegroup "RG_Mayumi"
 add name "Mayumi",""
 add namecool "Big Dog's Pride",""
 
+new namegroup "Shoddy Matchlock"
+add name "Shoddy Matchlock",""
+add namecool "Shoddy Matchlock",""
+
+new namegroup "Balanced Matchlock"
+add name "Balanced Matchlock",""
+add namecool "Balanced Matchlock",""
+
+new namegroup "Sturdy Matchlock 2"
+add name "Refined Matchlock",""
+add namecool "Refined Matchlock",""
+
+new namegroup "Heavy Matchlock 2"
+add name "Oiled Matchlock",""
+add namecool "Oiled Matchlock",""
+
+new namegroup "Marksman's Matchlock"
+add name "Marksman's Matchlock",""
+add namecool "Marksman's Matchlock",""
+

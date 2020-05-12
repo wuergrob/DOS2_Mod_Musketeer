@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stats stat_object_definition_id="6ae491f7-6396-4f46-ad44-587818dcf40a">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Skill_SkyShot_Crossbow" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="Legendary" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Crossbow" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Primary_Finesse_Large" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Comment" type="CommentStatObjectFieldDefinition" value="Had to override this value, as Rifles are incompatible with skills from weapons." />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

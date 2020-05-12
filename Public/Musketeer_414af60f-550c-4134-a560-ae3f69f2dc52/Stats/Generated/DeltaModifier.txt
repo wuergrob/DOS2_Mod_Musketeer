@@ -1,0 +1,8 @@
+new deltamod "Boost_Weapon_Skill_SkyShot_Crossbow"
+param "BoostType" "Legendary"
+param "MinLevel" "1"
+param "Frequency" "1"
+param "ModifierType" "Weapon"
+param "WeaponType" "Crossbow"
+new boost "_Boost_Weapon_Primary_Finesse_Large",1
+

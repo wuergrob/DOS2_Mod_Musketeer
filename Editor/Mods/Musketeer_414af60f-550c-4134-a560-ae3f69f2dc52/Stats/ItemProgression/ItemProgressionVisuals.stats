@@ -900,5 +900,65 @@
         <field name="NameGroup" type="StringStatObjectFieldDefinition" value="RG_Mayumi" />
       </fields>
     </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Matchlock_substat_0" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Shoddy Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Matchlock_substat_1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="HumansCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Balanced Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Matchlock_substat_2" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="9" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesShieldCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Sturdy Matchlock 2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Matchlock_substat_3" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DwarvesCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Heavy Matchlock 2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Matchlock_substat_4" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="MaxLevel" type="IntegerStatObjectFieldDefinition" value="16" />
+        <field name="Rarity" type="StringStatObjectFieldDefinition" value="Common" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="c04f63c0-428d-45a2-a567-a6bccd293908" />
+        <field name="ItemColor" type="StringStatObjectFieldDefinition" value="ElvesCommon" />
+        <field name="NameGroup" type="StringStatObjectFieldDefinition" value="Marksman's Matchlock" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

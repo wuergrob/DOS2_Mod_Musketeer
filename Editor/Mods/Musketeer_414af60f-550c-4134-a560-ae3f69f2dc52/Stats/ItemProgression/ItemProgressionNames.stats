@@ -197,5 +197,40 @@
         <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Big Dog's Pride" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Shoddy Matchlock" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Shoddy Matchlock" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Shoddy Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Balanced Matchlock" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Balanced Matchlock" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Balanced Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Sturdy Matchlock 2" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Refined Matchlock" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Refined Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Heavy Matchlock 2" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Oiled Matchlock" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Oiled Matchlock" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Marksman's Matchlock" />
+        <field name="ItemName" type="TranslatedStringStatObjectFieldDefinition" value="Marksman's Matchlock" />
+        <field name="NameCool" type="TranslatedStringStatObjectFieldDefinition" value="Marksman's Matchlock" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

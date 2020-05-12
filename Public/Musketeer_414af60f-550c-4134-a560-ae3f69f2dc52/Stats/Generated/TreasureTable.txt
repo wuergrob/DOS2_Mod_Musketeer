@@ -118,9 +118,10 @@ new treasuretable "FTJ_Skillbook_RangerTrainer"
 new subtable "1,1"
 object category "T_FTJ_SkillbookRanger",1,0,0,0,0,0,0,0
 new treasuretable "ST_RangedNormal"
-new subtable "3,1"
+new subtable "1,1"
 object category "Bow",1,1,0,0,0,0,0,0
-object category "Crossbow",1,1,0,0,0,0,0,0
+new subtable "2,1"
+object category "Crossbow",2,1,0,0,0,0,0,0
 new treasuretable "ST_Trader_WeaponNormal"
 new subtable "1,1"
 object category "T_ST_Trader_OneHandedNormal",2,1,0,0,0,0,0,0
@@ -129,5 +130,6 @@ object category "Dagger",2,1,0,0,0,0,0,0
 object category "T_ST_Trader_WandNormal",2,1,0,0,0,0,0,0
 object category "T_ST_Trader_TwoHandedNormal",1,1,0,0,0,0,0,0
 object category "T_ST_Trader_StaffNormal",1,1,0,0,0,0,0,0
-new subtable "3,1"
 object category "T_ST_Trader_RangedNormal",1,1,0,0,0,0,0,0
+new subtable "1,1;0,4"
+object category "Crossbow",1,1,0,0,0,0,0,0

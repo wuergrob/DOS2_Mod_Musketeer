@@ -300,3 +300,23 @@ add levelgroup 19,0,"Epic"
 add rootgroup "38497173-8924-49b3-b491-b3eebb3a5c5a","ElvesEpic"
 add namegroup "RG_Mayumi","",""
 
+add levelgroup 3,4,"Common"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
+add namegroup "Shoddy Matchlock","",""
+
+add levelgroup 5,7,"Common"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
+add namegroup "Balanced Matchlock","",""
+
+add levelgroup 8,9,"Common"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesShieldCommon"
+add namegroup "Sturdy Matchlock 2","",""
+
+add levelgroup 10,12,"Common"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesCommon"
+add namegroup "Heavy Matchlock 2","",""
+
+add levelgroup 13,16,"Common"
+add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesCommon"
+add namegroup "Marksman's Matchlock","",""
+
