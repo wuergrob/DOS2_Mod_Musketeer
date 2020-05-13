@@ -107,11 +107,11 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Blunderbuss" />
-        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="20" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="30" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="170" />
-        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="175" />
+        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="185" />
         <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="10" />
-        <field name="WeaponRange" type="IntegerStatObjectFieldDefinition" value="600" />
+        <field name="WeaponRange" type="IntegerStatObjectFieldDefinition" value="400" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="40" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="3" />
@@ -121,13 +121,16 @@
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_6m" />
+        <field name="Weight" type="IntegerStatObjectFieldDefinition" value="2500" />
+        <field name="Movement" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="0" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss_Var1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="185" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="180" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_6m" />

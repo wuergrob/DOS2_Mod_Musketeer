@@ -40,6 +40,13 @@
                     <attribute id="V1" value="0.000976563" type="6" />
                     <attribute id="V2" value="0.124023" type="6" />
                 </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" value="Musketeer_Single_Shell" type="22" />
+                    <attribute id="U1" value="0.625977" type="6" />
+                    <attribute id="U2" value="0.749023" type="6" />
+                    <attribute id="V1" value="0.000976563" type="6" />
+                    <attribute id="V2" value="0.124023" type="6" />
+                </node>
             </children>
         </node>
     </region>

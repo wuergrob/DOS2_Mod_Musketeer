@@ -23,5 +23,21 @@
         <field name="SpawnBlood" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MUSK_DAMAGE_ON_MOVE" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="DAMAGE_ON_MOVE" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="33" enumeration_type_name="SavingThrow" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Damage_On_Move" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_DamageOnMove" />
+        <field name="DamageEvent" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="StatusEvent" />
+        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="Death Type" />
+        <field name="DamageCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="DamageItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DamageTorches" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="PermanentOnTorch" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="SpawnBlood" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>
