@@ -3,7 +3,6 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
-
 // Special case when using Reload, as it restores the charges completely, and not by a fixed amount.
 // Turns out, the skillbar doesn't update after updating/clearing tags.
 // As it applies Statuses that cause a UI refresh, it's not a problem.
@@ -130,6 +129,60 @@ HasAppliedStatus(_Character, "RELOAD_DEBUFF", 1)
 THEN
 ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
 
+IF
+CharacterStatusApplied(_Character, "RELOAD_INCENDIARY", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 1);
+
+IF
+CharacterStatusApplied(_Character, "RELOAD_FREEZING", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 2);
+
+IF
+CharacterStatusApplied(_Character, "RELOAD_SILVER", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 3);
+
+IF
+CharacterStatusApplied(_Character, "RELOAD_HOLY", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 4);
+
+IF
+CharacterStatusApplied(_Character, "RELOAD_EXPLOSIVE", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 5);
+
+IF
+CharacterStatusRemoved(_Character, "RELOAD_INCENDIARY", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 0);
+
+IF
+CharacterStatusRemoved(_Character, "RELOAD_FREEZING", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 0);
+
+IF
+CharacterStatusRemoved(_Character, "RELOAD_SILVER", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 0);
+
+IF
+CharacterStatusRemoved(_Character, "RELOAD_HOLY", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 0);
+
+IF
+CharacterStatusRemoved(_Character, "RELOAD_EXPLOSIVE", _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 0);
+
+IF
+CharacterUsedSkill(_Character, "Shout_Reload", _, _)
+THEN
+NRD_AmmoBar_Set_Element(_Character, "val", 0);
 
 EXITSECTION
 

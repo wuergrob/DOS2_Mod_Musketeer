@@ -15,7 +15,8 @@ DB_Musketeer_Skillist("Projectile_Final_Act", -1);
 DB_Musketeer_Skillist("Projectile_Tracking_Shot", -1);
 DB_Musketeer_Skillist("Projectile_Rapidfire", -2);
 DB_Musketeer_Skillist("Target_Musk_Flare_Test_Target", -1);
-DB_Musketeer_Skillist("Target_Unload_Test", 0);
+//DB_Musketeer_Skillist("Target_Unload_Test", 0);
+DB_Musketeer_Skillist("Shout_Reload", 11);
 
 
 KBSECTION
@@ -65,12 +66,38 @@ THEN
 SetTag(_Player, "Rifle_Armed");
 CharacterAddSkill(_Player, "Shout_Reload");
 DB_Musketeer_RifleEquipped(_Player, 1);
+NRD_AmmoBar_Set_GUI(_Player, "val", 1);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Player);
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
+CharacterAddSkill(_Player, "Shout_Reload_Incendiary");
+CharacterAddSkill(_Player, "Shout_Reload_Explosive");
+CharacterAddSkill(_Player, "Shout_Reload_Freezing");
+CharacterAddSkill(_Player, "Shout_Reload_Silver");
+CharacterAddSkill(_Player, "Shout_Reload_Holy");
 //CharacterAddAbility(_Player, "Repair", 5);
 //ApplyStatus(_Player, "MUSK_RANGE_10", -1.0, 1, _Player);
 //Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player);
+//NRD_EXT_TestLog("Hello there!");
+//Musketeer_Open_TestWindow();
 
+IF
+DB_Musketeer_ModStarted(1)
+AND
+DB_Musketeer_Skillist(_SkillName, _AmmoCost)
+AND
+NOT _AmmoCost == 0
+THEN
+NRD_Broadcast_Rifle_Skill("val", (STRING)_SkillName, (INTEGER)_AmmoCost);
+
+PROC
+Musketeer_Send_Ammo_Count((CHARACTERGUID)_Player, (ITEMGUID)_Weapon)
+AND
+ItemGetCharges(_Weapon, _Ammo)
+AND
+ItemGetMaxCharges(_Weapon, _MaxAmmo)
+THEN
+NRD_AmmoBar_Set_Ammo(_Player, "val",_Ammo);
+NRD_AmmoBar_Set_Max_Ammo(_Player, "val", _MaxAmmo);
 
 // Trigger dynamic range check on level up, as that might cause the range to reset.
 IF
@@ -106,6 +133,7 @@ RemoveStatus(_Player, "MUSK_RANGE_8");
 RemoveStatus(_Player, "MUSK_RANGE_10_NEG");
 RemoveStatus(_Player, "MUSK_RANGE_6_NEG");
 RemoveStatus(_Player, "MUSK_RANGE_8_NEG");
+NRD_AmmoBar_Set_GUI(_Player, "val", 0);
 //RemoveStatus(_Player, "MUSK_RANGE_10");
 //CharacterRemoveAbility(_Player, "Repair", 5);
 
@@ -286,8 +314,11 @@ ClearTag(_Character, "Musketeer_Exactly_One_Left");
 DebugBreak("[WT_FS] At least 2 rounds left.");
 ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
 
-
-
+// Send Ammo Update event for client-side AmmoBar
+PROC
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Character)
+THEN
+Musketeer_Send_Ammo_Count(_Character, _Weapon);
 
 //END_REGION
 

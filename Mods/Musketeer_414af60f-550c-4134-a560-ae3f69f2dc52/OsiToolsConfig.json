@@ -1,6 +1,8 @@
 {
-    "RequiredExtensionVersion": 42,
+    "RequiredExtensionVersion": 45,
+    "ModTable": "Musketeer",
     "FeatureFlags": [
-        "OsirisExtensions"
+        "OsirisExtensions",
+        "Lua"
     ]
 }
