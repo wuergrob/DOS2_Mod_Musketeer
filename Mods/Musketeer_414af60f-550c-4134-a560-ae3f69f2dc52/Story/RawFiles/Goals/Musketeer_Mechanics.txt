@@ -80,6 +80,10 @@ CharacterAddSkill(_Player, "Shout_Reload_Holy");
 //NRD_EXT_TestLog("Hello there!");
 //Musketeer_Open_TestWindow();
 
+
+// DEPRECATED
+// No longer needed. Same functionality implemented in Lua.
+/*
 IF
 DB_Musketeer_ModStarted(1)
 AND
@@ -88,6 +92,7 @@ AND
 NOT _AmmoCost == 0
 THEN
 NRD_Broadcast_Rifle_Skill("val", (STRING)_SkillName, (INTEGER)_AmmoCost);
+*/
 
 PROC
 Musketeer_Send_Ammo_Count((CHARACTERGUID)_Player, (ITEMGUID)_Weapon)

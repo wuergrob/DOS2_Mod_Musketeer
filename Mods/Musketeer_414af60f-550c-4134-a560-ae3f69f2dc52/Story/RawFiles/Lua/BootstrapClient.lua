@@ -167,7 +167,7 @@ end
 
 
 local function Musketeer_Receive_Rifle_Skill(call, payload)
-	print("Musketeer_Receive_Rifle_Skill called")
+	print("[Client] Musketeer_Receive_Rifle_Skill called")
 	local decoded = Ext.JsonParse(payload)
 	if decoded["skillname"] == "Shout_Reload" then
 		decoded["ammocost"] = 11;
@@ -176,7 +176,7 @@ local function Musketeer_Receive_Rifle_Skill(call, payload)
 		decoded["ammocost"] = -11;
 	end
 	Musketeer_Ammo_Skills_Add(decoded["skillname"], decoded["ammocost"])
-	print(Musketeer_Ammo_Skills)
+	--print(Musketeer_Ammo_Skills)
 end
 
 -- Signal that client is ready for rifle skill broadcast
@@ -211,7 +211,9 @@ Ext.RegisterListener("SkillGetDescriptionParam", skillCheckForAmmoBarPreview)
 
 local function BuiltInHotbarUIHideToolbar()
 	print("Hotbar Hide Tooltip event fired.")
-	Musketeer_Reset_Previews_AmmoBar()
+	if PlayerState["HotbarUIInputFocusActive"] == false then
+		Musketeer_Reset_Previews_AmmoBar()
+	end
 end
 
 local function BuiltInHotbarUIShowTooltip(ui, call, arg1, arg2)
@@ -262,31 +264,35 @@ local function BuiltInHotbarUIShowItemTooltip(ui, call, handler, skillname)
 	print("Hotbar Show Item Tooltip event fired.")
 	print(handler)
 	print(skillname)
+	PlayerState["HotbarUIInputFocusActive"] = false
 	Musketeer_Reset_Previews_AmmoBar()
 end
 
 local function BuiltInHotbarUIInputFocus(ui, call, arg1)
 	print("Hotbar Focus Input event fired.")
 	print(arg1)
+	PlayerState["HotbarUIInputFocusActive"] = true
 	--Musketeer_Reset_Previews_AmmoBar()
 end
 
 local function BuiltInHotbarUIInputFocusLost(ui, call, arg1)
 	print("Hotbar Focus Input Lost event fired.")
 	print(arg1)
+	PlayerState["HotbarUIInputFocusActive"] = false
 	Musketeer_Reset_Previews_AmmoBar()
 end
 
 -- TODO
 
 --[[
-AmmoPreview
+Playerstate / AmmoPreview
 -----
 Consider adding a collection of vars that describe a players state.
 Things to contain:
 bool:Player Rifle Skill-List is loaded from server
 bool:Player is previewing ammo cost -> 
 	HideTooltip doesn't disable AmmoPreview when UIInputFocus is active (UIInputFocus called)
+[23/05] Implemented such a state, but thinking i can't achieve the effect i want with the currently registered UI events.
 -----
 Synchronization
 -----
@@ -300,8 +306,19 @@ MaxAmmo UI Display
 Add preview of maximum Ammo on UI, by showing ammo counters with low opacity.
 This would probably be best done purely in AS.
 -----
+AmmoBar Positioning
+-----
+Look into hotbar code to see how proper screen positioning is implemented.
+-----
 
 ]]
+
+PlayerState = {
+	HandshakeCompleted = false,
+	SkillListLoaded = false,
+	HotbarUIInputFocusActive = false,
+}
+
 
 
 local function RegisterBuiltInUIListeners() 
@@ -351,3 +368,14 @@ Ext.RegisterNetListener("Musketeer_Rifle_Skill", Musketeer_Receive_Rifle_Skill)
 
 Ext.RegisterListener("StatsLoaded", Musketeer_Client_Signal_Ready)
 Ext.RegisterListener("ModuleResume", Musketeer_Client_Signal_Ready)
+
+local function ReceiveServerOffer(call, handler, player)
+	Ext.PostMessageToServer('clientAck', handler)
+	PlayerState["HandshakeCompleted"] = true
+	print("[Client] Player: " .. handler .. " got Server message.")
+	--print("[Client] Debugstuff:")
+	--print(call)
+	--print(handler)
+	--print(player)
+end
+Ext.RegisterNetListener("Musketeer_SendHello", ReceiveServerOffer, player)

@@ -54,6 +54,8 @@ Ext.NewCall(Musketeer_Send_Rifle_Skill, "NRD_Send_Rifle_Skill", "(CHARACTERGUID)
 
 -- I only now understood why he chose Json to circumvent this, but this way you can simply package your list in a single string
 -- and unpack it as a list again client side.
+
+-- DEPRECATED, USE Musketeer_Broadcast_Rifle_Skill2 INSTEAD
 local function Musketeer_Broadcast_Rifle_Skill(channel, name, cost)
     local concat = {}
     if name == "Target_Unload_Test" then
@@ -70,7 +72,7 @@ local function Musketeer_Broadcast_Rifle_Skill(channel, name, cost)
     --cost = tonumber(cost)
     Ext.BroadcastMessage("Musketeer_Rifle_Skill", concatJson)
 end
-Ext.NewCall(Musketeer_Broadcast_Rifle_Skill, "NRD_Broadcast_Rifle_Skill", "(STRING)_Channel, (STRING)_Skillname, (INTEGER)_Ammocost");
+--Ext.NewCall(Musketeer_Broadcast_Rifle_Skill, "NRD_Broadcast_Rifle_Skill", "(STRING)_Channel, (STRING)_Skillname, (INTEGER)_Ammocost");
 
 local function consoleCmd(cmd, a1, a2)
 	if cmd == "setPos" and a1 ~= nil and a1 ~= nil then
@@ -84,10 +86,13 @@ end
 
 
 --Ext.RegisterListener("ConsoleCommand", consoleCmd)
-local function Musketeer_Send_Rifle_Skill_2(call, payload)
-    print("bla")
+
+-- Using Broadcast instead of sending to a specific player, simply because
+-- there are no negative effects of doing so.
+local function Musketeer_Send_Rifle_Skill_2(call, payload, player)
+    print("[SERVER] Broadcasting Skill-List")
     local rows = Osi.DB_Musketeer_Skillist:Get(nil, nil)
-    print(rows)
+    --print(rows)
 
     for k,v in pairs(rows) do
          print(k,v)
@@ -103,7 +108,7 @@ local function Musketeer_Send_Rifle_Skill_2(call, payload)
          end
          
          local concatJson = Ext.JsonStringify(concat)
-         print(concatJson)
+         --print(concatJson)
          Ext.BroadcastMessage("Musketeer_Rifle_Skill", concatJson)
     end
 
@@ -114,4 +119,20 @@ local function Musketeer_Send_Rifle_Skill_2(call, payload)
     --local function Musketeer_Ready_For_Broadcast(channel, name, cost)
     --Ext.NewEvent("NRD_EXT_RequestBroadcast", "(INTEGER)_Value");
 end
-Ext.RegisterNetListener('clientReady', Musketeer_Send_Rifle_Skill_2)
+Ext.RegisterNetListener('clientReady', Musketeer_Send_Rifle_Skill_2, player)
+
+local function MusketeerSendHello(channel, player)
+    Ext.PostMessageToClient(player, "Musketeer_SendHello", player)
+    print("Trying to reach " .. player)
+end
+Ext.NewCall(MusketeerSendHello, "NRD_InitPlayer", "(STRING)_Channel, (CHARACTERGUID)_Character");
+
+local function Musketeer_Ack_Player_Ready(call, player)
+    Osi.Musketeer_Client_Is_Initialized(player)
+    print(player .. " is initialized.")
+    --print("Testithing:")
+    --print(randarg)
+    Musketeer_Send_Rifle_Skill_2(call, nil, player)
+end
+Ext.RegisterNetListener('clientAck', Musketeer_Ack_Player_Ready, player)
+--Ext.RegisterNetListener('clientAck', Musketeer_Send_Rifle_Skill_2, player)
