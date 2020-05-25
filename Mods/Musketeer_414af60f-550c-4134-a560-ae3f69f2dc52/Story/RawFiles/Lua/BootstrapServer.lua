@@ -119,7 +119,7 @@ local function Musketeer_Send_Rifle_Skill_2(call, payload, player)
     --local function Musketeer_Ready_For_Broadcast(channel, name, cost)
     --Ext.NewEvent("NRD_EXT_RequestBroadcast", "(INTEGER)_Value");
 end
-Ext.RegisterNetListener('clientReady', Musketeer_Send_Rifle_Skill_2, player)
+Ext.RegisterNetListener('clientReady', Musketeer_Send_Rifle_Skill_2)
 
 local function MusketeerSendHello(channel, player)
     Ext.PostMessageToClient(player, "Musketeer_SendHello", player)
@@ -134,5 +134,27 @@ local function Musketeer_Ack_Player_Ready(call, player)
     --print(randarg)
     Musketeer_Send_Rifle_Skill_2(call, nil, player)
 end
-Ext.RegisterNetListener('clientAck', Musketeer_Ack_Player_Ready, player)
+Ext.RegisterNetListener('clientAck', Musketeer_Ack_Player_Ready)
+
+local function Musketeer_Retrieve_Skillbar_Entry(channel, payload)
+
+    local decoded = Ext.JsonParse(payload)
+    local player = decoded["player"]
+    local slotIndex = decoded["slotnumber"]
+    --print("[SERVER] Debug Skillbar Request")
+    --print("player: " .. player)
+    --print("index: ")
+    --print(slotIndex)
+
+    print(player)
+    if slotIndex ~= nil and type(slotIndex) == string then
+		slotIndex = tonumber(slotIndex)
+	end
+    --print(slotIndex)
+
+    local entry = NRD_SkillBarGetSkill(player, slotIndex)
+    print("[Server]: Retrieved " .. entry .. " from Skillbar.")
+    Ext.PostMessageToClient(player, "skillbar_entry_answer", entry)
+end
+Ext.RegisterNetListener('skillbar_entry_request', Musketeer_Retrieve_Skillbar_Entry)
 --Ext.RegisterNetListener('clientAck', Musketeer_Send_Rifle_Skill_2, player)

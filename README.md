@@ -11,20 +11,21 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - [Divinity: Original Sin 2](http://store.steampowered.com/app/435150/Divinity_Original_Sin_2/), a game by [Larian Studios](http://larian.com/)
 
 # Current WIP Features
-- Reload Animation and SFX/FX
-- Better distribution of Rifles throughout the game
-- Finalize Alternative Reload variations
+- [ ] Reload Animation and SFX/FX
+- [x] Better distribution of Rifles throughout the game
+- [ ] Finalize Alternative Reload variations
+- [ ] AmmoBar custom GUI element for Ammunition Management (WIP)
 
 
 # Known Bugs/Issues
-- Unload does not work correctly on some occasions (Maybe fixed)
-- Dynamic range not applying on some unknown occasions (perhaps level-up? After loading screen too)
-- Blazing Flare missing prepare effect
-- Rifles have a chance to spawn with the SkyShot (Maybe other skills too) Skill
+- [x] Unload does not work correctly on some occasions (ASSUMEDLY FIXED)
+- [ ] Dynamic range not applying on some unknown occasions (perhaps level-up? After loading screen too)
+- [ ] Blazing Flare missing prepare effect
+- [x] Rifles have a chance to spawn with the SkyShot (Maybe other skills too) Skill
 
 # Planned Features
-- Improved Visualization of Remaining Ammo
+- [x] Improved Visualization of Remaining Ammo
 UI Overlay Effect from a Status effect perhaps?
-- Skill "Enforced Vaccination"
+- [ ] Skill "Enforced Vaccination"
 Ranged single-target rifle skill, damage enemies, heal allies. Set decaying on market enemies.
-- Additional Talent interactions with rifles
+- [ ] Additional Talent interactions with rifles

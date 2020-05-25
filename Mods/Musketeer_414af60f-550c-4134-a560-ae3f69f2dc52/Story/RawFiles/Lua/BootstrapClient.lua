@@ -12,7 +12,7 @@ local function Musketeer_AmmoBar_Init()
 		print("[Musketeer:BootstrapClient.lua] Hiding ammo window.")
 		ui:Hide()
 		ui:Invoke("setAmmoCount", 11)
-		ui:SetPosition(200,200)
+		--ui:SetPosition(200,200)
 	end
 	print("AmmoBar Initialized.")
 end
@@ -104,9 +104,12 @@ end
 
 
 local function Musketeer_AmmoBar_Visibility(call, value)
-	if value ~= nil and type(value) == string then
-		value = tonumber(value)
-	end
+	print(call)
+	print(value)
+	print(type(value))
+	--if value ~= nil and type(value) == string then
+	--	value = tonumber(value)
+	--end
     print("Musketeer_AmmoBar_Visibility called.")
     local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
@@ -116,10 +119,10 @@ local function Musketeer_AmmoBar_Visibility(call, value)
 	if ui ~= nil then
 		--Ext.RegisterUICall(ui, "onEvent", LeaderLib_Debug_OnDebugUIEvent)
 		ui:Invoke("forceAmmoBarReset")
-		if value == 0 then
+		if value == "0" then
 			ui:Hide()
-		elseif value == 1 then
-			ui.Show()
+		elseif value == "1" then
+			ui:Show()
 		else
 			print("Invalid Value, value should be a Boolean (0 or 1)")
 		end
@@ -129,18 +132,21 @@ end
 
 
 
-
-local function Musketeer_Reset_Previews_AmmoBar()
-    print("Musketeer_Reset_AmmoBar called.")
-	local ui = Ext.GetUI("AmmoBarGUIv1.swf")
-	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
-		print("ui was nil, thus looking with relative path.")
+--- @param force boolean Optional parameter to force a reset, even when the active skill preview is on.
+local function Musketeer_Reset_Previews_AmmoBar(force)
+	force = force or false
+	if PlayerState["PlayerActiveSkillPreview"] == false and force == false then
+		print("Musketeer_Reset_AmmoBar called.")
+		local ui = Ext.GetUI("AmmoBarGUIv1.swf")
+		if ui == nil then
+			ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
+			print("ui was nil, thus looking with relative path.")
+		end
+		if ui ~= nil then
+			ui:Invoke("forceAmmoBarReset")
+		end
+		print("AmmoBar reset.")
 	end
-	if ui ~= nil then
-		ui:Invoke("forceAmmoBarReset")
-	end
-	print("AmmoBar reset.")
 end
 
 local function Musketeer_AmmoBar_BreathingMode(call, value)
@@ -282,6 +288,94 @@ local function BuiltInHotbarUIInputFocusLost(ui, call, arg1)
 	Musketeer_Reset_Previews_AmmoBar()
 end
 
+local function BuiltInHotbarUISelectSlot(ui, call, arg1)
+	print("Hotbar Slot Selected event fired.")
+	print(arg1)
+end
+
+local function BuiltInHotbarUIUseAction(ui, call, arg1)
+	print("Hotbar Use Action Event fired.")
+	print(arg1)
+end
+
+local function BuiltInHotbarUISlotUpEnd(ui, call, arg1)
+	print("----------------------------------")
+	print("Hotbar UI Slot Up End Event fired.")
+	print(arg1)
+end
+
+local function BuiltInHotbarUIButtonPressed(ui, call, arg1)
+	print("----------------------------------")
+	print("Hotbar UI Button Pressed Event fired.")
+	print(arg1)
+end
+
+local function BuiltInHotbarUISlotPressed(ui, call, arg1, arg2)
+	print("----------------------------------")
+	print("Hotbar UI Slot Pressed Event fired.")
+	print(arg1)
+	print(arg2)
+end
+
+-- We will need to send a json string over because we need to pass 2 variables;
+-- player and slotNumber.
+local function RequestServerSkillbarEntry(index)
+	local skillbarRequest = {}
+	skillbarRequest["player"] = PlayerState["PlayerCharacterGUID"]
+	skillbarRequest["slotnumber"] = index
+	local jsonSkillbarRequest = Ext.JsonStringify(skillbarRequest)
+	Ext.PostMessageToServer('skillbar_entry_request', jsonSkillbarRequest)
+end
+
+local function ReceiveSkillbarEntry(call, entry)
+	print("[Client]: Got SkillbarEntry from Server, preview...")
+	if PlayerState["PlayerActiveSkillPreview"] == true then
+		BuiltInHotbarUIShowSkillTooltip(nil, nil, nil, entry)
+	end
+end
+Ext.RegisterNetListener("skillbar_entry_answer", ReceiveSkillbarEntry)
+
+local function BuiltInHotbarActiveSkill(ui, call, arg1, index)
+	print("----------------------------------")
+	print("Hotbar UI Active Skill Preview.")
+	-- NOTE: if index == 1.0, then activeskil preview is on, if index then its off.
+	print(arg1)
+	print(index)
+	print("===================================")
+	if arg1 > 0 then
+		local hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+		print(hotbarUI)
+		local testVar = hotbarUI:GetValue("numberOfActions", "number")
+		print(testVar)
+		local testVar2 = hotbarUI:GetValue("firstSlotX", "number")
+		print(testVar2)
+		--[[
+		local testVar3 = hotbarUI:GetValue("slotUpdateDataList", "number", 1)
+		print(testVar3)
+		local testVar4 = hotbarUI:GetValue("slotUpdateDataList", "string", 1)
+		print(testVar4)
+		local testVar5 = hotbarUI:GetValue("slotUpdateDataList", "string", "1")
+		print(testVar5)
+		]]--
+
+		-- If you can't get it to work in lua, you'll have to take the index and ask
+		-- the server for the players skillbar index entry.
+		PlayerState["PlayerActiveSkillPreview"] = true
+		RequestServerSkillbarEntry(arg1)
+	elseif arg1 < 0 then
+		PlayerState["PlayerActiveSkillPreview"] = false
+		Musketeer_Reset_Previews_AmmoBar()
+	end
+end
+
+local function BuiltInHotbarResize(ui, call, arg1, arg2)
+	print("----------------------------------")
+	print("Hotbar UI Resize Event fired.")
+	print(ui)
+	print(call)
+	print(arg1)
+	print(arg2)
+end
 -- TODO
 
 --[[
@@ -311,12 +405,14 @@ AmmoBar Positioning
 Look into hotbar code to see how proper screen positioning is implemented.
 -----
 
-]]
+--]]
 
 PlayerState = {
 	HandshakeCompleted = false,
 	SkillListLoaded = false,
 	HotbarUIInputFocusActive = false,
+	PlayerCharacterGUID = "",
+	PlayerActiveSkillPreview = false,
 }
 
 
@@ -332,6 +428,13 @@ local function RegisterBuiltInUIListeners()
 		Ext.RegisterUICall(hotbar, "showItemTooltip", BuiltInHotbarUIShowItemTooltip)
 		Ext.RegisterUICall(hotbar, "inputFocus", BuiltInHotbarUIInputFocus)
 		Ext.RegisterUICall(hotbar, "inputFocusLost", BuiltInHotbarUIInputFocusLost)
+		Ext.RegisterUICall(hotbar, "IE UISelectSlot", BuiltInHotbarUISelectSlot)
+		Ext.RegisterUICall(hotbar, "useAction", BuiltInHotbarUIUseAction)
+		Ext.RegisterUICall(hotbar, "slotUpEnd", BuiltInHotbarUISlotUpEnd)
+		Ext.RegisterUICall(hotbar, "hotbarBtnPressed", BuiltInHotbarUIButtonPressed)
+		Ext.RegisterUICall(hotbar, "SlotPressed", BuiltInHotbarUISlotPressed, "IsOnCooldown")
+		Ext.RegisterUIInvokeListener(hotbar, "showActiveSkill", BuiltInHotbarActiveSkill)
+		Ext.RegisterUIInvokeListener(hotbar, "onEventResolution", BuiltInHotbarResize)
 		Ext.PostMessageToServer('clientReady', 1)
 		--Ext.RegisterUICall(hotbar, "PlaySound", BuiltInHotbarUIPlaySound)
 		print("[Musketeer:RegisterBuiltInUIListeners] Found (hotBar.swf). Registered listeners.")
@@ -369,13 +472,17 @@ Ext.RegisterNetListener("Musketeer_Rifle_Skill", Musketeer_Receive_Rifle_Skill)
 Ext.RegisterListener("StatsLoaded", Musketeer_Client_Signal_Ready)
 Ext.RegisterListener("ModuleResume", Musketeer_Client_Signal_Ready)
 
-local function ReceiveServerOffer(call, handler, player)
-	Ext.PostMessageToServer('clientAck', handler)
+local function ReceiveServerOffer(call, player, arg1)
+	Ext.PostMessageToServer('clientAck', player)
 	PlayerState["HandshakeCompleted"] = true
-	print("[Client] Player: " .. handler .. " got Server message.")
+	-- Not a clean solution, but didn't find out how else to get char GUID from a player locally.
+	-- This probably doesn't persist switching out character from your team.
+	PlayerState["PlayerCharacterGUID"] = player
+	print("[Client] Player: " .. player .. " got Server message.")
 	--print("[Client] Debugstuff:")
 	--print(call)
 	--print(handler)
 	--print(player)
 end
-Ext.RegisterNetListener("Musketeer_SendHello", ReceiveServerOffer, player)
+Ext.RegisterNetListener("Musketeer_SendHello", ReceiveServerOffer)
+
