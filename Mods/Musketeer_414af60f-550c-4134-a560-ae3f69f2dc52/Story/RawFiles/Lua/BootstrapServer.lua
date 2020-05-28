@@ -103,10 +103,12 @@ local function Musketeer_Send_Rifle_Skill_2(call, payload, player)
          if v[1] == "Target_Unload_Test" then
             concat["ammocost"] = -11
          end
+         --if v[1] == "Shout_Reload" then
+         --   concat["ammocost"] = 11
+         --end
          if v[1] == "Shout_Reload" then
-            concat["ammocost"] = 11
+            print("[SERVER] DEBUG RELOAD: Server retrieved Reload from the DB and is sending it...")
          end
-         
          local concatJson = Ext.JsonStringify(concat)
          --print(concatJson)
          Ext.BroadcastMessage("Musketeer_Rifle_Skill", concatJson)

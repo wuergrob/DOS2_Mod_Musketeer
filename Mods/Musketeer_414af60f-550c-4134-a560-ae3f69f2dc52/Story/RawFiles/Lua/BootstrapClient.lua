@@ -1,10 +1,57 @@
 
 
+if Musketeer_Ammo_Skills == nil then
+	Musketeer_Ammo_Skills = { test = 0 }
+end
+
+PersistentVars  = {
+	HandshakeCompleted = false,
+	SkillListLoaded = false,
+	HotbarUIInputFocusActive = false,
+	PlayerCharacterGUID = "",
+	PlayerActiveSkillPreview = false,
+}
+
+function InitPlayerState()
+	-- Persistent variables are only available after SessionLoaded is triggered!
+	PersistentVars["HandshakeCompleted"] = false
+	PersistentVars["SkillListLoaded"] = false
+	PersistentVars["HotbarUIInputFocusActive"] = false
+	PersistentVars["PlayerCharacterGUID"] = ""
+	PersistentVars["PlayerActiveSkillPreview"] = false
+    --Ext.Print("InitPlayerState. Handshake is: " .. PersistentVars["HandshakeCompleted"])
+end
+Ext.RegisterListener("SessionLoaded", InitPlayerState)
+
+
+function PrintPlayerState()
+	Ext.Print("PlayerState Info:")
+	Ext.Print(PersistentVars["HandshakeCompleted"])
+	Ext.Print(PersistentVars["SkillListLoaded"])
+	Ext.Print(PersistentVars["HotbarUIInputFocusActive"])
+	Ext.Print(PersistentVars["PlayerCharacterGUID"])
+	Ext.Print(PersistentVars["PlayerActiveSkillPreview"])
+end
+
+function PrintSkillList()
+	Ext.Print("SkillList Info:")
+	Ext.Print(Musketeer_Ammo_Skills)
+	Ext.Print(Musketeer_Ammo_Skills["test"])
+	Ext.Print(Musketeer_Ammo_Skills["Shout_Reload"])
+	Ext.Print(Musketeer_Ammo_Skills["Target_Unload_Test"])
+end
+
+
+
+-- Try out positioning by setting x and y directly, as in:
+-- x = 200, y = 110 in MainTimeLine.
+-- For some reason, doing that by means of ui:SetValue("x", 200) makes the UI position
+-- always be the same relative to the other Ui elements.
 local function Musketeer_AmmoBar_Init()
     print("Musketeer_Open_TestWindow called.")
 	local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
+		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf",3)
 		print("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -12,7 +59,7 @@ local function Musketeer_AmmoBar_Init()
 		print("[Musketeer:BootstrapClient.lua] Hiding ammo window.")
 		ui:Hide()
 		ui:Invoke("setAmmoCount", 11)
-		--ui:SetPosition(200,200)
+		ui:SetPosition(200,110)
 	end
 	print("AmmoBar Initialized.")
 end
@@ -32,7 +79,7 @@ local function Musketeer_AmmoBar_ElementChange(call, value)
     print("Musketeer_AmmoBar_ElementChange called.")
     local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
+		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
 		print("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -56,7 +103,7 @@ local function Musketeer_AmmoBar_Difference_Preview(call, value)
     print("Musketeer_AmmoBar_Difference_Preview called.")
     local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
+		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
 		print("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil and value ~= 0 then
@@ -76,7 +123,7 @@ local function Musketeer_AmmoBar_SetAmmo(call, value)
     print("Musketeer_AmmoBar_SetAmmo called.")
     local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
+		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
 		print("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -91,7 +138,7 @@ local function Musketeer_AmmoBar_SetMaxAmmo(call, value)
     print("Musketeer_AmmoBar_SetMaxAmmo called.")
     local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
+		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
 		print("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -113,7 +160,7 @@ local function Musketeer_AmmoBar_Visibility(call, value)
     print("Musketeer_AmmoBar_Visibility called.")
     local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
+		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
 		print("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -135,11 +182,11 @@ end
 --- @param force boolean Optional parameter to force a reset, even when the active skill preview is on.
 local function Musketeer_Reset_Previews_AmmoBar(force)
 	force = force or false
-	if PlayerState["PlayerActiveSkillPreview"] == false and force == false then
+	if PersistentVars["PlayerActiveSkillPreview"] == false and force == false then
 		print("Musketeer_Reset_AmmoBar called.")
 		local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 		if ui == nil then
-			ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
+			ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
 			print("ui was nil, thus looking with relative path.")
 		end
 		if ui ~= nil then
@@ -153,7 +200,7 @@ local function Musketeer_AmmoBar_BreathingMode(call, value)
     print("Musketeer_AmmoBar_BreathingMode called.")
 	local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 99)
+		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
 		print("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -163,7 +210,7 @@ local function Musketeer_AmmoBar_BreathingMode(call, value)
 end
 
 
-Musketeer_Ammo_Skills = { test = 0 }
+
 
 local function Musketeer_Ammo_Skills_Add(name, val)
 	Musketeer_Ammo_Skills[name] = val
@@ -176,6 +223,7 @@ local function Musketeer_Receive_Rifle_Skill(call, payload)
 	print("[Client] Musketeer_Receive_Rifle_Skill called")
 	local decoded = Ext.JsonParse(payload)
 	if decoded["skillname"] == "Shout_Reload" then
+		print("[CLIENT] Client received Shout_Reload and should add it to the Skilllist.")
 		decoded["ammocost"] = 11;
 	end
 	if decoded["skillname"] == "Target_Unload_Test" then
@@ -217,7 +265,7 @@ Ext.RegisterListener("SkillGetDescriptionParam", skillCheckForAmmoBarPreview)
 
 local function BuiltInHotbarUIHideToolbar()
 	print("Hotbar Hide Tooltip event fired.")
-	if PlayerState["HotbarUIInputFocusActive"] == false then
+	if PersistentVars["HotbarUIInputFocusActive"] == false then
 		Musketeer_Reset_Previews_AmmoBar()
 	end
 end
@@ -270,21 +318,21 @@ local function BuiltInHotbarUIShowItemTooltip(ui, call, handler, skillname)
 	print("Hotbar Show Item Tooltip event fired.")
 	print(handler)
 	print(skillname)
-	PlayerState["HotbarUIInputFocusActive"] = false
+	PersistentVars["HotbarUIInputFocusActive"] = false
 	Musketeer_Reset_Previews_AmmoBar()
 end
 
 local function BuiltInHotbarUIInputFocus(ui, call, arg1)
 	print("Hotbar Focus Input event fired.")
 	print(arg1)
-	PlayerState["HotbarUIInputFocusActive"] = true
+	PersistentVars["HotbarUIInputFocusActive"] = true
 	--Musketeer_Reset_Previews_AmmoBar()
 end
 
 local function BuiltInHotbarUIInputFocusLost(ui, call, arg1)
 	print("Hotbar Focus Input Lost event fired.")
 	print(arg1)
-	PlayerState["HotbarUIInputFocusActive"] = false
+	PersistentVars["HotbarUIInputFocusActive"] = false
 	Musketeer_Reset_Previews_AmmoBar()
 end
 
@@ -321,7 +369,7 @@ end
 -- player and slotNumber.
 local function RequestServerSkillbarEntry(index)
 	local skillbarRequest = {}
-	skillbarRequest["player"] = PlayerState["PlayerCharacterGUID"]
+	skillbarRequest["player"] = PersistentVars["PlayerCharacterGUID"]
 	skillbarRequest["slotnumber"] = index
 	local jsonSkillbarRequest = Ext.JsonStringify(skillbarRequest)
 	Ext.PostMessageToServer('skillbar_entry_request', jsonSkillbarRequest)
@@ -329,7 +377,7 @@ end
 
 local function ReceiveSkillbarEntry(call, entry)
 	print("[Client]: Got SkillbarEntry from Server, preview...")
-	if PlayerState["PlayerActiveSkillPreview"] == true then
+	if PersistentVars["PlayerActiveSkillPreview"] == true then
 		BuiltInHotbarUIShowSkillTooltip(nil, nil, nil, entry)
 	end
 end
@@ -360,10 +408,10 @@ local function BuiltInHotbarActiveSkill(ui, call, arg1, index)
 
 		-- If you can't get it to work in lua, you'll have to take the index and ask
 		-- the server for the players skillbar index entry.
-		PlayerState["PlayerActiveSkillPreview"] = true
+		PersistentVars["PlayerActiveSkillPreview"] = true
 		RequestServerSkillbarEntry(arg1)
 	elseif arg1 < 0 then
-		PlayerState["PlayerActiveSkillPreview"] = false
+		PersistentVars["PlayerActiveSkillPreview"] = false
 		Musketeer_Reset_Previews_AmmoBar()
 	end
 end
@@ -379,7 +427,7 @@ end
 -- TODO
 
 --[[
-Playerstate / AmmoPreview
+PersistentVars / AmmoPreview
 -----
 Consider adding a collection of vars that describe a players state.
 Things to contain:
@@ -406,15 +454,6 @@ Look into hotbar code to see how proper screen positioning is implemented.
 -----
 
 --]]
-
-PlayerState = {
-	HandshakeCompleted = false,
-	SkillListLoaded = false,
-	HotbarUIInputFocusActive = false,
-	PlayerCharacterGUID = "",
-	PlayerActiveSkillPreview = false,
-}
-
 
 
 local function RegisterBuiltInUIListeners() 
@@ -474,10 +513,10 @@ Ext.RegisterListener("ModuleResume", Musketeer_Client_Signal_Ready)
 
 local function ReceiveServerOffer(call, player, arg1)
 	Ext.PostMessageToServer('clientAck', player)
-	PlayerState["HandshakeCompleted"] = true
+	PersistentVars["HandshakeCompleted"] = true
 	-- Not a clean solution, but didn't find out how else to get char GUID from a player locally.
 	-- This probably doesn't persist switching out character from your team.
-	PlayerState["PlayerCharacterGUID"] = player
+	PersistentVars["PlayerCharacterGUID"] = player
 	print("[Client] Player: " .. player .. " got Server message.")
 	--print("[Client] Debugstuff:")
 	--print(call)

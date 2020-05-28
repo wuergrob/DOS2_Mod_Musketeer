@@ -3,12 +3,13 @@ SubGoalCombiner SGC_AND
 INITSECTION
 DB_Musketeer_ModStarted(1);
 
+
 KBSECTION
 IF
 DB_Musketeer_ModStarted(1)
 THEN
 DebugBreak("[WT_FS] Musketeer Mod has initialized.");
-TimerLaunch("Musketeer_Sync_Timer", 100);
+//TimerLaunch("Musketeer_Sync_Timer", 100);
 
 IF
 DB_Musketeer_ModStarted(1)
@@ -17,28 +18,8 @@ DB_IsPlayer(_Player)
 THEN
 DB_Musketeer_Player_Initialized(_Player, 0);
 
-IF
-TimerFinished("Musketeer_Sync_Timer")
-AND
-DB_IsPlayer(_Player)
-AND
-DB_Musketeer_Player_Initialized(_Player, 0)
-THEN
-NRD_InitPlayer("val", _Player);
-TimerLaunch("Musketeer_Sync_Timer", 300);
 
-PROC
-Musketeer_Client_Is_Initialized((CHARACTERGUID)_Player)
-AND
-GetStatString(_Player, _PlayerString)
-THEN
-DebugBreak("[WT_FS] Client is initialized:");
-DebugBreak(_PlayerString);
-DB_Musketeer_Player_Initialized(_Player, 1);
-//PROC
-//PROC_SelectRandomStartOrigin()
-//THEN
-//PROC_TrySelectRandomStartOrigin(0,0,(CHARACTERGUID)S_Player_Lohse_bb932b13-8ebf-4ab4-aac0-83e6924e4295);
+
 
 
 GoalCompleted;

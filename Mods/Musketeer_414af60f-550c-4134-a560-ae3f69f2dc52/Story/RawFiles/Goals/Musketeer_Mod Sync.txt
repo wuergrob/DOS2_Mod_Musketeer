@@ -1,0 +1,101 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+Musketeer_Force_Init();
+
+KBSECTION
+/*
+IF
+DB_Musketeer_ModStarted(1)
+THEN
+NRD_DebugLog("[WT_FS] Musketeer Mod has initialized.");
+TimerLaunch("Musketeer_Sync_Timer", 100);
+
+IF
+DB_Musketeer_ModStarted(1)
+AND
+DB_IsPlayer(_Player)
+THEN
+DB_Musketeer_Player_Initialized(_Player, 0);
+NRD_DebugLog("[WT_FS] Musketeer Mod started.");
+*/
+
+IF
+SavegameLoaded(_, _, _, _)
+AND
+DB_IsPlayer(_Player)
+THEN
+DB_Musketeer_Player_Initialized(_Player, 0);
+NRD_DebugLog("[WT_FS] Musketeer Savegame loaded.");
+
+PROC
+Musketeer_Force_Init()
+THEN
+TimerLaunch("Musketeer_Sync_Timer", 100);
+NRD_DebugLog("[WT_FS] Musketeer Force Init called.");
+
+
+IF
+SavegameLoaded(_, _, _, _)
+THEN
+NRD_DebugLog("[WT_FS] Musketeer Savegame loaded.");
+TimerLaunch("Musketeer_Sync_Timer", 100);
+
+IF
+TimerFinished("Musketeer_Sync_Timer")
+AND
+DB_IsPlayer(_Player)
+AND
+DB_Musketeer_Player_Initialized(_Player, 0)
+AND
+GetStatString(_Player, _PlayerString)
+THEN
+NRD_DebugLog("[WT_FS] Found player, calling NRD_InitPlayer now.");
+NRD_InitPlayer("val", _Player);
+TimerLaunch("Musketeer_Sync_Timer", 300);
+
+
+IF
+TimerFinished("Musketeer_Sync_Timer")
+AND
+DB_IsPlayer(_Player)
+AND
+DB_Musketeer_Player_Initialized(_Player, 1)
+AND
+GetStatString(_Player, _PlayerString)
+THEN
+NRD_DebugLog("[WT_FS] [DEBUG: Player entry in DB is set to initialized.]");
+NRD_DebugLog(_PlayerString);
+
+
+
+
+
+PROC
+Musketeer_Client_Is_Initialized((CHARACTERGUID)_Player)
+AND
+GetStatString(_Player, _PlayerString)
+THEN
+NRD_DebugLog("[WT_FS] Client is initialized:");
+NRD_DebugLog(_PlayerString);
+DB_Musketeer_Player_Initialized(_Player, 1);
+//PROC
+//PROC_SelectRandomStartOrigin()
+//THEN
+//PROC_TrySelectRandomStartOrigin(0,0,(CHARACTERGUID)S_Player_Lohse_bb932b13-8ebf-4ab4-aac0-83e6924e4295);
+/*
+QRY
+Musketeer_Client_Request_Skillbar_Entry((CHARACTERGUID)_Player, (INTEGER)_SlotNumber)
+AND
+DB_IsPlayer(_Player)
+AND
+NRD_SkillBarGetSkill(_Player, _SlotNumber, _SkillName)
+THEN
+DB_NOOP(1);
+*/
+GoalCompleted;
+EXITSECTION
+
+
+ENDEXITSECTION
+ParentTargetEdge "__Start"
