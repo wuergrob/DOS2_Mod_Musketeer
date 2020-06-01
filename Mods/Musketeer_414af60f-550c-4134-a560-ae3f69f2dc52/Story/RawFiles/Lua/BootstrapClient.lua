@@ -59,7 +59,7 @@ local function Musketeer_AmmoBar_Init()
 		print("[Musketeer:BootstrapClient.lua] Hiding ammo window.")
 		ui:Hide()
 		ui:Invoke("setAmmoCount", 11)
-		ui:SetPosition(200,110)
+		--ui:SetPosition(200,70)
 	end
 	print("AmmoBar Initialized.")
 end

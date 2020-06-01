@@ -160,3 +160,26 @@ local function Musketeer_Retrieve_Skillbar_Entry(channel, payload)
 end
 Ext.RegisterNetListener('skillbar_entry_request', Musketeer_Retrieve_Skillbar_Entry)
 --Ext.RegisterNetListener('clientAck', Musketeer_Send_Rifle_Skill_2, player)
+
+
+-- Experimental: Try to initialize stuff here
+--[[
+if IsInit == nil then
+    IsInit = 1
+    for i,player in  ipairs(Osi.DB_IsPlayer:Get(nil)) do
+        Osi.DB_Musketeer_Skillist:Set(player, 0)
+        print("Welcome " .. player)
+    end
+    Osi.Musketeer_Force_Init();
+    print("Forcing Initialization from LUA")
+end
+]]
+local function InitFromLua()
+    for i,player in  ipairs(Osi.DB_IsPlayer:Get(nil)) do
+        Osi.DB_Musketeer_Player_Initialized(player[1], 0)
+        print("Welcome " .. player[1])
+    end
+    Osi.Musketeer_Force_Init();
+    print("Forcing Initialization from LUA")
+end
+Ext.RegisterNetListener('clientReady', InitFromLua)
