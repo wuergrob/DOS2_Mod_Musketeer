@@ -1,4 +1,7 @@
 
+if PlayerTable == nil then
+    PlayerTable = {}
+end
 
 --local function TestLog(msg)
 --    print(msg)
@@ -138,8 +141,10 @@ local function Musketeer_Ack_Player_Ready(call, player)
 end
 Ext.RegisterNetListener('clientAck', Musketeer_Ack_Player_Ready)
 
-local function Musketeer_Retrieve_Skillbar_Entry(channel, payload)
 
+-- Used to preview active skill ammo requirements.
+-- BUG: Only fetches skills from the first skillbar.
+local function Musketeer_Retrieve_Skillbar_Entry(channel, payload)
     local decoded = Ext.JsonParse(payload)
     local player = decoded["player"]
     local slotIndex = decoded["slotnumber"]
@@ -155,7 +160,7 @@ local function Musketeer_Retrieve_Skillbar_Entry(channel, payload)
     --print(slotIndex)
 
     local entry = NRD_SkillBarGetSkill(player, slotIndex)
-    print("[Server]: Retrieved " .. entry .. " from Skillbar.")
+    --print("[Server]: Retrieved " .. entry .. " from Skillbar.")
     Ext.PostMessageToClient(player, "skillbar_entry_answer", entry)
 end
 Ext.RegisterNetListener('skillbar_entry_request', Musketeer_Retrieve_Skillbar_Entry)
@@ -174,12 +179,31 @@ if IsInit == nil then
     print("Forcing Initialization from LUA")
 end
 ]]
-local function InitFromLua()
+local function InitPlayerTable()
     for i,player in  ipairs(Osi.DB_IsPlayer:Get(nil)) do
-        Osi.DB_Musketeer_Player_Initialized(player[1], 0)
-        print("Welcome " .. player[1])
+        PlayerTable[player[1]] = false
+        print("Added " .. player[1] .. "to PlayerTable.")
+        Ext.PostMessageToClient(player[1], "requestClient", player[1])
     end
-    Osi.Musketeer_Force_Init();
-    print("Forcing Initialization from LUA")
+    print("[SERVER] PlayerTable is initialized.")
 end
-Ext.RegisterNetListener('clientReady', InitFromLua)
+--Ext.RegisterListener('SessionLoaded', InitPlayerTable)
+--Ext.RegisterNetListener('StatsLoaded', InitPlayerTable)
+
+
+
+local function ReceivePlayerState(channel, player)
+    if PlayerTable[player] == false then
+        PlayerTable[player] = true
+        print("[SERVER] Added Player to PlayerTable (set to true).")
+    else
+        print("[SERVER] Player was not registered in Playertable.")
+    end
+end
+Ext.RegisterNetListener('clientReady', ReceivePlayerState)
+
+local function GameStartedEvent()
+    InitPlayerTable()
+    print("[SERVER] GameStartedEvent")
+end
+Ext.NewCall(GameStartedEvent, "NRD_GameStarted", "");

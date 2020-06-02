@@ -20,6 +20,19 @@ DB_Musketeer_Skillist("Shout_Reload", 11);
 
 
 KBSECTION
+
+
+IF
+GameStarted(_, _)
+THEN
+NRD_DebugLog("[WT_FS] Blatest");
+NRD_GameStarted();
+NRD_DebugLog("[WT_FS] Game Started. (ALSO CALLING NRD_GameStarted)");
+
+IF
+SavegameLoaded(_, _, _, _)
+THEN
+NRD_DebugLog("[WT_FS] Savegame loaded.");
 // Instead of tracking Equip-Events of the weapon, we track when a player gets the Passive-skill that is automatically learned when equipping a rifle.
 
 // TEST STUFF, COMMENT OUT WHEN PLAYING NORMALLY

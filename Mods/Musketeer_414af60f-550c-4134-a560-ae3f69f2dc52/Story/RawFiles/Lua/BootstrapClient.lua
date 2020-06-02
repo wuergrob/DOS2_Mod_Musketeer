@@ -10,6 +10,7 @@ PersistentVars  = {
 	HotbarUIInputFocusActive = false,
 	PlayerCharacterGUID = "",
 	PlayerActiveSkillPreview = false,
+	CurrentHotbar = 1,
 }
 
 function InitPlayerState()
@@ -19,6 +20,7 @@ function InitPlayerState()
 	PersistentVars["HotbarUIInputFocusActive"] = false
 	PersistentVars["PlayerCharacterGUID"] = ""
 	PersistentVars["PlayerActiveSkillPreview"] = false
+	PersistentVars["CurrentHotbar"] = 1
     --Ext.Print("InitPlayerState. Handshake is: " .. PersistentVars["HandshakeCompleted"])
 end
 Ext.RegisterListener("SessionLoaded", InitPlayerState)
@@ -31,6 +33,7 @@ function PrintPlayerState()
 	Ext.Print(PersistentVars["HotbarUIInputFocusActive"])
 	Ext.Print(PersistentVars["PlayerCharacterGUID"])
 	Ext.Print(PersistentVars["PlayerActiveSkillPreview"])
+	Ext.Print(PersistentVars["CurrentHotbar"])
 end
 
 function PrintSkillList()
@@ -52,6 +55,7 @@ local function Musketeer_AmmoBar_Init()
 	local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
 		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf",3)
+		ui:Hide()
 		print("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -216,14 +220,15 @@ local function Musketeer_Ammo_Skills_Add(name, val)
 	Musketeer_Ammo_Skills[name] = val
 	print(Musketeer_Ammo_Skills)
 	print("Musketeer_Ammo_Skills added entry: ".. name .. " val: ".. val)
+	PersistentVars["SkillListLoaded"] = true
 end
 
 
 local function Musketeer_Receive_Rifle_Skill(call, payload)
-	print("[Client] Musketeer_Receive_Rifle_Skill called")
+	--print("[Client] Musketeer_Receive_Rifle_Skill called")
 	local decoded = Ext.JsonParse(payload)
 	if decoded["skillname"] == "Shout_Reload" then
-		print("[CLIENT] Client received Shout_Reload and should add it to the Skilllist.")
+		--print("[CLIENT] Client received Shout_Reload and should add it to the Skilllist.")
 		decoded["ammocost"] = 11;
 	end
 	if decoded["skillname"] == "Target_Unload_Test" then
@@ -233,11 +238,6 @@ local function Musketeer_Receive_Rifle_Skill(call, payload)
 	--print(Musketeer_Ammo_Skills)
 end
 
--- Signal that client is ready for rifle skill broadcast
-local function Musketeer_Client_Signal_Ready()
-	print("Client is ready.")
-	Ext.PostMessageToServer('clientReady', 1)
-end
 
 
 
@@ -386,28 +386,18 @@ Ext.RegisterNetListener("skillbar_entry_answer", ReceiveSkillbarEntry)
 local function BuiltInHotbarActiveSkill(ui, call, arg1, index)
 	print("----------------------------------")
 	print("Hotbar UI Active Skill Preview.")
-	-- NOTE: if index == 1.0, then activeskil preview is on, if index then its off.
+	-- NOTE: if index >= 1.0, then activeskil preview is on, else its off.
 	print(arg1)
 	print(index)
 	print("===================================")
-	if arg1 > 0 then
+	if arg1 >= 0 then
 		local hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
 		print(hotbarUI)
-		local testVar = hotbarUI:GetValue("numberOfActions", "number")
-		print(testVar)
-		local testVar2 = hotbarUI:GetValue("firstSlotX", "number")
-		print(testVar2)
-		--[[
-		local testVar3 = hotbarUI:GetValue("slotUpdateDataList", "number", 1)
-		print(testVar3)
-		local testVar4 = hotbarUI:GetValue("slotUpdateDataList", "string", 1)
-		print(testVar4)
-		local testVar5 = hotbarUI:GetValue("slotUpdateDataList", "string", "1")
-		print(testVar5)
-		]]--
 
-		-- If you can't get it to work in lua, you'll have to take the index and ask
-		-- the server for the players skillbar index entry.
+		arg1 = arg1 + (PersistentVars["CurrentHotbar"]-1) * 29
+		print("Multiplied Skillbar Slot index with current Skillbar index.")
+		print(arg1)
+
 		PersistentVars["PlayerActiveSkillPreview"] = true
 		RequestServerSkillbarEntry(arg1)
 	elseif arg1 < 0 then
@@ -416,14 +406,7 @@ local function BuiltInHotbarActiveSkill(ui, call, arg1, index)
 	end
 end
 
-local function BuiltInHotbarResize(ui, call, arg1, arg2)
-	print("----------------------------------")
-	print("Hotbar UI Resize Event fired.")
-	print(ui)
-	print(call)
-	print(arg1)
-	print(arg2)
-end
+
 -- TODO
 
 --[[
@@ -455,6 +438,17 @@ Look into hotbar code to see how proper screen positioning is implemented.
 
 --]]
 
+local function SetCurrentHotbar(ui, event, index)
+	print("Current Hotbar switched")
+	print(index)
+	PersistentVars["CurrentHotbar"] = index
+end
+
+-- Signal that client is ready for rifle skill broadcast
+local function Musketeer_Client_Signal_Ready()
+	print("Client is ready.")
+	Ext.PostMessageToServer('clientReady', 1)
+end
 
 local function RegisterBuiltInUIListeners() 
 	-- Listen to the hotbar for when the sheet opens
@@ -472,28 +466,19 @@ local function RegisterBuiltInUIListeners()
 		Ext.RegisterUICall(hotbar, "slotUpEnd", BuiltInHotbarUISlotUpEnd)
 		Ext.RegisterUICall(hotbar, "hotbarBtnPressed", BuiltInHotbarUIButtonPressed)
 		Ext.RegisterUICall(hotbar, "SlotPressed", BuiltInHotbarUISlotPressed, "IsOnCooldown")
+		
+		Ext.RegisterUIInvokeListener(hotbar, "setCurrentHotbar", SetCurrentHotbar)
+
+		
 		Ext.RegisterUIInvokeListener(hotbar, "showActiveSkill", BuiltInHotbarActiveSkill)
-		Ext.RegisterUIInvokeListener(hotbar, "onEventResolution", BuiltInHotbarResize)
-		Ext.PostMessageToServer('clientReady', 1)
 		--Ext.RegisterUICall(hotbar, "PlaySound", BuiltInHotbarUIPlaySound)
 		print("[Musketeer:RegisterBuiltInUIListeners] Found (hotBar.swf). Registered listeners.")
 	else
 		print("[Musketeer:RegisterBuiltInUIListeners] Failed to find Public/Game/GUI/hotBar.swf")
 	end
-	--[[
-	local characterCreation = Ext.GetBuiltinUI("Public/Game/GUI/characterCreation.swf")
-	if characterCreation ~= nil then
-		Ext.RegisterUICall(characterCreation, "selectOption", OnSheetEvent)
-		for i,v in pairs(pointEvents) do
-			Ext.RegisterUICall(characterCreation, v, OnSheetEvent)
-		end
-		PrintDebug("[LeaderLib_CharacterSheet.lua:RegisterListeners] Found (characterCreation.swf). Registered listeners.")
-	else
-		PrintDebug("[LeaderLib_CharacterSheet.lua:RegisterListeners] Failed to find Public/Game/GUI/characterCreation.swf")
-	end
-	]]--
 end
 Ext.RegisterListener("SessionLoaded", RegisterBuiltInUIListeners)
+
 
 --- Registers a listener that is called when a network message is received on the specified channel
 --- @param channel string Network channel name
@@ -508,8 +493,10 @@ Ext.RegisterNetListener("Musketeer_Reset_AmmoBar_UI", Musketeer_Reset_Previews_A
 Ext.RegisterNetListener("Musketeer_AmmoBar_BreathingMode", Musketeer_AmmoBar_BreathingMode)
 Ext.RegisterNetListener("Musketeer_Rifle_Skill", Musketeer_Receive_Rifle_Skill)
 
-Ext.RegisterListener("StatsLoaded", Musketeer_Client_Signal_Ready)
-Ext.RegisterListener("ModuleResume", Musketeer_Client_Signal_Ready)
+--Ext.RegisterListener("StatsLoaded", Musketeer_Client_Signal_Ready)
+--Ext.RegisterListener("ModuleResume", Musketeer_Client_Signal_Ready)
+
+
 
 local function ReceiveServerOffer(call, player, arg1)
 	Ext.PostMessageToServer('clientAck', player)
@@ -525,3 +512,12 @@ local function ReceiveServerOffer(call, player, arg1)
 end
 Ext.RegisterNetListener("Musketeer_SendHello", ReceiveServerOffer)
 
+
+local function ReceiveServerRequest(channel, player)
+	print("[CLIENT] Received ServerRequest and I am: " .. player)
+	PersistentVars["PlayerCharacterGUID"] = player
+	PersistentVars["HandshakeCompleted"] = true
+	Ext.PostMessageToServer('clientReady', player)
+	Musketeer_AmmoBar_Init();
+end
+Ext.RegisterNetListener("requestClient", ReceiveServerRequest)

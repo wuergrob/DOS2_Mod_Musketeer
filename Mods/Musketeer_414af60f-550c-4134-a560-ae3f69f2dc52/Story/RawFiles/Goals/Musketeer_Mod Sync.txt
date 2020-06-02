@@ -1,7 +1,6 @@
 Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
-Musketeer_Force_Init();
 
 KBSECTION
 /*
@@ -11,6 +10,7 @@ THEN
 NRD_DebugLog("[WT_FS] Musketeer Mod has initialized.");
 TimerLaunch("Musketeer_Sync_Timer", 100);
 
+
 IF
 DB_Musketeer_ModStarted(1)
 AND
@@ -19,7 +19,7 @@ THEN
 DB_Musketeer_Player_Initialized(_Player, 0);
 NRD_DebugLog("[WT_FS] Musketeer Mod started.");
 */
-
+/*
 IF
 SavegameLoaded(_, _, _, _)
 AND
@@ -27,7 +27,20 @@ DB_IsPlayer(_Player)
 THEN
 DB_Musketeer_Player_Initialized(_Player, 0);
 NRD_DebugLog("[WT_FS] Musketeer Savegame loaded.");
+*/
 
+IF
+GameStarted(_, _)
+THEN
+NRD_GameStarted();
+NRD_DebugLog("[WT_FS] Game Started.");
+
+IF
+SavegameLoaded(_, _, _, _)
+THEN
+NRD_GameStarted();
+NRD_DebugLog("[WT_FS] Savegame loaded.");
+/*
 PROC
 Musketeer_Force_Init()
 THEN
@@ -79,10 +92,15 @@ THEN
 NRD_DebugLog("[WT_FS] Client is initialized:");
 NRD_DebugLog(_PlayerString);
 DB_Musketeer_Player_Initialized(_Player, 1);
+
+*/
 //PROC
 //PROC_SelectRandomStartOrigin()
 //THEN
 //PROC_TrySelectRandomStartOrigin(0,0,(CHARACTERGUID)S_Player_Lohse_bb932b13-8ebf-4ab4-aac0-83e6924e4295);
+
+
+
 /*
 QRY
 Musketeer_Client_Request_Skillbar_Entry((CHARACTERGUID)_Player, (INTEGER)_SlotNumber)
@@ -93,9 +111,8 @@ NRD_SkillBarGetSkill(_Player, _SlotNumber, _SkillName)
 THEN
 DB_NOOP(1);
 */
-GoalCompleted;
+
 EXITSECTION
 
-
 ENDEXITSECTION
-ParentTargetEdge "__Start"
+ParentTargetEdge "Musketeer_Mod"
