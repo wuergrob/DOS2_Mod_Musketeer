@@ -207,3 +207,27 @@ local function GameStartedEvent()
     print("[SERVER] GameStartedEvent")
 end
 Ext.NewCall(GameStartedEvent, "NRD_GameStarted", "");
+
+
+-- Get the full player character string from the provided GUID.
+local function GetFullPlayerCharacterHandle(characterGUID)
+    for i,player in  ipairs(Osi.DB_IsPlayer:Get(nil)) do
+        local char = Ext.GetCharacter(player[1])
+        print("GUID from DB: " .. player[1])
+        print("ExtCharacter: " .. tostring(char))
+        if char.MyGuid == characterGUID then
+            return player[1]
+        end
+    end
+    print("Character not found.")
+    return nil
+end
+
+local function ReceiveClientContextSwitch(call, charHandle)
+    print("[SERVER] ReceiveClientContextSwitch, receives ClientContextSwitch Signal")
+    local getChar = GetFullPlayerCharacterHandle(charHandle)
+    print("Comparing input and return value: ")
+    print(charHandle)
+    print(getChar)
+end
+Ext.RegisterNetListener('clientContextSwitch', ReceiveClientContextSwitch)

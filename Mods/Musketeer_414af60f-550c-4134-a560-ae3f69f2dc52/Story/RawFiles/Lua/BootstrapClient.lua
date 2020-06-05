@@ -438,6 +438,66 @@ Look into hotbar code to see how proper screen positioning is implemented.
 
 --]]
 
+local function DebugStuffs(ui, event, handle, arg4, arg5)
+	print("///////////////////////////////////////////")
+	local charHandle = Ext.DoubleToHandle(handle)
+	local char = Ext.GetCharacter(charHandle)
+	print(ui)
+	print(event)
+	print(handle)
+	print(charHandle)
+	print(char.NetID)
+	print(char.MyGuid)
+	print(char.Archetype)
+	print(char.CurrentLevel)
+	print(char.OwnerHandle)
+	print(char)
+	print(arg4)
+	print(arg5)
+end
+--[[
+local function DebugStuffs2(ui, event, param1, arg4, arg5)
+	print("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+	print(ui)
+	print(event)
+	print(param1)
+	print(Ext.GetTranslatedString(param1))
+	print(Ext.GetCharacter(param1))
+	--print(Ext.HandleToDouble(param1))
+	local charHandle = Ext.DoubleToHandle(param1)
+	local char = Ext.GetCharacter(charHandle)
+	print(charHandle)
+	print(char)
+	print(char.GetTags(char)[1])
+	print(char.GetTags(char)[2])
+	print(char.GetTags(char)[3])
+	print(arg4)
+	print(arg5)
+end
+]]
+
+local function DebugStuffs2(ui, event, handle, arg4, arg5)
+	print("Client Context Switch")
+	--print(Ext.HandleToDouble(param1))
+	local charHandle = Ext.DoubleToHandle(handle)
+	local char = Ext.GetCharacter(charHandle)
+	print(charHandle)
+	print(char)
+	print(char.GetTags(char)[1])
+	print(char.GetTags(char)[2])
+	print(char.GetTags(char)[3])
+	print("Sending payload: " .. char.MyGuid)
+	Ext.PostMessageToServer('clientContextSwitch', char.MyGuid)
+end
+
+
+
+
+
+
+
+
+
 local function SetCurrentHotbar(ui, event, index)
 	print("Current Hotbar switched")
 	print(index)
@@ -466,8 +526,13 @@ local function RegisterBuiltInUIListeners()
 		Ext.RegisterUICall(hotbar, "slotUpEnd", BuiltInHotbarUISlotUpEnd)
 		Ext.RegisterUICall(hotbar, "hotbarBtnPressed", BuiltInHotbarUIButtonPressed)
 		Ext.RegisterUICall(hotbar, "SlotPressed", BuiltInHotbarUISlotPressed, "IsOnCooldown")
+		Ext.RegisterUICall(hotbar, "showCharTooltip", DebugStuffs2)
+		
 		
 		Ext.RegisterUIInvokeListener(hotbar, "setCurrentHotbar", SetCurrentHotbar)
+		Ext.RegisterUIInvokeListener(hotbar, "setPlayerHandle", DebugStuffs2)
+
+		
 
 		
 		Ext.RegisterUIInvokeListener(hotbar, "showActiveSkill", BuiltInHotbarActiveSkill)
