@@ -1,4 +1,25 @@
 
+-- TODO
+
+--[[
+Refactoring
+-----
+Code is a absolut mess. Notably:
+* Use a shared table for storing reload variant info
+* Clean up calls. Too many unnecessary Lua calls from Osiris code.
+* Tag names for different rifle variations no longer reflect their actual values. Rename to more
+applicable, generic names.
+-----
+AmmoBar Positioning / Consistency
+-----
+Look into container .swf code to check how draggable UI is done.
+NOTE: test UI behaviour in more situations (notably dialog and stuff where the hotbar hides.)
+-----
+
+--]]
+
+
+
 
 if Musketeer_Ammo_Skills == nil then
 	Musketeer_Ammo_Skills = { test = 0 }
@@ -407,37 +428,6 @@ local function BuiltInHotbarActiveSkill(ui, call, arg1, index)
 end
 
 
--- TODO
-
---[[
-PersistentVars / AmmoPreview
------
-Consider adding a collection of vars that describe a players state.
-Things to contain:
-bool:Player Rifle Skill-List is loaded from server
-bool:Player is previewing ammo cost -> 
-	HideTooltip doesn't disable AmmoPreview when UIInputFocus is active (UIInputFocus called)
-[23/05] Implemented such a state, but thinking i can't achieve the effect i want with the currently registered UI events.
------
-Synchronization
------
-Add something akin to a handshake ping-pong between client and server to check
-for state. -> Primarily to replace manual "Ext.PostMessageToServer('clientReady', 1)" calls.
-
-Maybe something like state polling, similiar to how WebRTC handles Signaler Polling?
------
-MaxAmmo UI Display
------
-Add preview of maximum Ammo on UI, by showing ammo counters with low opacity.
-This would probably be best done purely in AS.
------
-AmmoBar Positioning
------
-Look into hotbar code to see how proper screen positioning is implemented.
------
-
---]]
-
 local function DebugStuffs(ui, event, handle, arg4, arg5)
 	print("///////////////////////////////////////////")
 	local charHandle = Ext.DoubleToHandle(handle)
@@ -455,26 +445,6 @@ local function DebugStuffs(ui, event, handle, arg4, arg5)
 	print(arg4)
 	print(arg5)
 end
---[[
-local function DebugStuffs2(ui, event, param1, arg4, arg5)
-	print("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
-	print(ui)
-	print(event)
-	print(param1)
-	print(Ext.GetTranslatedString(param1))
-	print(Ext.GetCharacter(param1))
-	--print(Ext.HandleToDouble(param1))
-	local charHandle = Ext.DoubleToHandle(param1)
-	local char = Ext.GetCharacter(charHandle)
-	print(charHandle)
-	print(char)
-	print(char.GetTags(char)[1])
-	print(char.GetTags(char)[2])
-	print(char.GetTags(char)[3])
-	print(arg4)
-	print(arg5)
-end
-]]
 
 local function DebugStuffs2(ui, event, handle, arg4, arg5)
 	print("Client Context Switch")
@@ -489,14 +459,6 @@ local function DebugStuffs2(ui, event, handle, arg4, arg5)
 	print("Sending payload: " .. char.MyGuid)
 	Ext.PostMessageToServer('clientContextSwitch', char.MyGuid)
 end
-
-
-
-
-
-
-
-
 
 local function SetCurrentHotbar(ui, event, index)
 	print("Current Hotbar switched")

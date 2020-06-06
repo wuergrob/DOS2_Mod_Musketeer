@@ -161,7 +161,11 @@ local function Musketeer_Retrieve_Skillbar_Entry(channel, payload)
 
     local entry = NRD_SkillBarGetSkill(player, slotIndex)
     --print("[Server]: Retrieved " .. entry .. " from Skillbar.")
-    Ext.PostMessageToClient(player, "skillbar_entry_answer", entry)
+    if (entry == nil) then
+        print("[SERVER] Musketeer_Retrieve_Skillbar_Entry, entry was nil")
+    else
+        Ext.PostMessageToClient(player, "skillbar_entry_answer", entry)
+    end
 end
 Ext.RegisterNetListener('skillbar_entry_request', Musketeer_Retrieve_Skillbar_Entry)
 --Ext.RegisterNetListener('clientAck', Musketeer_Send_Rifle_Skill_2, player)
@@ -223,11 +227,55 @@ local function GetFullPlayerCharacterHandle(characterGUID)
     return nil
 end
 
+Musketeer_Ammo_Types = {
+    "RELOAD_INCENDIARY",
+    "RELOAD_FREEZING",
+    "RELOAD_SILVER",
+    "RELOAD_HOLY",
+    "RELOAD_EXPLOSIVE",
+    "RELOAD_INCENDIARY",
+}
+
+-- return index value of current ammo type, return 0 if default ammo type is being used.
+local function GetCharacterCurrentAmmoType(charHandle)
+    for i,status in pairs(Musketeer_Ammo_Types) do
+        --print(i)
+        --print(status)
+        if HasActiveStatus(charHandle, status) == 1 then
+            return i
+        end
+    end
+    return 0
+end
+
+-- Just for testing, sending seperate messages for each variable, but should probably be refactored into sending a single json string.
 local function ReceiveClientContextSwitch(call, charHandle)
     print("[SERVER] ReceiveClientContextSwitch, receives ClientContextSwitch Signal")
     local getChar = GetFullPlayerCharacterHandle(charHandle)
     print("Comparing input and return value: ")
     print(charHandle)
     print(getChar)
+    local charWPN = CharacterGetEquippedWeapon(getChar)
+    print(charWPN)
+    -- If a character is unarmed, charWPN is nil.
+    if charWPN == nil then
+        Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "0")
+        return
+    end
+    local maxAmmo = ItemGetMaxCharges(charWPN)
+    print(maxAmmo)
+    local currentAmmo = ItemGetCharges(charWPN)
+    print(currentAmmo)
+    local ammoTypeIndex = GetCharacterCurrentAmmoType(charHandle)
+    Ext.PostMessageToClient(charHandle, "Musketeer_Element_AmmoBar_UI", ammoTypeIndex)
+    Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "0")
+    if maxAmmo == -1 and currentAmmo == -1 then
+        Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "0")
+    else
+        Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "1")
+    end
+    Ext.PostMessageToClient(charHandle, "Musketeer_SetMaxAmmo_AmmoBar_UI", maxAmmo)
+    Ext.PostMessageToClient(charHandle, "Musketeer_SetAmmo_AmmoBar_UI", currentAmmo)
+    
 end
 Ext.RegisterNetListener('clientContextSwitch', ReceiveClientContextSwitch)
