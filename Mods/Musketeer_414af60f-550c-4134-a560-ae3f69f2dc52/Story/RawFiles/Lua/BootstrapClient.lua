@@ -539,6 +539,12 @@ local function ReceiveServerOffer(call, player, arg1)
 end
 Ext.RegisterNetListener("Musketeer_SendHello", ReceiveServerOffer)
 
+local function SetClientContext(call, player)
+	print("[Client] Updated Client CharacterGUID")
+	print(player)
+	PersistentVars["PlayerCharacterGUID"] = player
+end
+Ext.RegisterNetListener("Musketeer_SetClientContext", SetClientContext)
 
 local function ReceiveServerRequest(channel, player)
 	print("[CLIENT] Received ServerRequest and I am: " .. player)

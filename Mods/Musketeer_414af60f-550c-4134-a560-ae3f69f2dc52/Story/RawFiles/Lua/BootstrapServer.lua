@@ -3,6 +3,23 @@ if PlayerTable == nil then
     PlayerTable = {}
 end
 
+Musketeer_Ammo_Statuses = {
+    "RELOAD_INCENDIARY",
+    "RELOAD_FREEZING",
+    "RELOAD_SILVER",
+    "RELOAD_HOLY",
+    "RELOAD_EXPLOSIVE",
+    "RELOAD_INCENDIARY",
+}
+
+Musketeer_Reload_Skill_Variants = {
+    "Shout_Reload_Incendiary",
+    "Shout_Reload_Explosive",
+    "Shout_Reload_Freezing",
+    "Shout_Reload_Silver",
+    "Shout_Reload_Holy",
+}
+
 --local function TestLog(msg)
 --    print(msg)
 --end
@@ -96,10 +113,9 @@ local function Musketeer_Send_Rifle_Skill_2(call, payload, player)
     print("[SERVER] Broadcasting Skill-List")
     local rows = Osi.DB_Musketeer_Skillist:Get(nil, nil)
     --print(rows)
-
     for k,v in pairs(rows) do
+        local concat = {}
          print(k,v)
-         local concat = {}
          concat["skillname"] = v[1]
          concat["ammocost"] = v[2]
          -- Added this for testing AmmoPreview stuff, needs actual logic.
@@ -116,13 +132,14 @@ local function Musketeer_Send_Rifle_Skill_2(call, payload, player)
          --print(concatJson)
          Ext.BroadcastMessage("Musketeer_Rifle_Skill", concatJson)
     end
-
-    --for row in rows do
-	--	print(row)
-	--	--Musketeer_Ammo_Skills[index] = value
-	--end
-    --local function Musketeer_Ready_For_Broadcast(channel, name, cost)
-    --Ext.NewEvent("NRD_EXT_RequestBroadcast", "(INTEGER)_Value");
+    -- Special handling of Reload variants. Should be refactored once PoC is done.
+    for i,skill in pairs(Musketeer_Reload_Skill_Variants) do
+        local concat = {}
+        concat["skillname"] = skill
+        concat["ammocost"] = 11
+        print("[SERVER] Sending Special Reload: " .. skill)
+        Ext.BroadcastMessage("Musketeer_Rifle_Skill", Ext.JsonStringify(concat))
+    end
 end
 Ext.RegisterNetListener('clientReady', Musketeer_Send_Rifle_Skill_2)
 
@@ -227,18 +244,9 @@ local function GetFullPlayerCharacterHandle(characterGUID)
     return nil
 end
 
-Musketeer_Ammo_Types = {
-    "RELOAD_INCENDIARY",
-    "RELOAD_FREEZING",
-    "RELOAD_SILVER",
-    "RELOAD_HOLY",
-    "RELOAD_EXPLOSIVE",
-    "RELOAD_INCENDIARY",
-}
-
 -- return index value of current ammo type, return 0 if default ammo type is being used.
 local function GetCharacterCurrentAmmoType(charHandle)
-    for i,status in pairs(Musketeer_Ammo_Types) do
+    for i,status in pairs(Musketeer_Ammo_Statuses) do
         --print(i)
         --print(status)
         if HasActiveStatus(charHandle, status) == 1 then
@@ -257,6 +265,7 @@ local function ReceiveClientContextSwitch(call, charHandle)
     print(getChar)
     local charWPN = CharacterGetEquippedWeapon(getChar)
     print(charWPN)
+    Ext.PostMessageToClient(charHandle, "Musketeer_SetClientContext", getChar)
     -- If a character is unarmed, charWPN is nil.
     if charWPN == nil then
         Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "0")
