@@ -18,11 +18,7 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - [Divinity: Original Sin 2](http://store.steampowered.com/app/435150/Divinity_Original_Sin_2/), a game by [Larian Studios](http://larian.com/)
 
 # Working on right now:
-- Add multi-character per client support. (Correct AmmoBar behaviour with multiple Team-Members)
-- Update Weapon Type tags to reflect current values
 - Test out Spear-Animations for possible inclusion of melee-skills.
-- Add AmmoBar preview support for all reload variatins (Currently, only standard reload is supported)
-
 
 
 # Current WIP Features
@@ -36,6 +32,8 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - [ ] Dynamic range not applying on some unknown occasions (perhaps level-up? After loading screen too)
 - [ ] "Blazing Flare" missing prepare effect
 - [x] Rifles have a chance to spawn with the SkyShot (Maybe other skills too) Skill
+- [ ] Skillproperty "Force" combined with "Knock Down" causes enemy target's turn to time out. (Buckshot on marked targets)
+
 
 # Planned Features
 - [x] Improved Visualization of Remaining Ammo

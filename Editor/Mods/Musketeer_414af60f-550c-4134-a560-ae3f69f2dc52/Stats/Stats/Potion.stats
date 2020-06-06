@@ -134,7 +134,7 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range10" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range_Long" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Sourcery" type="IntegerStatObjectFieldDefinition" value="6" />
@@ -142,7 +142,7 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range6" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range_Short" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Sourcery" type="IntegerStatObjectFieldDefinition" value="0" />
@@ -150,7 +150,7 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range12" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range_Medium" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Sourcery" type="IntegerStatObjectFieldDefinition" value="4" />
@@ -158,7 +158,7 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range10_Neg" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range_Long_LW" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Sourcery" type="IntegerStatObjectFieldDefinition" value="3" />
@@ -166,7 +166,7 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range6_Neg" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range_Short_LW" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Sourcery" type="IntegerStatObjectFieldDefinition" value="0" />
@@ -174,7 +174,7 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range12_Neg" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Range_Medium_LW" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Sourcery" type="IntegerStatObjectFieldDefinition" value="2" />

@@ -32,12 +32,12 @@ Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
 AND
-IsTagged(_Player, "Musk_Rifle_10m", 1)
+IsTagged(_Player, "Musk_Rifle_Long", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 0)
 THEN
 DebugBreak("[WT_FS] Normal Range Rifle equipped.");
-ApplyStatus(_Player, "MUSK_RANGE_10", -1.0, 1, _Player);
+ApplyStatus(_Player, "MUSK_RANGE_LONG", -1.0, 1, _Player);
 
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
@@ -47,48 +47,48 @@ AND
 CharacterHasTalent(_Player, "LoneWolf", 0)
 THEN
 DebugBreak("[WT_FS] Blunderbuss equipped.");
-ApplyStatus(_Player, "MUSK_RANGE_6", -1.0, 1, _Player);
+ApplyStatus(_Player, "MUSK_RANGE_SHORT", -1.0, 1, _Player);
 
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
 AND
-IsTagged(_Player, "Musk_Rifle_8m", 1)
+IsTagged(_Player, "Musk_Rifle_Medium", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 0)
 THEN
 DebugBreak("[WT_FS] Matchlock Rifle equipped.");
-ApplyStatus(_Player, "MUSK_RANGE_8", -1.0, 1, _Player);
+ApplyStatus(_Player, "MUSK_RANGE_MEDIUM", -1.0, 1, _Player);
 
 
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
 AND
-IsTagged(_Player, "Musk_Rifle_10m", 1)
+IsTagged(_Player, "Musk_Rifle_Long", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 1)
 THEN
-ApplyStatus(_Player, "MUSK_RANGE_10_NEG", -1.0, 1, _Player);
+ApplyStatus(_Player, "MUSK_RANGE_LONG_LW", -1.0, 1, _Player);
 
 
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
 AND
-IsTagged(_Player, "Musk_Rifle_6m", 1)
-AND
-CharacterHasTalent(_Player, "LoneWolf", 1)
-THEN
-DebugBreak("[WT_FS] Normal Range Rifle equipped.");
-ApplyStatus(_Player, "MUSK_RANGE_6_NEG", -1.0, 1, _Player);
-
-PROC
-Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
-AND
-IsTagged(_Player, "Musk_Rifle_8m", 1)
+IsTagged(_Player, "Musk_Rifle_Short", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 1)
 THEN
 DebugBreak("[WT_FS] Normal Range Rifle equipped.");
-ApplyStatus(_Player, "MUSK_RANGE_8_NEG", -1.0, 1, _Player);
+ApplyStatus(_Player, "MUSK_RANGE_SHORT_LW", -1.0, 1, _Player);
+
+PROC
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+IsTagged(_Player, "Musk_Rifle_Medium", 1)
+AND
+CharacterHasTalent(_Player, "LoneWolf", 1)
+THEN
+DebugBreak("[WT_FS] Normal Range Rifle equipped.");
+ApplyStatus(_Player, "MUSK_RANGE_MEDIUM_LW", -1.0, 1, _Player);
 
 //END_REGION
 
