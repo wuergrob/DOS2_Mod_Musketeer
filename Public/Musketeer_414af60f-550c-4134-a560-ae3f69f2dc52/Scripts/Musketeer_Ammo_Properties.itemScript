@@ -67,7 +67,7 @@ ACTIONS
 		ELIF "c1"
 			CharacterHasStatus(%Caster, "RELOAD_SILVER")
 		THEN
-			Set(%ProjectileSkill,"Projectile_Ammo_Silver")
+			Set(%ProjectileSkill,"Projectile_Ammo_Shock")
 		ELIF "c1"
 			CharacterHasStatus(%Caster, "RELOAD_HOLY")
 		THEN

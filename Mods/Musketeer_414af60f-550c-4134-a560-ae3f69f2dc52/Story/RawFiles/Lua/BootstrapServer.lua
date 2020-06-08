@@ -288,3 +288,16 @@ local function ReceiveClientContextSwitch(call, charHandle)
     
 end
 Ext.RegisterNetListener('clientContextSwitch', ReceiveClientContextSwitch)
+
+
+local function Musketeer_GetRandomPosAround(X, Y, Z, Distance)
+    local newX = X + ((math.random() - 0.5) * (Distance / 3))
+    local newY = Y + ((math.random() - 0.5) * (Distance / 3))
+    local newZ = Z + ((math.random() - 0.5) * (Distance / 3))
+    --print("X: " .. tostring(X) .. " newX: " .. tostring(newX) .. " Delta: " .. (X - newX))
+    --print("Y: " .. tostring(Y) .. " newY: " .. tostring(newY) .. " Delta: " .. (Y - newY))
+    --print("Z: " .. tostring(Z) .. " newZ: " .. tostring(newZ) .. " Delta: " .. (Z - newZ))
+    --print("Max. Radius around Target (m): " .. (Distance/3))
+    return newX, newY, newZ
+end
+Ext.NewQuery(Musketeer_GetRandomPosAround, "NRD_Musketeer_Get_Random_Pos", "[in](REAL)_X, [in](REAL)_Y, [in](REAL)_Z, [in](REAL)_Distance, [out](REAL)_newX, [out](REAL)_newY, [out](REAL)_newZ");

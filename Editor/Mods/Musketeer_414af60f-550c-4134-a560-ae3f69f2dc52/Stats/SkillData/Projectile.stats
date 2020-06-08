@@ -156,7 +156,7 @@
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="RendMarked" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Rend the Marked" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Deals [1]. If target character has no &lt;font color='#FFFFFF'&gt;Physical Armour&lt;/font&gt;, then also apply &lt;font color='#FFFFFF'&gt;Feared&lt;/font&gt; and &lt;font color='#FFFFFF'&gt;Damage when moving&lt;/font&gt;.&lt;br&gt;&lt;font color='#FF8C34'&gt;Executes targets&lt;/font&gt; that have 25% or less remaining Health.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Can only be cast on Marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Deals [1]. Apply &lt;font color='#FFFFFF'&gt;Feared&lt;/font&gt; and &lt;font color='#FFFFFF'&gt;Damage when moving&lt;/font&gt;.&lt;br&gt;&lt;font color='#FF8C34'&gt;Executes targets&lt;/font&gt; that have 25% or less remaining Health.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Can only be cast on Marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
@@ -460,6 +460,7 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Template" type="StringStatObjectFieldDefinition" value="9ed3c555-d1c8-418c-ad27-22f147145148" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -481,6 +482,7 @@
         <field name="Template" type="StringStatObjectFieldDefinition" value="d24ae62b-a02a-4c2c-8057-8037d3caf851" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="BURNING,100,1;CreateConeSurface,3,,ExplosionCloud" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -501,6 +503,39 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Template" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Ammo_Shock" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="Damage Type" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="SHOCKED,100,1" />
+        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="Death Type" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ForceTarget" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Character;!Tagged:BLOCK_FORK " />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ProjectileCount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="ProjectileDelay" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Template" type="StringStatObjectFieldDefinition" value="54cd2cc9-e841-4792-a7eb-bf518141e77b" />
+        <field name="MaxForkCount" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="ForkLevels" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="ForkChance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="ForkingConditions" type="StringStatObjectFieldDefinition" value="Character;!Tagged:BLOCK_FORK " />
+        <field name="IsEnemySkill" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Superconductor|" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Target is immune to Stun. Air damage received is instead spread in aoe with electric arcs.|" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -511,7 +546,7 @@
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="15" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="8" enumeration_type_name="Damage Type" />
         <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="8" enumeration_type_name="Death Type" />
-        <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -519,9 +554,10 @@
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="Template" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
+        <field name="Template" type="StringStatObjectFieldDefinition" value="ad83147c-4993-4f31-be07-ff36cd09b23e" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="Freeze;CHILLED,100,2;CreateConeSurface,3,,WaterFrozen" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="Freeze;CHILLED,100,2;CreateConeSurface,3,,WaterFrozen,100;" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -542,6 +578,7 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Template" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="7" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

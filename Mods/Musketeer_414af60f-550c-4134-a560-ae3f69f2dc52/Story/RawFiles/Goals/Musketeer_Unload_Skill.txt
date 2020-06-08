@@ -53,11 +53,12 @@ Musketeer_Update_Ammo_Skills(_Character);
 // 2. Get a random offset between 0 and Distance100 (Once for X and once for Z)
 // 3. Convert back to Real and downscale back
 // 4. Subtract half of max Distance from the random X and Z, so we have a 50% chance of going Pos/Neg in Axis
-// 5. Divide by 2, so if we are 13m away, the maximum radius is 6.5m. 2.35m in Pos and Neg direction.
+// 5. Divide by 2, so if we are 13m away, the maximum radius is 6.5m. 3.25m in Pos and Neg direction.
 //    Maybe i will use a DB stored value instead of a fixed scaling factor, so we can influence the
 //    spreading angle
 // 6. Add the offset to the original coordinates. Since we already subtracted (MaxDistance/2), we already
 //    Have a signed number. 50% of the time, it will add a negative number.
+/*
 PROC
 Musketeer_Recursive_Unload((CHARACTERGUID)_Character, (INTEGER)_CurrentAmmo, (ITEMGUID)_Weapon, (REAL)_X, (REAL)_Y, (REAL)_Z, (REAL)_Distance)
 AND
@@ -97,7 +98,20 @@ RealSum(_Z, _TargetSpreadZRealRadiusScaled, _newZ)
 THEN
 CharacterUseSkillAtPosition(_Character, "Projectile_Unload_Instance", _newX, _Y, _newZ, 0, 1);
 Musketeer_Recursive_Unload(_Character, _ReducedAmmoCount, _Weapon, _X, _Y, _Z, _Distance);
+*/
 
+// Rewritten in LUA, way more efficiently and with actual float precision.
+PROC
+Musketeer_Recursive_Unload((CHARACTERGUID)_Character, (INTEGER)_CurrentAmmo, (ITEMGUID)_Weapon, (REAL)_X, (REAL)_Y, (REAL)_Z, (REAL)_Distance)
+AND
+_CurrentAmmo >= 1
+AND
+IntegerSubtract(_CurrentAmmo, 1, _ReducedAmmoCount)
+AND
+NRD_Musketeer_Get_Random_Pos(_X, _Y, _Z, _Distance, (REAL)_newX, (REAL)_newY, (REAL)_newZ)
+THEN
+CharacterUseSkillAtPosition(_Character, "Projectile_Unload_Instance", _newX, _Y, _newZ, 0, 1);
+Musketeer_Recursive_Unload(_Character, _ReducedAmmoCount, _Weapon, _X, _Y, _Z, _Distance);
 
 EXITSECTION
 
