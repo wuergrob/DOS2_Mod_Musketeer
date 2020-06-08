@@ -19,7 +19,7 @@ Musketeer_Reload_Skill_Variants = {
     "Shout_Reload_Silver",
     "Shout_Reload_Holy",
 }
-
+-- List of all the Bow/XBow skills that are incompatible with Rifles.
 Musketeer_Vanilla_Huntsman_Override = {
     -- [Projectile Entries]
     -- Bow/XBow Skills
@@ -31,6 +31,7 @@ Musketeer_Vanilla_Huntsman_Override = {
     "Projectile_BallisticShot",
     "Projectile_Mark",
     "Projectile_PinDown",
+    "Projectile_SkyShot",
     -- Special Arrows
     "Projectile_FireArrow",
     "Projectile_ExplosionArrow",
@@ -50,7 +51,6 @@ Musketeer_Vanilla_Huntsman_Override = {
     "Projectile_CharmingArrow",
     "Projectile_PoisonArrow",
     "Projectile_DebuffAllArrow",
-    "Projectile_SkyShot",
     -- [ProjectileStrike Entries]
     "ProjectileStrike_RainOfArrows",
 }
@@ -337,34 +337,26 @@ local function Musketeer_GetRandomPosAround(X, Y, Z, Distance)
 end
 Ext.NewQuery(Musketeer_GetRandomPosAround, "NRD_Musketeer_Get_Random_Pos", "[in](REAL)_X, [in](REAL)_Y, [in](REAL)_Z, [in](REAL)_Distance, [out](REAL)_newX, [out](REAL)_newY, [out](REAL)_newZ");
 
-
-local function StatOverrideTest()
+-- Temporarily using a bool to check if the Override already occured, because multiple Listeners use this callback.
+-- According to Documentation, "StatsLoaded" should be used for Stat overriding, but this event never triggeres when testing
+-- in the Editor. TODO: Test ingame and remove unnecessary event callbacks.
+Overridden = false
+local function OverrideSkillRequirements()
+    if (Overridden == true) then print("Skill Requirement Override already done.") return end
     local appendNoRifleRequirement = {Not = true, Param = "Rifle_Armed", Requirement = "Tag"}
     local projectileString = "Projectile"
     print("====================================================")
-    print("[SERVER] StatOverrideTest")
+    print("[SERVER] OverrideSkillRequirements")
     for i,name in pairs(Ext.GetStatEntries("SkillData")) do
-
-        -- Filter out any non-Projectile/non-ProjectileStrike skills.
+        -- Filter out any non-Projectile/non-ProjectileStrike skills. (Reactive Shot and Elemental Arrowhead are intentionally not being "patched")
         if name ~= nil and string.sub(name, 1, string.len(projectileString)) == projectileString then
 
             for j, entry in pairs(Musketeer_Vanilla_Huntsman_Override) do
                 if name == entry then
                     print(name)
                     local skillRequirements = Ext.StatGetAttribute(name, "Requirements")
-                    --print(skillRequirements[1])
-                    --print(Ext.JsonStringify(skillRequirements[1]))
-                    --[[
-                    if skillRequirements[2] ~= nil then
-                        print(Ext.JsonStringify(skillRequirements))
-                        print(rawlen(skillRequirements))
-                        skillRequirements[rawlen(skillRequirements)+1] = appendNoRifleRequirement
-                        skillRequirements[rawlen(skillRequirements)+2] = appendNoRifleRequirement2
-                        Ext.StatSetAttribute(name, "Requirements", skillRequirements)
-                        print("SKILL REQUIREMENTS UPDATED")
-                        print(Ext.JsonStringify(Ext.StatGetAttribute(name, "Requirements")))
-                    end
-                    ]]
+
+                    -- Check if the "!Rifle_Armed" tag requirement is already set.
                     local hasRequirement = false
                     for RequirementsIndex = 1,rawlen(skillRequirements),1 do
                         print(skillRequirements[RequirementsIndex])
@@ -373,6 +365,7 @@ local function StatOverrideTest()
                             print("noRifle tag Requirement already exists.")
                         end
                     end
+                    -- Append the "!Rifle_Armed" tag requirement without overriding other requirements.
                     if hasRequirement == false then
                         skillRequirements[rawlen(skillRequirements)+1] = appendNoRifleRequirement
                         Ext.StatSetAttribute(name, "Requirements", skillRequirements)
@@ -380,12 +373,10 @@ local function StatOverrideTest()
                     end
                 end
             end
-
-
-
         end
     end
+    Overridden = true
     print("Donso.")
 end
-Ext.RegisterListener("StatsLoaded", StatOverrideTest)
-Ext.RegisterListener("SessionLoading", StatOverrideTest)
+Ext.RegisterListener("StatsLoaded", OverrideSkillRequirements)
+Ext.RegisterListener("SessionLoading", OverrideSkillRequirements)
