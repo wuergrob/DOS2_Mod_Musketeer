@@ -32,6 +32,8 @@ PersistentVars  = {
 	PlayerCharacterGUID = "",
 	PlayerActiveSkillPreview = false,
 	CurrentHotbar = 1,
+	HotbarVisible = true,
+	AmmoBarEnabled = false,
 }
 
 function InitPlayerState()
@@ -55,6 +57,8 @@ function PrintPlayerState()
 	Ext.Print(PersistentVars["PlayerCharacterGUID"])
 	Ext.Print(PersistentVars["PlayerActiveSkillPreview"])
 	Ext.Print(PersistentVars["CurrentHotbar"])
+	Ext.Print(PersistentVars["HotbarVisible"])
+	Ext.Print(PersistentVars["AmmoBarEnabled"])
 end
 
 function PrintSkillList()
@@ -174,8 +178,16 @@ local function Musketeer_AmmoBar_SetMaxAmmo(call, value)
 	print("Set Max Ammo Count.")
 end
 
-
+-- Currently extremely messy because of inconsistent parameter calls. (Some use "0" and "1", and now i also use true and false bools...)
 local function Musketeer_AmmoBar_Visibility(call, value)
+	if value == "0" or value == false then
+		PersistentVars["AmmoBarEnabled"] = false
+	elseif value == "1" or value == true then
+		PersistentVars["AmmoBarEnabled"] = true
+	else
+		print("Invalid value passed to Musketeer_AmmoBar_Visibility.")
+		print(value)
+	end
 	print(call)
 	print(value)
 	print(type(value))
@@ -198,6 +210,12 @@ local function Musketeer_AmmoBar_Visibility(call, value)
 		else
 			print("Invalid Value, value should be a Boolean (0 or 1)")
 		end
+	end
+	-- Refactor this, only done this way for testing.
+	if (PersistentVars["HotbarVisible"] == false) then
+		print("Not showing AmmoBar, because Hotbar is disabled.")
+		ui:Hide()
+		return
 	end
 	print("AmmoBar visibility set")
 end
@@ -472,6 +490,15 @@ local function Musketeer_Client_Signal_Ready()
 	Ext.PostMessageToServer('clientReady', 1)
 end
 
+local function Musketeer_AmmoBar_Visibility_Hotbar(ui, event, handle)
+	print(event)
+	print(handle)
+	if (type(handle) == "boolean") then
+		PersistentVars["HotbarVisible"] = handle
+	end
+	Musketeer_AmmoBar_Visibility(nil, PersistentVars["AmmoBarEnabled"])
+end
+
 local function RegisterBuiltInUIListeners() 
 	-- Listen to the hotbar for when the sheet opens
 	local hotbar = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
@@ -493,7 +520,7 @@ local function RegisterBuiltInUIListeners()
 		
 		Ext.RegisterUIInvokeListener(hotbar, "setCurrentHotbar", SetCurrentHotbar)
 		Ext.RegisterUIInvokeListener(hotbar, "setPlayerHandle", DebugStuffs2)
-
+		Ext.RegisterUIInvokeListener(hotbar, "showSkillBar", Musketeer_AmmoBar_Visibility_Hotbar)
 		
 
 		

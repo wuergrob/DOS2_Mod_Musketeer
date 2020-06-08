@@ -20,6 +20,41 @@ Musketeer_Reload_Skill_Variants = {
     "Shout_Reload_Holy",
 }
 
+Musketeer_Vanilla_Huntsman_Override = {
+    -- [Projectile Entries]
+    -- Bow/XBow Skills
+    "Projectile_Multishot",
+    "Projectile_ArrowSpray",
+    "Projectile_PiercingShot",
+    "Projectile_Snipe",
+    "Projectile_Ricochet",
+    "Projectile_BallisticShot",
+    "Projectile_Mark",
+    "Projectile_PinDown",
+    -- Special Arrows
+    "Projectile_FireArrow",
+    "Projectile_ExplosionArrow",
+    "Projectile_FreezingArrow",
+    "Projectile_WaterArrow",
+    "Projectile_CursedFireArrow",
+    "Projectile_BlessedWaterArrow",
+    "Projectile_SlowDownArrow",
+    "Projectile_StunningArrow",
+    "Projectile_SteamCloudArrow",
+    "Projectile_SmokescreenArrow",
+    "Projectile_StaticCloudArrow",
+    "Projectile_SilverArrow",
+    "Projectile_BleedingArrow",
+    "Projectile_KnockedOutArrow",
+    "Projectile_PoisonedCloudArrow",
+    "Projectile_CharmingArrow",
+    "Projectile_PoisonArrow",
+    "Projectile_DebuffAllArrow",
+    "Projectile_SkyShot",
+    -- [ProjectileStrike Entries]
+    "ProjectileStrike_RainOfArrows",
+}
+
 --local function TestLog(msg)
 --    print(msg)
 --end
@@ -301,3 +336,56 @@ local function Musketeer_GetRandomPosAround(X, Y, Z, Distance)
     return newX, newY, newZ
 end
 Ext.NewQuery(Musketeer_GetRandomPosAround, "NRD_Musketeer_Get_Random_Pos", "[in](REAL)_X, [in](REAL)_Y, [in](REAL)_Z, [in](REAL)_Distance, [out](REAL)_newX, [out](REAL)_newY, [out](REAL)_newZ");
+
+
+local function StatOverrideTest()
+    local appendNoRifleRequirement = {Not = true, Param = "Rifle_Armed", Requirement = "Tag"}
+    local projectileString = "Projectile"
+    print("====================================================")
+    print("[SERVER] StatOverrideTest")
+    for i,name in pairs(Ext.GetStatEntries("SkillData")) do
+
+        -- Filter out any non-Projectile/non-ProjectileStrike skills.
+        if name ~= nil and string.sub(name, 1, string.len(projectileString)) == projectileString then
+
+            for j, entry in pairs(Musketeer_Vanilla_Huntsman_Override) do
+                if name == entry then
+                    print(name)
+                    local skillRequirements = Ext.StatGetAttribute(name, "Requirements")
+                    --print(skillRequirements[1])
+                    --print(Ext.JsonStringify(skillRequirements[1]))
+                    --[[
+                    if skillRequirements[2] ~= nil then
+                        print(Ext.JsonStringify(skillRequirements))
+                        print(rawlen(skillRequirements))
+                        skillRequirements[rawlen(skillRequirements)+1] = appendNoRifleRequirement
+                        skillRequirements[rawlen(skillRequirements)+2] = appendNoRifleRequirement2
+                        Ext.StatSetAttribute(name, "Requirements", skillRequirements)
+                        print("SKILL REQUIREMENTS UPDATED")
+                        print(Ext.JsonStringify(Ext.StatGetAttribute(name, "Requirements")))
+                    end
+                    ]]
+                    local hasRequirement = false
+                    for RequirementsIndex = 1,rawlen(skillRequirements),1 do
+                        print(skillRequirements[RequirementsIndex])
+                        if skillRequirements[RequirementsIndex].Param == "Rifle_Armed" then
+                            hasRequirement = true
+                            print("noRifle tag Requirement already exists.")
+                        end
+                    end
+                    if hasRequirement == false then
+                        skillRequirements[rawlen(skillRequirements)+1] = appendNoRifleRequirement
+                        Ext.StatSetAttribute(name, "Requirements", skillRequirements)
+                        print("noRifle tag Requirement appended.")
+                    end
+                end
+            end
+
+
+
+        end
+    end
+    print("Donso.")
+end
+Ext.RegisterListener("StatsLoaded", StatOverrideTest)
+Ext.RegisterListener("SessionLoading", StatOverrideTest)
