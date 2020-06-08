@@ -18,8 +18,11 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - [Divinity: Original Sin 2](http://store.steampowered.com/app/435150/Divinity_Original_Sin_2/), a game by [Larian Studios](http://larian.com/)
 
 # Working on right now:
-- Test out Spear-Animations for possible inclusion of melee-skills.
-
+- Test out Spear-Animations for possible inclusion of melee-skills. (Going through the animations revealed not much potential)
+- Rewrite "Covering Fire" logic in LUA
+- Make AmmoBar draggable
+- Finalize AmmoType effects
+- Rework "Rend the Marked" again, because it's super lame
 
 # Current WIP Features
 - [ ] Reload Animation and SFX/FX
