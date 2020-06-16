@@ -10,6 +10,10 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - Custom sounds
 - Dynamic skill ranges, Rifle-Skills range is determined by your equipped firearm.
 - Updated talents to interact with firearms
+
+## Current Skill-List Overview:
+![alt text](https://cdn.discordapp.com/attachments/358337334619406336/719880391334559844/Musketeer_Skills_Overview.png "Skill-List")
+
 # Releases
 * [Steam Workshop]() 
 * [Nexus]()
