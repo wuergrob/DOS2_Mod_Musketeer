@@ -12,7 +12,7 @@
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="FormatStringColor" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Reload_Debuff" />
-        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Reload_Debuff" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Enhanced_Ammo" />
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
       </fields>
     </stat_object>
@@ -229,6 +229,29 @@
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Null_Status_Desc" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="FormatStringColor" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_Range" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MUSK_REND_BUFF" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Rend Stack" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Fire_BoostPerception" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="19" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Status_Steadfast_02;RS3_FX_GP_Status_Clearminded_01,KeepRot:Dummy_OverheadFX" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Musk_Rend_Stack" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MUSK_REND_APPLYEFFECT" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Musk_Null" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="MUSK_NULL_STATUS" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Null_Status_Desc" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="FormatStringColor" />
       </fields>
     </stat_object>
   </stat_objects>

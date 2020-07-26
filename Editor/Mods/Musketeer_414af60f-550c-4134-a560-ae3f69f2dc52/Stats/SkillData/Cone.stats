@@ -40,5 +40,43 @@
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Rend_Cone" />
+        <field name="Damage" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="DamageSourceType" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
+        <field name="Range" type="IntegerStatObjectFieldDefinition" value="13" />
+        <field name="Angle" type="IntegerStatObjectFieldDefinition" value="75" />
+        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Death Type" />
+        <field name="SurfaceType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Surface Type" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="!Dead;NonSelf;!HasStatus:MUSK_MARK_TARGET" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Fire_FlameBreath" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Rend Cone Test" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_fire_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_fire_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Fire_Prepare_Fire_Hand_02:Dummy_L_HandFX" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_cone_fire_01_cast" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Fire_Flamebreath_Fire_01:Dummy_OverheadFX;RS3_FX_Skills_Fire_Flamebreath_CastHands_01:Dummy_L_HandFX,Dummy_R_HandFX" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="BackStart" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="FrontOffset" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="Level" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="SurfaceStatusChance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="SurfaceGrowStep" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="SurfaceGrowInterval" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="bla" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
+        <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,0,0,Projectile_Rifle_Snipe" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

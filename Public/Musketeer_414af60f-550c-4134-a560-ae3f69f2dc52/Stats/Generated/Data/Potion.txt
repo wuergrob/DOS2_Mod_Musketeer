@@ -141,3 +141,12 @@ data "Act" "1"
 data "Act part" "0"
 data "Sourcery" "2"
 
+new entry "Stats_Musk_Rend_Stack"
+type "Potion"
+data "Act" "1"
+data "Act part" "0"
+data "Finesse" "2"
+data "Wits" "2"
+data "Initiative" "2"
+data "DamageBoost" "7"
+

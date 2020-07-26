@@ -38,6 +38,39 @@ ACTIONS
 		ENDIF
 
 
+EVENT Musketeer_Rend_Cast
+VARS
+    CHARACTER:_Char
+	CHARACTER:_Target
+    //CHARACTER:_Target
+ON
+	//OnCharacterEvent(_Char, "Musk_Rend_Executed")
+	OnCharacterCharacterEvent(_Char, _Target, "Musk_Rend_Executed")
+ACTIONS
+	CharacterApplyStatus(_Char, MUSK_REND_BUFF, 1, 1, _Char)
+	CharacterPlayEffect(_Target, "Musketeer_FX_Rend_Slash", "Dummy_OverheadFX")
+	ShootLocalProjectileAt(Projectile_Musk_Rend_Harvest_Effect, _Target, {0.0;0.1;0.0}, _Char, 1, _Char)
+/*
+		IF "c1"
+			GetVar(_Target, _Char, "Rend_Effect_Origin")
+		THEN
+			CharacterApplyStatus(_Char, MUSK_REND_BUFF, 1, 1, _Char)
+			ShootLocalProjectileAt(Projectile_Musk_Rend_Harvest_Effect, _Target, {0.0;0.1;0.0}, _Char, 1, _Target)
+		ENDIF
+*/
+
+EVENT Musketeer_Rend_Stack_Impact_Effect
+VARS
+	CHARACTER:_Char
+	CHARACTER:_Target
+ON
+	//OnCharacterUsedSkillOnMe(_, Projectile_Musk_Rend_Harvest_Effect)
+	OnCharacterStatusApplied(_Char, MUSK_REND_APPLYEFFECT)
+ACTIONS
+	CharacterPlayEffect(_Char, "Musketeer_FX_Rend_Impact")
+	CharacterRemoveStatus(_Char, MUSK_REND_APPLYEFFECT)
+
+
 EVENT Musketeer_Executioner_Ammo_Refund
 VARS
     CHARACTER:_Char
@@ -55,3 +88,19 @@ ACTIONS
 			CharacterApplyStatus(_Char, MUSK_EXECUTIONER, -2, 1, _Char)
 		ENDIF
 
+EVENT Musketeer_Piercing_Ammo_Passthrough
+VARS
+    CHARACTER:_OriginChar
+    FLOAT3:_TargetLoc
+	CHARACTER:_ProjectileOrigin
+ON
+	OnCharacterEvent(_OriginChar, "Musketeer_Pierce_Ammo_Event")
+ACTIONS
+		IF "c1&c2&c3"
+			GetVar(_TargetLoc, _OriginChar, "Piercing_TargetLocation")
+			GetVar(_ProjectileOrigin, _OriginChar, "Piercing_OriginLocation")
+			IsTagged(_OriginChar, "Rifle_Armed")
+		THEN
+			DebugText(_OriginChar,"Piercing Ammo Stuff GameScript")
+			ShootLocalProjectileAt(Projectile_Musk_Piercing_Ammo_Effect, _ProjectileOrigin, {0.0;0.3;0.0}, _TargetLoc, 1, _OriginChar)
+		ENDIF

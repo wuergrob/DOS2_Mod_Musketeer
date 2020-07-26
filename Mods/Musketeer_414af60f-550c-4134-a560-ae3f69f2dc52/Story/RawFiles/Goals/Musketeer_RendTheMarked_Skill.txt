@@ -1,0 +1,75 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+
+KBSECTION
+
+
+IF
+CharacterStatusApplied(_Target, "MUSK_MARK_REND_DUMMY", _Character)
+THEN
+RemoveStatus(_Target, "MUSK_MARK_REND_DUMMY");
+ProcObjectTimerMusk(_Target, "Musketeer_Rend_Helper_Timer", 2, _Character);
+NRD_DebugLog("Dummy CharacterStatusApplied");
+
+
+// PROC's for storing key/value pairs along a timer name in the DB
+
+// -----------
+/*
+PROC
+ProcObjectTimerMusk((GUIDSTRING)_Target,(STRING)_TimerName,(INTEGER)_Time, (GUIDSTRING)_Causee)
+AND
+GetUUID(_Target,_UUID_Target)
+AND
+GetUUID(_Causee,_UUID_Causee)
+AND
+StringConcatenate(_UUID_Target,_TimerName,_ObjectTimerNameTemp)
+AND
+StringConcatenate(_ObjectTimerNameTemp,_UUID_Causee,_ObjectTimerName)
+THEN
+DB_ObjectTimerMusk(_Target,_ObjectTimerName,_TimerName, _Causee);
+TimerLaunch(_ObjectTimerName,_Time);
+
+IF
+TimerFinished(_ObjectTimerName)
+AND
+DB_ObjectTimerMusk(_Target,_ObjectTimerName,_TimerName,_Causee)
+THEN
+NOT DB_ObjectTimerMusk(_Target,_ObjectTimerName,_TimerName,_Causee);
+ProcObjectTimerFinishedMusk(_Target,_TimerName,_Causee);
+
+PROC
+ProcObjectTimerFinishedMusk((GUIDSTRING)_Object,(STRING)_TimerName,(GUIDSTRING)_Causee)
+THEN
+DB_NOOP(1);
+*/
+// -----------
+
+PROC
+ProcObjectTimerFinishedMusk((CHARACTERGUID)_Target, "Musketeer_Rend_Helper_Timer", (CHARACTERGUID)_Causee)
+AND
+CharacterIsDead(_Target, 1)
+THEN
+//ClearTag(_Target, "Musketeer_Final_Act_Tag");
+//SetStoryEvent(_Causee, "Musk_Rend_Executed");
+CharacterCharacterSetEvent(_Causee, _Target, "Musk_Rend_Executed");
+//DisplayText(_Target, "<font color='#00FF00' size='30'>I got executed by FinalAct!</font>");
+//DisplayText(_Causee, "<font color='#00FF00' size='30'>What he said!</font>");
+
+
+PROC
+ProcObjectTimerFinishedMusk((CHARACTERGUID)_Target, "Musketeer_Rend_Helper_Timer", (CHARACTERGUID)_Causee)
+//AND
+//CharacterIsDead(_Target, 1)
+THEN
+//ClearTag(_Target, "Musketeer_Final_Act_Tag");
+//SetStoryEvent(_Causee, "Musk_FinalAct_Executed");
+NRD_DebugLog("Musketeer_Rend_Helper_Timer is over");
+//DisplayText(_Target, "<font color='#00FF00' size='30'>I got executed by FinalAct!</font>");
+//DisplayText(_Causee, "<font color='#00FF00' size='30'>What he said!</font>");
+
+EXITSECTION
+
+ENDEXITSECTION
+ParentTargetEdge "Musketeer_Mod"

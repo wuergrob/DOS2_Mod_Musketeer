@@ -8,6 +8,13 @@ KBSECTION
 // your target. In that case, i suppose you can kill a marked character and not trigger
 // this effect.
 
+// Empty handler for the NRD_OnHit event to avoid it getting removed by optimization.
+// Without this, the event cannot successfully get registered in Lua.
+IF
+NRD_OnHit(_Target, _Attacker, _Damage, _StatusHandle)
+THEN
+DB_NOOP(1);
+//NRD_DebugLog("OnHit works in Osiris");
 
 // Attacking a character with the "Final Act" skill tags them for a short duration.
 // If the target dies while it has said tag applied, then we assume it's the skill
@@ -18,14 +25,23 @@ CharacterStatusApplied(_Target, "MUSK_MARK_FINALACT_DUMMY", _Character)
 THEN
 RemoveStatus(_Target, "MUSK_MARK_FINALACT_DUMMY");
 ProcObjectTimerMusk(_Target, "Musketeer_Final_Act_Helper_Timer", 2, _Character);
+NRD_DebugLog("Dummy CharacterStatusApplied");
 
 IF
 CharacterStatusAttempt(_Target, "MUSK_MARK_FINALACT_DUMMY", _Character)
 AND
 HasActiveStatus(_Target, "MUSK_MARK_TARGET", 1)
+AND
+String(_Target, _TargetString)
+AND
+String(_Character, _CharacterString)
 THEN
 // Check this game in gamescript to determine wheter to apply Euphoria and heal or hasted on kill.
 SetTag(_Character, "Musketeer_Final_Act_Tag");
+NRD_DebugLog("Dummy CharacterStatusAttempt");
+NRD_DebugLog(_TargetString);
+NRD_DebugLog(_CharacterString);
+
 
 // PROC's for storing key/value pairs along a timer name in the DB
 
@@ -79,6 +95,18 @@ IsTagged(_Causee, "Musketeer_Final_Act_Tag", 1)
 THEN
 ClearTag(_Causee, "Musketeer_Final_Act_Tag");
 //DisplayText(_Target, "<font color='#00FF00' size='30'>Hit a marked target, but didn't kill it</font>");
+//DisplayText(_Causee, "<font color='#00FF00' size='30'>What he said!</font>");
+
+
+PROC
+ProcObjectTimerFinishedMusk((CHARACTERGUID)_Target, "Musketeer_AmmoType_Helper_Timer", (CHARACTERGUID)_Causee)
+//AND
+//CharacterIsDead(_Target, 1)
+THEN
+//ClearTag(_Target, "Musketeer_Final_Act_Tag");
+//SetStoryEvent(_Causee, "Musk_FinalAct_Executed");
+NRD_DebugLog("Musketeer_AmmoType_Helper_Timer is over");
+//DisplayText(_Target, "<font color='#00FF00' size='30'>I got executed by FinalAct!</font>");
 //DisplayText(_Causee, "<font color='#00FF00' size='30'>What he said!</font>");
 
 EXITSECTION

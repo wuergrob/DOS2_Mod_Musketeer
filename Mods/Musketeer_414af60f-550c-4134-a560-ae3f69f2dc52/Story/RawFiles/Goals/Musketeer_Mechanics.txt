@@ -87,6 +87,8 @@ CharacterAddSkill(_Player, "Shout_Reload_Explosive");
 CharacterAddSkill(_Player, "Shout_Reload_Freezing");
 CharacterAddSkill(_Player, "Shout_Reload_Silver");
 CharacterAddSkill(_Player, "Shout_Reload_Holy");
+// Test cone stuff for Rend The Marked skill rework
+CharacterAddSkill(_Player, "Cone_Rend_Cone");
 NRD_DebugLog("[WT_FS] Musketeer Rifle equipped..");
 //CharacterAddAbility(_Player, "Repair", 5);
 //ApplyStatus(_Player, "MUSK_RANGE_10", -1.0, 1, _Player);
@@ -341,6 +343,50 @@ Musketeer_Send_Ammo_Count(_Character, _Weapon);
 
 //END_REGION
 
+/*
+IF
+NRD_OnActionStateEnter(_Character, "Attack")
+AND
+DB_IsPlayer((CHARACTERGUID)_Character)
+AND
+String(_Character, _CharGUIDString)
+THEN
+//NRD_ActionStateGetInt((CHARACTERGUID), )
+NRD_DebugLog("Player Attack Event");
+NRD_DebugLog(_CharGUIDString);
+*/
+/*
+IF
+NRD_OnActionStateEnter(_Character, "Attack")
+AND
+DB_IsPlayer((CHARACTERGUID)_Character)
+THEN
+//AND
+//String(_Character, _CharGUIDString)
+//THEN
+//NRD_ActionStateGetInt((CHARACTERGUID), )
+NRD_Musketeer_AS(_Character);
+
+// "Hit" detection never fired, thus trying out lowerCaps strings.
+IF
+NRD_OnActionStateEnter(_Character, "Shoot")
+THEN
+//NRD_ActionStateGetInt((CHARACTERGUID), )
+NRD_DebugLog("Player Shoot Event");
+//NRD_DebugLog(_CharGUIDString);
+
+IF
+NRD_OnActionStateEnter(_Character, "hit")
+THEN
+//NRD_ActionStateGetInt((CHARACTERGUID), )
+NRD_DebugLog("Player hit Event");
+
+
+IF
+TimerFinished("AStest")
+THEN
+NRD_Musketeer_AS_Timer();
+*/
 EXITSECTION
 
 ENDEXITSECTION

@@ -1,4 +1,4 @@
-
+--Ext.Require("ExtIdeHelpers.lua")
 -- TODO
 
 --[[
@@ -86,6 +86,8 @@ local function Musketeer_AmmoBar_Init()
 	if ui ~= nil then
 		--Ext.RegisterUICall(ui, "onEvent", LeaderLib_Debug_OnDebugUIEvent)
 		print("[Musketeer:BootstrapClient.lua] Hiding ammo window.")
+		-- Re-register ui id to make it draggable.
+		-- ui:ExternalInterfaceCall("registerAnchorId", "AmmoBar")
 		ui:Hide()
 		ui:Invoke("setAmmoCount", 11)
 		--ui:SetPosition(200,70)
@@ -581,3 +583,41 @@ local function ReceiveServerRequest(channel, player)
 	Musketeer_AmmoBar_Init();
 end
 Ext.RegisterNetListener("requestClient", ReceiveServerRequest)
+
+
+
+-- NOTE ON TALENTS:
+-- characterSheet.swf Maintimeline has a "addTalent" function.
+-- Adding a talent with a "statid" out of bounds crashes the game. (Out of bounds means, "statid" is higher than max enum value here https://docs.larian.game/Scripting_talent_types)
+-- Script extender has a Game.Tooltip library, maybe this can be used to add more talents.
+
+-- print(Ext.GetCharacter("ad9a3327-4456-42a7-9bf4-7ad60cc9e54f").Stats.TALENT_Bully) works server side.
+
+
+--[[
+
+For talent_array formatting, consider this snippet from the extender discord:
+
+local function SessionLoaded()
+    Ext.RegisterUINameInvokeListener("updateArraySystem", function(ui, call, ...)
+        --PrintArray(ui, "tags_array")
+        local i = GetArrayIndexStart(ui, "talent_array", 1)
+        ui:SetValue("talent_array", "Undead", i)
+        ui:SetValue("talent_array", Data.TalentEnum.Zombie, i+1)
+        ui:SetValue("talent_array", 0, i+2)
+        ui:SetValue("talent_array", "Corpse Eater", i+3)
+        ui:SetValue("talent_array", Data.TalentEnum.Elf_CorpseEating, i+4)
+        ui:SetValue("talent_array", 0, i+5)
+        PrintArray(ui, "talent_array")
+    end)
+end
+
+Ext.RegisterListener("SessionLoaded", SessionLoaded)
+
+
+Also, use the following to reset the Lua VM (In server context):
+NRD_LuaReset(1,1,1)
+
+
+]]
+
