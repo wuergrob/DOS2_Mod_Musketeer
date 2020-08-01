@@ -14,6 +14,11 @@ IF
 NRD_OnHit(_Target, _Attacker, _Damage, _StatusHandle)
 THEN
 DB_NOOP(1);
+
+IF
+CharacterItemEvent(_, _, _)
+THEN
+DB_NOOP(1);
 //NRD_DebugLog("OnHit works in Osiris");
 
 // Attacking a character with the "Final Act" skill tags them for a short duration.
@@ -38,10 +43,11 @@ String(_Character, _CharacterString)
 THEN
 // Check this game in gamescript to determine wheter to apply Euphoria and heal or hasted on kill.
 SetTag(_Character, "Musketeer_Final_Act_Tag");
+/*
 NRD_DebugLog("Dummy CharacterStatusAttempt");
 NRD_DebugLog(_TargetString);
 NRD_DebugLog(_CharacterString);
-
+*/
 
 // PROC's for storing key/value pairs along a timer name in the DB
 

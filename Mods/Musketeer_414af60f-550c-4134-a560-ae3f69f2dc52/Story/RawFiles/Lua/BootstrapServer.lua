@@ -8,6 +8,7 @@ Musketeer_Ammo_Statuses = {
     "RELOAD_FREEZING",
     "RELOAD_SILVER",
     "RELOAD_HOLY",
+    "RELOAD_UNUSED",
     "RELOAD_EXPLOSIVE",
 }
 
@@ -391,37 +392,6 @@ Ext.RegisterListener("StatsLoaded", OverrideSkillRequirements)
 Ext.RegisterListener("SessionLoading", OverrideSkillRequirements)
 
 
---[[
-
-NOTES for AmmoType Rework:
-
-0 - Default:
-
-1 - Incendiary:
-Ignites and deals fire damage.
-Upon killing a enemy, causes a fire explosion to errupt from the target that deals fire damage around it and ignites enemies.
-(Check OnHit for erruption?)
-
-2 - Ice:
-Chills per default, freeze chilled(or wet?) enemies. (No code necessary, should be doable in Stats)
-
-3 - Shock:
-Shocks enemy and shock entities around it. (Check current implementations, maybe do manual spell-forking when facing insufficient results)
-
-4 - Doom:
-Explody stuff, good damage and AoE but lack of status effects. (Check current implementations)
-
-5 - Explode:
-Change to Armor Piercing rounds.
-10% damage buff, negate some physical resistance (Is that even really a thing?) and continue traveling after hitting your initial target.
-
-"Rend the Marked" Rework:
-
-Target all Marked enemies in a target cone-area(?), temporarily gain bonus finesse for every target killed with this ability.
-No longer fears or causes damage on movement. Change Execution threshhold from 25% to 15%.
-
---]]
-
 local function IsRifleBasedSkill(statId)
     if statId == nil or statId == "" then Ext.Print("IsRifleBasedSkill with empty param") return end
     Ext.Print("IsRifleBasedSkill with param: " .. statId)
@@ -467,6 +437,27 @@ local function IsRifleBasedSkill(statId)
     return false
 end
 
+--- Retrieve the currently active AmmoType for a character. Returns nil if no AmmoType is active.
+--- @param characterGUID string Character to check AmmoType for
+--- @return string statusId name of the AmmoType statusId, or nil if none present
+local function GetCharacterAmmoType(characterGUID)
+    local charObj = Ext.GetCharacter(characterGUID)
+    local charStatuses = charObj:GetStatuses()
+    if charObj == nil or charStatuses == nil or #charStatuses == 0 then
+        return nil
+    end
+
+    for i = 1,#charStatuses,1 do
+        for j = 1,#Musketeer_Ammo_Statuses,1 do
+            if charStatuses[i].StatusType == "CONSUME" and charStatuses[i].StatusId == Musketeer_Ammo_Statuses[j] then
+                -- Apply the onKill AmmoType stuff here, if it doesn't rely on the target's statuses.
+                Ext.Print(charStatuses[i].StatusId)
+                return charStatuses[i].StatusId
+            end
+        end
+    end
+    return nil
+end
 
 local function AmmotypeOnKill(defender, attackOwner, attacker)
 
@@ -477,7 +468,6 @@ local function AmmotypeOnKill(defender, attackOwner, attacker)
 
     if (attackerArmedTag == false) then return end
 
-    local attackerStatuses = attackerObj:GetStatuses()
     local targetStatuses = targetObj:GetStatuses()
 
     local targetHasHitStatus = false
@@ -488,16 +478,6 @@ local function AmmotypeOnKill(defender, attackOwner, attacker)
         print(targetStatuses[i].StatusType)
         if (targetStatuses[i].StatusType == "HIT" and onDeathEffectTriggered == false) then
             targetHasHitStatus = true
-            --[[
-            Ext.Print(targetStatuses[i].TargetHandle)
-            Ext.Print(targetStatuses[i].SkillId)
-            Ext.Print(Ext.GetCharacter(targetStatuses[i].TargetHandle).MyGuid)
-            Ext.Print(targetStatuses[i].StatusSourceHandle)
-            Ext.Print(Ext.GetCharacter(targetStatuses[i].StatusSourceHandle).MyGuid)
-            Ext.Print(targetStatuses[i].DamageSourceType)
-            Ext.Print(targetStatuses[i].IsOnSourceSurface)
-            --Ext.Print(targetStatuses[i].StatusType.TargetHandle)
-            --]]
             if targetStatuses[i].SkillId == "" and targetStatuses[i].DamageSourceType == "Attack" then
                 Ext.Print("TARGET KILLED WITH BASIC ATTACK!")
                 validAttackSource = true
@@ -519,92 +499,52 @@ local function AmmotypeOnKill(defender, attackOwner, attacker)
     -- (Basically, check for the "Rifle_Armed" tag on the attacker)
 
     --Ext.Print("--- Attacker Statuses ---")
-    for i = 1,#attackerStatuses,1 do
-        for j = 1,#Musketeer_Ammo_Statuses,1 do
-            if attackerStatuses[i].StatusType == "CONSUME" and attackerStatuses[i].StatusId == Musketeer_Ammo_Statuses[j] then
-                -- Apply the onKill AmmoType stuff here, if it doesn't rely on the target's statuses.
-                Ext.Print(attackerStatuses[i].StatusId)
-                if attackerStatuses[i].StatusId == "RELOAD_INCENDIARY" then
-                    NRD_ProjectilePrepareLaunch();
-                    NRD_ProjectileSetString("SkillId", "Projectile_Musk_Incendiary_Ammo_Effect");
-                    --NRD_ProjectileSetInt("CasterLevel", 1);
-                    NRD_ProjectileSetGuidString("Caster", attacker);
-                    NRD_ProjectileSetGuidString("Source", attacker);
-                    NRD_ProjectileSetGuidString("Target", defender);
-                    NRD_ProjectileSetGuidString("HitObject", defender);
-                    NRD_ProjectileSetGuidString("HitObjectPosition", defender);
-                    NRD_ProjectileSetGuidString("SourcePosition", defender);
-                    NRD_ProjectileSetGuidString("TargetPosition", defender);
-                    NRD_ProjectileLaunch();
-                end
-                if attackerStatuses[i].StatusId == "RELOAD_EXPLOSIVE" then
-                    Ext.Print("Piercing Ammo stuffs")
-                    local attackerX, attackerY, attackerZ = GetPosition(attacker)
-                    local targetX, targetY, targetZ = GetPosition(defender)
 
-                    local dist = ((targetZ - attackerZ)^2 + (targetX - attackerX)^2)^(1/2)
+    local ammoTypeStatusId = GetCharacterAmmoType(attacker)
 
-                    local newZ = attackerZ + ((targetZ - attackerZ)/(dist)) * (dist+5)
-                    local newX = attackerX + ((targetX - attackerX)/(dist)) * (dist+5)
-                    local newY = targetY + 0.2
+    if ammoTypeStatusId == "RELOAD_INCENDIARY" then
+        NRD_ProjectilePrepareLaunch();
+        NRD_ProjectileSetString("SkillId", "Projectile_Musk_Incendiary_Ammo_Effect");
+        --NRD_ProjectileSetInt("CasterLevel", 1);
+        NRD_ProjectileSetGuidString("Caster", attacker);
+        NRD_ProjectileSetGuidString("Source", attacker);
+        NRD_ProjectileSetGuidString("Target", defender);
+        NRD_ProjectileSetGuidString("HitObject", defender);
+        NRD_ProjectileSetGuidString("HitObjectPosition", defender);
+        NRD_ProjectileSetGuidString("SourcePosition", defender);
+        NRD_ProjectileSetGuidString("TargetPosition", defender);
+        NRD_ProjectileLaunch();
+    end
+    if ammoTypeStatusId == "RELOAD_EXPLOSIVE" then
+        Ext.Print("Piercing Ammo stuffs")
+        local attackerX, attackerY, attackerZ = GetPosition(attacker)
+        local targetX, targetY, targetZ = GetPosition(defender)
 
-                    --print(attackerX, attackerY, attackerZ)
-                    --print(targetX, targetY, targetZ)
-                    --print(newX, newY, newZ)
-                    --Assign Piercing-Ammo Info on Global Var's for the GameScript to retrieve.
-                    --The Story Event triggers the Gamescript to launch the projectile.
-                    SetVarFloat3(attacker, "Piercing_TargetLocation", newX, newY, newZ)
-                    SetVarObject(attacker, "Piercing_OriginLocation", defender)
-                    SetStoryEvent(attacker, "Musketeer_Pierce_Ammo_Event")
+        local dist = ((targetZ - attackerZ)^2 + (targetX - attackerX)^2)^(1/2)
 
-                end
-            end
-        end
+        local newZ = attackerZ + ((targetZ - attackerZ)/(dist)) * (dist+5)
+        local newX = attackerX + ((targetX - attackerX)/(dist)) * (dist+5)
+        local newY = targetY + 0.2
+
+        --print(attackerX, attackerY, attackerZ)
+        --print(targetX, targetY, targetZ)
+        --print(newX, newY, newZ)
+        --Assign Piercing-Ammo Info on Global Var's for the GameScript to retrieve.
+        --The Story Event triggers the Gamescript to launch the projectile.
+        SetVarFloat3(attacker, "Piercing_TargetLocation", newX, newY, newZ)
+        SetVarObject(attacker, "Piercing_OriginLocation", defender)
+        SetStoryEvent(attacker, "Musketeer_Pierce_Ammo_Event")
+
     end
 end
 Ext.RegisterOsirisListener("CharacterKilledBy", 3, "before", AmmotypeOnKill)
 
-
-
-
-local function FinalActOnDeath(defender, attacker, damageAmount, statusHandle)
-    local finalActSkillName = "Projectile_Final_Act"
-    Ext.Print("NRD_OnHit OsirisListener triggered (FINALACT)")
-    print(defender, attacker, damageAmount, statusHandle)
-    local statusObj = Ext.GetStatus(defender, statusHandle)
-    if (statusObj ~= nil and statusObj ~= "" and statusObj.SkillId ~= nil and statusObj.SkillId ~= "") then
-        local skillId = statusObj.SkillId
-        Ext.Print(skillId)
-        if #skillId >= #finalActSkillName and string.sub(skillId, 1, #finalActSkillName) == finalActSkillName then
-            Ext.Print("Defender got attacked with the Final Act skill.")
-            ApplyStatus(defender, "MUSK_MARK_FINALACT_DUMMY", 2, 1, attacker)
-        end
-    end
-end
---Ext.RegisterOsirisListener("NRD_OnHit", 4, "after", FinalActOnDeath)
-
-local function RendTheMarkedOnDeath(defender, attacker, damageAmount, statusHandle)
-    local RendSkillName = "Projectile_Rend_The_Marked"
-    Ext.Print("NRD_OnHit OsirisListener triggered (REND)")
-    print(defender, attacker, damageAmount, statusHandle)
-    local statusObj = Ext.GetStatus(defender, statusHandle)
-    if (statusObj ~= nil and statusObj ~= "" and statusObj.SkillId ~= nil and statusObj.SkillId ~= "") then
-        local skillId = statusObj.SkillId
-        Ext.Print(skillId)
-        if #skillId >= #RendSkillName and string.sub(skillId, 1, #RendSkillName) == RendSkillName then
-            Ext.Print("Defender got attacked with the Rend the Marked skill.")
-            ApplyStatus(defender, "MUSK_MARK_REND_DUMMY", 2, 1, attacker)
-            SetVarObject(attacker, "Rend_Effect_Origin", defender)
-        end
-    end
-end
---Ext.RegisterOsirisListener("NRD_OnHit", 4, "after", RendTheMarkedOnDeath)
-
+testObj = nil
+TestPlayer = nil
 
 local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusHandle)
     local finalActSkillName = "Projectile_Final_Act"
     local RendSkillName = "Projectile_Rend_The_Marked"
-    local RendImpactSkillName = "Projectile_Musk_Rend_Harvest_Effect"
     Ext.Print("NRD_OnHit OsirisListener triggered")
     print(defender, attacker, damageAmount, statusHandle)
     local statusObj = Ext.GetStatus(defender, statusHandle)
@@ -617,11 +557,13 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
         elseif #skillId >= #RendSkillName and string.sub(skillId, 1, #RendSkillName) == RendSkillName then
             Ext.Print("Defender got attacked with the Rend the Marked skill.")
             ApplyStatus(defender, "MUSK_MARK_REND_DUMMY", 2, 1, attacker)
-        elseif #skillId >= #RendImpactSkillName and string.sub(skillId, 1, #RendImpactSkillName) == RendImpactSkillName then
-            Ext.Print("Defender got attacked with the Rend Effect skill.")
-            -- ApplyStatus(defender, "MUSK_MARK_FINALACT_DUMMY", 2, 1, attacker)
         end
     end
+    Ext.Print("For testing, saving attackers weapon in global var: testObj")
+    TestPlayer = Ext.GetCharacter(attacker)
+    Ext.Print(TestPlayer)
+    --testObj = Ext.GetCharacter(attacker).GetItemBySlot("Weapon")
+    --Ext.Print(testObj)
 end
 Ext.RegisterOsirisListener("NRD_OnHit", 4, "after", Musketeer_OnHit_Handler)
 
@@ -632,5 +574,63 @@ local function DebugFinalActTagRemoval(character, tag)
         Ext.Print(character)
     end
 end
-Ext.RegisterOsirisListener("ObjectLostTag", 2, "before", DebugFinalActTagRemoval)
+--Ext.RegisterOsirisListener("ObjectLostTag", 2, "before", DebugFinalActTagRemoval)
 
+function ReturnPlayer ()
+    Ext.Print("Hi")
+    return TestPlayer
+end
+
+
+
+local function Testagain(skill, attacker, isFromItem, stealthed, attackerPos, targetPos, level, noRandomization)
+    Ext.Print("------------------- GetSkillDamage -------------------")
+    Ext.Print("skill used: " .. skill.Name)
+    print(attacker.MyGuid .. " " .. attackerPos[1]  .. " " .. targetPos[1]  .. " " .. level)
+end
+--Ext.RegisterOsirisListener("NRD_OnActionStateEnter", 2, "before", Testagain)
+--Ext.RegisterOsirisListener("CharacterStartAttackPosition", 5, "before", Testagain)
+Ext.RegisterListener("GetSkillDamage", Testagain)
+
+
+local function Testagain2(item, event)
+    Ext.Print("------------------- Testagain2 -------------------")
+    local helperName = "Musk_Skill_Helperobject"
+    if #item >= #helperName and string.sub(item, 1, #helperName) == helperName then
+        Ext.Print("The Object is a HelperObject")
+        Ext.Print(item, event)
+        local itemObj = Ext.GetItem(item)
+        print(itemObj)
+        print(itemObj.OwnerHandle)
+        local charObj = Ext.GetCharacter(itemObj.OwnerHandle)
+        print(charObj)
+        local weaponGUID = CharacterGetEquippedItem(charObj.MyGuid, "Weapon")
+        Ext.Print(weaponGUID)
+
+        local characterAmmoTypeStatusId = GetCharacterAmmoType(charObj.MyGuid)
+        if characterAmmoTypeStatusId == nil then
+            Ext.Print(" /////////////// No AmmoType Status found on character /////////////// ")
+            return
+        end
+        local beamFXName = "Musketeer_FX_Bullet_Projectile_Beam"
+        if characterAmmoTypeStatusId == Musketeer_Ammo_Statuses[1] then
+            beamFXName = "Musketeer_FX_Ammo_Incendiary_Beam"
+        elseif characterAmmoTypeStatusId == Musketeer_Ammo_Statuses[2] then
+            beamFXName = "Musketeer_FX_Ammo_Freezing_Beam"
+        elseif characterAmmoTypeStatusId == Musketeer_Ammo_Statuses[3] then
+            beamFXName = "Musketeer_FX_Ammo_Shock_Beam"
+        elseif characterAmmoTypeStatusId == Musketeer_Ammo_Statuses[4] then
+            beamFXName = "Musketeer_FX_Ammo_Doom_Beam"
+        elseif characterAmmoTypeStatusId == Musketeer_Ammo_Statuses[5] then
+            -- Used to be Explosive, but has been replaced with Piercing
+            beamFXName = "Musketeer_FX_Bullet_Projectile_Beam"
+        elseif characterAmmoTypeStatusId == Musketeer_Ammo_Statuses[6] then
+            beamFXName = "Musketeer_FX_Ammo_Piercing_Beam"
+        end
+
+        PlayBeamEffect(charObj.MyGuid, item, beamFXName, "Dummy_ArrowFX", "Dummy_Root")
+        --print("FX Handle from Looping Beam: " .. fxHandle)
+    end
+    --Ext.Print("skill used: " .. skill.Name)
+end
+Ext.RegisterOsirisListener("StoryEvent", 2, "before", Testagain2)

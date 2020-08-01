@@ -9,7 +9,7 @@
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Mark Target" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|The character is marked and has a lowered dodge chance and less physical resistance.|" />
         <field name="DescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_DeathWish" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="MarkTarget" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Status_Marked;Musketeer_FX_Status_Marked_04:Dummy_StatusFX" />
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_MUSK_Marked" />

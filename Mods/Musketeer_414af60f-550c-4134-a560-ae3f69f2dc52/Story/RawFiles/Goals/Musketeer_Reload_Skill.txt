@@ -152,7 +152,7 @@ NRD_AmmoBar_Set_Element(_Character, "val", 4);
 IF
 CharacterStatusApplied(_Character, "RELOAD_EXPLOSIVE", _)
 THEN
-NRD_AmmoBar_Set_Element(_Character, "val", 5);
+NRD_AmmoBar_Set_Element(_Character, "val", 6);
 
 IF
 CharacterStatusRemoved(_Character, "RELOAD_INCENDIARY", _)

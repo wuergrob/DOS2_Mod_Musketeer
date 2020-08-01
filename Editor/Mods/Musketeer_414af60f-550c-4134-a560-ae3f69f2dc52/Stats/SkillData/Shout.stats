@@ -23,7 +23,7 @@
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
-        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
         <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -68,13 +68,13 @@
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
-        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
         <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_INCENDIARY,100,4" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_INCENDIARY,100,4;MUSK_AMMO_TEST,100,6" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -99,7 +99,7 @@
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
-        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
         <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -130,7 +130,7 @@
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
-        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
         <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -161,7 +161,7 @@
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
-        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
         <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -192,7 +192,7 @@
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Prepare_Shout_Root_01,KeepRot:Dummy_Root" />
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
-        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Divine_Shout_Cast_01:Dummy_Root:cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
         <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />

@@ -150,3 +150,9 @@ data "Wits" "2"
 data "Initiative" "2"
 data "DamageBoost" "7"
 
+new entry "Stats_Musk_Test"
+type "Potion"
+data "Act" "1"
+data "Act part" "0"
+data "BonusWeapon" "Status_Musk_Ammo_Incendiary"
+

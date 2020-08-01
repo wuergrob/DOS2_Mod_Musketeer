@@ -9,14 +9,16 @@ INT:%Exploded=0
 
 EVENTS
 
+
 EVENT GrenadeInit
 ON 
 	OnInit()
-	OnActivate()
+	//OnActivate()
 ACTIONS
 	IF "c1"
 		ItemGetSkillId(__Me,%ProjectileSkill)
 	THEN
+		ItemEvent(__Me,"Musketeer_Play_BeamFX")
 	ENDIF
 
 	

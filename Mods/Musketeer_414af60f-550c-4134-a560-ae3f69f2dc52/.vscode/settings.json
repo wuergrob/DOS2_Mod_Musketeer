@@ -1,6 +1,7 @@
 {
     "divinity.compilerPath": "x:\\DOS2_Modding\\Compiler_stuff",
     "Lua.diagnostics.globals": [
-        "co"
+        "co",
+        "testObj"
     ]
 }

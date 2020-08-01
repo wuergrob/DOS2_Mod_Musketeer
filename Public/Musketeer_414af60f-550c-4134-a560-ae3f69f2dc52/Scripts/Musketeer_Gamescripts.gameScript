@@ -59,6 +59,7 @@ ACTIONS
 		ENDIF
 */
 
+
 EVENT Musketeer_Rend_Stack_Impact_Effect
 VARS
 	CHARACTER:_Char

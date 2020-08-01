@@ -191,5 +191,13 @@
         <field name="DamageBoost" type="IntegerStatObjectFieldDefinition" value="7" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Test" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="BonusWeapon" type="StringStatObjectFieldDefinition" value="Status_Musk_Ammo_Incendiary" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

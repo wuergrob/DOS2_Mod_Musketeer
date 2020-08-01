@@ -103,6 +103,7 @@ end
 -- 3: shock
 -- 4: doom
 -- 5: explode
+-- 6: piercing
 local function Musketeer_AmmoBar_ElementChange(call, value)
 	--if value < 0 or value > 5 then
 	--	value = 0
