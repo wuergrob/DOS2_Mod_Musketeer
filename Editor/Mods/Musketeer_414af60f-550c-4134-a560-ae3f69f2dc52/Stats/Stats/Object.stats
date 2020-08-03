@@ -193,5 +193,85 @@
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="16" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_Reload_Incendiary" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="0a2977f4-fc2f-4c45-bd75-11250e093747" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ActPart" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="150" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="RangerLore 2; FireSpecialist 2" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="SkillbookRangerEarly" />
+        <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_Reload_Freezing" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="3ea5ad18-8abc-42ac-83c6-b0532b9a7e40" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ActPart" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="150" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="RangerLore 2; WaterSpecialist 2" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="SkillbookRangerEarly" />
+        <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_Reload_Schocking" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="f0dba6c9-16d0-4426-a79c-38de19dd0f09" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ActPart" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="150" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="RangerLore 2; AirSpecialist 2;" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="SkillbookRangerEarly" />
+        <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_Reload_Piercing" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="438f3fe2-0827-477d-8823-2a50ec03466e" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ActPart" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="150" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="RangerLore 2; Necromancy 2;" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="SkillbookRangerEarly" />
+        <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_Reload_Doom" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="76bc8b0a-51fe-4a70-9e42-4a68a1897f87" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ActPart" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="150" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="RangerLore 2; WarriorLore 2;" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="SkillbookRangerEarly" />
+        <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

@@ -73,7 +73,7 @@ ACTIONS
 		ELIF "c1"
 			CharacterHasStatus(%Caster, "RELOAD_HOLY")
 		THEN
-			Set(%ProjectileSkill,"ProjectileStrike_MeteorShower")
+			Set(%ProjectileSkill,"ProjectileStrike_Musk_AmmoType_Doom")
 		ELSE
 			Set(%ProjectileSkill,"Projectile_Ammo_Default")
 		ENDIF

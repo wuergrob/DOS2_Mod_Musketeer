@@ -23,7 +23,7 @@
         <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Incendiary Ammo Loaded!" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Incendiary" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
@@ -38,7 +38,7 @@
         <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Freezing Ammo Loaded!" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Freezing" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
@@ -53,7 +53,7 @@
         <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Silver Ammo Loaded!" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Shocking" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
@@ -68,7 +68,7 @@
         <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Holy Ammo Loaded!" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Explosive" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
@@ -83,7 +83,7 @@
         <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Explosive Ammo Loaded!" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Character is currently reloading and is muted, disarmed and slowed.|" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Piercing" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="FormatStringColor" />
         <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_FleshSacrifice_01:Dummy_L_HandFX" />
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />

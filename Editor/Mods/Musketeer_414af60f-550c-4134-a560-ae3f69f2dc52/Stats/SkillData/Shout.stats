@@ -57,7 +57,7 @@
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Incendiary" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Incendiary" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with incendiary &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal bonus fire damage.&lt;br&gt;Rifle based skills will also cause a fire surface behind the impact and ignite enemies.&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
@@ -75,6 +75,7 @@
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_INCENDIARY,100,4;MUSK_AMMO_TEST,100,6" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; FireSpecialist 2;" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -88,7 +89,7 @@
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Piercing" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Explosive" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with explosive tip &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks to inflict bleeding.&lt;br&gt;Rifle based skills will cause a small explosion on impact.&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
@@ -106,6 +107,7 @@
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_EXPLOSIVE,100,4" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; Necromancy 2;" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -119,7 +121,7 @@
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Freezing" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Freezing" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with freezing &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal bonus water damage.&lt;br&gt;Rifle based skills will cause a ice surface behind the impact and have a chance to freeze enemies.&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
@@ -137,6 +139,7 @@
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_FREEZING,100,4" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; WaterSpecialist 2;" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -150,7 +153,7 @@
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Shocking" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Shocking" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with shock &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal bonus shock damage and electrify characters." />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
@@ -168,6 +171,7 @@
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_SILVER,100,4" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; AirSpecialist 2;" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -181,7 +185,7 @@
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Explosive" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Holy" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with experimental Doom &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks to deal greatly increased physical damage.&lt;br&gt;Rifle based skills will cause big explosions on impact.&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
@@ -199,6 +203,7 @@
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_HOLY,100,4" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; WarriorLore 2;" />
       </fields>
     </stat_object>
   </stat_objects>
