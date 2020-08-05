@@ -12,7 +12,7 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - Updated talents to interact with firearms
 
 ## Current Skill-List Overview:
-![alt text](https://cdn.discordapp.com/attachments/358337334619406336/719880391334559844/Musketeer_Skills_Overview.png "Skill-List")
+![alt text](https://github.com/wuergrob/DOS2_Mod_Musketeer/blob/master/Misc/Musketeer_Skills_Overview_Page.png "Skill-List")
 
 # Releases
 * [Steam Workshop]() 
@@ -43,6 +43,7 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - [x] Skillproperty "Force" combined with "Knock Down" causes enemy target's turn to time out. (Replaced "Knock Down" with "Stunned")
 - [x] Buckshot Skill Description param [2] is missing
 - [ ] Skill Requirements are not being refreshed directly after using a skill
+- [ ] AmmoBar in Character Respec screen not behaving correctly (Not tested, but reported by LL)
 
 
 
