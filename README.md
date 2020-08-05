@@ -24,10 +24,6 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 # Working on right now (Will constitute Beta-Version for public testing):
 - Finalize AmmoType effects
 - Make AmmoType's apply Boosts for BeamFX on basic attacks and bonus damage
-- Update SkillOverview Page
-- Update AmmoType Descriptions and Displaynames
-- Update enhanced Reload Skill-Icons
-- Update enhanced Reload Skill requirements
 
 # Current WIP Features
 - [x] Reload Animation and SFX/FX (Still kinda meh)
@@ -45,7 +41,8 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - [x] "Blazing Flare" missing prepare effect
 - [x] Rifles have a chance to spawn with the SkyShot (Maybe other skills too) Skill
 - [x] Skillproperty "Force" combined with "Knock Down" causes enemy target's turn to time out. (Replaced "Knock Down" with "Stunned")
-- [ ] Buckshot Skill Description param [2] is missing
+- [x] Buckshot Skill Description param [2] is missing
+- [ ] Skill Requirements are not being refreshed directly after using a skill
 
 
 

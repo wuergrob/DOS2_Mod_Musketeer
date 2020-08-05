@@ -23,6 +23,7 @@ type "Potion"
 data "Act" "1"
 data "Act part" "0"
 data "Duration" "4"
+data "BonusWeapon" "Status_Musk_Ammo_Incendiary"
 data "StatusIcon" "Skill_Fire_BoostPerception"
 data "SavingThrow" "None"
 

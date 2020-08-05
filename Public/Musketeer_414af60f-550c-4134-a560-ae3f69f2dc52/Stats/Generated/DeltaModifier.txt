@@ -6,3 +6,11 @@ param "ModifierType" "Weapon"
 param "WeaponType" "Crossbow"
 new boost "_Boost_Weapon_Primary_Finesse_Large",1
 
+new deltamod "Boost_Musketeer_Test_Deltamod"
+param "BoostType" "Legendary"
+param "MinLevel" "1"
+param "Frequency" "0"
+param "ModifierType" "Weapon"
+param "WeaponType" "Crossbow"
+new boost "_Boost_Weapon_Primary_Finesse_Large",1
+

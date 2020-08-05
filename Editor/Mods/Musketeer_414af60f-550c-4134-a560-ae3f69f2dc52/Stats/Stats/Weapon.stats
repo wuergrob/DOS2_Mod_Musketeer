@@ -40,7 +40,6 @@
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
-        <field name="Boosts" type="StringStatObjectFieldDefinition" value="Status_Musk_Ammo_Freezing" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

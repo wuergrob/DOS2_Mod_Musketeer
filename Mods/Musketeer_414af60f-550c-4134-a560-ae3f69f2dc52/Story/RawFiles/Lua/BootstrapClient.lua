@@ -620,5 +620,29 @@ Also, use the following to reset the Lua VM (In server context):
 NRD_LuaReset(1,1,1)
 
 
+
+--- Concerning updating the Hotbar for refreshing Skill Requirements:
+
+Three functions exist, that could possibly refresh the skills:
+
+
+      public function updateSlots() : *
+      {
+         this.hotbar_mc.slotholder_mc.updateSlots();
+      }
+
+      public function updateSlotData() : *
+      {
+         this.hotbar_mc.slotholder_mc.updateSlotData();
+      }
+
+      public function updateActionSkills() : *
+      {
+         this.actionSkillHolder_mc.update(this.actionSkillArray);
+      }
+
+
+
+	  "updateSlotData" is most probably the correct one.
 ]]
 

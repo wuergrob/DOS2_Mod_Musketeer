@@ -205,7 +205,6 @@ Ext.RegisterNetListener('clientAck', Musketeer_Ack_Player_Ready)
 
 
 -- Used to preview active skill ammo requirements.
--- BUG: Only fetches skills from the first skillbar.
 local function Musketeer_Retrieve_Skillbar_Entry(channel, payload)
     local decoded = Ext.JsonParse(payload)
     local player = decoded["player"]
@@ -548,10 +547,12 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
     Ext.Print("NRD_OnHit OsirisListener triggered")
     print(defender, attacker, damageAmount, statusHandle)
     local statusObj = Ext.GetStatus(defender, statusHandle)
-    if (statusObj ~= nil and statusObj ~= "" and statusObj.SkillId ~= nil and statusObj.SkillId ~= "") then
+    if (statusObj ~= nil and statusObj ~= "" and statusObj.SkillId ~= nil) then
         local skillId = statusObj.SkillId
         Ext.Print(skillId)
-        if #skillId >= #finalActSkillName and string.sub(skillId, 1, #finalActSkillName) == finalActSkillName then
+        if skillId == "" and statusObj.DamageSourceType == "Attack" then
+            Ext.Print("TTTTTTT TARGET ATTACKED WITH BASIC ATTACK! TTTTTTT")
+        elseif #skillId >= #finalActSkillName and string.sub(skillId, 1, #finalActSkillName) == finalActSkillName then
             Ext.Print("Defender got attacked with the Final Act skill.")
             ApplyStatus(defender, "MUSK_MARK_FINALACT_DUMMY", 2, 1, attacker)
         elseif #skillId >= #RendSkillName and string.sub(skillId, 1, #RendSkillName) == RendSkillName then
@@ -593,8 +594,8 @@ end
 Ext.RegisterListener("GetSkillDamage", Testagain)
 
 
-local function Testagain2(item, event)
-    Ext.Print("------------------- Testagain2 -------------------")
+local function Musketeer_Skill_AmmoType_BeamFX(item, event)
+    Ext.Print("------------------- Musketeer_Skill_AmmoType_BeamFX -------------------")
     local helperName = "Musk_Skill_Helperobject"
     if #item >= #helperName and string.sub(item, 1, #helperName) == helperName then
         Ext.Print("The Object is a HelperObject")
@@ -633,4 +634,28 @@ local function Testagain2(item, event)
     end
     --Ext.Print("skill used: " .. skill.Name)
 end
-Ext.RegisterOsirisListener("StoryEvent", 2, "before", Testagain2)
+Ext.RegisterOsirisListener("StoryEvent", 2, "before", Musketeer_Skill_AmmoType_BeamFX)
+
+
+
+
+
+local function Musketeer_Test_AmmoType_Boost_Remove(itemGuid, characterGuid)
+
+end
+--Ext.RegisterOsirisListener("ItemUnEquipped", 2, "before", Musketeer_Test_AmmoType_Boost_Remove)
+
+
+local function Musketeer_Test_AmmoType_Boost_Apply(itemGuid, characterGuid)
+    local itemObj = Ext.GetItem(itemGuid)
+    local itemTemplate = itemObj.RootTemplate
+    Ext.Print(itemGuid)
+    Ext.Print(itemObj.MyGuid)
+    Ext.Print(itemTemplate)
+    Ext.Print(itemTemplate.Owner)
+    Ext.Print(itemTemplate.Description)
+    ItemAddDeltaModifier(itemGuid, "_Boost_Weapon_Primary_Finesse_Large")
+    local debugVar = ItemHasDeltaModifier(itemGuid, "_Boost_Weapon_Primary_Finesse_Large")
+    Ext.Print(debugVar)
+end
+--Ext.RegisterOsirisListener("ItemEquipped", 2, "before", Musketeer_Test_AmmoType_Boost_Apply)

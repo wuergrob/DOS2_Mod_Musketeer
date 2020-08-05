@@ -14,5 +14,17 @@
         <field name="Comment" type="CommentStatObjectFieldDefinition" value="Had to override this value, as Rifles are incompatible with skills from weapons." />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Musketeer_Test" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Crossbow" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Primary_Finesse_Large" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="BaseEpic" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

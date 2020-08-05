@@ -33,6 +33,7 @@
         <field name="Duration" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="Skill_Fire_BoostPerception" />
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+        <field name="BonusWeapon" type="StringStatObjectFieldDefinition" value="Status_Musk_Ammo_Incendiary" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
