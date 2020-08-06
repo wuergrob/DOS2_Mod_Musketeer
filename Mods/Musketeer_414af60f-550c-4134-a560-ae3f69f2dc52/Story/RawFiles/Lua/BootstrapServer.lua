@@ -458,6 +458,21 @@ local function GetCharacterAmmoType(characterGUID)
     return nil
 end
 
+
+local function GetOvershootPosition(attacker, defender, overshootDistance)
+    --Ext.Print("Piercing Ammo stuffs")
+    local attackerX, attackerY, attackerZ = GetPosition(attacker)
+    local targetX, targetY, targetZ = GetPosition(defender)
+
+    local dist = ((targetZ - attackerZ)^2 + (targetX - attackerX)^2)^(1/2)
+
+    local newZ = attackerZ + ((targetZ - attackerZ)/(dist)) * (dist+overshootDistance)
+    local newX = attackerX + ((targetX - attackerX)/(dist)) * (dist+overshootDistance)
+    local newY = targetY + 0.2
+    return newX, newY, newZ
+end
+
+
 local function AmmotypeOnKill(defender, attackOwner, attacker)
 
     if (attacker == nil or defender == nil) then return end
@@ -514,32 +529,8 @@ local function AmmotypeOnKill(defender, attackOwner, attacker)
         NRD_ProjectileSetGuidString("TargetPosition", defender);
         NRD_ProjectileLaunch();
     end
-    if ammoTypeStatusId == "RELOAD_EXPLOSIVE" then
-        Ext.Print("Piercing Ammo stuffs")
-        local attackerX, attackerY, attackerZ = GetPosition(attacker)
-        local targetX, targetY, targetZ = GetPosition(defender)
-
-        local dist = ((targetZ - attackerZ)^2 + (targetX - attackerX)^2)^(1/2)
-
-        local newZ = attackerZ + ((targetZ - attackerZ)/(dist)) * (dist+5)
-        local newX = attackerX + ((targetX - attackerX)/(dist)) * (dist+5)
-        local newY = targetY + 0.2
-
-        --print(attackerX, attackerY, attackerZ)
-        --print(targetX, targetY, targetZ)
-        --print(newX, newY, newZ)
-        --Assign Piercing-Ammo Info on Global Var's for the GameScript to retrieve.
-        --The Story Event triggers the Gamescript to launch the projectile.
-        SetVarFloat3(attacker, "Piercing_TargetLocation", newX, newY, newZ)
-        SetVarObject(attacker, "Piercing_OriginLocation", defender)
-        SetStoryEvent(attacker, "Musketeer_Pierce_Ammo_Event")
-
-    end
 end
 Ext.RegisterOsirisListener("CharacterKilledBy", 3, "before", AmmotypeOnKill)
-
-testObj = nil
-TestPlayer = nil
 
 local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusHandle)
     local finalActSkillName = "Projectile_Final_Act"
@@ -547,11 +538,51 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
     Ext.Print("NRD_OnHit OsirisListener triggered")
     print(defender, attacker, damageAmount, statusHandle)
     local statusObj = Ext.GetStatus(defender, statusHandle)
+    local attackerObj = Ext.GetCharacter(attacker)
+
     if (statusObj ~= nil and statusObj ~= "" and statusObj.SkillId ~= nil) then
         local skillId = statusObj.SkillId
         Ext.Print(skillId)
-        if skillId == "" and statusObj.DamageSourceType == "Attack" then
-            Ext.Print("TTTTTTT TARGET ATTACKED WITH BASIC ATTACK! TTTTTTT")
+        if skillId == "" and statusObj.DamageSourceType == "Attack" and attackerObj ~= nil and attackerObj:HasTag("Rifle_Armed") then
+            Ext.Print("TTTTTTT TARGET ATTACKED WITH RIFLE BASIC ATTACK! TTTTTTT")
+            local ammoTypeStatusId = GetCharacterAmmoType(attacker)
+            
+            if ammoTypeStatusId == nil then return end
+
+            local ammoTypeSkillName = "Projectile_Ammo_Default"
+            if ammoTypeStatusId == Musketeer_Ammo_Statuses[1] then
+                ammoTypeSkillName = "Projectile_Ammo_Incendiary"
+            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[2] then
+                ammoTypeSkillName = "Projectile_Ammo_Freezing"
+            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[3] then
+                ammoTypeSkillName = "Projectile_Ammo_Shock"
+            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[4] then
+                ammoTypeSkillName = "ProjectileStrike_Musk_AmmoType_Doom"
+            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[5] then
+                return
+                -- Used to be Explosive, but has been replaced with Piercing
+            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[6] then
+                --ammoTypeSkillName = "Musketeer_FX_Ammo_Piercing_Beam"
+                local newX, newY, newZ = GetOvershootPosition(attacker, defender, 5)
+                SetVarFloat3(attacker, "Piercing_TargetLocation", newX, newY, newZ)
+                SetVarObject(attacker, "Piercing_OriginLocation", defender)
+                SetStoryEvent(attacker, "Musketeer_Pierce_Ammo_Event")
+                return
+            end
+
+            NRD_ProjectilePrepareLaunch();
+            NRD_ProjectileSetString("SkillId", ammoTypeSkillName);
+            --NRD_ProjectileSetInt("CasterLevel", 1);
+            NRD_ProjectileSetGuidString("Caster", attacker);
+            NRD_ProjectileSetGuidString("Source", attacker);
+            NRD_ProjectileSetGuidString("Target", defender);
+            NRD_ProjectileSetGuidString("HitObject", defender);
+            NRD_ProjectileSetGuidString("HitObjectPosition", defender);
+            NRD_ProjectileSetGuidString("SourcePosition", defender);
+            NRD_ProjectileSetGuidString("TargetPosition", defender);
+            NRD_ProjectileLaunch();
+            return
+            
         elseif #skillId >= #finalActSkillName and string.sub(skillId, 1, #finalActSkillName) == finalActSkillName then
             Ext.Print("Defender got attacked with the Final Act skill.")
             ApplyStatus(defender, "MUSK_MARK_FINALACT_DUMMY", 2, 1, attacker)
@@ -560,11 +591,6 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
             ApplyStatus(defender, "MUSK_MARK_REND_DUMMY", 2, 1, attacker)
         end
     end
-    Ext.Print("For testing, saving attackers weapon in global var: testObj")
-    TestPlayer = Ext.GetCharacter(attacker)
-    Ext.Print(TestPlayer)
-    --testObj = Ext.GetCharacter(attacker).GetItemBySlot("Weapon")
-    --Ext.Print(testObj)
 end
 Ext.RegisterOsirisListener("NRD_OnHit", 4, "after", Musketeer_OnHit_Handler)
 
@@ -577,10 +603,6 @@ local function DebugFinalActTagRemoval(character, tag)
 end
 --Ext.RegisterOsirisListener("ObjectLostTag", 2, "before", DebugFinalActTagRemoval)
 
-function ReturnPlayer ()
-    Ext.Print("Hi")
-    return TestPlayer
-end
 
 
 

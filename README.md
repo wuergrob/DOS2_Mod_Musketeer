@@ -55,3 +55,4 @@ UI Overlay Effect from a Status effect perhaps?
 - [ ] Skill "Enforced Vaccination"
 Ranged single-target rifle skill, damage enemies, heal allies. Set decaying on market enemies.
 - [ ] Additional Talent interactions with rifles
+- [ ] Talent: The Pawn: Gain a burst of movement speed after emptying your rifle.
