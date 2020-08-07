@@ -59,9 +59,9 @@ ACTIONS
 		ELIF "c1"
 			CharacterHasStatus(%Caster, "RELOAD_EXPLOSIVE")
 		THEN
-			// Buckshot_Fire
 			//Set(%ProjectileSkill,"Projectile_Ammo_Explosive")
-			Set(%ProjectileSkill,"Projectile_Ammo_Explosive")
+			// Proccing Piercing onHit damage through Story.
+			Set(%ProjectileSkill,"Projectile_Ammo_Default")
 		ELIF "c1"
 			CharacterHasStatus(%Caster, "RELOAD_FREEZING")
 		THEN

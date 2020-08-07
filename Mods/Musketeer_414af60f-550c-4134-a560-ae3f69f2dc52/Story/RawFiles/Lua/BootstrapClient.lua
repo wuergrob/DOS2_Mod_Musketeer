@@ -22,7 +22,7 @@ NOTE: test UI behaviour in more situations (notably dialog and stuff where the h
 
 
 if Musketeer_Ammo_Skills == nil then
-	Musketeer_Ammo_Skills = { test = 0 }
+	Musketeer_Ammo_Skills = { test = false }
 end
 
 PersistentVars  = {
@@ -69,7 +69,18 @@ function PrintSkillList()
 	Ext.Print(Musketeer_Ammo_Skills["Target_Unload_Test"])
 end
 
+-- Signal that client is ready for rifle skill broadcast
+local function Musketeer_Client_Signal_Ready()
+	print("Client is ready, sending ready signal to server.")
+	Ext.PostMessageToServer('clientReady', 1)
+end
 
+local function Musketeer_Check_SkillList_Loaded()
+	if Musketeer_Ammo_Skills == nil or not Musketeer_Ammo_Skills["test"] == true then
+		Ext.Print("[CLIENT] local SkillList is not loaded or does not exist.")
+		Musketeer_Client_Signal_Ready()
+	end
+end
 
 -- Try out positioning by setting x and y directly, as in:
 -- x = 200, y = 110 in MainTimeLine.
@@ -260,6 +271,7 @@ end
 
 local function Musketeer_Ammo_Skills_Add(name, val)
 	Musketeer_Ammo_Skills[name] = val
+	Musketeer_Ammo_Skills["test"] = true
 	print(Musketeer_Ammo_Skills)
 	print("Musketeer_Ammo_Skills added entry: ".. name .. " val: ".. val)
 	PersistentVars["SkillListLoaded"] = true
@@ -285,6 +297,7 @@ end
 
 -- Currently, this doesnt check "Shout_Reload" for some reason.
 local function skillCheckForAmmoBarPreview(skill, character, isFromItem, param)
+	Musketeer_Check_SkillList_Loaded()
 	print(skill["Name"])
 	local skillName = skill["Name"]
 
@@ -334,6 +347,7 @@ local function BuiltInHotbarUIStartDragging(ui, call, arg1)
 end
 
 local function BuiltInHotbarUIShowSkillTooltip(ui, call, handler, skillname)
+	Musketeer_Check_SkillList_Loaded()
 	print("Hotbar Show Skill Tooltip event fired.")
 	--print(arg1)
 	--print(arg2)
@@ -487,12 +501,6 @@ local function SetCurrentHotbar(ui, event, index)
 	PersistentVars["CurrentHotbar"] = index
 end
 
--- Signal that client is ready for rifle skill broadcast
-local function Musketeer_Client_Signal_Ready()
-	print("Client is ready.")
-	Ext.PostMessageToServer('clientReady', 1)
-end
-
 local function Musketeer_AmmoBar_Visibility_Hotbar(ui, event, handle)
 	print(event)
 	print(handle)
@@ -586,6 +594,32 @@ end
 Ext.RegisterNetListener("requestClient", ReceiveServerRequest)
 
 
+-- Keeping this, will perhaps do this at a later stage.
+local function Reload_Override_DescriptionParams(status, statusSource, character, param)
+	if status.Name ~= "RELOAD_INCENDIARY" then return end
+	Ext.Print("[CLIENT] Reload Override Description Params with param: " .. param)
+	if status.Name == "RELOAD_INCENDIARY" then
+        if true then
+            return "blabla"
+        else
+            return "no"
+        end
+    end
+end
+--Ext.RegisterListener("StatusGetDescriptionParam", Reload_Override_DescriptionParams)
+
+
+function Musketeer_Refresh_Hotbar()
+	print("[CLIENT] Custom Refresh Hotbar called")
+	local hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+	print(hotbarUI)
+	if hotbarUI ~= nil then
+		--hotbarUI:Invoke("updateActionSkills")
+		local maxSlots = hotbarUI:GetValue("maxSlots", "number")
+		print(maxSlots)
+		hotbarUI:ExternalInterfaceCall("updateSlots", maxSlots)
+	end
+end
 
 -- NOTE ON TALENTS:
 -- characterSheet.swf Maintimeline has a "addTalent" function.

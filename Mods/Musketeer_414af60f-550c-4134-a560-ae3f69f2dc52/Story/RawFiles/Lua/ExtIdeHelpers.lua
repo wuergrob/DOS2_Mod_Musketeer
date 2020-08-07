@@ -55,6 +55,32 @@ function DamageList.AggregateSameTypeDamages (self) end
 function DamageList.ToTable (self) end
 
 
+--- @class AiGrid
+local AiGrid = {}
+
+--- Scans the vicinity of the specified points for surfaces that match the specified flags.
+--- Returns true if a surface was found, false otherwise.
+--- @param self AiGrid
+--- @param x number X coordinate of point to search
+--- @param z number Z coordinate of point to search
+--- @param radius number Radius to search
+--- @param flags string[] AI flags to look for
+--- @param bias number Height bias
+--- @return boolean
+function AiGrid.SearchForCell (self, x, z, radius, flags, bias) end
+    
+
+--- @class CombatComponentTemplate
+--- @field public Alignment string
+--- @field public CanFight boolean
+--- @field public CanJoinFight boolean
+--- @field public CombatGroupID string
+--- @field public IsBoss boolean
+--- @field public IsInspector boolean
+--- @field public StartCombatRange number
+local CombatComponentTemplate = {}
+
+
 --- @class EoCGameObjectTemplate
 --- @field public Id string
 --- @field public Name string
@@ -90,6 +116,7 @@ local EoCGameObjectTemplate = {}
 
 
 --- @class CharacterTemplate : EoCGameObjectTemplate
+--- @field public CombatTemplate CombatComponentTemplate
 --- @field public Icon string
 --- @field public Stats string
 --- @field public SkillSet string
@@ -145,6 +172,7 @@ local CharacterTemplate = {}
 
 
 --- @class ItemTemplate : EoCGameObjectTemplate
+--- @field public CombatTemplate CombatComponentTemplate
 --- @field public Icon string
 --- @field public CanBePickedUp boolean
 --- @field public CanBeMoved boolean
@@ -174,7 +202,7 @@ local CharacterTemplate = {}
 --- @field public UseRemotely boolean
 --- @field public IsBlocker boolean
 --- @field public IsPointerBlocker boolean
---- @field public UnknownDisplayName boolean
+--- @field public ItemDisplayName boolean
 --- @field public Tooltip number
 --- @field public Stats string
 --- @field public OnUseDescription string
@@ -197,7 +225,7 @@ local CharacterTemplate = {}
 --- @field public SoundAttachBone string
 --- @field public SoundAttenuation number
 --- @field public Description string
---- @field public UnknownDescription string
+--- @field public ItemDescription string
 --- @field public Speaker string
 --- @field public AltSpeaker string
 --- @field public SpeakerGroup string
@@ -844,7 +872,7 @@ local StatItemDynamic = {}
 --- @class StatItem : StatBase
 --- Properties from property map
 --- @field public Level integer
---- @field public Name integer
+--- @field public Name string
 --- @field public InstanceId integer
 --- @field public ItemType string See EquipmentStatsType enumeration
 --- @field public ItemSlot string See ItemSlot enumeration
@@ -989,6 +1017,7 @@ local EclGameObject = {}
 --- @field public GoldValueOverride integer
 --- @field public BaseWeightOverwrite integer
 --- @field public ItemColorOverride integer
+--- @field public DisplayName string
 local EclItem = {}
 
 --- Returns all delta mods on the item
@@ -1052,6 +1081,13 @@ function EclItem.GetStatusObjects (self) end
 --- @field public Scale number
 --- @field public AnimationOverride string
 --- @field public UserID integer
+--- @field public DisplayName string
+--- @field public StoryDisplayName string
+--- @field public OriginalDisplayName string
+--- @field public WalkSpeedOverride number
+--- @field public RunSpeedOverride number
+--- @field public Archetype string
+--- @field public CorpseLootable boolean
 local EclCharacter = {}
 
 --- Returns the GUID of all items within the inventory of the character
@@ -1138,6 +1174,7 @@ local EsvGameObject = {}
 --- @field public TreasureLevel integer
 --- @field public LevelOverride integer
 --- @field public ForceSynch boolean
+--- @field public DisplayName string
 --- @field public Stats StatItem
 local EsvItem = {}
 
@@ -1232,6 +1269,7 @@ local EsvSkillInfo = {}
 --- @field public RootTemplate CharacterTemplate
 --- @field public PlayerCustomData PlayerCustomData
 --- @field public Stats StatCharacter
+--- @field public DisplayName string
 ---
 --- @field public NetID integer
 --- @field public MyGuid string
@@ -2542,7 +2580,7 @@ function EsvCombat.GetCurrentTurnOrder (self) end
 --- @param self EsvCombat
 --- @return EsvCombatTeam[]
 function EsvCombat.GetNextTurnOrder (self) end
-    
+
 --- Updates the turn order of the current round. 
 --- The turnOrder argument should be a reordered version of the table returned by GetCurrentTurnOrder().
 --- Notes:
@@ -2569,6 +2607,36 @@ function EsvCombat.UpdateNextTurnOrder (self, turnOrder) end
 --- @param self EsvCombat
 --- @return EsvCombatTeam[]
 function EsvCombat.GetAllTeams (self) end
+
+
+--- @class FlashObject
+--- Represents an object in Flash.
+--- Implements the __index and __newindex metamethods using string keys (i.e. allows table-like behavior):
+--- obj.field = 123 -- Can assign values to any object property
+--- Ext.Print(obj.field) -- Can read any object property
+---
+--- Field values are returned using the appropriate Lua type;
+--- Flash Boolean/Number/String = Lua boolean/number/string
+--- Flash Object = Lua engine class FlashObject
+--- Flash array = Lua engine class FlashArray
+--- Flash function = Lua engine class FlashFunction
+local FlashObject = {}
+
+
+--- @class FlashArray
+--- Represents an array in Flash.
+--- Implements the __index, __newindex and __len metamethods using integer keys (i.e. allows table-like behavior):
+--- arr[2] = 123 -- Can assign values to any array index
+--- Ext.Print(arr[2]) -- Can read any array index
+--- Ext.Print(#arr) -- Can query length of array
+local FlashArray = {}
+
+
+--- @class FlashFunction
+--- Represents a function or method in Flash.
+--- Implements the __call metamethod (i.e. can be called).
+--- The passed arguments are forwarded to the Flash method and the return value of the Flash method is returned.
+local FlashFunction = {}
 
 
 --- @class UIObject
@@ -2629,6 +2697,11 @@ function UIObject.SetValue (self, property, value, arrayIndex) end
 --- @return number|boolean|string
 function UIObject.GetValue (self, property, type, arrayIndex) end
     
+--- Returns the root (MainTimeline) Flash object
+--- @param self UIObject
+--- @return FlashObject
+function UIObject.GetRoot (self) end
+    
 --- Returns the engine UI type ID of the UI element
 --- @param self UIObject
 --- @return integer
@@ -2648,8 +2721,13 @@ function UIObject.GetPlayerHandle (self) end
 function UIObject.Destroy (self) end
 
 
+--- @class SurfaceInteractionSet
+--- @field public TransformType string Surface transform to apply (Bless, Curse, Ignite, ...)
+--- @field public ActionableSurfaces string[][] Surface types that this transform applies to
+local SurfaceInteractionSet = {}
 
---- @alias ExtEngineEvent "'SessionLoading'" | "'SessionLoaded'" | "'ModuleLoading'" | "'ModuleLoadStarted'" | "'ModuleResume'" | "'GameStateChanged'" | "'SkillGetDescriptionParam'" | "'StatusGetDescriptionParam'" | "'GetSkillDamage'" | "'ComputeCharacterHit'" | "'CalculateTurnOrder'" | "'GetHitChance'" | "'StatusGetEnterChance'" | '"StatusHitEnter"' | "'BeforeCharacterApplyDamage'" | "'UIInvoke'" | "'UICall'"
+
+--- @alias ExtEngineEvent "'SessionLoading'" | "'SessionLoaded'" | "'ModuleLoading'" | "'ModuleLoadStarted'" | "'ModuleResume'" | "'GameStateChanged'" | "'SkillGetDescriptionParam'" | "'StatusGetDescriptionParam'" | "'GetSkillDamage'" | "'GetSkillAPCost'" | "'ComputeCharacterHit'" | "'CalculateTurnOrder'" | "'GetHitChance'" | "'StatusGetEnterChance'" | '"StatusHitEnter"' | "'BeforeCharacterApplyDamage'" | "'UIInvoke'" | "'UICall'"
 
 --- @alias ExtGameStateChangedCallback fun(fromState: string, toState: string)
 --- @alias ExtComputeCharacterHitCallback fun(target: StatCharacter, attacker: StatCharacter, weapon: StatItem, damageList: DamageList, hitType: string, noHitRoll: boolean, forceReduceDurability: boolean, hit: HitRequest, alwaysBackstab: boolean, highGroundFlag: string, criticalRoll: string): HitRequest
@@ -2659,6 +2737,7 @@ function UIObject.Destroy (self) end
 --- @alias ExtStatusGetEnterChanceCallback fun(status: EsvStatus, isEnterCheck: boolean): number
 --- @alias ExtSkillGetDescriptionParamCallback fun(skill: StatEntrySkillData, character: StatCharacter, isFromItem: boolean, ...): string
 --- @alias ExtStatusGetDescriptionParamCallback fun(status: EsvStatus, statusSource: EsvGameObject, character: StatCharacter, ...): string
+--- @alias ExtGetSkillAPCostCallback fun(skill: StatEntrySkillData, character: StatCharacter, grid: AiGrid, position: number[]|nil, range: number|nil): number, boolean
 --- @alias ExtBeforeCharacterApplyDamageCallback fun(target: EsvCharacter, attacker: StatCharacter|StatItem, hit: HitRequest, causeType: string, impactDirection: number[], context: HitContext): HitRequest
 --- @alias ExtStatusHitEnterCallback fun(status: EsvStatus, context: HitContext)
 
@@ -3085,6 +3164,14 @@ function Ext.EnumIndexToLabel (enum, index) end
 --- @return number|nil
 function Ext.EnumLabelToIndex (enum, label) end
 
+--- Returns the transformation rules that are applied when two neighbouring surfaces interact.
+--- @return SurfaceInteractionSet[][]
+function Ext.GetSurfaceTransformRules () end
+
+--- Updates the transformation rules that are applied when two neighbouring surfaces interact.
+--- @param rules SurfaceInteractionSet[][] New rules to apply
+function Ext.UpdateSurfaceTransformRules (rules) end
+
 --- Returns the GUID of all characters on the specified level. 
 --- Uses the current level if no level name was specified.
 --- @param level string|nil Optional level name
@@ -3174,17 +3261,27 @@ function Ext.IsServer () end
 --- @return boolean
 function Ext.IsDeveloperMode () end
 
+--- Returns the current client/server game state machine state.
+--- @return string
+function Ext.GetGameState () end
+
 --- Broadcast a message to all peers
 --- @param channel string Channel that will receive the message
 --- @param payload string Message payload
 --- @param excludeCharacter string|nil Optional peer to exclude from broadcast
 function Ext.BroadcastMessage (channel, payload, excludeCharacter) end
 
---- Sends a message to the specified peer
---- @param characterGuid string Peer that will receive the message
+--- Sends a message to the peer that controls the specified character
+--- @param characterGuid string Character that will receive the message
 --- @param channel string Channel that will receive the message
 --- @param payload string Message payload
 function Ext.PostMessageToClient (characterGuid, channel, payload) end
+
+--- Sends a message to the specified peer
+--- @param userId number User that will receive the message
+--- @param channel string Channel that will receive the message
+--- @param payload string Message payload
+function Ext.PostMessageToUser (userId, channel, payload) end
 
 --- Sends a message to the server
 --- @param channel string Channel that will receive the message

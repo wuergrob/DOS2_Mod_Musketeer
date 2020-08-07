@@ -521,6 +521,7 @@ local function AmmotypeOnKill(defender, attackOwner, attacker)
         NRD_ProjectileSetString("SkillId", "Projectile_Musk_Incendiary_Ammo_Effect");
         --NRD_ProjectileSetInt("CasterLevel", 1);
         NRD_ProjectileSetGuidString("Caster", attacker);
+        NRD_ProjectileSetInt("CasterLevel", attackerObj.Stats.Level);
         NRD_ProjectileSetGuidString("Source", attacker);
         NRD_ProjectileSetGuidString("Target", defender);
         NRD_ProjectileSetGuidString("HitObject", defender);
@@ -533,63 +534,113 @@ end
 Ext.RegisterOsirisListener("CharacterKilledBy", 3, "before", AmmotypeOnKill)
 
 local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusHandle)
+
+    -- NOTE: basic attacks apply a "HIT" Status without "SkillId" and with "WeaponHandle" = nil.
+    -- Also, attacks on items cannot miss, so no need to check for dodge/missed attack.
+    -- However, i noticed that "damageAmount" on characters is 0 when the attack misses. (good to know)
+
+    -- TODO: Piercing Ammo still triggers the old Explosive effect with the "MovingObject".
+    -- Instead of exploding a skill, trigger the piercing projectile stuff.
+
+
     local finalActSkillName = "Projectile_Final_Act"
     local RendSkillName = "Projectile_Rend_The_Marked"
+    local defenderIsItem = false
+    local fromBasicAttack = false
+    local hitIsValid = false
     Ext.Print("NRD_OnHit OsirisListener triggered")
-    print(defender, attacker, damageAmount, statusHandle)
     local statusObj = Ext.GetStatus(defender, statusHandle)
+    local statusObjStatuses = nil
     local attackerObj = Ext.GetCharacter(attacker)
+    if statusObj == nil and Ext.GetItem(defender) ~= nil then
+        statusObj = Ext.GetItem(defender)
+        statusObjStatuses = statusObj:GetStatuses()
+        defenderIsItem = true
+    elseif damageAmount == 0 then
+        Ext.Print("Attack either missed or did 0 damage")
+        return
+    end
 
-    if (statusObj ~= nil and statusObj ~= "" and statusObj.SkillId ~= nil) then
-        local skillId = statusObj.SkillId
-        Ext.Print(skillId)
-        if skillId == "" and statusObj.DamageSourceType == "Attack" and attackerObj ~= nil and attackerObj:HasTag("Rifle_Armed") then
-            Ext.Print("TTTTTTT TARGET ATTACKED WITH RIFLE BASIC ATTACK! TTTTTTT")
-            local ammoTypeStatusId = GetCharacterAmmoType(attacker)
-            
-            if ammoTypeStatusId == nil then return end
-
-            local ammoTypeSkillName = "Projectile_Ammo_Default"
-            if ammoTypeStatusId == Musketeer_Ammo_Statuses[1] then
-                ammoTypeSkillName = "Projectile_Ammo_Incendiary"
-            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[2] then
-                ammoTypeSkillName = "Projectile_Ammo_Freezing"
-            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[3] then
-                ammoTypeSkillName = "Projectile_Ammo_Shock"
-            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[4] then
-                ammoTypeSkillName = "ProjectileStrike_Musk_AmmoType_Doom"
-            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[5] then
-                return
-                -- Used to be Explosive, but has been replaced with Piercing
-            elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[6] then
-                --ammoTypeSkillName = "Musketeer_FX_Ammo_Piercing_Beam"
-                local newX, newY, newZ = GetOvershootPosition(attacker, defender, 5)
-                SetVarFloat3(attacker, "Piercing_TargetLocation", newX, newY, newZ)
-                SetVarObject(attacker, "Piercing_OriginLocation", defender)
-                SetStoryEvent(attacker, "Musketeer_Pierce_Ammo_Event")
-                return
+    if defenderIsItem then
+        for i = 1,#statusObj:GetStatuses(),1 do
+            if statusObjStatuses[i].StatusHandle == statusHandle then
+                Ext.Print("Found Statushandle on affected item.")
+                if statusObjStatuses[i].StatusType == "HIT" and statusObjStatuses[i].WeaponHandle ~= nil and statusObjStatuses[i].SkillId == "" then
+                    Ext.Print("Affected Item was hit by a basic attack")
+                    fromBasicAttack = true
+                    hitIsValid = true
+                elseif statusObjStatuses[i].StatusType == "HIT" and statusObjStatuses[i].WeaponHandle == nil and IsRifleBasedSkill(statusObjStatuses[i].SkillId) then
+                    Ext.Print("Affected Item was hit by a rifle based skill")
+                    hitIsValid = true
+                end
             end
-
-            NRD_ProjectilePrepareLaunch();
-            NRD_ProjectileSetString("SkillId", ammoTypeSkillName);
-            --NRD_ProjectileSetInt("CasterLevel", 1);
-            NRD_ProjectileSetGuidString("Caster", attacker);
-            NRD_ProjectileSetGuidString("Source", attacker);
-            NRD_ProjectileSetGuidString("Target", defender);
-            NRD_ProjectileSetGuidString("HitObject", defender);
-            NRD_ProjectileSetGuidString("HitObjectPosition", defender);
-            NRD_ProjectileSetGuidString("SourcePosition", defender);
-            NRD_ProjectileSetGuidString("TargetPosition", defender);
-            NRD_ProjectileLaunch();
-            return
-            
-        elseif #skillId >= #finalActSkillName and string.sub(skillId, 1, #finalActSkillName) == finalActSkillName then
-            Ext.Print("Defender got attacked with the Final Act skill.")
-            ApplyStatus(defender, "MUSK_MARK_FINALACT_DUMMY", 2, 1, attacker)
-        elseif #skillId >= #RendSkillName and string.sub(skillId, 1, #RendSkillName) == RendSkillName then
-            Ext.Print("Defender got attacked with the Rend the Marked skill.")
-            ApplyStatus(defender, "MUSK_MARK_REND_DUMMY", 2, 1, attacker)
         end
+    else
+        if (statusObj.SkillId ~= nil) then
+            local skillId = statusObj.SkillId
+            if skillId == "" and statusObj.DamageSourceType == "Attack" and attackerObj ~= nil and attackerObj:HasTag("Rifle_Armed") then
+                Ext.Print("Affected Character was hit by a basic attack")
+                fromBasicAttack = true
+                hitIsValid = true
+            elseif attackerObj ~= nil and attackerObj:HasTag("Rifle_Armed") and IsRifleBasedSkill(statusObj.SkillId) then
+                Ext.Print("Affected Character was hit by a rifle based skill")
+                hitIsValid = true
+                if #statusObj.SkillId >= #finalActSkillName and string.sub(statusObj.SkillId, 1, #finalActSkillName) == finalActSkillName then
+                    Ext.Print("Defender got attacked with the Final Act skill.")
+                    ApplyStatus(defender, "MUSK_MARK_FINALACT_DUMMY", 2, 1, attacker)
+                    return
+                elseif #statusObj.SkillId >= #RendSkillName and string.sub(statusObj.SkillId, 1, #RendSkillName) == RendSkillName then
+                    Ext.Print("Defender got attacked with the Rend the Marked skill.")
+                    ApplyStatus(defender, "MUSK_MARK_REND_DUMMY", 2, 1, attacker)
+                    return
+                end
+            end
+        end
+    end
+    if not hitIsValid then return end
+    -- basic attack on item or chars: All Effects
+    -- skill attacks on item or chars: only piercing effect
+
+    local ammoTypeStatusId = GetCharacterAmmoType(attacker)
+    if ammoTypeStatusId == nil then return end
+
+    local ammoTypeSkillName = "Projectile_Ammo_Default"
+    if ammoTypeStatusId == Musketeer_Ammo_Statuses[1] then
+        ammoTypeSkillName = "Projectile_Ammo_Incendiary"
+    elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[2] then
+        ammoTypeSkillName = "Projectile_Ammo_Freezing"
+    elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[3] then
+        ammoTypeSkillName = "Projectile_Ammo_Shock"
+    elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[4] then
+        ammoTypeSkillName = "ProjectileStrike_Musk_AmmoType_Doom"
+    elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[5] then
+        return
+        -- Used to be Explosive, but has been replaced with Piercing
+    elseif ammoTypeStatusId == Musketeer_Ammo_Statuses[6] then
+        --ammoTypeSkillName = "Musketeer_FX_Ammo_Piercing_Beam"
+        ammoTypeSkillName = "Projectile_Ammo_Explosive"
+        local newX, newY, newZ = GetOvershootPosition(attacker, defender, 5)
+        SetVarFloat3(attacker, "Piercing_TargetLocation", newX, newY, newZ)
+        SetVarObject(attacker, "Piercing_OriginLocation", defender)
+        SetStoryEvent(attacker, "Musketeer_Pierce_Ammo_Event")
+        Ext.Print("Piercing Ammo overshoot Event")
+    end
+
+    -- Triggering the Piercing Projectile for skills here instead of via GameScript,
+    -- as it would require a ExplodeRadius of at least 1 and would thus be AoE.
+    if fromBasicAttack or ( ammoTypeSkillName == "Projectile_Ammo_Explosive" and (ammoTypeSkillName ~= statusObj.SkillId)) then
+        NRD_ProjectilePrepareLaunch()
+        NRD_ProjectileSetString("SkillId", ammoTypeSkillName)
+        NRD_ProjectileSetGuidString("Caster", attacker)
+        NRD_ProjectileSetInt("CasterLevel", attackerObj.Stats.Level)
+        NRD_ProjectileSetGuidString("Source", attacker)
+        NRD_ProjectileSetGuidString("Target", defender)
+        NRD_ProjectileSetGuidString("HitObject", defender)
+        NRD_ProjectileSetGuidString("HitObjectPosition", defender)
+        NRD_ProjectileSetGuidString("SourcePosition", defender)
+        NRD_ProjectileSetGuidString("TargetPosition", defender)
+        NRD_ProjectileLaunch();
+        return
     end
 end
 Ext.RegisterOsirisListener("NRD_OnHit", 4, "after", Musketeer_OnHit_Handler)
@@ -618,6 +669,7 @@ Ext.RegisterListener("GetSkillDamage", Testagain)
 
 local function Musketeer_Skill_AmmoType_BeamFX(item, event)
     Ext.Print("------------------- Musketeer_Skill_AmmoType_BeamFX -------------------")
+    Ext.Print(item, event)
     local helperName = "Musk_Skill_Helperobject"
     if #item >= #helperName and string.sub(item, 1, #helperName) == helperName then
         Ext.Print("The Object is a HelperObject")

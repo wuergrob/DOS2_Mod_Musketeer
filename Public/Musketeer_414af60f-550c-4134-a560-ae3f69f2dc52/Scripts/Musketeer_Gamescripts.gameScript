@@ -94,14 +94,29 @@ VARS
     CHARACTER:_OriginChar
     FLOAT3:_TargetLoc
 	CHARACTER:_ProjectileOrigin
+	ITEM:_ProjectileOriginItem
 ON
 	OnCharacterEvent(_OriginChar, "Musketeer_Pierce_Ammo_Event")
 ACTIONS
-		IF "c1&c2&c3"
+		IF "c1&c2" //"c1&(c2|c3)&c4"
 			GetVar(_TargetLoc, _OriginChar, "Piercing_TargetLocation")
-			GetVar(_ProjectileOrigin, _OriginChar, "Piercing_OriginLocation")
+			//GetVar(_ProjectileOrigin, _OriginChar, "Piercing_OriginLocation")
+			//GetVar(_ProjectileOriginItem, _OriginChar, "Piercing_OriginLocation")
 			IsTagged(_OriginChar, "Rifle_Armed")
 		THEN
-			DebugText(_OriginChar,"Piercing Ammo Stuff GameScript")
-			ShootLocalProjectileAt(Projectile_Musk_Piercing_Ammo_Effect, _ProjectileOrigin, {0.0;0.3;0.0}, _TargetLoc, 1, _OriginChar)
+			IF "c1&!c2"
+				GetVar(_ProjectileOrigin, _OriginChar, "Piercing_OriginLocation")
+				IsEqual(_ProjectileOrigin, null)
+			THEN
+				//DebugText(_OriginChar,"Piercing Ammo Stuff GameScript")
+				ShootLocalProjectileAt(Projectile_Musk_Piercing_Ammo_Effect, _ProjectileOrigin, {0.0;0.3;0.0}, _TargetLoc, 1, _OriginChar)
+				//CharacterPlayEffect(_OriginChar, "Musketeer_FX_Haste_Infuse")
+			ELIF "c1&!c2"
+				GetVar(_ProjectileOriginItem, _OriginChar, "Piercing_OriginLocation")
+				IsEqual(_ProjectileOriginItem, null)
+			THEN
+				//DebugText(_OriginChar,"Piercing Ammo Stuff GameScript")
+				ShootLocalProjectileAt(Projectile_Musk_Piercing_Ammo_Effect, _ProjectileOriginItem, {0.0;0.3;0.0}, _TargetLoc, 1, _OriginChar)
+				//CharacterPlayEffect(_OriginChar, "Musketeer_FX_Euphoria_Infuse")
+			ENDIF
 		ENDIF

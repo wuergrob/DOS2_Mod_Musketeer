@@ -300,7 +300,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Status_Musk_Ammo_Incendiary" />
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="Damage Type" />
-        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="20" />
         <field name="Projectile" type="StringStatObjectFieldDefinition" value="3b0acba6-db1c-4098-b0aa-70e9559bb118" />
@@ -311,7 +311,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Status_Musk_Ammo_Freezing" />
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="8" enumeration_type_name="Damage Type" />
-        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="20" />
         <field name="Projectile" type="StringStatObjectFieldDefinition" value="bb1943cb-15c9-48f8-8f70-77df652ad0c6" />
@@ -322,7 +322,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Status_Musk_Ammo_Piercing" />
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Damage Type" />
-        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="15" />
         <field name="Projectile" type="StringStatObjectFieldDefinition" value="30989595-7796-487f-8247-b1735fef7a0a" />
@@ -333,7 +333,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Status_Musk_Ammo_Doom" />
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
-        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="Projectile" type="StringStatObjectFieldDefinition" value="465c6446-9031-4e70-93d4-6c84da8a48ed" />

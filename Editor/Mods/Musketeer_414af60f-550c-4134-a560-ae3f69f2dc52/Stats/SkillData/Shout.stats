@@ -15,7 +15,6 @@
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fully restore your &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt; next turn. Set &lt;font color='#FFFFFF'&gt;Muted&lt;/font&gt;, &lt;font color='#FFFFFF'&gt;Disarmed&lt;/font&gt; and &lt;font color='#FFFFFF'&gt;Slowed&lt;/font&gt; by 75% until your next turn.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Fully restores Ammunition at the beginning of your next turn&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
-        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
@@ -59,9 +58,8 @@
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Incendiary" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Incendiary" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with incendiary &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal bonus fire damage.&lt;br&gt;Rifle based skills will also cause a fire surface behind the impact and ignite enemies.&lt;br&gt;&lt;br&gt;" />
-        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with incendiary &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal additional [1].&lt;br&gt;Rifle based skills will also cause a fire surface behind the impact and ignite enemies.&lt;br&gt;&lt;br&gt;" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Incendiary:Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
@@ -91,9 +89,8 @@
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Piercing" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Piercing" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with explosive tip &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks to inflict bleeding.&lt;br&gt;Rifle based skills will cause a small explosion on impact.&lt;br&gt;&lt;br&gt;" />
-        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle withpiercing &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal additional [1].&lt;br&gt;Shots from rifles will pierce through their initial targets continue traveling for a small distance.&lt;br&gt;&lt;br&gt;" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Explosive:Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
@@ -123,9 +120,8 @@
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Freezing" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Freezing" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with freezing &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal bonus water damage.&lt;br&gt;Rifle based skills will cause a ice surface behind the impact and have a chance to freeze enemies.&lt;br&gt;&lt;br&gt;" />
-        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with freezing &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal additional [1].&lt;br&gt;Rifle based skills will cause a ice surface behind the impact and have a chance to freeze enemies.&lt;br&gt;&lt;br&gt;" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Freezing:Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
@@ -155,9 +151,8 @@
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Shocking" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Shocking" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with shock &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal bonus shock damage and electrify characters." />
-        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with shock &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal additional [1] and electrify characters." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Shock:Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
@@ -187,9 +182,8 @@
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Explosive" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Holy" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with experimental Doom &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks to deal greatly increased physical damage.&lt;br&gt;Rifle based skills will cause big explosions on impact.&lt;br&gt;&lt;br&gt;" />
-        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="AreaRadius" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with experimental Doom &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks to deal additional [1]&lt;br&gt;Shots from rifles will cause big explosions on impact.&lt;br&gt;&lt;br&gt;" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:ProjectileStrike_Musk_AmmoType_Doom:Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />

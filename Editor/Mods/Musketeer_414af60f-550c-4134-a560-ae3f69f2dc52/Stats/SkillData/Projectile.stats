@@ -469,21 +469,26 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Ammo_Explosive" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="IsEnemySkill" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="20" />
-        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
-        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="10" enumeration_type_name="Death Type" />
-        <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="25" />
+        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Damage Type" />
+        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Death Type" />
+        <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ForceTarget" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="ForceTarget" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="Template" type="StringStatObjectFieldDefinition" value="d24ae62b-a02a-4c2c-8057-8037d3caf851" />
+        <field name="Template" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="BURNING,100,1;CreateConeSurface,3,,ExplosionCloud" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="AmountOfTargets" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="AutoAim" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ProjectileCount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="ProjectileDelay" type="IntegerStatObjectFieldDefinition" value="0" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -491,7 +496,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Ammo_Silver" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="IsEnemySkill" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="35" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="25" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Damage Type" />
         <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Death Type" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
@@ -511,10 +516,10 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Ammo_Shock" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="20" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="Damage Type" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="SHOCKED,100,1" />
-        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="8" />
+        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="Death Type" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -526,7 +531,7 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="ProjectileCount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="ProjectileDelay" type="IntegerStatObjectFieldDefinition" value="0" />
-        <field name="Template" type="StringStatObjectFieldDefinition" value="54cd2cc9-e841-4792-a7eb-bf518141e77b" />
+        <field name="Template" type="StringStatObjectFieldDefinition" value="e5159f3f-ea25-45aa-94b1-71314014e32c" />
         <field name="MaxForkCount" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="ForkLevels" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="ForkChance" type="IntegerStatObjectFieldDefinition" value="100" />
@@ -544,7 +549,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Ammo_Freezing" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="IsEnemySkill" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="25" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="8" enumeration_type_name="Damage Type" />
         <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="8" enumeration_type_name="Death Type" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="1" />
@@ -566,9 +571,9 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Ammo_Holy" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="IsEnemySkill" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="50" />
-        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="Damage Type" />
-        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Death Type" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="20" />
+        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
+        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="10" enumeration_type_name="Death Type" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
