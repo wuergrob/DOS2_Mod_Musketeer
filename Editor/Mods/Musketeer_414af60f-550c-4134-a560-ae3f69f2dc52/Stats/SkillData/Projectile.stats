@@ -52,7 +52,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Unload" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
-        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="SkillTier" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
@@ -93,7 +93,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Unload_Instance" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
-        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="SkillTier" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
@@ -240,6 +240,7 @@
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="SkillTier" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -346,7 +347,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Coup_De_Grace" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
-        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="SkillTier" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
@@ -389,7 +390,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Double_Up" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
-        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="SkillTier" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
@@ -808,7 +809,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Final_Act" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
-        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
