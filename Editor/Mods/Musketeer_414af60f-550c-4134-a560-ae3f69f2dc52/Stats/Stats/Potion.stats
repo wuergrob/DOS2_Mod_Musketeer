@@ -83,7 +83,7 @@
         <field name="Duration" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="unknown" />
         <field name="RangeBoost" type="IntegerStatObjectFieldDefinition" value="200" />
-        <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="-35" />
+        <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="-75" />
         <field name="Armor" type="IntegerStatObjectFieldDefinition" value="30" />
         <field name="MagicArmor" type="IntegerStatObjectFieldDefinition" value="30" />
         <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="2" />

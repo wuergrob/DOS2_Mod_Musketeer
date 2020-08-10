@@ -117,8 +117,9 @@ ItemGetCharges(_Weapon, _Ammo)
 AND
 ItemGetMaxCharges(_Weapon, _MaxAmmo)
 THEN
-NRD_AmmoBar_Set_Ammo(_Player, "val",_Ammo);
 NRD_AmmoBar_Set_Max_Ammo(_Player, "val", _MaxAmmo);
+NRD_AmmoBar_Set_Ammo(_Player, "val",_Ammo);
+
 
 // Trigger dynamic range check on level up, as that might cause the range to reset.
 IF
@@ -292,6 +293,10 @@ PROC
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Character)
 AND
 ItemGetCharges(_Weapon, _RemainingAmmo)
+AND
+ItemGetMaxCharges(_Weapon, _MaxCharges)
+AND
+_MaxCharges > 0
 AND
 _RemainingAmmo <= 0
 THEN
