@@ -163,6 +163,7 @@
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Null_Status_Desc" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="FormatStringColor" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_Range" />
+        <field name="ForceStackOverwrite" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -175,6 +176,7 @@
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Null_Status_Desc" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="FormatStringColor" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_Range" />
+        <field name="ForceStackOverwrite" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -187,6 +189,7 @@
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Null_Status_Desc" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="FormatStringColor" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_Range" />
+        <field name="ForceStackOverwrite" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -199,6 +202,7 @@
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Null_Status_Desc" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="FormatStringColor" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_Range" />
+        <field name="ForceStackOverwrite" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -211,6 +215,7 @@
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Null_Status_Desc" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="FormatStringColor" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_Range" />
+        <field name="ForceStackOverwrite" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -223,6 +228,7 @@
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Null_Status_Desc" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="FormatStringColor" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_Range" />
+        <field name="ForceStackOverwrite" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
