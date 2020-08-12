@@ -118,7 +118,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_FinalAct" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
         <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="8b65b5c3-3551-4663-b598-181fcfd8261d" />
-        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="5" enumeration_type_name="ActPart" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="ActPart" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="190" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="RangerLore 2" />

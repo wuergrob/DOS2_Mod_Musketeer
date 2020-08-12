@@ -152,9 +152,9 @@ ClearTag(_Player, "Musketeer_AtLeast_Two_Left");
 RemoveStatus(_Player, "MUSK_RANGE_LONG");
 RemoveStatus(_Player, "MUSK_RANGE_SHORT");
 RemoveStatus(_Player, "MUSK_RANGE_MEDIUM");
-RemoveStatus(_Player, "MUSK_RANGE_LONG");
-RemoveStatus(_Player, "MUSK_RANGE_SHORT");
-RemoveStatus(_Player, "MUSK_RANGE_MEDIUM");
+RemoveStatus(_Player, "MUSK_RANGE_LONG_LW");
+RemoveStatus(_Player, "MUSK_RANGE_SHORT_LW");
+RemoveStatus(_Player, "MUSK_RANGE_MEDIUM_LW");
 NRD_AmmoBar_Set_GUI(_Player, "val", 0);
 //RemoveStatus(_Player, "MUSK_RANGE_10");
 //CharacterRemoveAbility(_Player, "Repair", 5);
@@ -366,6 +366,40 @@ AND
 CharacterIsPlayer(_Character, 1)
 THEN
 NRD_DebugLog("[OSIRIS] Character resurrected, is Dynamic range being updated?");
+
+
+IF
+DB_Illusionist((CHARACTERGUID)_Player, (ITEMGUID)_Mirror)
+AND
+IsTagged(_Player, "Rifle_Armed", 1)
+AND
+GetUUID(_Player, _UUID)
+THEN
+NRD_AmmoBar_SetCC_Visibility(_UUID, 1);
+NRD_DebugLog("[OSIRIS] DB_Illusionist player added");
+
+IF
+CharacterCreationStarted(_Level)
+AND
+DB_IsPlayer(_Player)
+AND
+DB_Illusionist(_Player, (ITEMGUID)_Mirror)
+AND
+GetUUID(_Player, _UUID)
+THEN
+//NRD_AmmoBar_Check_Visibility(_UUID);
+NRD_DebugLog("[OSIRIS] Character Creation Started for someone");
+
+PROC
+Proc_HomesteadTeleportAfterMirror((CHARACTERGUID)_Player,(ITEMGUID)_Mirror,(TRIGGERGUID)_Trigger)
+AND
+DB_IsPlayer(_Player)
+AND
+GetUUID(_Player, _UUID)
+THEN
+NRD_AmmoBar_SetCC_Visibility(_UUID, 0);
+NRD_DebugLog("[OSIRIS] Character Creation is over for someone");
+
 /*
 IF
 NRD_OnActionStateEnter(_Character, "Attack")

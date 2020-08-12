@@ -1,4 +1,3 @@
---Ext.Require("ExtIdeHelpers.lua")
 -- TODO
 
 --[[
@@ -7,13 +6,6 @@ Refactoring
 Code is a absolut mess. Notably:
 * Use a shared table for storing reload variant info
 * Clean up calls. Too many unnecessary Lua calls from Osiris code.
-* Tag names for different rifle variations no longer reflect their actual values. Rename to more
-applicable, generic names.
------
-AmmoBar Positioning / Consistency
------
-Look into container .swf code to check how draggable UI is done.
-NOTE: test UI behaviour in more situations (notably dialog and stuff where the hotbar hides.)
 -----
 
 --]]
@@ -34,6 +26,7 @@ PersistentVars  = {
 	CurrentHotbar = 1,
 	HotbarVisible = true,
 	AmmoBarEnabled = false,
+	PlayerIsInCC = false,
 }
 
 function InitPlayerState()
@@ -226,15 +219,42 @@ local function Musketeer_AmmoBar_Visibility(call, value)
 		end
 	end
 	-- Refactor this, only done this way for testing.
-	if (PersistentVars["HotbarVisible"] == false) then
-		print("Not showing AmmoBar, because Hotbar is disabled.")
+	
+	--local hotbarUi = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+
+	local characterCreation = Ext.GetBuiltinUI("Public/Game/GUI/characterCreation.swf")
+	local doneWithCharacterCreation = true
+	if characterCreation ~= nil then
+		Ext.Print("[CLIENT DEBUG] characterCreation exists, checking if it's visible:")
+		Ext.Print(characterCreation:GetRoot().isFinished)
+		doneWithCharacterCreation = characterCreation:GetRoot().isFinished
+	end
+
+	local hotbarRoot = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf"):GetRoot()
+	local hotbarVisible = true
+	if hotbarRoot ~= nil then
+		Ext.Print("[CLIENT DEBUG] Hotbar exists, checking if it's visible:")
+		Ext.Print(hotbarRoot.visible)
+		--hotbarVisible = hotbarRoot.hotbar_mc.isSkillBarShown
+		hotbarVisible = hotbarRoot.visible
+	end
+	--Ext.Print(playerGuid.CurrentLevel)
+	if (PersistentVars["HotbarVisible"] == false or hotbarVisible == false or PersistentVars["PlayerIsInCC"] == true) then
+		print("Not showing AmmoBar, because Hotbar is disabled, or player is in CC.")
 		ui:Hide()
 		return
 	end
 	print("AmmoBar visibility set")
 end
 
-
+local function Musketeer_Set_Player_CC_State(channel, bool)
+	if bool == "1" then bool = true elseif bool == "0" then bool = false end
+	if bool == nil then bool = false end
+	Ext.Print("[CLIENT DEBUG] Player used Magic Mirror, updating AmmoBar visibility")
+	PersistentVars["PlayerIsInCC"] = bool
+	Musketeer_AmmoBar_Visibility("Magic Mirror Check", PersistentVars["AmmoBarEnabled"])
+end
+Ext.RegisterNetListener("playerSetInCC", Musketeer_Set_Player_CC_State)
 
 --- @param force boolean Optional parameter to force a reset, even when the active skill preview is on.
 local function Musketeer_Reset_Previews_AmmoBar(force)

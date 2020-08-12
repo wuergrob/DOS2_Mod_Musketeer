@@ -539,9 +539,6 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
     -- Also, attacks on items cannot miss, so no need to check for dodge/missed attack.
     -- However, i noticed that "damageAmount" on characters is 0 when the attack misses. (good to know)
 
-    -- TODO: Piercing Ammo still triggers the old Explosive effect with the "MovingObject".
-    -- Instead of exploding a skill, trigger the piercing projectile stuff.
-
 
     local finalActSkillName = "Projectile_Final_Act"
     local RendSkillName = "Projectile_Rend_The_Marked"
@@ -714,6 +711,8 @@ Ext.RegisterOsirisListener("StoryEvent", 2, "before", Musketeer_Skill_AmmoType_B
 
 
 
+
+
 local function Musketeer_Test_AmmoType_Boost_Remove(itemGuid, characterGuid)
 
 end
@@ -733,3 +732,9 @@ local function Musketeer_Test_AmmoType_Boost_Apply(itemGuid, characterGuid)
     Ext.Print(debugVar)
 end
 --Ext.RegisterOsirisListener("ItemEquipped", 2, "before", Musketeer_Test_AmmoType_Boost_Apply)
+
+local function Musketeer_Ammobar_CC_Visibility(playerGuid, bool)
+    --if bool == 1 then bool = true elseif bool == 0 then bool = false end
+    Ext.PostMessageToClient(playerGuid, "playerSetInCC", bool)
+end
+Ext.NewCall(Musketeer_Ammobar_CC_Visibility, "NRD_AmmoBar_SetCC_Visibility", "(STRING)_Player, (INTEGER)_Bool");
