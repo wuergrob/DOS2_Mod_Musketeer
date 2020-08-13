@@ -24,9 +24,9 @@
                     </children>
                 </node>
                 <node id="ModuleInfo">
-                    <attribute id="Author" value="" type="30" />
+                    <attribute id="Author" value="Kimchi" type="30" />
                     <attribute id="CharacterCreationLevelName" value="" type="22" />
-                    <attribute id="Description" value="" type="30" />
+                    <attribute id="Description" value='Required Laughing Leader&apos;s &quot;Animation Plus&quot; Mod to be loaded.' type="30" />
                     <attribute id="DescriptionName" value="" handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
                     <attribute id="DisplayName" value="" handle="ls::TranslatedStringRepository::s_HandleUnknown" type="28" />
                     <attribute id="Folder" value="Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52" type="30" />

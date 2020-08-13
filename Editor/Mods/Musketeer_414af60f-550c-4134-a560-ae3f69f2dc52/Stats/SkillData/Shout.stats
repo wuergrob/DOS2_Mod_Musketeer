@@ -5,7 +5,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -31,6 +31,7 @@
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2" />
         <field name="CleanseStatuses" type="StringStatObjectFieldDefinition" value="RELOAD_INCENDIARY;RELOAD_FREEZING;RELOAD_SILVER;RELOAD_HOLY;RELOAD_EXPLOSIVE" />
         <field name="StatusClearChance" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -49,7 +50,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Incendiary" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -74,13 +75,14 @@
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_INCENDIARY,100,4;" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; FireSpecialist 2;" />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Explosive" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -105,13 +107,14 @@
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_EXPLOSIVE,100,4" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; Necromancy 2;" />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Freezing" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -136,13 +139,14 @@
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_FREEZING,100,4" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; WaterSpecialist 2;" />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Silver" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -167,13 +171,14 @@
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_SILVER,100,4" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; AirSpecialist 2;" />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Holy" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -198,6 +203,7 @@
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_HOLY,100,4" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; WarriorLore 2;" />
+        <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
       </fields>
     </stat_object>
   </stat_objects>
