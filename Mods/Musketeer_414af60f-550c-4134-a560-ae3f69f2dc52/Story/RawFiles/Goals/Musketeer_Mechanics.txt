@@ -25,7 +25,6 @@ KBSECTION
 IF
 GameStarted(_, _)
 THEN
-NRD_DebugLog("[WT_FS] Blatest");
 NRD_GameStarted();
 NRD_DebugLog("[WT_FS] Game Started. (ALSO CALLING NRD_GameStarted)");
 
@@ -179,6 +178,22 @@ THEN
 ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 
+// Auto-Reload weapon after combat is over.
+// QoL, seems tedious that a player has to reload after every fight.
+IF
+ObjectLeftCombat(_Character, _Combat)
+AND
+ObjectIsCharacter(_Character, 1)
+AND
+DB_IsPlayer((CHARACTERGUID)_Character)
+AND
+DB_Musketeer_RifleEquipped(_Character, 1)
+AND
+CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
+THEN
+ItemResetChargesToMax((ITEMGUID)_Weapon);
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
+
 // Consume item charges when player uses a Rifle-Skill
 IF
 //CharacterUsedSkill(_Character, _Skill, _, _)
@@ -280,6 +295,7 @@ Musketeer_Consume_Ammo((ITEMGUID)_Weapon, (INTEGER)_Amount, (CHARACTERGUID)_Char
 THEN
 ItemAddCharges(_Weapon, _Amount);
 Musketeer_Ammo_Requirement_Tags(_Weapon, _Character);
+NRD_Client_Refresh_Hotbar(_Character);
 //ApplyStatus(_Character, "CLEAR_MINDED", 0.0, 1, _Character);
 // Apply a empty status to force a skillbar tag-requirement refresh.
 //ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);

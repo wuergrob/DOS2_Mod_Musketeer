@@ -51,3 +51,27 @@ is severely bottlenecked and starved of AP.
 - Skill `Final Act` AP cost reduced from 2 to 1
 - Skill `Rend the Marked` AP cost reduced from 3 to 2
 - Skill `Buckshot` AP cost reduced from 2 to 1, Cooldown increased from 2 to 3
+
+## 0.9.1.1 - Extender v51 Release Patch
+
+### New Features
+
+- Performing `Attack Ground` with a firearm now applies additional effects from `Enhanced Reload`
+
+### Bugfixes
+
+- Replaced `Stunned` effect from `Buckshot` Skill with `Knockdown` effect
+- `Enhanced Reload` Skillbooks now correctly use the source-version of the Skillbook icons
+- `Buckshot` now correctly ignites surfaces
+- `Buckshot` now correctly causes a cone of fire behind it's impact target/location
+- Fixed a bug where tag-requirements were not always being refreshed on the skillbar
+- Fixed a bug where `Buckshot` played the wrong impact-SFX
+- Updated `GetStatus` calls with fixed `GetStatusObjects` calls (v51 fix)
+- Fixed a bug that caused piercing ammo to shoot off recursively from it's own instances
+
+### Balance & Design
+
+Buckshot might be too strong again and will be monitored closely.
+
+- `Musketeer Skill Overview` Page updated
+- Leaving combat will automatically fully restore a player's currently equipped firearm's `Ammunition`

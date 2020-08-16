@@ -28,8 +28,8 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 # Current WIP Features
 - [x] Reload Animation and SFX/FX (Still kinda meh)
 - [x] Better distribution of Rifles throughout the game
-- [ ] Finalize Alternative Reload variations
-- [ ] AmmoBar custom GUI element for Ammunition Management (Currently testing for bugs)
+- [x] Finalize Alternative Reload variations
+- [x] AmmoBar custom GUI element for Ammunition Management (Currently testing for bugs)
 - [x] Rework "Rend the Marked" again, because it's super lame
 - [x] Make AmmoBar draggable
 - [x] Rewrite "Covering Fire" logic in Lua
@@ -42,13 +42,13 @@ Musketeer for Divinity: Original Sin 2 - Definitive Edition
 - [x] Rifles have a chance to spawn with the SkyShot (Maybe other skills too) Skill
 - [x] Skillproperty "Force" combined with "Knock Down" causes enemy target's turn to time out. (Replaced "Knock Down" with "Stunned")
 - [x] Buckshot Skill Description param [2] is missing
-- [ ] Skill Requirements are not being refreshed directly after using a skill
-- [ ] AmmoBar in Character Respec screen not behaving correctly (Not tested, but reported by LL)
+- [x] Skill Requirements are not being refreshed directly after using a skill
+- [x] AmmoBar in Character Respec screen not behaving correctly (Not tested, but reported by LL)
 
 
 
 # Planned Features
-- [ ] Add AmmoType effects on basic attacks when attacking ground.
+- [x] Add AmmoType effects on basic attacks when attacking ground.
 Currently not (easily) possible, waiting for additional ASAttack access options in the Extender
 - [x] Improved Visualization of Remaining Ammo
 UI Overlay Effect from a Status effect perhaps?

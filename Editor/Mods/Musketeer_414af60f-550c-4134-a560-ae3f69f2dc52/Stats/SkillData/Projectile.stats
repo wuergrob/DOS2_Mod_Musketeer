@@ -183,7 +183,7 @@
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="120" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="1" />
@@ -213,7 +213,7 @@
         <field name="ProjectileTerrainOffset" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="Force,2;TargetCreateSurface,1,,Fire;CreateConeSurface,6,,ExplosionCloud;TARGET:IF(HasStatus:MUSK_MARK_TARGET):STUNNED,100,1;" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="Ignite;Melt;Force,2;CreateConeSurface,6,,ExplosionCloud;TARGET:IF(HasStatus:MUSK_MARK_TARGET):BUCKSHOT_STUNNED,100,1" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_AtLeast_Two_Left" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
@@ -228,15 +228,15 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Buckshot_Fire" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="70" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="Damage Type" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateConeSurface,8,,Fire" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateConeSurface,3,,Fire;Ignite;Melt;" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="ProjectileCount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="ProjectileDelay" type="IntegerStatObjectFieldDefinition" value="0" />
-        <field name="Template" type="StringStatObjectFieldDefinition" value="94fffa55-51bf-482d-9b57-a5d116ef831b" />
+        <field name="Template" type="StringStatObjectFieldDefinition" value="f767d160-7ef0-482c-bd68-fa6419ffb64b" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />

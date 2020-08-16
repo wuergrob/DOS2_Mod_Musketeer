@@ -628,7 +628,7 @@ local function Reload_Override_DescriptionParams(status, statusSource, character
 end
 --Ext.RegisterListener("StatusGetDescriptionParam", Reload_Override_DescriptionParams)
 
-
+--[[
 function Musketeer_Refresh_Hotbar()
 	print("[CLIENT] Custom Refresh Hotbar called")
 	local hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
@@ -640,6 +640,16 @@ function Musketeer_Refresh_Hotbar()
 		hotbarUI:ExternalInterfaceCall("updateSlots", maxSlots)
 	end
 end
+--]]
+
+local function Musketeer_Refresh_Hotbar()
+	Ext.Print("[CLIENT] Custom Refresh Hotbar called")
+	local hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+	if hotbarUI ~= nil then
+		hotbarUI:ExternalInterfaceCall("updateSlots", hotbarUI:GetValue("maxSlots", "number"))
+	end
+end
+Ext.RegisterNetListener("Client_Refresh_Hotbar", Musketeer_Refresh_Hotbar)
 
 -- NOTE ON TALENTS:
 -- characterSheet.swf Maintimeline has a "addTalent" function.

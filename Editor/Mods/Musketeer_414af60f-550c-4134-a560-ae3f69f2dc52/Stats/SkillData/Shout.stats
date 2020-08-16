@@ -50,7 +50,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Incendiary" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -82,7 +82,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Explosive" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -114,7 +114,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Freezing" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -146,7 +146,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Silver" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -178,7 +178,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Holy" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="Self" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />

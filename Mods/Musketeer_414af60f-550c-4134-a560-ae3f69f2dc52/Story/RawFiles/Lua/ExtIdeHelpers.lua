@@ -6,8 +6,7 @@ Osi = {}
 --- @class DamageItem
 --- @field public DamageType string
 --- @field public Amount integer
-local DamageItem = {
-}
+local DamageItem = {}
 
 --- @class DamageList
 local DamageList = {}
@@ -869,6 +868,75 @@ local StatCharacter = {
 local StatItemDynamic = {}
 
 
+--- @class StatProperty
+--- @field Context string[] Target|Self|AoE|SelfOnHit|SelfOnEquip
+--- @field Type string Custom|Status|SurfaceChange|GameAction|OsirisTask|Sabotage|Summon|Force
+--- @field Condition string|nil
+local StatProperty = {}
+
+--- @class StatPropertyCustom : StatProperty
+--- @field Type string Custom
+--- @field Action string
+local StatPropertyStatus = {}
+
+--- @class StatPropertyStatus : StatProperty
+--- @field Type string Status
+--- @field Action string Status name
+--- @field StatusChance number
+--- @field Duration number
+--- @field StatsId string
+--- @field Arg4 integer
+--- @field Arg5 integer
+--- @field SurfaceBoost boolean
+--- @field SurfaceBoosts string[] Labels from "Surface Type" enumeration
+local StatPropertyStatus = {}
+
+--- @class StatPropertySurfaceChange : StatProperty
+--- @field Type string SurfaceChange
+--- @field Action string Label from "Surface Change" enumeration
+--- @field SurfaceChance number
+--- @field Lifetime number
+--- @field StatusChance number
+--- @field Radius number
+local StatPropertySurfaceChange = {}
+
+--- @class StatPropertySabotage : StatProperty
+--- @field Type string Sabotage
+--- @field Amount integer
+local StatPropertySabotage = {}
+
+--- @class StatPropertySummon : StatProperty
+--- @field Type string Summon
+--- @field Template string
+--- @field Duration number
+--- @field IsTotem boolean
+--- @field Skill string
+local StatPropertySummon = {}
+
+--- @class StatPropertyForce : StatProperty
+--- @field Type string Force
+--- @field Distance integer
+local StatPropertyForce = {}
+
+--- @class StatPropertyGameAction : StatProperty
+--- @field Type string GameAction
+--- @field Action string Label from "Game Action" enumeration
+--- @field Arg1 number
+--- @field Arg2 number
+--- @field Arg3 string
+--- @field Arg4 number
+--- @field Arg5 number
+--- @field StatusHealType string Label from "StatusHealType" enumeration
+local StatPropertyGameAction = {}
+
+--- @class StatPropertyOsirisTask : StatProperty
+--- @field Type string OsirisTask
+--- @field Action string Label from "Osiris Task" enumeration
+--- @field Chance number
+--- @field VitalityOnRevive integer
+local StatPropertyOsirisTask = {}
+
+
 --- @class StatItem : StatBase
 --- Properties from property map
 --- @field public Level integer
@@ -1150,6 +1218,7 @@ local EsvGameObject = {}
 
 
 --- @class EsvItem : EsvGameObject
+--- @field public Handle integer
 --- @field public RootTemplate ItemTemplate
 --- @field public WorldPos number[]
 --- @field public CurrentLevel string
@@ -1175,6 +1244,47 @@ local EsvGameObject = {}
 --- @field public LevelOverride integer
 --- @field public ForceSynch boolean
 --- @field public DisplayName string
+--- From ItemFlags
+--- @field public Activated boolean
+--- @field public OffStage boolean
+--- @field public CanBePickedUp boolean
+--- @field public CanBeMoved boolean
+--- @field public WalkOn boolean
+--- @field public WalkThrough boolean
+--- @field public NoCover boolean
+--- @field public CanShootThrough boolean
+--- @field public CanUse boolean
+--- @field public InteractionDisabled boolean
+--- @field public Destroyed boolean
+--- @field public LoadedTemplate boolean
+--- @field public IsDoor boolean
+--- @field public StoryItem boolean
+--- @field public Summon boolean
+--- @field public FreezeGravity boolean
+--- @field public ForceSync boolean
+--- @field public IsLadder boolean
+--- @field public PositionChanged boolean
+--- @field public Totem boolean
+--- @field public Destroy boolean
+--- @field public GMFolding boolean
+--- @field public Sticky boolean
+--- @field public DoorFlag boolean
+--- @field public Floating boolean
+--- @field public IsSurfaceBlocker boolean
+--- @field public IsSurfaceCloudBlocker boolean
+--- @field public SourceContainer boolean
+--- @field public Frozen boolean
+--- @field public TeleportOnUse boolean
+--- @field public PinnedContainer boolean
+--- From ItemFlags2
+--- @field public UnsoldGenerated boolean
+--- @field public IsKey boolean
+--- @field public Global boolean
+--- @field public CanConsume boolean
+--- @field public TreasureGenerated boolean
+--- @field public UnEquipLocked boolean
+--- @field public UseRemotely boolean
+--- 
 --- @field public Stats StatItem
 local EsvItem = {}
 
@@ -1270,6 +1380,7 @@ local EsvSkillInfo = {}
 --- @field public PlayerCustomData PlayerCustomData
 --- @field public Stats StatCharacter
 --- @field public DisplayName string
+--- @field public Handle integer
 ---
 --- @field public NetID integer
 --- @field public MyGuid string
@@ -1316,6 +1427,7 @@ local EsvSkillInfo = {}
 --- @field public Multiplayer boolean
 --- @field public InParty boolean
 --- @field public HostControl boolean
+--- @field public Activated boolean
 --- @field public OffStage boolean
 --- @field public Dead boolean
 --- @field public HasOwner boolean
@@ -1327,6 +1439,7 @@ local EsvSkillInfo = {}
 --- @field public CharacterCreationFinished boolean
 --- @field public Floating boolean
 --- @field public SpotSneakers boolean
+--- @field public Temporary boolean
 --- @field public WalkThrough boolean
 --- @field public CoverAmount boolean
 --- @field public CanShootThrough boolean
@@ -1334,6 +1447,9 @@ local EsvSkillInfo = {}
 --- @field public Totem boolean
 --- @field public NoRotate boolean
 --- @field public IsHuge boolean
+--- @field public MadePlayer boolean
+--- @field public LevelTransitionPending boolean
+--- @field public RegisteredForAutomatedDialog boolean
 ---
 --- CharacterFlags 2
 --- @field public Global boolean
@@ -1351,6 +1467,7 @@ local EsvSkillInfo = {}
 --- @field public HasRunSpeedOverride boolean
 --- @field public IsGameMaster boolean
 --- @field public IsPossessed boolean
+--- @field public ManuallyLeveled boolean
 local EsvCharacter = {}
 
 --- Returns the GUID of all items in the characters inventory
@@ -1415,8 +1532,29 @@ function EsvCharacter.SetScale (self, scale) end
 
 
 
+--- @class EsvShootProjectileRequest
+--- @field public SkillId string
+--- @field public Caster integer
+--- @field public Source integer
+--- @field public Target integer
+--- @field public StartPosition number[]
+--- @field public EndPosition number[]
+--- @field public Random integer
+--- @field public CasterLevel integer
+--- @field public IsTrap boolean
+--- @field public UnknownFlag1 boolean
+--- @field public CleanseStatuses string
+--- @field public StatusClearChance integer
+--- @field public IsFromItem boolean
+--- @field public IsStealthed boolean
+--- @field public IgnoreObjects boolean
+--- TODO - DamageList, HitObject
+local EsvShootProjectileRequest = {}
+
+
 --- @class EsvProjectile : EsvGameObject
 --- @field public RootTemplate ProjectileTemplate
+--- @field public Handle integer
 --- @field public NetID integer
 --- @field public MyGuid string
 --- @field public CasterHandle integer
@@ -1458,6 +1596,134 @@ function EsvCharacter.SetScale (self, scale) end
 --- @field public Scale number
 --- @field public CurrentLevel string
 local EsvProjectile = {}
+
+
+--- @class EsvSurfaceAction
+--- @field public MyHandle integer
+local EsvSurfaceAction = {}
+
+
+--- @class EsvCreateSurfaceActionBase : EsvSurfaceAction
+--- @field public OwnerHandle integer
+--- @field public Duration number
+--- @field public StatusChance number
+--- @field public Position number[]
+--- @field public SurfaceType string
+local EsvCreateSurfaceActionBase = {}
+
+
+--- @class EsvCreateSurfaceAction : EsvCreateSurfaceActionBase
+--- @field public Radius number
+--- @field public ExcludeRadius number
+--- @field public MaxHeight number
+--- @field public IgnoreIrreplacableSurfaces boolean
+--- @field public CheckExistingSurfaces boolean
+--- @field public SurfaceCollisionFlags integer
+--- @field public SurfaceCollisionNotOnFlags integer
+--- @field public Timer number
+--- @field public GrowTimer number
+--- @field public GrowStep integer
+--- @field public SurfaceLayer integer
+local EsvCreateSurfaceAction = {}
+
+
+--- @class EsvChangeSurfaceOnPathAction : EsvCreateSurfaceActionBase
+--- @field public FollowObject integer
+--- @field public Radius number
+--- @field public IgnoreIrreplacableSurfaces boolean
+--- @field public CheckExistingSurfaces boolean
+--- @field public SurfaceCollisionFlags integer
+--- @field public SurfaceCollisionNotOnFlags integer
+--- @field public IgnoreOwnerCells boolean
+local EsvChangeSurfaceOnPathAction = {}
+
+
+--- @class EsvCreatePuddleAction : EsvCreateSurfaceActionBase
+--- @field public SurfaceCells integer
+--- @field public Step integer
+--- @field public GrowSpeed number
+--- @field public IgnoreIrreplacableSurfaces boolean
+--- @field public GrowTimer number
+local EsvCreatePuddleAction = {}
+
+
+--- @class EsvExtinguishFireAction : EsvCreateSurfaceActionBase
+--- @field public Position number[]
+--- @field public Radius number
+--- @field public Percentage number
+--- @field public GrowTimer number
+--- @field public Step number
+local EsvExtinguishFireAction = {}
+
+
+--- @class EsvRectangleSurfaceAction : EsvCreateSurfaceActionBase
+--- @field public DamageList DamageList
+--- @field public Target number[]
+--- @field public SurfaceArea number
+--- @field public Width number
+--- @field public Length number
+--- @field public GrowTimer number
+--- @field public MaxHeight number
+--- @field public GrowStep integer
+--- @field public AiFlags integer
+--- @field public DeathType string
+--- @field public LineCheckBlock integer
+local EsvRectangleSurfaceAction = {}
+
+
+--- @class EsvPolygonSurfaceAction : EsvCreateSurfaceActionBase
+--- @field public DamageList DamageList
+--- @field public Vertices number[][]
+--- @field public PositionX number
+--- @field public PositionZ number
+--- @field public GrowTimer number
+--- @field public GrowStep integer
+local EsvPolygonSurfaceAction = {}
+
+
+--- @class EsvSwapSurfaceAction : EsvCreateSurfaceActionBase
+--- @field public Radius number
+--- @field public ExcludeRadius number
+--- @field public MaxHeight number
+--- @field public Target number[]
+--- @field public IgnoreIrreplacableSurfaces boolean
+--- @field public CheckExistingSurfaces boolean
+--- @field public SurfaceCollisionFlags integer
+--- @field public SurfaceCollisionNotOnFlags integer
+--- @field public LineCheckBlock integer
+--- @field public GrowTimer number
+--- @field public GrowStep integer
+local EsvSwapSurfaceAction = {}
+
+
+--- @class EsvZoneAction : EsvCreateSurfaceActionBase
+--- @field public SkillId string
+--- @field public DamageList DamageList
+--- @field public Target number[]
+--- @field public Shape integer
+--- @field public Radius number
+--- @field public AngleOrBase number
+--- @field public BackStart number
+--- @field public FrontOffset number
+--- @field public MaxHeight number
+--- @field public GrowTimer number
+--- @field public GrowStep integer
+--- @field public GrowStep AiFlags
+--- @field public DeathType string
+local EsvZoneAction = {}
+
+
+--- @class EsvTransformSurfaceAction : EsvCreateSurfaceActionBase
+--- @field public SurfaceTransformAction string
+--- @field public OriginSurface string
+--- @field public SurfaceLayer integer
+--- @field public GrowCellPerSecond number
+--- @field public OwnerHandle2 integer
+--- @field public Position number[]
+--- @field public SurfaceLifetime number
+--- @field public SurfaceStatusChance number
+local EsvTransformSurfaceAction = {}
+
 
 --- @class ModInfo
 --- @field public UUID string
@@ -2727,7 +2993,7 @@ function UIObject.Destroy (self) end
 local SurfaceInteractionSet = {}
 
 
---- @alias ExtEngineEvent "'SessionLoading'" | "'SessionLoaded'" | "'ModuleLoading'" | "'ModuleLoadStarted'" | "'ModuleResume'" | "'GameStateChanged'" | "'SkillGetDescriptionParam'" | "'StatusGetDescriptionParam'" | "'GetSkillDamage'" | "'GetSkillAPCost'" | "'ComputeCharacterHit'" | "'CalculateTurnOrder'" | "'GetHitChance'" | "'StatusGetEnterChance'" | '"StatusHitEnter"' | "'BeforeCharacterApplyDamage'" | "'UIInvoke'" | "'UICall'"
+--- @alias ExtEngineEvent "'SessionLoading'" | "'SessionLoaded'" | "'ModuleLoading'" | "'ModuleLoadStarted'" | "'ModuleResume'" | "'GameStateChanged'" | "'SkillGetDescriptionParam'" | "'StatusGetDescriptionParam'" | "'GetSkillDamage'" | "'GetSkillAPCost'" | "'ComputeCharacterHit'" | "'CalculateTurnOrder'" | "'GetHitChance'" | "'StatusGetEnterChance'" | '"StatusHitEnter"' | "'BeforeCharacterApplyDamage'" | "'UIInvoke'" | "'UICall'" | "'BeforeShootProjectile'" | "'ShootProjectile'" | "'ProjectileHit'" | "'GroundHit'"
 
 --- @alias ExtGameStateChangedCallback fun(fromState: string, toState: string)
 --- @alias ExtComputeCharacterHitCallback fun(target: StatCharacter, attacker: StatCharacter, weapon: StatItem, damageList: DamageList, hitType: string, noHitRoll: boolean, forceReduceDurability: boolean, hit: HitRequest, alwaysBackstab: boolean, highGroundFlag: string, criticalRoll: string): HitRequest
@@ -2740,6 +3006,10 @@ local SurfaceInteractionSet = {}
 --- @alias ExtGetSkillAPCostCallback fun(skill: StatEntrySkillData, character: StatCharacter, grid: AiGrid, position: number[]|nil, range: number|nil): number, boolean
 --- @alias ExtBeforeCharacterApplyDamageCallback fun(target: EsvCharacter, attacker: StatCharacter|StatItem, hit: HitRequest, causeType: string, impactDirection: number[], context: HitContext): HitRequest
 --- @alias ExtStatusHitEnterCallback fun(status: EsvStatus, context: HitContext)
+--- @alias ExtBeforeShootProjectileCallback fun(projectile: EsvShootProjectileRequest)
+--- @alias ExtShootProjectileCallback fun(projectile: EsvProjectile)
+--- @alias ExtProjectileHitCallback fun(projectile: EsvProjectile, hitObject: EsvGameObject|nil, position: number[])
+--- @alias ExtGroundHitCallback fun(caster: EsvGameObject, position: number[], damageList: DamageList)
 
 --- @class Ext
 Ext = {
@@ -3061,13 +3331,23 @@ function Ext.GetStatEntriesLoadedBefore (modId, type) end
 
 --- Returns all skills from the specified skill set
 --- @param name string Name of skill set entry
---- @return string[]
+--- @return StatSkillSet|nil
 function Ext.GetSkillSet (name) end
+
+--- Updates all properties of the specified skill set.
+--- The function expects a table in the same format as the one returned by GetSkillSet.
+--- @param skillSet StatSkillSet
+function Ext.UpdateSkillSet (skillSet) end
 
 --- Returns all equipment from the specified equipment set
 --- @param name string Name of equipment set entry
---- @return string[]
+--- @return StatEquipmentSet|nil
 function Ext.GetEquipmentSet (name) end
+
+--- Updates all properties of the specified equipment set.
+--- The function expects a table in the same format as the one returned by GetEquipmentSet.
+--- @param equipmentSet StatEquipmentSet
+function Ext.UpdateEquipmentSet (equipmentSet) end
 
 --- Returns an attribute of the specified stat entry
 --- @param stat string Stat entry name
@@ -3089,23 +3369,65 @@ function Ext.StatAddCustomDescription (stat, attribute, description) end
 
 --- Returns the specified DeltaMod or nil on failure
 --- @param name string Name of delta mod
+--- @param modifierType string Modifier type (Armor/Weapon)
 --- @return DeltaMod
-function Ext.GetDeltaMod (name) end
+function Ext.GetDeltaMod (name, modifierType) end
+
+--- Updates all properties of the specified DeltaMod.
+--- The function expects a table in the same format as the one returned by GetDeltaMod.
+--- @param deltaMod DeltaMod Name of delta mod
+function Ext.UpdateDeltaMod (deltaMod) end
 
 --- Returns the specified crafting item combination or nil on failure
 --- @param name string Name of item combo
 --- @return ItemCombo|nil
 function Ext.GetItemCombo (name) end
 
+--- Updates all properties of the specified item combination.
+--- The function expects a table in the same format as the one returned by GetItemCombo.
+--- @param itemCombo ItemCombo
+function Ext.UpdateItemCombo (itemCombo) end
+
 --- Returns the specified crafting preview data or nil on failure
 --- @param name string Name of item combo preview data
 --- @return ItemComboPreviewData|nil
 function Ext.GetItemComboPreviewData (name) end
 
+--- Updates all properties of the specified item combo preview.
+--- The function expects a table in the same format as the one returned by GetItemComboPreviewData.
+--- @param previewData ItemComboPreviewData
+function Ext.UpdateItemComboPreviewData (previewData) end
+
 --- Returns the specified crafting property or nil on failure
 --- @param name string Name of item combo property
 --- @return ItemComboProperty|nil
 function Ext.GetItemComboProperty (name) end
+
+--- Updates all properties of the specified item combo property.
+--- The function expects a table in the same format as the one returned by GetItemComboProperty.
+--- @param itemComboProperty ItemComboProperty
+function Ext.UpdateItemComboProperty (itemComboProperty) end
+
+--- Returns the specified treasure table or nil on failure
+--- @param name string Name of treasure table
+--- @return StatTreasureTable|nil
+function Ext.GetTreasureTable (name) end
+
+--- Updates all properties of the specified treasure table.
+--- The function expects a table in the same format as the one returned by GetTreasureTable.
+--- @param treasureTable StatTreasureTable
+function Ext.UpdateTreasureTable (treasureTable) end
+
+--- Returns the specified treasure category or nil on failure
+--- @param name string Name of treasure category
+--- @return StatTreasureCategory|nil
+function Ext.GetTreasureCategory (name) end
+
+--- Updates all properties of the specified treasure category.
+--- The function expects a table in the same format as the one returned by GetTreasureCategory.
+--- @param name string Name of treasure category
+--- @param treasureCategory StatTreasureCategory
+function Ext.UpdateTreasureCategory (name, treasureCategory) end
 
 --- Returns the specified item progression item group or nil on failure
 --- @param name string Name of item group
@@ -3116,11 +3438,6 @@ function Ext.GetItemGroup (name) end
 --- @param name string Name of name group
 --- @return ItemNameGroup|nil
 function Ext.GetNameGroup (name) end
-
---- Updates all properties of the specified DeltaMod.
---- The function expects a table in the same format as the one returned by GetDeltaMod.
---- @param deltaMod DeltaMod Name of delta mod
-function Ext.UpdateDeltaMod (deltaMod) end
 
 --- Replaces level scaling formula for the specified stat
 --- @param statType string Stat entry type
@@ -3171,6 +3488,19 @@ function Ext.GetSurfaceTransformRules () end
 --- Updates the transformation rules that are applied when two neighbouring surfaces interact.
 --- @param rules SurfaceInteractionSet[][] New rules to apply
 function Ext.UpdateSurfaceTransformRules (rules) end
+
+--- Prepares a new surface action for execution
+--- @param type string Surface action type
+--- @return EsvSurfaceAction
+function Ext.CreateSurfaceAction (type) end
+
+--- Executes a surface action
+--- @param action EsvSurfaceAction Action to execute
+function Ext.ExecuteSurfaceAction (action) end
+
+--- CAncels a surface action
+--- @param actionHandle integer Action to cancel
+function Ext.CancelSurfaceAction (actionHandle) end
 
 --- Returns the GUID of all characters on the specified level. 
 --- Uses the current level if no level name was specified.
@@ -3308,6 +3638,21 @@ function Ext.GetTranslatedString (handle, fallback) end
 --- @param key string Translated string key
 --- @return string,string Translated string and handle
 function Ext.GetTranslatedStringFromKey (key) end
+
+--- @param key string Translated string key
+--- @param handle string Translated string handle
+--- @return bool
+function Ext.CreateTranslatedStringKey (key, handle) end
+
+--- @param handle string Translated string handle
+--- @param text string Display text
+--- @return bool
+function Ext.CreateTranslatedStringHandle (handle, text) end
+
+--- @param key string Translated string key
+--- @param text string Display text
+--- @return string|nil Created string handle
+function Ext.CreateTranslatedString (key, text) end
 
 --- Redirects all file accesses to the specified path to another file.
 --- @param path string Original path
