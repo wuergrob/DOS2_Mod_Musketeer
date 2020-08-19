@@ -113,6 +113,28 @@ RemoveStatus(_Character, "DISARMED");
 ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 
+IF
+//ObjectLostTag(_Character, "Musketeer_Reloading_State")
+CharacterStatusRemoved(_Character, "RELOAD_DEBUFF", _)
+AND
+IsTagged(_Character, "Rifle_Armed", 0)
+THEN
+RemoveStatus(_Character, "MUTED");
+RemoveStatus(_Character, "DISARMED");
+
+// Casting Reload and instantly ending your turn can cause the Reload Debuff status to be applied after the turn ends, 
+// making it persist for a whole additional turn.
+// Therefor remove debuffs on start of turn.
+IF
+ObjectTurnStarted(_Character)
+AND
+ObjectIsCharacter(_Character, 1)
+AND
+HasActiveStatus(_Character, "RELOAD_DEBUFF", 1)
+THEN
+RemoveStatus(_Character, "RELOAD_DEBUFF");
+NRD_DebugLog("[OSIRIS] Reload Debuff removed from Character, as his turn started");
+
 // Make the Mute and Disarmed Status uncleansable by reapplying them when removed, if the character has the
 // Reload debuff.
 IF

@@ -75,3 +75,18 @@ Buckshot might be too strong again and will be monitored closely.
 
 - `Musketeer Skill Overview` Page updated
 - Leaving combat will automatically fully restore a player's currently equipped firearm's `Ammunition`
+
+## 0.9.1.2
+
+### New Features
+
+- Added experimental compatibility with Odinblade's Hunstman overhaul (Load Musketeer *AFTER* Odinblade's mod)
+
+### Bugfixes
+
+- Fixed a bug where ending the turn immediatly after casting `Reload` would cause the `Reload`-State to persist for an additional turn
+- Fixed a bug that caused `Dynamic-Range` to not reapply after being removed from external sources
+
+### Balance & Design
+
+- `Elemental Arrowheads` is no longer compatible with rifles

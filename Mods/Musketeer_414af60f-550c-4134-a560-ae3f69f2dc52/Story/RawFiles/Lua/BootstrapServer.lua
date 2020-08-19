@@ -63,6 +63,13 @@ Musketeer_Vanilla_Huntsman_Override = {
     "Projectile_DebuffAllArrow",
     -- [ProjectileStrike Entries]
     "ProjectileStrike_RainOfArrows",
+    -- [Target Entries] (Require special handling in function, otherwise they get skipped)
+    "Target_ElementalArrowheads",
+    -- [Odinblades Hunstman Skills]
+    "Projectile_OdinHUN_Tooltip_ArrowSpray",
+    "Projectile_OdinHUN_Tooltip_Assassinate",
+    "Projectile_OdinHUN_PowerShot",
+    "Shout_OdinHUN_SeekingArrows",
 }
 
 --local function TestLog(msg)
@@ -362,9 +369,8 @@ local function OverrideSkillRequirements()
     print("====================================================")
     print("[SERVER] OverrideSkillRequirements")
     for i,name in pairs(Ext.GetStatEntries("SkillData")) do
-        -- Filter out any non-Projectile/non-ProjectileStrike skills. (Reactive Shot and Elemental Arrowhead are intentionally not being "patched")
-        if name ~= nil and string.sub(name, 1, string.len(projectileString)) == projectileString then
-
+        -- Filter out any non-Projectile/non-ProjectileStrike skills. (Reactive Shot is intentionally not being "patched")
+        if name ~= nil and (string.sub(name, 1, string.len(projectileString)) == projectileString or name == "Target_ElementalArrowheads") or name == "Shout_OdinHUN_SeekingArrows" then
             for j, entry in pairs(Musketeer_Vanilla_Huntsman_Override) do
                 if name == entry then
                     print(name)

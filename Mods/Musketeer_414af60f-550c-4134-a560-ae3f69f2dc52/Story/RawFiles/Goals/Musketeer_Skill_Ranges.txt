@@ -35,6 +35,8 @@ AND
 IsTagged(_Player, "Musk_Rifle_Long", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 0)
+AND
+HasActiveStatus(_Player, "MUSK_RANGE_LONG", 0)
 THEN
 DebugBreak("[WT_FS] Normal Range Rifle equipped.");
 ApplyStatus(_Player, "MUSK_RANGE_LONG", -1.0, 1, _Player);
@@ -45,6 +47,8 @@ AND
 IsTagged(_Player, "Musk_Rifle_Short", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 0)
+AND
+HasActiveStatus(_Player, "MUSK_RANGE_SHORT", 0)
 THEN
 DebugBreak("[WT_FS] Blunderbuss equipped.");
 ApplyStatus(_Player, "MUSK_RANGE_SHORT", -1.0, 1, _Player);
@@ -55,6 +59,8 @@ AND
 IsTagged(_Player, "Musk_Rifle_Medium", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 0)
+AND
+HasActiveStatus(_Player, "MUSK_RANGE_MEDIUM", 0)
 THEN
 DebugBreak("[WT_FS] Matchlock Rifle equipped.");
 ApplyStatus(_Player, "MUSK_RANGE_MEDIUM", -1.0, 1, _Player);
@@ -66,6 +72,8 @@ AND
 IsTagged(_Player, "Musk_Rifle_Long", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 1)
+AND
+HasActiveStatus(_Player, "MUSK_RANGE_LONG_LW", 0)
 THEN
 DebugBreak("[WT_FS] Normal Rifle equipped. (LW)");
 ApplyStatus(_Player, "MUSK_RANGE_LONG_LW", -1.0, 1, _Player);
@@ -77,6 +85,8 @@ AND
 IsTagged(_Player, "Musk_Rifle_Short", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 1)
+AND
+HasActiveStatus(_Player, "MUSK_RANGE_SHORT_LW", 0)
 THEN
 DebugBreak("[WT_FS] Blunderbuss Rifle equipped. (LW)");
 ApplyStatus(_Player, "MUSK_RANGE_SHORT_LW", -1.0, 1, _Player);
@@ -87,6 +97,8 @@ AND
 IsTagged(_Player, "Musk_Rifle_Medium", 1)
 AND
 CharacterHasTalent(_Player, "LoneWolf", 1)
+AND
+HasActiveStatus(_Player, "MUSK_RANGE_MEDIUM_LW", 0)
 THEN
 DebugBreak("[WT_FS] Matchlock Rifle equipped. (LW)");
 ApplyStatus(_Player, "MUSK_RANGE_MEDIUM_LW", -1.0, 1, _Player);

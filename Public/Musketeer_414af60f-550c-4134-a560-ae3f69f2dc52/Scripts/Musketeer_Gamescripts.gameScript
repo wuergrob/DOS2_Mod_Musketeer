@@ -120,3 +120,23 @@ ACTIONS
 				//CharacterPlayEffect(_OriginChar, "Musketeer_FX_Euphoria_Infuse")
 			ENDIF
 		ENDIF
+		
+EVENT Musketeer_Dynamic_Range_Status_Change
+VARS
+    CHARACTER:_Character
+	INT:_SourceryPoints
+ON
+	OnCharacterStatusRemoved(_Character, MUSK_RANGE_LONG)
+	OnCharacterStatusRemoved(_Character, MUSK_RANGE_LONG_LW)
+	OnCharacterStatusRemoved(_Character, MUSK_RANGE_MEDIUM)
+	OnCharacterStatusRemoved(_Character, MUSK_RANGE_MEDIUM_LW)
+	OnCharacterStatusRemoved(_Character, MUSK_RANGE_SHORT)
+	OnCharacterStatusRemoved(_Character, MUSK_RANGE_SHORT_LW)
+ACTIONS
+	IF "c1&c2&c3"
+		IsTagged(_Character, "Rifle_Armed")
+		CharacterGetAbility(_SourceryPoints, _Character, Sourcery)
+		IsEqual(_SourceryPoints, 0)
+	THEN
+		CharacterEvent(_Character, "Musketeer_Check_Dynamic_Range")
+	ENDIF

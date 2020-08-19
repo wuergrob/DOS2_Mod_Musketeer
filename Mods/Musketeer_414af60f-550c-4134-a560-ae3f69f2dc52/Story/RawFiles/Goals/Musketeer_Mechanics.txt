@@ -20,8 +20,6 @@ DB_Musketeer_Skillist("Shout_Reload", 11);
 
 
 KBSECTION
-
-
 IF
 GameStarted(_, _)
 THEN
@@ -95,6 +93,15 @@ NRD_DebugLog("[WT_FS] Musketeer Rifle equipped..");
 //NRD_EXT_TestLog("Hello there!");
 //Musketeer_Open_TestWindow();
 
+IF
+ObjectWasTagged(_Character, "Rifle_Armed")
+AND
+ObjectIsCharacter(_Character, 1)
+AND
+HasActiveStatus(_Character, "OdinHUN_SEEKINGARROWS", 1)
+THEN
+RemoveStatus(_Character, "OdinHUN_SEEKINGARROWS");
+NRD_DebugLog("[COMPATIBILITY] Removed [Seeking Arrows] Status, not compatible with rifles");
 
 // DEPRECATED
 // No longer needed. Same functionality implemented in Lua.
@@ -365,6 +372,16 @@ Musketeer_Send_Ammo_Count(_Character, _Weapon);
 //END_REGION
 
 IF
+StoryEvent(_Character, "Musketeer_Check_Dynamic_Range")
+AND
+ObjectIsCharacter(_Character, 1)
+AND
+CharacterGetEquippedWeapon((CHARACTERGUID)_Character, _Weapon)
+THEN
+Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Character);
+NRD_DebugLog("[OSIRIS] Character's Dynamic Range Status changed, updating Dynamic Range");
+
+IF
 CharacterResurrected(_Character)
 AND
 CharacterIsPlayer(_Character, 1)
@@ -382,7 +399,6 @@ AND
 CharacterIsPlayer(_Character, 1)
 THEN
 NRD_DebugLog("[OSIRIS] Character resurrected, is Dynamic range being updated?");
-
 
 IF
 DB_Illusionist((CHARACTERGUID)_Player, (ITEMGUID)_Mirror)
