@@ -3,12 +3,36 @@
   <stat_objects>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Skill_SkyShot_Crossbow" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Musketeer_Test" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Primary_Finesse_Large" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="BaseEpic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Poison_Medium_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="Normal" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Poison_Medium_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Skill_SkyShot_Crossbow_Musk" />
         <field name="BoostType" type="StringStatObjectFieldDefinition" value="Legendary" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
-        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Crossbow" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
         <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Primary_Finesse_Large" />
         <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Comment" type="CommentStatObjectFieldDefinition" value="Had to override this value, as Rifles are incompatible with skills from weapons." />
@@ -16,14 +40,164 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Musketeer_Test" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Ability_Ranged_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="Normal" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
-        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Crossbow" />
-        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Primary_Finesse_Large" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Ability_Ranged" />
         <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="BoostType" type="StringStatObjectFieldDefinition" value="BaseEpic" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Ability_RangerLore_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="Legendary" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Ability_RangerLore" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Poison_Small_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="ItemCombo" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Poison_Small_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Water_Small_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="ItemCombo" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Water_Small_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Fire_Small_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="ItemCombo" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Fire_Small_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Earth_Small_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="ItemCombo" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Earth_Small_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_ArmourPiercing_Small_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="ItemCombo" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_ArmourPiercing_Small_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Air_Small_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="ItemCombo" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Air_Small_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Water_Medium_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="Normal" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Water_Medium_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Fire_Medium_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="Normal" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Fire_Medium_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Earth_Medium_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="Normal" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Earth_Medium_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Primary_Finesse_Medium_Bow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="Primary" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Primary_Finesse_Medium" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_Damage_Air_Medium_Crossbow_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="Normal" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_Damage_Air_Medium_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Boost_Weapon_EmptyRuneSlot_Musk" />
+        <field name="BoostType" type="StringStatObjectFieldDefinition" value="RuneEmpty" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="ModifierType" type="StringStatObjectFieldDefinition" value="Weapon" />
+        <field name="Boost" type="StringStatObjectFieldDefinition" value="_Boost_Weapon_EmptyRuneSlot_Musk" />
+        <field name="Multiplier" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="WeaponType" type="StringStatObjectFieldDefinition" value="Rifle" />
       </fields>
     </stat_object>
   </stat_objects>

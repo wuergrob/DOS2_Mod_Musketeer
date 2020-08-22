@@ -90,3 +90,14 @@ Buckshot might be too strong again and will be monitored closely.
 ### Balance & Design
 
 - `Elemental Arrowheads` is no longer compatible with rifles
+
+## 0.9.1.3 - Deltamods
+
+### New Features
+
+- Added experimental custom `DeltaMods` for Rifles
+Rifle's generated from treasures or vendors receive custom boosts instead of Crossbow specific ones.
+
+### Bugfixes
+
+- Fixed a issue that caused the projectile from the `Tripwire Flare` Skill to explode too soon

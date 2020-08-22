@@ -84,10 +84,10 @@ ACTIONS
 		IsEqual(_Character,null)
 	THEN
 		ExplodeAt(__Me,%MineProjectile,_TrapLevel,__Me)
-		ShootLocalProjectileAt(%FlareProjectile, __Me, {0.0;0.5;0.0}, _MyPos, _TrapLevel, __Me)
+		ShootLocalProjectileAt(%FlareProjectile, __Me, {0.0;5;0.0}, _MyPos, _TrapLevel, __Me)
 	ELSE
 		ExplodeAt(__Me,%MineProjectile,_TrapLevel,_Character)
-		ShootLocalProjectileAt(%FlareProjectile, __Me, {0.0;0.5;0.0}, _MyPos, _TrapLevel, __Me)
+		ShootLocalProjectileAt(%FlareProjectile, __Me, {0.0;5;0.0}, _MyPos, _TrapLevel, __Me)
 	ENDIF
 	StopLoopEffect(%EffectHandle)
 	ItemDie(__Me)

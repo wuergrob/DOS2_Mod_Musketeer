@@ -734,9 +734,6 @@ Ext.RegisterOsirisListener("StoryEvent", 2, "before", Musketeer_Skill_AmmoType_B
 
 
 
-
-
-
 local function Musketeer_Test_AmmoType_Boost_Remove(itemGuid, characterGuid)
 
 end
@@ -829,3 +826,127 @@ Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
     NRD_ProjectileSetVector3("TargetPosition", position[1], position[2], position[3])
     NRD_ProjectileLaunch();
 end)
+
+
+local function Musketeer_Weapon_Generated(item)
+    if #item:GetGeneratedBoosts() == 0 then return end
+    --Ext.Print(item.Stats.ItemGroup)
+    --Ext.Print(Ext.JsonStringify(item:GetTags()))
+    --if not (item:HasTag("Musk_Rifle_Long") or item:HasTag("Musk_Rifle_Short") or item:HasTag("Musk_Rifle_Medium")) then Ext.Print(item.DisplayName) return end
+
+    if not (string.sub(item.Stats.ItemGroup, 1, string.len("Musk_")) == "Musk_") then return end
+
+    Ext.Print("----------------------------------------------------------------")
+    local oldDeltaMods = item:GetGeneratedBoosts()
+    local newBoostList = {}
+    local maxCharges = item.MaxCharges
+    local currCharges = item.Charges
+    local itemOwner = GetInventoryOwner(item.MyGuid)
+
+    --Ext.Print("All Deltamods of current item:")
+    --Ext.Print(Ext.JsonStringify(oldDeltaMods))
+    Ext.Print("----------------------------")
+    
+    for i = 1,#oldDeltaMods,1 do
+        local deltaMod = Ext.GetDeltaMod(oldDeltaMods[i], "Weapon")
+        if deltaMod ~= nil then
+            --Ext.Print(deltaMod.WeaponType)
+            if deltaMod.WeaponType == "Crossbow" then
+                --Ext.Print(oldDeltaMods[i])
+                --Ext.Print(Ext.JsonStringify(deltaMod))
+                newBoostList[#newBoostList+1] = oldDeltaMods[i] .. "_Musk"
+                --Ext.Print(deltaMod.Boosts[1].Boost)
+            elseif oldDeltaMods[i] == "Boost_Weapon_EmptyRuneSlot" then
+                Ext.Print("Add an additional Ammo-Slot or somethin")
+                --newBoostList[#newBoostList+1] = oldDeltaMods[i] .. "_Musk"
+            else
+                newBoostList[#newBoostList+1] = oldDeltaMods[i]
+            end
+        end
+    end
+
+    --Ext.Print(item.DisplayName)
+    local rootTemplate = GetTemplate(item.MyGuid)
+    NRD_ItemCloneBegin(item.MyGuid)
+
+    NRD_ItemCloneSetString("RootTemplate", rootTemplate)
+    NRD_ItemCloneSetString("OriginalRootTemplate", rootTemplate)
+    NRD_ItemCloneSetString("GenerationStatsId", item.Name)
+    NRD_ItemCloneSetString("StatsEntryName", item.Name)
+    NRD_ItemCloneSetInt("StatsLevel", item.Level)
+
+    NRD_ItemCloneSetString("ItemType", "Unique")
+    NRD_ItemCloneSetString("GenerationItemType", "Unique")
+    NRD_ItemCloneSetInt("HasGeneratedStats", 0)
+    local genItemGuid = NRD_ItemClone()
+
+    NRD_ItemCloneBegin(genItemGuid)
+    
+    for i = 1,#newBoostList,1 do
+        if newBoostList[i] == "Boost_Weapon_EmptyRuneSlot_Musk" then
+            maxCharges = maxCharges + 1
+            currCharges = currCharges + 1
+            Ext.Print("Cannot add charges to items yet, so currently currently ignoring this.")
+            --NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_Damage_Bonus_Medium")
+        end
+        NRD_ItemCloneAddBoost("Generation", newBoostList[i])
+        --print("Boost added to cloned item", newBoostList[i])
+    end
+    --NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_Damage_Poison_Medium_Crossbow_Musk")
+    --Ext.Print("Setting max and curr Charges: " .. maxCharges .. " " .. currCharges)
+    --NRD_ItemCloneSetInt("MaxCharges", maxCharges)
+    --NRD_ItemCloneSetInt("Charges", currCharges)
+    --NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_EmptyRuneSlot_Musk")
+    --NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_Damage_Poison_Medium_Crossbow_Musk")
+
+    --NRD_ItemCloneSetString("RootTemplate", rootTemplate)
+    NRD_ItemCloneSetString("OriginalRootTemplate", rootTemplate)
+    NRD_ItemCloneSetString("GenerationStatsId", item.Name)
+    NRD_ItemCloneSetString("StatsEntryName", item.Name)
+    NRD_ItemCloneSetInt("StatsLevel", item.Level)
+    --NRD_ItemCloneSetString("GenerationItemType", item.Stats.ItemTypeReal)
+
+    NRD_ItemCloneSetString("ItemType", item.Stats.ItemTypeReal)
+    NRD_ItemCloneSetInt("HasGeneratedStats", 1)
+    local genItemGuid2 = NRD_ItemClone()
+
+    --ItemRemove(genItemGuid)
+
+    SetVarObject(item.MyGuid, "MusketeerFinishCloning", genItemGuid2)
+    SetStoryEvent(item.MyGuid, "MusketeerFinishCloningEvent")
+    SetStoryEvent(genItemGuid, "MusketeerDeleteItem")
+    --[[
+    --ItemDestroy(item.MyGuid)
+    Ext.Print(GetInventoryOwner(item.MyGuid))
+    ItemToInventory(genItemGuid2.MyGuid, itemOwner, 1, 0, 0)
+
+    --]]
+    Ext.Print("----------------------------------------------------------------")
+    --ItemToInventory(genItemGuid2, PlayerTable[1], 1, 0, 1)
+
+    --[[
+
+    Ext.Print(item)
+    Ext.Print(item.Boosts)
+    Ext.Print(item.DisplayName)
+    Ext.Print(item:GetGeneratedBoosts())
+    Ext.Print(Ext.JsonStringify(item:GetGeneratedBoosts()))
+    Ext.Print(Ext.JsonStringify(item:GetDeltaMods()))
+    Ext.Print(Ext.GetDeltaMod(item:GetGeneratedBoosts()[1], "Weapon"))
+    Ext.Print(Ext.JsonStringify(Ext.GetDeltaMod("Boost_Weapon_Damage_Poison_Medium_Crossbow", "Weapon")))
+
+    if Ext.GetDeltaMod(item:GetGeneratedBoosts()[1], "Weapon") == nil then Ext.Print("Not a weapon") return end
+    NRD_ItemSetPermanentBoostString(item.MyGuid, "Projectile", "465c6446-9031-4e70-93d4-6c84da8a48ed")
+    NRD_ItemSetPermanentBoostInt(item.MyGuid, "DamageType", 5)
+    NRD_ItemSetPermanentBoostInt(item.MyGuid, "LifeSteal", 42)
+
+    Testitem = item
+    NRD_ItemCloneBegin(item.MyGuid)
+    NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_Damage_Poison_Medium_Crossbow")
+    local genItem = NRD_ItemClone()
+    Testitem2 = genItem
+    --]]
+
+    
+end
+Ext.RegisterListener("TreasureItemGenerated", Musketeer_Weapon_Generated)
