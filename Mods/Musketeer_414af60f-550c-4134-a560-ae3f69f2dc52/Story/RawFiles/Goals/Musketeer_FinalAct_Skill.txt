@@ -41,7 +41,7 @@ String(_Target, _TargetString)
 AND
 String(_Character, _CharacterString)
 THEN
-// Check this game in gamescript to determine wheter to apply Euphoria and heal or hasted on kill.
+// Check this tag in gamescript to determine wheter to apply Euphoria and heal or hasted on kill.
 SetTag(_Character, "Musketeer_Final_Act_Tag");
 /*
 NRD_DebugLog("Dummy CharacterStatusAttempt");

@@ -16,12 +16,26 @@ RemoveStatus(_Target, "MUSK_MARK_HEAL_DUMMY");
 ApplyStatus(_Character, "MUSK_MARK_HEAL", 0.0);
 //DebugBreak("[WT_FS] Healing dummy status applied");
 
-
 IF
 CharacterStatusApplied(_Character, "MUSK_MARK_HEAL", _)
 THEN
 RemoveStatus(_Character, "MUSK_MARK_HEAL");
 //DebugBreak("[WT_FS] Healing from Rapidfire procced?");
+
+
+//Piercing Ammo bonus effect applied by "Piercing Ammo"
+IF
+CharacterStatusApplied(_Target, "MUSK_MARK_HEAL_DUMMY_SMALL", _Character)
+THEN
+RemoveStatus(_Target, "MUSK_MARK_HEAL_DUMMY_SMALL");
+ApplyStatus(_Character, "MUSK_MARK_HEAL_SMALL", 0.0);
+//DebugBreak("[WT_FS] Healing dummy status applied");
+
+//For piercing ammo, apply a minor heal status that heals for 5% of maximum health.
+IF
+CharacterStatusApplied(_Character, "MUSK_MARK_HEAL_SMALL", _)
+THEN
+RemoveStatus(_Character, "MUSK_MARK_HEAL_SMALL");
 
 // Applying a status with 0 duration multiple times during a turn is pretty finicky it seems.
 // FX and Heal-Text will not always show when the healing occurs, so you often only see the healing

@@ -56,6 +56,12 @@ data "DamageTorches" "No"
 data "PermanentOnTorch" "No"
 data "SpawnBlood" "No"
 
+new entry "MUSK_MARK_HEAL_DUMMY_SMALL"
+type "StatusData"
+data "StatusType" "DAMAGE"
+using "MUSK_MARK_HEAL_DUMMY"
+data "StackId" "Stats_MUSK_Healdummy_Small"
+
 new entry "MARK_DAMAGE_25"
 type "StatusData"
 data "StatusType" "DAMAGE"

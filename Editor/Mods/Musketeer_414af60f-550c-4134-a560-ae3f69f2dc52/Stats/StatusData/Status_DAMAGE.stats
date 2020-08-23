@@ -59,6 +59,13 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MUSK_MARK_HEAL_DUMMY_SMALL" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MUSK_MARK_HEAL_DUMMY" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stats_MUSK_Healdummy_Small" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_25" />
         <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_25" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />

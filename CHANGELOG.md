@@ -96,8 +96,22 @@ Buckshot might be too strong again and will be monitored closely.
 ### New Features
 
 - Added experimental custom `DeltaMods` for Rifles
-Rifle's generated from treasures or vendors receive custom boosts instead of Crossbow specific ones.
+Rifles generated from treasures or vendors receive custom boosts instead of Crossbow specific ones.
 
 ### Bugfixes
 
 - Fixed a issue that caused the projectile from the `Tripwire Flare` Skill to explode too soon
+- `Tracking Shot` Skill can no longer apply `Marked` on items
+- `Steady Shot` Skill now correctly deals bonus damage on `Marked` characters
+- Fixed a bug that caused bonus damage from `Marked` interactions to not trigger execute effects
+- `Tracking Shot` Skill now no longer has 2 different `BeamFX` when cast and will only use the default one
+- `Special Arrow` Consumables are no longer usable with a rifle equipped
+
+### Balance & Design
+- Changed visuals of all `Ammunition Type` projectiles to better reflect their damage type
+- `Piercing Ammunition` Damage increased from 35% weapon damage to 70% weapon damage, removed `Bleeding` effect
+- `Piercing Ammunition` can now apply bonus effects, based on the original Skill that was used:
+    - The piercing `Tracking Shot` Projectile applies `Marked` for 2 turns when hitting a character
+    - The piercing `Rapidfire` Projectile heals the attacker for 5% of its maximum vitality, if the target is `Marked`
+    - The piercing `Rend The Marked` Projectile grants the attacker a `Rend` stack when killing a character
+- Skill `Final Act` AP cost increased from 1 to 2

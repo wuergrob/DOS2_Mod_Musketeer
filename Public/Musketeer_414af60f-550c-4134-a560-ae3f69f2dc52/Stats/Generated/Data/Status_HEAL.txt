@@ -13,6 +13,12 @@ data "HealType" "Percentage"
 data "HealValue" "10"
 data "Necromantic" "Yes"
 
+new entry "MUSK_MARK_HEAL_SMALL"
+type "StatusData"
+data "StatusType" "HEAL"
+using "MUSK_MARK_HEAL"
+data "HealValue" "5"
+
 new entry "MUSK_FINALACT_HEAL"
 type "StatusData"
 data "StatusType" "HEAL"

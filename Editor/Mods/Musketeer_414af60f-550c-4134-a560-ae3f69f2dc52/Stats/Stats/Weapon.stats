@@ -360,7 +360,7 @@
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="Damage Type" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="15" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="17" />
-        <field name="Projectile" type="StringStatObjectFieldDefinition" value="30989595-7796-487f-8247-b1735fef7a0a" />
+        <field name="Projectile" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="SHOCKED,10,1" />
       </fields>
     </stat_object>
@@ -371,7 +371,7 @@
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="Damage Type" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="10" />
-        <field name="Projectile" type="StringStatObjectFieldDefinition" value="30989595-7796-487f-8247-b1735fef7a0a" />
+        <field name="Projectile" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -381,7 +381,7 @@
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="9" enumeration_type_name="Damage Type" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="13" />
-        <field name="Projectile" type="StringStatObjectFieldDefinition" value="beca2252-26fc-4c8b-94c6-a64df1ffe1d9" />
+        <field name="Projectile" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="SLOWED,10,1" />
       </fields>
     </stat_object>
@@ -402,7 +402,7 @@
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="9" enumeration_type_name="Damage Type" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="15" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="18" />
-        <field name="Projectile" type="StringStatObjectFieldDefinition" value="beca2252-26fc-4c8b-94c6-a64df1ffe1d9" />
+        <field name="Projectile" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="SLOWED,20,1" />
       </fields>
     </stat_object>
