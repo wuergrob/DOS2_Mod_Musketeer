@@ -6,7 +6,7 @@ memcost: 1
 ammocost: All
 apcost: 3
 spcost: "-"
-icon: "/media/skills/CoveringFire.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/CoveringFire.png"
 cd: 3
 res: "-"
 scale: Fin

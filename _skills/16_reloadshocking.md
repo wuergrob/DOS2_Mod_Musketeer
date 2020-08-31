@@ -7,7 +7,7 @@ memcost: "-"
 ammocost: rel
 apcost: 1
 spcost: 1
-icon: "/media/skills/Reload_Shocking.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/Reload_Shocking.png"
 cd: 0
 res: "-"
 scale: "-"

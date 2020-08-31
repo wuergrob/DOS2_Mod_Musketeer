@@ -6,7 +6,7 @@ memcost: 1
 ammocost: 0
 apcost: 2
 spcost: "-"
-icon: "/media/skills/Steadfast.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/Steadfast.png"
 cd: 5
 res: "-"
 scale: Fin

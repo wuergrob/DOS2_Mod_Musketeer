@@ -20,21 +20,21 @@ In total, 3 different types of rifles are available in this mod:
     </tr>
 </thead>
   <tr style="text-align: center;">
-    <td style="color: #f5be0a;"><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/wpn_musket_icon.png"><br>Muskets</td>
+    <td style="color: #f5be0a;"><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/wpn_musket_icon.png"><br>Muskets</td>
     <td>Moderate</td>
     <td>10m</td>
     <td>3-6</td>
     <td>Standard issue Musket. Solid and sturdy with moderate damage and range</td>
   </tr>
   <tr style="text-align: center;">
-    <td style="color: #f5be0a;"><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/wpn_matchlock_icon.png"><br>Matchlock</td>
+    <td style="color: #f5be0a;"><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/wpn_matchlock_icon.png"><br>Matchlock</td>
     <td>Moderate - High</td>
     <td>8m</td>
     <td>6-7</td>
     <td>Slight deviation of the traditional Musket. With a slight advantage in firepower at the cost of range</td>
   </tr>
   <tr style="text-align: center;">
-    <td style="color: #f5be0a;"><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/wpn_blunderbuss_icon.png"><br>Blunderbuss</td>
+    <td style="color: #f5be0a;"><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/wpn_blunderbuss_icon.png"><br>Blunderbuss</td>
     <td>High</td>
     <td>4m</td>
     <td>2-3</td>
@@ -62,11 +62,11 @@ The following spells can apply <font style="color: #ff1500;">Marked</font> one o
     </tr>
 </thead>
   <tr>
-    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/MarkTarget.png"></td>
-    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/TrackingShot.png"></td>
-    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/BlazingFlare.png"></td>
-    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/TripWireFlare.png"></td>
-    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/Reload_Piercing.png"> <font style="vertical-align: 150%; color: #00ffff;">+</font> <img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/TrackingShot.png"></td>
+    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/MarkTarget.png"></td>
+    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/TrackingShot.png"></td>
+    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/BlazingFlare.png"></td>
+    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/TripWireFlare.png"></td>
+    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/Reload_Piercing.png"> <font style="vertical-align: 150%; color: #00ffff;">+</font> <img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/TrackingShot.png"></td>
   </tr>
 </table>
 

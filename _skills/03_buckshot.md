@@ -6,7 +6,7 @@ memcost: 1
 ammocost: 2
 apcost: 1
 spcost: "-"
-icon: "/media/skills/Buckshot.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/Buckshot.png"
 cd: 3
 res: Phys
 scale: Fin

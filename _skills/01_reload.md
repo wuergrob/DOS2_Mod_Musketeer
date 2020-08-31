@@ -6,7 +6,7 @@ memcost: "-"
 ammocost: rel
 apcost: 1
 spcost: "-"
-icon: "/media/skills/Reload.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/Reload.png"
 cd: 0
 res: "-"
 scale: "-"

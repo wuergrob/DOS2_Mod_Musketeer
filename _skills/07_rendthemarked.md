@@ -6,7 +6,7 @@ memcost: 1
 ammocost: 1
 apcost: 2
 spcost: "-"
-icon: "/media/skills/RendMarked.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/RendMarked.png"
 cd: 3
 res: "-"
 scale: Fin

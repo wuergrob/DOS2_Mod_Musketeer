@@ -6,7 +6,7 @@ memcost: 1
 ammocost: "-"
 apcost: 1
 spcost: "-"
-icon: "/media/skills/MarkTarget.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/MarkTarget.png"
 cd: 2
 res: "-"
 scale: "-"

@@ -6,7 +6,7 @@ memcost: 1
 ammocost: 1
 apcost: 2
 spcost: "-"
-icon: "/media/skills/FinalAct.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/FinalAct.png"
 cd: 3
 res: "-"
 scale: Fin

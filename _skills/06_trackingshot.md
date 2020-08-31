@@ -6,7 +6,7 @@ memcost: 1
 ammocost: 1
 apcost: 1
 spcost: "-"
-icon: "/media/skills/TrackingShot.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/TrackingShot.png"
 cd: 4
 res: "-"
 scale: Fin

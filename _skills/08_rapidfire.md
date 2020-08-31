@@ -6,7 +6,7 @@ memcost: 1
 ammocost: 2
 apcost: 2
 spcost: "-"
-icon: "/media/skills/RapidFire.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/RapidFire.png"
 cd: 3
 res: "-"
 scale: Fin

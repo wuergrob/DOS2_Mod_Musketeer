@@ -6,7 +6,7 @@ memcost: 1
 ammocost: "-"
 apcost: 3
 spcost: 2
-icon: "/media/skills/SeekerStrikedown.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/SeekerStrikedown.png"
 cd: 5
 res: "-"
 scale: Fin

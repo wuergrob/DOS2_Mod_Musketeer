@@ -6,7 +6,7 @@ memcost: 1
 ammocost: "-"
 apcost: 2
 spcost: "-"
-icon: "/media/skills/TripWireFlare.png"
+icon: "https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/TripWireFlare.png"
 cd: 3
 res: "-"
 scale: Fin
