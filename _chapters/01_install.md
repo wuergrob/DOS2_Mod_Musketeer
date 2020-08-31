@@ -25,7 +25,7 @@ Now, you are good to go! From the game's main menu, navigate to the mod menu and
  Once downloaded, unpack it wherever you want and start the Application. To install the Script Extender, press on <line class="option_name">"Tools"</line> and click on the <line class="option_name">"Download and Install the Script Extender"</line>-Option. <br>
  <img src="https://github.com/wuergrob/Prog1_Uebung_1/blob/master/media/theme/ModManagerExtender.png?raw=true" class="custom_imgstyle">
  <h4>Installation - Animation Plus</h4>
- Installing the <line class="option_name">Animation Plus</line> can be done by simply subscribing to it in the <a href="https://steamcommunity.com/workshop/filedetails/?id=1511606728">Steam Workshop</a>. Alternatively, you can also download it manually 
+ Installing the <line class="option_name">Animation Plus</line> Mod can be done by simply subscribing to it in the <a href="https://steamcommunity.com/workshop/filedetails/?id=1511606728">Steam Workshop</a>. Alternatively, you can also download it manually 
  <a href="https://www.nexusmods.com/divinityoriginalsin2definitiveedition/mods/163">here</a>.<br>
  Subscribing to it on the Workshop will automatically place the mod in the correct location, when downloaded manually you'll have to put it in this folder: <line class="option_name">"Documents\Larian Studios\Divinity Original Sin 2 Definitive Edition\Mods"</line><br>
 
