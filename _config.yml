@@ -18,7 +18,7 @@ collections:
 # About/contact
 author:
   name:       MDZ Kimchi
-  url:        https://github.com/wuergrob/Prog1_Uebung_1
+  url:        https://github.com/wuergrob/DOS2_Mod_Musketeer
 
 skillorder:
   - reload
@@ -39,8 +39,8 @@ skillorder:
   - seekerstrikedown
 
 github:
-  zip_url: http://example.com/download.zip
-  another_url: another value
+  zip_url: https://drive.switch.ch/index.php/s/tR9N3RFV5MAyh8J/download
+  another_url: "-"
 
 show_downloads: "true"
 
