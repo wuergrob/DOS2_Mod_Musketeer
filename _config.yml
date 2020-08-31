@@ -1,1 +1,57 @@
+
+
+
+
+title: The Musketeer Mod
+description: The Classmod for Gunslingers
+
+#collections:
+#  - chapters
+
+collections:
+  chapters:
+    output: false
+  skills:
+    output: false
+  
+
+# About/contact
+author:
+  name:       MDZ Kimchi
+  url:        https://github.com/wuergrob/Prog1_Uebung_1
+
+skillorder:
+  - reload
+  - steadyshot
+  - buckshot
+  - deathsentence
+  - coveringfire
+  - trackingshot
+  - rendthemarked
+  - rapidfire
+  - steadfast
+  - throwtripwireflare
+  - reloadincendiary
+  - reloadfreezing
+  - reloadshocking
+  - reloadexplosive
+  - blazingflare
+  - seekerstrikedown
+
+github:
+  zip_url: http://example.com/download.zip
+  another_url: another value
+
+show_downloads: "true"
+
+paginate: 1
+
 theme: jekyll-theme-cayman
+
+reqIcons:
+  huntsman: "/media/skills/hunstman-skills-s.png"
+  pyro: "/media/skills/pyrokinetic-skills-s.png"
+  hydro: "/media/skills/hydrosophist-skills-s.png"
+  necro: "/media/skills/necromancer-skills-s.png"
+  warfare: "/media/skills/necromancer-skills-s.png"
+  aero: "/media/skills/aerotheurge-skills-s.png"

@@ -1,0 +1,124 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+@import url(//db.onlinewebfonts.com/c/12420e8c141ca7c3dff41de2d59df13e?family=BeaufortforLOL-Bold);
+
+.page-header { color: #fff; text-align: center; background-color: rgb(0, 9, 19); background-image: url("https://divinity.game/build/background-4.jpg"); background-position: center; background-repeat: no-repeat; background-size: auto; min-height: 30em; position: relative;}
+@media screen and (min-width: 64em) { .page-header { padding: 1em 2em; padding-top: 3em; } }
+@media screen and (min-width: 42em) and (max-width: 64em) { .page-header { padding: 2em 2em; padding-top: 3em; } }
+@media screen and (max-width: 42em) { .page-header { padding: 1em 1em; padding-top: 3em; } }
+//.page-header { color: #fff; text-align: center; background-color: rgb(0, 9, 19); background-image: url("/media/theme/dos2logo_withbanner.png"); background-position: center; background-repeat: no-repeat; background-size: 30%;}
+body { padding: 0; margin: 0; font-family: 'Beaufort', 'Century Schoolbook','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #c9c9c9; overflow-x: hidden!important; }
+.mod_logo { color: #999; background-image: url("https://github.com/wuergrob/Prog1_Uebung_1/blob/master/_site/media/theme/dos2logo_withbanner_trimmed.png?raw=true"); background-position: center; background-repeat: no-repeat; background-size: contain; background-clip: unset; min-height: 24em; z-index: 3; pointer-events: none; position: relative;}
+.pre-content { background-image: url("https://divinity.game/build/background-1.jpg"); padding-top: 4em; padding-bottom: 0px; position: relative;}
+
+.page-header a {position: relative; z-index: 3; transform: translateY(-40px); background-color: #0655ffda; }
+
+//.site-footer { background-image: url("/media/theme/background-footer.jpg"); }
+.site-footer { padding-top: 2rem; margin-top: 2rem; padding-bottom: 0px; border-top: solid 1px rgb(255, 255, 255); }
+
+
+
+body::before {
+    background-image: url("https://divinity.game/uploads/powder-top.png") ;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    content: "";
+    position: absolute;
+    //top: 0;
+    width: 130%;
+    height: 100%;
+    z-index: 1;
+    left: -15%;
+    pointer-events: none;
+    opacity: 0.8;
+    background-clip: inherit;
+    box-sizing: border-box;
+    //vertical-align: inherit;
+    //top: 0;
+}
+
+.page-header::after {
+    background-image: url("https://github.com/wuergrob/Prog1_Uebung_1/blob/master/media/theme/powder-center.png?raw=true");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% 60%;
+    content: "";
+    position: absolute;
+    //top: 0;
+    width: 130%;
+    height: 100%;
+    z-index: 1;
+    left: -15%;
+    pointer-events: none;
+    opacity: 0.95;
+    //box-sizing: border-box;
+    //vertical-align: inherit;
+    background-position-y: -75px;
+}
+
+.pre-content::before {
+    background-image: url("https://divinity.game/uploads/powder-bottom.png") ;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    content: "";
+    position: absolute;
+    //top: 0;
+    width: 130%;
+    height: 100%;
+    z-index: 1;
+    left: -15%;
+    pointer-events: none;
+    opacity: 1;
+    background-clip: inherit;
+    box-sizing: border-box;
+    bottom: 0px;
+    //background-position-y: -100px;
+    //background-position-y: -460px;
+    //background-position-y: -392px;
+    //vertical-align: inherit;
+    //top: 0;
+}
+
+#content { z-index: 2; position: relative;}
+/*
+@media screen and (min-width: 64em) { .main-content { max-width: 64rem; padding: 0rem 6rem; margin: 0 auto; font-size: 1.1rem; } }
+@media screen and (min-width: 42em) and (max-width: 64em) { .main-content { padding: 0rem 4rem; font-size: 1.1rem; } }
+@media screen and (max-width: 42em) { .main-content { padding: 0rem 1rem; font-size: 1rem; } }
+*/
+
+
+.btn:hover { color: rgba(255, 255, 255, 0.8); text-decoration: none; background-color: #44a5ff; border-color: rgb(80, 229, 255); }
+.btn + .btn { margin-left: 1rem; }
+@media screen and (min-width: 64em) { .btn { padding: 0.75rem 1rem; } }
+@media screen and (min-width: 42em) and (max-width: 64em) { .btn { padding: 0.6rem 0.9rem; font-size: 0.9rem; } }
+@media screen and (max-width: 42em) { .btn { display: block; width: 100%; padding: 0.75rem; font-size: 0.9rem; }
+  .btn + .btn { margin-top: 1rem; margin-left: 0; } }
+
+@media screen and (min-width: 64em) { .main-content { max-width: 110rem; padding: 2rem 5rem; margin: 0 auto; font-size: 1.1rem; } }
+@media screen and (min-width: 42em) and (max-width: 100em) { .main-content { padding: 2rem 4rem; font-size: 1.1rem; } }
+@media screen and (max-width: 42em) { .main-content { padding: 2rem 1rem; font-size: 1rem; } }
+.entries { background-color: rgba(0, 0, 0, 0.548); padding: 3rem 2rem; border: hidden; border-radius: 15px; border-width: 1px; }
+
+.main-content h1 { margin-top: 2rem; margin-bottom: 1rem; font-weight: lighter; color: #c79c0f; border-bottom: rgb(255, 255, 255); border-bottom-style: groove; border-width: 1px; } 
+.main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 { margin-top: 2rem; margin-bottom: 1rem; font-weight: normal; color: #f5be0a; }
+
+.main-content img { max-width: fit-content; }
+
+a { color: #00fa0c; text-decoration: none; }
+
+.custom_imgstyle { border: hidden; border-radius: 10px; margin: 1rem 0rem; }
+
+.option_name {color: #eeab6e; text-decoration: none; }
+
+.skill_table { background-color: rgba(0, 6, 12, 0.87); background-blend-mode: multiply; }
+
+.ammocost_table_entry { font-family: Arial, Helvetica, sans-serif; }
+
+.features-weapontypes { max-width: fit-content; background-color: rgba(0, 6, 12, 0.87); background-blend-mode: multiply; }
+
+.features-marking-skills { max-width: fit-content; background-color: rgba(0, 6, 12, 0.87); background-blend-mode: multiply; }
