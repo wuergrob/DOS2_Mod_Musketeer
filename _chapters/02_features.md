@@ -64,9 +64,9 @@ The following spells can apply <font style="color: #ff1500;">Marked</font> one o
   <tr>
     <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/MarkTarget.png"></td>
     <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/TrackingShot.png"></td>
-    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/BlazingFlare.png"></td>
+    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/blazingflare.png"></td>
     <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/TripWireFlare.png"></td>
-    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/Reload_Piercing.png"> <font style="vertical-align: 150%; color: #00ffff;">+</font> <img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="/media/skills/TrackingShot.png"></td>
+    <td><img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/Reload_Piercing.png"> <font style="vertical-align: 150%; color: #00ffff;">+</font> <img style=" min-width:96px; min-height:96px; width: auto; height: 96px; max-width: fit-content;" src="https://raw.githubusercontent.com/wuergrob/Prog1_Uebung_1/master/media/skills/TrackingShot.png"></td>
   </tr>
 </table>
 
