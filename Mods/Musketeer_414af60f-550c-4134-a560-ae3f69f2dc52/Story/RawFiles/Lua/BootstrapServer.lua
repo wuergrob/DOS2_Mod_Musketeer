@@ -3,6 +3,13 @@ if PlayerTable == nil then
     PlayerTable = {}
 end
 
+DebugMode = false
+function DebugPrint(...)
+    if DebugMode then
+        DebugPrint(...)
+    end
+end
+
 Musketeer_Ammo_Statuses = {
     "RELOAD_INCENDIARY",
     "RELOAD_FREEZING",
@@ -144,8 +151,8 @@ local function Musketeer_Broadcast_Rifle_Skill(channel, name, cost)
     concat["skillname"] = name
     concat["ammocost"] = cost
     local concatJson = Ext.JsonStringify(concat)
-    print("Sending skill: " .. name .. " with cost: " .. cost)
-    print('Json: '.. concatJson)
+    DebugPrint("Sending skill: " .. name .. " with cost: " .. cost)
+    DebugPrint('Json: '.. concatJson)
     --cost = tonumber(cost)
     Ext.BroadcastMessage("Musketeer_Rifle_Skill", concatJson)
 end
@@ -154,11 +161,11 @@ end
 local function consoleCmd(cmd, a1, a2)
 	if cmd == "setPos" and a1 ~= nil and a1 ~= nil then
 		local ui = Ext.GetUI("AmmoBarGUIv1.swf")
-		if (ui == nil) then print("Ammobar was nil, reposition failed.") end
+		if (ui == nil) then DebugPrint("Ammobar was nil, reposition failed.") end
 		ui:SetPosition(a1,a2)
-		print("Ammobar x: " .. a1 ..", y: " .. a2)
+		DebugPrint("Ammobar x: " .. a1 ..", y: " .. a2)
     end
-    print("Console executed stuff.")
+    DebugPrint("Console executed stuff.")
 end
 
 
@@ -167,12 +174,12 @@ end
 -- Using Broadcast instead of sending to a specific player, simply because
 -- there are no negative effects of doing so.
 local function Musketeer_Send_Rifle_Skill_2(call, payload, player)
-    print("[SERVER] Broadcasting Skill-List")
+    DebugPrint("[SERVER] Broadcasting Skill-List")
     local rows = Osi.DB_Musketeer_Skillist:Get(nil, nil)
-    --print(rows)
+    --DebugPrint(rows)
     for k,v in pairs(rows) do
         local concat = {}
-         print(k,v)
+         DebugPrint(k,v)
          concat["skillname"] = v[1]
          concat["ammocost"] = v[2]
          -- Added this for testing AmmoPreview stuff, needs actual logic.
@@ -183,10 +190,10 @@ local function Musketeer_Send_Rifle_Skill_2(call, payload, player)
          --   concat["ammocost"] = 11
          --end
          if v[1] == "Shout_Reload" then
-            print("[SERVER] DEBUG RELOAD: Server retrieved Reload from the DB and is sending it...")
+            DebugPrint("[SERVER] DEBUG RELOAD: Server retrieved Reload from the DB and is sending it...")
          end
          local concatJson = Ext.JsonStringify(concat)
-         --print(concatJson)
+         --DebugPrint(concatJson)
          Ext.BroadcastMessage("Musketeer_Rifle_Skill", concatJson)
     end
     -- Special handling of Reload variants. Should be refactored once PoC is done.
@@ -194,7 +201,7 @@ local function Musketeer_Send_Rifle_Skill_2(call, payload, player)
         local concat = {}
         concat["skillname"] = skill
         concat["ammocost"] = 11
-        print("[SERVER] Sending Special Reload: " .. skill)
+        DebugPrint("[SERVER] Sending Special Reload: " .. skill)
         Ext.BroadcastMessage("Musketeer_Rifle_Skill", Ext.JsonStringify(concat))
     end
 end
@@ -202,15 +209,15 @@ Ext.RegisterNetListener('clientReady', Musketeer_Send_Rifle_Skill_2)
 
 local function MusketeerSendHello(channel, player)
     Ext.PostMessageToClient(player, "Musketeer_SendHello", player)
-    print("Trying to reach " .. player)
+    DebugPrint("Trying to reach " .. player)
 end
 Ext.NewCall(MusketeerSendHello, "NRD_InitPlayer", "(STRING)_Channel, (CHARACTERGUID)_Character");
 
 local function Musketeer_Ack_Player_Ready(call, player)
     Osi.Musketeer_Client_Is_Initialized(player)
-    print(player .. " is initialized.")
-    --print("Testithing:")
-    --print(randarg)
+    DebugPrint(player .. " is initialized.")
+    --DebugPrint("Testithing:")
+    --DebugPrint(randarg)
     Musketeer_Send_Rifle_Skill_2(call, nil, player)
 end
 Ext.RegisterNetListener('clientAck', Musketeer_Ack_Player_Ready)
@@ -221,21 +228,21 @@ local function Musketeer_Retrieve_Skillbar_Entry(channel, payload)
     local decoded = Ext.JsonParse(payload)
     local player = decoded["player"]
     local slotIndex = decoded["slotnumber"]
-    --print("[SERVER] Debug Skillbar Request")
-    --print("player: " .. player)
-    --print("index: ")
-    --print(slotIndex)
+    --DebugPrint("[SERVER] Debug Skillbar Request")
+    --DebugPrint("player: " .. player)
+    --DebugPrint("index: ")
+    --DebugPrint(slotIndex)
 
-    print(player)
+    DebugPrint(player)
     if slotIndex ~= nil and type(slotIndex) == string then
 		slotIndex = tonumber(slotIndex)
 	end
-    --print(slotIndex)
+    --DebugPrint(slotIndex)
 
     local entry = NRD_SkillBarGetSkill(player, slotIndex)
-    --print("[Server]: Retrieved " .. entry .. " from Skillbar.")
+    --DebugPrint("[Server]: Retrieved " .. entry .. " from Skillbar.")
     if (entry == nil) then
-        print("[SERVER] Musketeer_Retrieve_Skillbar_Entry, entry was nil")
+        DebugPrint("[SERVER] Musketeer_Retrieve_Skillbar_Entry, entry was nil")
     else
         Ext.PostMessageToClient(player, "skillbar_entry_answer", entry)
     end
@@ -250,19 +257,19 @@ if IsInit == nil then
     IsInit = 1
     for i,player in  ipairs(Osi.DB_IsPlayer:Get(nil)) do
         Osi.DB_Musketeer_Skillist:Set(player, 0)
-        print("Welcome " .. player)
+        DebugPrint("Welcome " .. player)
     end
     Osi.Musketeer_Force_Init();
-    print("Forcing Initialization from LUA")
+    DebugPrint("Forcing Initialization from LUA")
 end
 ]]
 local function InitPlayerTable()
     for i,player in  ipairs(Osi.DB_IsPlayer:Get(nil)) do
         PlayerTable[player[1]] = false
-        print("Added " .. player[1] .. "to PlayerTable.")
+        DebugPrint("Added " .. player[1] .. "to PlayerTable.")
         Ext.PostMessageToClient(player[1], "requestClient", player[1])
     end
-    print("[SERVER] PlayerTable is initialized.")
+    DebugPrint("[SERVER] PlayerTable is initialized.")
 end
 --Ext.RegisterListener('SessionLoaded', InitPlayerTable)
 --Ext.RegisterNetListener('StatsLoaded', InitPlayerTable)
@@ -272,16 +279,16 @@ end
 local function ReceivePlayerState(channel, player)
     if PlayerTable[player] == false then
         PlayerTable[player] = true
-        print("[SERVER] Added Player to PlayerTable (set to true).")
+        DebugPrint("[SERVER] Added Player to PlayerTable (set to true).")
     else
-        print("[SERVER] Player was not registered in Playertable.")
+        DebugPrint("[SERVER] Player was not registered in Playertable.")
     end
 end
 Ext.RegisterNetListener('clientReady', ReceivePlayerState)
 
 local function GameStartedEvent()
     InitPlayerTable()
-    print("[SERVER] GameStartedEvent")
+    DebugPrint("[SERVER] GameStartedEvent")
 end
 Ext.NewCall(GameStartedEvent, "NRD_GameStarted", "");
 
@@ -290,21 +297,21 @@ Ext.NewCall(GameStartedEvent, "NRD_GameStarted", "");
 local function GetFullPlayerCharacterHandle(characterGUID)
     for i,player in  ipairs(Osi.DB_IsPlayer:Get(nil)) do
         local char = Ext.GetCharacter(player[1])
-        print("GUID from DB: " .. player[1])
-        print("ExtCharacter: " .. tostring(char))
+        DebugPrint("GUID from DB: " .. player[1])
+        DebugPrint("ExtCharacter: " .. tostring(char))
         if char.MyGuid == characterGUID then
             return player[1]
         end
     end
-    print("Character not found.")
+    DebugPrint("Character not found.")
     return nil
 end
 
 -- return index value of current ammo type, return 0 if default ammo type is being used.
 local function GetCharacterCurrentAmmoType(charHandle)
     for i,status in pairs(Musketeer_Ammo_Statuses) do
-        --print(i)
-        --print(status)
+        --DebugPrint(i)
+        --DebugPrint(status)
         if HasActiveStatus(charHandle, status) == 1 then
             return i
         end
@@ -314,13 +321,13 @@ end
 
 -- Just for testing, sending seperate messages for each variable, but should probably be refactored into sending a single json string.
 local function ReceiveClientContextSwitch(call, charHandle)
-    print("[SERVER] ReceiveClientContextSwitch, receives ClientContextSwitch Signal")
+    DebugPrint("[SERVER] ReceiveClientContextSwitch, receives ClientContextSwitch Signal")
     local getChar = GetFullPlayerCharacterHandle(charHandle)
-    print("Comparing input and return value: ")
-    print(charHandle)
-    print(getChar)
+    DebugPrint("Comparing input and return value: ")
+    DebugPrint(charHandle)
+    DebugPrint(getChar)
     local charWPN = CharacterGetEquippedWeapon(getChar)
-    print(charWPN)
+    DebugPrint(charWPN)
     Ext.PostMessageToClient(charHandle, "Musketeer_SetClientContext", getChar)
     -- If a character is unarmed, charWPN is nil.
     if charWPN == nil then
@@ -328,9 +335,9 @@ local function ReceiveClientContextSwitch(call, charHandle)
         return
     end
     local maxAmmo = ItemGetMaxCharges(charWPN)
-    print(maxAmmo)
+    DebugPrint(maxAmmo)
     local currentAmmo = ItemGetCharges(charWPN)
-    print(currentAmmo)
+    DebugPrint(currentAmmo)
     local ammoTypeIndex = GetCharacterCurrentAmmoType(charHandle)
     Ext.PostMessageToClient(charHandle, "Musketeer_Element_AmmoBar_UI", ammoTypeIndex)
     Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "0")
@@ -350,10 +357,10 @@ local function Musketeer_GetRandomPosAround(X, Y, Z, Distance)
     local newX = X + ((math.random() - 0.5) * (Distance / 3))
     local newY = Y + ((math.random() - 0.5) * (Distance / 3))
     local newZ = Z + ((math.random() - 0.5) * (Distance / 3))
-    --print("X: " .. tostring(X) .. " newX: " .. tostring(newX) .. " Delta: " .. (X - newX))
-    --print("Y: " .. tostring(Y) .. " newY: " .. tostring(newY) .. " Delta: " .. (Y - newY))
-    --print("Z: " .. tostring(Z) .. " newZ: " .. tostring(newZ) .. " Delta: " .. (Z - newZ))
-    --print("Max. Radius around Target (m): " .. (Distance/3))
+    --DebugPrint("X: " .. tostring(X) .. " newX: " .. tostring(newX) .. " Delta: " .. (X - newX))
+    --DebugPrint("Y: " .. tostring(Y) .. " newY: " .. tostring(newY) .. " Delta: " .. (Y - newY))
+    --DebugPrint("Z: " .. tostring(Z) .. " newZ: " .. tostring(newZ) .. " Delta: " .. (Z - newZ))
+    --DebugPrint("Max. Radius around Target (m): " .. (Distance/3))
     return newX, newY, newZ
 end
 Ext.NewQuery(Musketeer_GetRandomPosAround, "NRD_Musketeer_Get_Random_Pos", "[in](REAL)_X, [in](REAL)_Y, [in](REAL)_Z, [in](REAL)_Distance, [out](REAL)_newX, [out](REAL)_newY, [out](REAL)_newZ");
@@ -364,10 +371,10 @@ local function AddRequirementToEntry(stat)
     local appendNoRifleRequirement = {Not = true, Param = "Rifle_Armed", Requirement = "Tag"}
     local hasRequirement = false
     for RequirementsIndex = 1,rawlen(skillRequirements),1 do
-        print(skillRequirements[RequirementsIndex])
+        DebugPrint(skillRequirements[RequirementsIndex])
         if skillRequirements[RequirementsIndex].Param == "Rifle_Armed" then
             hasRequirement = true
-            Ext.Print("noRifle tag Requirement already exists.")
+            DebugPrint("noRifle tag Requirement already exists.")
             return
         end
     end
@@ -375,7 +382,7 @@ local function AddRequirementToEntry(stat)
     if hasRequirement == false then
         skillRequirements[rawlen(skillRequirements)+1] = appendNoRifleRequirement
         Ext.StatSetAttribute(stat, "Requirements", skillRequirements)
-        Ext.Print("noRifle tag Requirement appended.")
+        DebugPrint("noRifle tag Requirement appended.")
     end
 end
 
@@ -384,33 +391,33 @@ end
 -- in the Editor. TODO: Test ingame and remove unnecessary event callbacks.
 Overridden = false
 local function OverrideSkillRequirements()
-    if (Overridden == true) then print("Skill Requirement Override already done.") return end
+    if (Overridden == true) then DebugPrint("Skill Requirement Override already done.") return end
     local appendNoRifleRequirement = {Not = true, Param = "Rifle_Armed", Requirement = "Tag"}
     local projectileString = "Projectile"
-    print("====================================================")
-    print("[SERVER] OverrideSkillRequirements")
+    DebugPrint("====================================================")
+    DebugPrint("[SERVER] OverrideSkillRequirements")
     for i,name in pairs(Ext.GetStatEntries("SkillData")) do
         -- Filter out any non-Projectile/non-ProjectileStrike skills. (Reactive Shot is intentionally not being "patched")
         if name ~= nil and (string.sub(name, 1, string.len(projectileString)) == projectileString or name == "Target_ElementalArrowheads") or name == "Shout_OdinHUN_SeekingArrows" then
             for j, entry in pairs(Musketeer_Vanilla_Huntsman_Override) do
                 if name == entry then
-                    print(name)
+                    DebugPrint(name)
                     local skillRequirements = Ext.StatGetAttribute(name, "Requirements")
 
                     -- Check if the "!Rifle_Armed" tag requirement is already set.
                     local hasRequirement = false
                     for RequirementsIndex = 1,rawlen(skillRequirements),1 do
-                        print(skillRequirements[RequirementsIndex])
+                        DebugPrint(skillRequirements[RequirementsIndex])
                         if skillRequirements[RequirementsIndex].Param == "Rifle_Armed" then
                             hasRequirement = true
-                            print("noRifle tag Requirement already exists.")
+                            DebugPrint("noRifle tag Requirement already exists.")
                         end
                     end
                     -- Append the "!Rifle_Armed" tag requirement without overriding other requirements.
                     if hasRequirement == false then
                         skillRequirements[rawlen(skillRequirements)+1] = appendNoRifleRequirement
                         Ext.StatSetAttribute(name, "Requirements", skillRequirements)
-                        print("noRifle tag Requirement appended.")
+                        DebugPrint("noRifle tag Requirement appended.")
                     end
                 end
             end
@@ -433,45 +440,45 @@ local function OverrideSkillRequirements()
     AddRequirementToEntry("WPN_Arrow_BlessedWater_A")
     AddRequirementToEntry("WPN_Arrow_Debuff_All_A")
     Overridden = true
-    print("Donso.")
+    DebugPrint("Donso.")
 end
 Ext.RegisterListener("StatsLoaded", OverrideSkillRequirements)
 Ext.RegisterListener("SessionLoading", OverrideSkillRequirements)
 
 
 local function IsRifleBasedSkill(statId)
-    if statId == nil or statId == "" then Ext.Print("IsRifleBasedSkill with empty param") return end
-    Ext.Print("IsRifleBasedSkill with param: " .. statId)
+    if statId == nil or statId == "" then DebugPrint("IsRifleBasedSkill with empty param") return end
+    DebugPrint("IsRifleBasedSkill with param: " .. statId)
     local markedString = "Projectile_Musk_Mark_Dmg_"
 
     -- Special case, Covering Fire instances have no req's but are obviously rifle based damage.
     if statId == "Projectile_Unload_Instance_-1" or statId == "Projectile_Unload_Instance" then
-        Ext.Print("Killed by Covering Fire")
+        DebugPrint("Killed by Covering Fire")
         return true
     end
     
     -- Special case, Buckshot Impact Explosion instances have no req's but are obviously rifle based damage.
     if statId == "Buckshot_Fire-1" or statId == "Buckshot_Fire" then
-        Ext.Print("Killed by Buckshot Impact Fire")
+        DebugPrint("Killed by Buckshot Impact Fire")
         return true
     end
 
     -- Additional AmmoType effects count as rifle based damage.
     for i = 1,#Musketeer_Ammo_Projectiles,1 do
         if statId == Musketeer_Ammo_Projectiles[i] then
-            Ext.Print("Killed by AmmoType effect")
+            DebugPrint("Killed by AmmoType effect")
             return true
         end
     end
 
     if #statId >= #markedString and string.sub(statId, 1, (#markedString)) == markedString then
-        Ext.Print("Killed by Mark Bonus Damage")
+        DebugPrint("Killed by Mark Bonus Damage")
         return true
     end
 
     -- Have to remove the last 2 characters to obtain the real statId.
-    Ext.Print("Trying to retrieve Stat:")
-    Ext.Print(string.sub(statId, 1, (#statId - 3)))
+    DebugPrint("Trying to retrieve Stat:")
+    DebugPrint(string.sub(statId, 1, (#statId - 3)))
     local skillStatEntry = Ext.GetStat(string.sub(statId, 1, (#statId - 3)))
     if skillStatEntry == nil then
         skillStatEntry = Ext.GetStat(statId)
@@ -482,9 +489,9 @@ local function IsRifleBasedSkill(statId)
     -- If a stat entry with the statId exists and also has the "Rifle_Armed" tag as a requirement, then it's a rifle based skill.
     for i = 1,#skillStatEntry.Requirements,1 do
         local reqParam = skillStatEntry.Requirements[i].Param
-        Ext.Print(reqParam)
+        DebugPrint(reqParam)
         if reqParam == "Rifle_Armed" or reqParam == "Musketeer_Exactly_One_Left" or reqParam == "Musketeer_AtLeast_One_Left" or reqParam == "Musketeer_AtLeast_Two_Left" then
-            Ext.Print("Killed by rifle skill")
+            DebugPrint("Killed by rifle skill")
             return true
         end
     end
@@ -506,7 +513,7 @@ local function GetCharacterAmmoType(characterGUID)
         for j = 1,#Musketeer_Ammo_Statuses,1 do
             if charStatuses[i].StatusType == "CONSUME" and charStatuses[i].StatusId == Musketeer_Ammo_Statuses[j] then
                 -- Apply the onKill AmmoType stuff here, if it doesn't rely on the target's statuses.
-                Ext.Print(charStatuses[i].StatusId)
+                DebugPrint(charStatuses[i].StatusId)
                 return charStatuses[i].StatusId
             end
         end
@@ -516,7 +523,7 @@ end
 
 
 local function GetOvershootPosition(attacker, defender, overshootDistance)
-    --Ext.Print("Piercing Ammo stuffs")
+    --DebugPrint("Piercing Ammo stuffs")
     local attackerX, attackerY, attackerZ = GetPosition(attacker)
     local targetX, targetY, targetZ = GetPosition(defender)
 
@@ -543,17 +550,17 @@ local function AmmotypeOnKill(defender, attackOwner, attacker)
     local targetHasHitStatus = false
     local onDeathEffectTriggered = false
     local validAttackSource = false
-    Ext.Print("--- Target Statuses ---")
+    DebugPrint("--- Target Statuses ---")
     for i = 1,#targetStatuses,1 do
-        print(targetStatuses[i].StatusType)
+        DebugPrint(targetStatuses[i].StatusType)
         if (targetStatuses[i].StatusType == "HIT" and onDeathEffectTriggered == false) then
             targetHasHitStatus = true
             if targetStatuses[i].SkillId == "" and targetStatuses[i].DamageSourceType == "Attack" then
-                Ext.Print("TARGET KILLED WITH BASIC ATTACK!")
+                DebugPrint("TARGET KILLED WITH BASIC ATTACK!")
                 validAttackSource = true
             else
                 if IsRifleBasedSkill(targetStatuses[i].SkillId) then
-                    Ext.Print("TARGET KILLED WITH RIFLE BASED SKILL/EFFECT!")
+                    DebugPrint("TARGET KILLED WITH RIFLE BASED SKILL/EFFECT!")
                     onDeathEffectTriggered = true
                     validAttackSource = true
                 end
@@ -562,13 +569,13 @@ local function AmmotypeOnKill(defender, attackOwner, attacker)
     end
 
     if (not targetHasHitStatus) or (not validAttackSource) then
-        Ext.Print("Invalid TargetHitStatus or AttackSource, no AmmoEffect should be performed.")
+        DebugPrint("Invalid TargetHitStatus or AttackSource, no AmmoEffect should be performed.")
         return
     end
     -- Make sure to check if the hit actually occured by using a rifle and not any other kind of weapon.
     -- (Basically, check for the "Rifle_Armed" tag on the attacker)
 
-    --Ext.Print("--- Attacker Statuses ---")
+    --DebugPrint("--- Attacker Statuses ---")
 
     local ammoTypeStatusId = GetCharacterAmmoType(attacker)
 
@@ -605,7 +612,7 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
     local defenderIsItem = false
     local fromBasicAttack = false
     local hitIsValid = false
-    Ext.Print("NRD_OnHit OsirisListener triggered")
+    DebugPrint("NRD_OnHit OsirisListener triggered")
     local statusObj = Ext.GetStatus(defender, statusHandle)
     local statusObjStatuses = nil
     local StatusSkillId = nil
@@ -615,21 +622,21 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
         statusObjStatuses = statusObj:GetStatusObjects()
         defenderIsItem = true
     elseif damageAmount == 0 then
-        Ext.Print("Attack either missed or did 0 damage")
+        DebugPrint("Attack either missed or did 0 damage")
         return
     end
 
     if defenderIsItem then
         for i = 1,#statusObj:GetStatusObjects(),1 do
             if statusObjStatuses[i].StatusHandle == statusHandle then
-                Ext.Print("Found Statushandle on affected item.")
+                DebugPrint("Found Statushandle on affected item.")
                 if statusObjStatuses[i].StatusType == "HIT" and statusObjStatuses[i].WeaponHandle ~= nil and statusObjStatuses[i].SkillId == "" then
-                    Ext.Print("Affected Item was hit by a basic attack")
+                    DebugPrint("Affected Item was hit by a basic attack")
                     fromBasicAttack = true
                     hitIsValid = true
                     StatusSkillId = statusObjStatuses[i].SkillId
                 elseif statusObjStatuses[i].StatusType == "HIT" and statusObjStatuses[i].WeaponHandle == nil and IsRifleBasedSkill(statusObjStatuses[i].SkillId) then
-                    Ext.Print("Affected Item was hit by a rifle based skill")
+                    DebugPrint("Affected Item was hit by a rifle based skill")
                     hitIsValid = true
                     StatusSkillId = statusObjStatuses[i].SkillId
                 end
@@ -640,31 +647,31 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
             local skillId = statusObj.SkillId
             StatusSkillId = skillId
             if skillId == "" and statusObj.DamageSourceType == "Attack" and attackerObj ~= nil and attackerObj:HasTag("Rifle_Armed") then
-                Ext.Print("Affected Character was hit by a basic attack")
+                DebugPrint("Affected Character was hit by a basic attack")
                 fromBasicAttack = true
                 hitIsValid = true
             elseif attackerObj ~= nil and attackerObj:HasTag("Rifle_Armed") and IsRifleBasedSkill(statusObj.SkillId) then
-                Ext.Print("Affected Character was hit by a rifle based skill")
+                DebugPrint("Affected Character was hit by a rifle based skill")
                 hitIsValid = true
                 if #statusObj.SkillId >= #finalActSkillName and string.sub(statusObj.SkillId, 1, #finalActSkillName) == finalActSkillName then
-                    Ext.Print("Defender got attacked with the Final Act skill.")
+                    DebugPrint("Defender got attacked with the Final Act skill.")
                     ApplyStatus(defender, "MUSK_MARK_FINALACT_DUMMY", 2, 1, attacker)
                     --return
                 elseif #statusObj.SkillId >= #RendSkillName and string.sub(statusObj.SkillId, 1, #RendSkillName) == RendSkillName then
-                    Ext.Print("Defender got attacked with the Rend the Marked skill.")
+                    DebugPrint("Defender got attacked with the Rend the Marked skill.")
                     ApplyStatus(defender, "MUSK_MARK_REND_DUMMY", 2, 1, attacker)
                     piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_Rend"
                     --return
                 elseif #statusObj.SkillId >= #trackingShotSkillName and string.sub(statusObj.SkillId, 1, #trackingShotSkillName) == trackingShotSkillName then
-                    Ext.Print("Defender got attacked with the Tracking Shot skill.")
+                    DebugPrint("Defender got attacked with the Tracking Shot skill.")
                     piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_Tracking"
                     --return
                 elseif #statusObj.SkillId >= #RapidfireSkillName and string.sub(statusObj.SkillId, 1, #RapidfireSkillName) == RapidfireSkillName then
-                    Ext.Print("Defender got attacked with the Rapidfire skill.")
+                    DebugPrint("Defender got attacked with the Rapidfire skill.")
                     piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_RapidFire"
                     --return
                 elseif #statusObj.SkillId >= #BuckshotSkillName and string.sub(statusObj.SkillId, 1, #BuckshotSkillName) == BuckshotSkillName then
-                    Ext.Print("Defender got attacked with the Buckshot skill.")
+                    DebugPrint("Defender got attacked with the Buckshot skill.")
                     NRD_ProjectilePrepareLaunch()
                     NRD_ProjectileSetString("SkillId", "Projectile_Buckshot_Fire")
                     NRD_ProjectileSetGuidString("Caster", attacker)
@@ -679,7 +686,7 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
                     return
                 end
             elseif attackerObj ~= nil and attackerObj:HasTag("Rifle_Armed") and statusObj.SkillId == PiercingAmmoRendSkillName then
-                --Ext.Print(":::::::::::::::::::::: Hit with Piercing Ammo effect off of Rend the Marked ::::::::::::::::::::::")
+                --DebugPrint(":::::::::::::::::::::: Hit with Piercing Ammo effect off of Rend the Marked ::::::::::::::::::::::")
                 ApplyStatus(defender, "MUSK_MARK_REND_DUMMY", 2, 1, attacker)
             end
         end
@@ -710,12 +717,12 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
         if ammoTypeSkillName ~= StatusSkillId then
             SetVarFloat3(attacker, "Piercing_TargetLocation", newX, newY, newZ)
             SetVarObject(attacker, "Piercing_OriginLocation", defender)
-            Ext.Print("---------------")
-            Ext.Print(piercingAmmoSkillName)
-            Ext.Print("---------------")
+            DebugPrint("---------------")
+            DebugPrint(piercingAmmoSkillName)
+            DebugPrint("---------------")
             SetVarFixedString(attacker, "Piercing_Projectile_Skill", piercingAmmoSkillName)
             SetStoryEvent(attacker, "Musketeer_Pierce_Ammo_Event")
-            Ext.Print("Piercing Ammo overshoot Event")
+            DebugPrint("Piercing Ammo overshoot Event")
         end
     end
 
@@ -723,8 +730,8 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
     -- as it would require a ExplodeRadius of at least 1 and would thus be AoE.
 
     if fromBasicAttack or (ammoTypeSkillName == "Projectile_Ammo_Explosive" and (ammoTypeSkillName ~= StatusSkillId)) then
-        Ext.Print(ammoTypeSkillName)
-        Ext.Print(StatusSkillId)
+        DebugPrint(ammoTypeSkillName)
+        DebugPrint(StatusSkillId)
         NRD_ProjectilePrepareLaunch()
         NRD_ProjectileSetString("SkillId", ammoTypeSkillName)
         NRD_ProjectileSetGuidString("Caster", attacker)
@@ -744,37 +751,37 @@ Ext.RegisterOsirisListener("NRD_OnHit", 4, "after", Musketeer_OnHit_Handler)
 -- Delete this function after testing the FinalAct execution effect.
 local function DebugFinalActTagRemoval(character, tag)
     if tag == "Musketeer_Final_Act_Tag" then
-        Ext.Print("Musketeer_Final_Act_Tag was removed from: ")
-        Ext.Print(character)
+        DebugPrint("Musketeer_Final_Act_Tag was removed from: ")
+        DebugPrint(character)
     end
 end
 --Ext.RegisterOsirisListener("ObjectLostTag", 2, "before", DebugFinalActTagRemoval)
 
 
 local function Musketeer_Skill_AmmoType_BeamFX(item, event)
-    --Ext.Print("------------------- Musketeer_Skill_AmmoType_BeamFX -------------------")
-    --Ext.Print(item, event)
+    --DebugPrint("------------------- Musketeer_Skill_AmmoType_BeamFX -------------------")
+    --DebugPrint(item, event)
     local helperName = "Musk_Skill_Helperobject"
     if #item >= #helperName and string.sub(item, 1, #helperName) == helperName then
-        Ext.Print("The Object is a HelperObject")
-        Ext.Print(item, event)
+        DebugPrint("The Object is a HelperObject")
+        DebugPrint(item, event)
         local itemObj = Ext.GetItem(item)
         print(itemObj)
         print(itemObj.OwnerHandle)
         local charObj = Ext.GetCharacter(itemObj.OwnerHandle)
         print(charObj)
         local weaponGUID = CharacterGetEquippedItem(charObj.MyGuid, "Weapon")
-        Ext.Print(weaponGUID)
+        DebugPrint(weaponGUID)
 
         if charObj ~= nil and NRD_ActionStateGetString(charObj.MyGuid, "SkillId") == "Projectile_Tracking_Shot_-1" then
-            --Ext.Print("Character used Tracking Shot, thus no BeamFX")
+            --DebugPrint("Character used Tracking Shot, thus no BeamFX")
             return
         end
-        --Ext.Print(NRD_ActionStateGetString(charObj.MyGuid, "SkillId"))
+        --DebugPrint(NRD_ActionStateGetString(charObj.MyGuid, "SkillId"))
 
         local characterAmmoTypeStatusId = GetCharacterAmmoType(charObj.MyGuid)
         if characterAmmoTypeStatusId == nil then
-            Ext.Print(" /////////////// No AmmoType Status found on character /////////////// ")
+            DebugPrint(" /////////////// No AmmoType Status found on character /////////////// ")
             return
         end
         local beamFXName = "Musketeer_FX_Bullet_Projectile_Beam"
@@ -796,7 +803,7 @@ local function Musketeer_Skill_AmmoType_BeamFX(item, event)
         PlayBeamEffect(charObj.MyGuid, item, beamFXName, "Dummy_ArrowFX", "Dummy_Root")
         --print("FX Handle from Looping Beam: " .. fxHandle)
     end
-    --Ext.Print("skill used: " .. skill.Name)
+    --DebugPrint("skill used: " .. skill.Name)
 end
 Ext.RegisterOsirisListener("StoryEvent", 2, "before", Musketeer_Skill_AmmoType_BeamFX)
 
@@ -812,14 +819,14 @@ end
 local function Musketeer_Test_AmmoType_Boost_Apply(itemGuid, characterGuid)
     local itemObj = Ext.GetItem(itemGuid)
     local itemTemplate = itemObj.RootTemplate
-    Ext.Print(itemGuid)
-    Ext.Print(itemObj.MyGuid)
-    Ext.Print(itemTemplate)
-    Ext.Print(itemTemplate.Owner)
-    Ext.Print(itemTemplate.Description)
+    DebugPrint(itemGuid)
+    DebugPrint(itemObj.MyGuid)
+    DebugPrint(itemTemplate)
+    DebugPrint(itemTemplate.Owner)
+    DebugPrint(itemTemplate.Description)
     ItemAddDeltaModifier(itemGuid, "_Boost_Weapon_Primary_Finesse_Large")
     local debugVar = ItemHasDeltaModifier(itemGuid, "_Boost_Weapon_Primary_Finesse_Large")
-    Ext.Print(debugVar)
+    DebugPrint(debugVar)
 end
 --Ext.RegisterOsirisListener("ItemEquipped", 2, "before", Musketeer_Test_AmmoType_Boost_Apply)
 
@@ -831,10 +838,10 @@ Ext.NewCall(Musketeer_Ammobar_CC_Visibility, "NRD_AmmoBar_SetCC_Visibility", "(S
 
 
 Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
-    Ext.Print("ProjectileHit event fired")
-    Ext.PrintWarning("ProjectileHit: ", projectile, hitObject, position)
-    Ext.Print(projectile.WeaponHandle)
-    Ext.Print(projectile.SkillId)
+    DebugPrint("ProjectileHit event fired")
+    DebugPrint("ProjectileHit: ", projectile, hitObject, position)
+    DebugPrint(projectile.WeaponHandle)
+    DebugPrint(projectile.SkillId)
 
     if projectile ~= nil and projectile.SkillId == "Projectile_Buckshot_-1" and projectile.DamageSourceType == "Attack" and not projectile.IsFromItem then
         local attackerObj = Ext.GetCharacter(projectile.CasterHandle)
@@ -843,11 +850,11 @@ Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
         NRD_ProjectileSetGuidString("Caster", attackerObj.MyGuid)
         NRD_ProjectileSetInt("CasterLevel", attackerObj.Stats.Level)
         if hitObject ~= nil then
-            Ext.Print("Buckshot object event")
+            DebugPrint("Buckshot object event")
             NRD_ProjectileSetGuidString("SourcePosition", hitObject.MyGuid)
             NRD_ProjectileSetGuidString("TargetPosition", hitObject.MyGuid)
         else
-            Ext.Print("Buckshot attack ground event")
+            DebugPrint("Buckshot attack ground event")
             NRD_ProjectileSetVector3("SourcePosition", position[1], position[2], position[3])
             NRD_ProjectileSetVector3("TargetPosition", position[1], position[2], position[3])
         end
@@ -856,19 +863,19 @@ Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
     end
 
     if hitObject ~= nil or projectile == nil or projectile.SkillId ~= "" or projectile.DamageSourceType ~= "Attack" or projectile.IsFromItem then return end
-    Ext.PrintWarning("ProjectileHit: ", projectile, hitObject, position)
+    DebugPrint("ProjectileHit: ", projectile, hitObject, position)
     local attackerObj = Ext.GetCharacter(projectile.CasterHandle)
 
     if attackerObj == nil or not attackerObj:HasTag("Rifle_Armed") then return end
 
     local attackerWeapon = Ext.GetItem(CharacterGetEquippedWeapon(attackerObj.MyGuid))
-    Ext.Print(projectile.WeaponHandle)
-    Ext.Print(attackerWeapon.Handle)
+    DebugPrint(projectile.WeaponHandle)
+    DebugPrint(attackerWeapon.Handle)
 
     if projectile.WeaponHandle ~= attackerWeapon.Handle then return end
-    Ext.Print("Attack Ground hit event with firearm detected.")
+    DebugPrint("Attack Ground hit event with firearm detected.")
 
-    Ext.Print(Ext.JsonStringify(position))
+    DebugPrint(Ext.JsonStringify(position))
 
     local ammoTypeStatusId = GetCharacterAmmoType(attackerObj.MyGuid)
     if ammoTypeStatusId == nil then return end
@@ -899,34 +906,34 @@ end)
 
 local function Musketeer_Weapon_Generated(item)
     if #item:GetGeneratedBoosts() == 0 then return end
-    --Ext.Print(item.Stats.ItemGroup)
-    --Ext.Print(Ext.JsonStringify(item:GetTags()))
-    --if not (item:HasTag("Musk_Rifle_Long") or item:HasTag("Musk_Rifle_Short") or item:HasTag("Musk_Rifle_Medium")) then Ext.Print(item.DisplayName) return end
+    --DebugPrint(item.Stats.ItemGroup)
+    --DebugPrint(Ext.JsonStringify(item:GetTags()))
+    --if not (item:HasTag("Musk_Rifle_Long") or item:HasTag("Musk_Rifle_Short") or item:HasTag("Musk_Rifle_Medium")) then DebugPrint(item.DisplayName) return end
 
     if not (string.sub(item.Stats.ItemGroup, 1, string.len("Musk_")) == "Musk_") then return end
 
-    Ext.Print("----------------------------------------------------------------")
+    DebugPrint("----------------------------------------------------------------")
     local oldDeltaMods = item:GetGeneratedBoosts()
     local newBoostList = {}
     local maxCharges = item.MaxCharges
     local currCharges = item.Charges
     local itemOwner = GetInventoryOwner(item.MyGuid)
 
-    Ext.Print("All Deltamods of current item:")
-    Ext.Print(Ext.JsonStringify(oldDeltaMods))
-    Ext.Print("----------------------------")
+    DebugPrint("All Deltamods of current item:")
+    DebugPrint(Ext.JsonStringify(oldDeltaMods))
+    DebugPrint("----------------------------")
     
     for i = 1,#oldDeltaMods,1 do
         local deltaMod = Ext.GetDeltaMod(oldDeltaMods[i], "Weapon")
         if deltaMod ~= nil then
-            --Ext.Print(deltaMod.WeaponType)
+            --DebugPrint(deltaMod.WeaponType)
             if deltaMod.WeaponType == "Crossbow" then
-                --Ext.Print(oldDeltaMods[i])
-                --Ext.Print(Ext.JsonStringify(deltaMod))
+                --DebugPrint(oldDeltaMods[i])
+                --DebugPrint(Ext.JsonStringify(deltaMod))
                 newBoostList[#newBoostList+1] = oldDeltaMods[i] .. "_Musk"
-                --Ext.Print(deltaMod.Boosts[1].Boost)
+                --DebugPrint(deltaMod.Boosts[1].Boost)
             elseif oldDeltaMods[i] == "Boost_Weapon_EmptyRuneSlot" then
-                Ext.Print("Add an additional Ammo-Slot or somethin")
+                DebugPrint("Add an additional Ammo-Slot or somethin")
                 --newBoostList[#newBoostList+1] = oldDeltaMods[i] .. "_Musk"
             else
                 newBoostList[#newBoostList+1] = oldDeltaMods[i]
@@ -934,7 +941,7 @@ local function Musketeer_Weapon_Generated(item)
         end
     end
 
-    --Ext.Print(item.DisplayName)
+    --DebugPrint(item.DisplayName)
     local rootTemplate = GetTemplate(item.MyGuid)
     NRD_ItemCloneBegin(item.MyGuid)
 
@@ -955,14 +962,14 @@ local function Musketeer_Weapon_Generated(item)
         if newBoostList[i] == "Boost_Weapon_EmptyRuneSlot_Musk" then
             maxCharges = maxCharges + 1
             currCharges = currCharges + 1
-            Ext.Print("Cannot add charges to items yet, so currently currently ignoring this.")
+            DebugPrint("Cannot add charges to items yet, so currently currently ignoring this.")
             --NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_Damage_Bonus_Medium")
         end
         NRD_ItemCloneAddBoost("Generation", newBoostList[i])
         --print("Boost added to cloned item", newBoostList[i])
     end
     --NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_Damage_Poison_Medium_Crossbow_Musk")
-    --Ext.Print("Setting max and curr Charges: " .. maxCharges .. " " .. currCharges)
+    --DebugPrint("Setting max and curr Charges: " .. maxCharges .. " " .. currCharges)
     --NRD_ItemCloneSetInt("MaxCharges", maxCharges)
     --NRD_ItemCloneSetInt("Charges", currCharges)
     --NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_EmptyRuneSlot_Musk")
@@ -986,25 +993,25 @@ local function Musketeer_Weapon_Generated(item)
     SetStoryEvent(genItemGuid, "MusketeerDeleteItem")
     --[[
     --ItemDestroy(item.MyGuid)
-    Ext.Print(GetInventoryOwner(item.MyGuid))
+    DebugPrint(GetInventoryOwner(item.MyGuid))
     ItemToInventory(genItemGuid2.MyGuid, itemOwner, 1, 0, 0)
 
     --]]
-    Ext.Print("----------------------------------------------------------------")
+    DebugPrint("----------------------------------------------------------------")
     --ItemToInventory(genItemGuid2, PlayerTable[1], 1, 0, 1)
 
     --[[
 
-    Ext.Print(item)
-    Ext.Print(item.Boosts)
-    Ext.Print(item.DisplayName)
-    Ext.Print(item:GetGeneratedBoosts())
-    Ext.Print(Ext.JsonStringify(item:GetGeneratedBoosts()))
-    Ext.Print(Ext.JsonStringify(item:GetDeltaMods()))
-    Ext.Print(Ext.GetDeltaMod(item:GetGeneratedBoosts()[1], "Weapon"))
-    Ext.Print(Ext.JsonStringify(Ext.GetDeltaMod("Boost_Weapon_Damage_Poison_Medium_Crossbow", "Weapon")))
+    DebugPrint(item)
+    DebugPrint(item.Boosts)
+    DebugPrint(item.DisplayName)
+    DebugPrint(item:GetGeneratedBoosts())
+    DebugPrint(Ext.JsonStringify(item:GetGeneratedBoosts()))
+    DebugPrint(Ext.JsonStringify(item:GetDeltaMods()))
+    DebugPrint(Ext.GetDeltaMod(item:GetGeneratedBoosts()[1], "Weapon"))
+    DebugPrint(Ext.JsonStringify(Ext.GetDeltaMod("Boost_Weapon_Damage_Poison_Medium_Crossbow", "Weapon")))
 
-    if Ext.GetDeltaMod(item:GetGeneratedBoosts()[1], "Weapon") == nil then Ext.Print("Not a weapon") return end
+    if Ext.GetDeltaMod(item:GetGeneratedBoosts()[1], "Weapon") == nil then DebugPrint("Not a weapon") return end
     NRD_ItemSetPermanentBoostString(item.MyGuid, "Projectile", "465c6446-9031-4e70-93d4-6c84da8a48ed")
     NRD_ItemSetPermanentBoostInt(item.MyGuid, "DamageType", 5)
     NRD_ItemSetPermanentBoostInt(item.MyGuid, "LifeSteal", 42)
