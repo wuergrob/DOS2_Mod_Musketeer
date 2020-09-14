@@ -112,10 +112,10 @@
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="60" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="10" />
-        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="Damage Type" />
+        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
         <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="5" enumeration_type_name="Death Type" />
+        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Death Type" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="StrikeCount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="StrikeDelay" type="IntegerStatObjectFieldDefinition" value="200" />

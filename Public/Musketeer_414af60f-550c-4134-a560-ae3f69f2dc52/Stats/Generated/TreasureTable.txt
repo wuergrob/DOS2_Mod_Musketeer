@@ -156,5 +156,5 @@ object category "T_ST_Trader_WandNormal",2,1,0,0,0,0,0,0
 object category "T_ST_Trader_TwoHandedNormal",1,1,0,0,0,0,0,0
 object category "T_ST_Trader_StaffNormal",1,1,0,0,0,0,0,0
 object category "T_ST_Trader_RangedNormal",1,1,0,0,0,0,0,0
-new subtable "1,1;0,4"
+new subtable "1,1;0,3"
 object category "Crossbow",1,1,0,0,0,0,0,0

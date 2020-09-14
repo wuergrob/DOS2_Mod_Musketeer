@@ -903,15 +903,13 @@ Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
     NRD_ProjectileLaunch();
 end)
 
-
 local function Musketeer_Weapon_Generated(item)
     if #item:GetGeneratedBoosts() == 0 then return end
     --DebugPrint(item.Stats.ItemGroup)
     --DebugPrint(Ext.JsonStringify(item:GetTags()))
     --if not (item:HasTag("Musk_Rifle_Long") or item:HasTag("Musk_Rifle_Short") or item:HasTag("Musk_Rifle_Medium")) then DebugPrint(item.DisplayName) return end
-
+    
     if not (string.sub(item.Stats.ItemGroup, 1, string.len("Musk_")) == "Musk_") then return end
-
     DebugPrint("----------------------------------------------------------------")
     local oldDeltaMods = item:GetGeneratedBoosts()
     local newBoostList = {}
@@ -934,7 +932,7 @@ local function Musketeer_Weapon_Generated(item)
                 --DebugPrint(deltaMod.Boosts[1].Boost)
             elseif oldDeltaMods[i] == "Boost_Weapon_EmptyRuneSlot" then
                 DebugPrint("Add an additional Ammo-Slot or somethin")
-                --newBoostList[#newBoostList+1] = oldDeltaMods[i] .. "_Musk"
+                newBoostList[#newBoostList+1] = oldDeltaMods[i] .. "_Musk"
             else
                 newBoostList[#newBoostList+1] = oldDeltaMods[i]
             end
@@ -984,6 +982,7 @@ local function Musketeer_Weapon_Generated(item)
 
     NRD_ItemCloneSetString("ItemType", item.Stats.ItemTypeReal)
     NRD_ItemCloneSetInt("HasGeneratedStats", 1)
+    --NRD_ItemCloneSetInt("IsIdentified", 1)
     local genItemGuid2 = NRD_ItemClone()
 
     --ItemRemove(genItemGuid)

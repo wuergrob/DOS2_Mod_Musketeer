@@ -95,8 +95,7 @@ Buckshot might be too strong again and will be monitored closely.
 
 ### New Features
 
-- Added experimental custom `DeltaMods` for Rifles
-Rifles generated from treasures or vendors receive custom boosts instead of Crossbow specific ones.
+- Added experimental custom `DeltaMods` for Rifles generated from treasures and vendors receive custom boosts instead of Crossbow specific ones.
 
 ### Bugfixes
 
@@ -115,3 +114,26 @@ Rifles generated from treasures or vendors receive custom boosts instead of Cros
     - The piercing `Rapidfire` Projectile heals the attacker for 5% of its maximum vitality, if the target is `Marked`
     - The piercing `Rend The Marked` Projectile grants the attacker a `Rend` stack when killing a character
 - Skill `Final Act` AP cost increased from 1 to 2
+
+## 0.9.2.0 Initial Open Beta Build
+
+### Bugfixes
+
+- `Knockdown` Status caused by hitting `Marked` targets with the `Buckshot` Skill is now correctly resisted by `Physical Armor`
+- `Seeker Strikedown` Skill's ingame name has been corrected
+- `Steadfast`Skill Description has been updated to match it's actual effect
+- `Seeker Strikedown` Skill Description updated
+- High Rarity `Rifles` sold by vendors can no longer be `unidentified`
+- Adjusted Icons of some `Matchlock Rifles` to correctly use the `Matchlock` Weapon Icon
+- Added experimental Tooltip-Support for `Rifles`, Tooltip no longer shows `Rifles` as `Crossbows`
+
+
+### Balance & Design
+- `Steadfast` Skill now grants 2m range, 20% accuracy, bonus `Physical Armor` and bonus `Magic Armor`
+- `Seeker Strikedown` Skill `Damage Type` changed from `Fire` to `Physical` and now requires the caster to have a `Rifle` equipped
+- Changed base `Movement` and `Initiative` of `Musket Rifles` from -2m to -1m and -2 to -1 respectively
+- Removed base `Movement` of `Matchlock Rifles` and changed base `Initiative` from -2 to -1
+- Increased `Level` Requirement of all  `Enhanced Reload` Variations from 3 to 5
+- Slightly increased Droprate of `Rifles` and `Crossbows` to compensate for diluted Weapon-Pool
+- Increased `Crossbow` Weapon Droprate
+- Added additional `Matchlock Rifles` of various rarities to the Weapon-Pool

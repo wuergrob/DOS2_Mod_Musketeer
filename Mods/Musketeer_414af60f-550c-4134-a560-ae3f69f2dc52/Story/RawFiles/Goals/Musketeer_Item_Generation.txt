@@ -3,24 +3,27 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
-
-
 IF
 StoryEvent(_Original, "MusketeerFinishCloningEvent")
 AND
 GetVarObject(_Original, "MusketeerFinishCloning", _ClonedItem)
 AND
 GetInventoryOwner((ITEMGUID)_Original, _Owner)
+AND
+NRD_ItemGetInt(_Original, "IsIdentified", _Identified)
 THEN
 //ItemDestroy(_Original);
+NRD_ItemSetIdentified((ITEMGUID)_ClonedItem, _Identified);
 ItemRemove(_Original);
 ItemToInventory((ITEMGUID)_ClonedItem, _Owner, 1, 0, 0);
-NRD_DebugLog("Cloned item was moved and original was removed.");
+//NRD_DebugLog("Cloned item was moved and original was removed.");
+
 
 IF
 StoryEvent(_Item, "MusketeerDeleteItem")
 THEN
 ItemRemove((ITEMGUID)_Item);
+
 
 
 EXITSECTION

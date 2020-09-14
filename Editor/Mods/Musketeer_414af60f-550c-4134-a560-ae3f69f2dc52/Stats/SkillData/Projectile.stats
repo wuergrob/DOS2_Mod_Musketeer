@@ -677,9 +677,9 @@
         <field name="ProjectileDelay" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Template" type="StringStatObjectFieldDefinition" value="79971299-eed6-4880-a9db-2954cf93677a" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="SeekerStrikedown" />
-        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Bullethell" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off &lt;font color='#00EFFF'&gt;7 deadly seeker-missiles&lt;/font&gt; on every single &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; enemy character around you, each dealing 60% damage in a small area around it's impact location.&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Missiles are only cast on marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Seeker Strikedown" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off &lt;font color='#00EFFF'&gt;7 deadly seeker-missiles&lt;/font&gt; on every single &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; enemy character around you, each dealing [1] in a small area around it's impact location.&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Missiles are only cast on marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:ProjectileStrike_Musk_Bullethell_Cluster:Damage" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_earth_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_earth_01_loop" />
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Earth_Prepare_Earth_Foot_01,KeepRot,Detach:Dummy_Root:foot01;RS3_FX_Skills_Earth_Prepare_Earth_Foot_02,KeepRot,Detach:Dummy_Root:foot02;RS3_FX_Skills_Earth_Prepare_Earth_Root_01,KeepRot:Dummy_Root,Detach:root01" />
@@ -697,6 +697,7 @@
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value="RangerLore 5" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

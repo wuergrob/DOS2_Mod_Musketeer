@@ -84,11 +84,9 @@
         <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="unknown" />
         <field name="RangeBoost" type="IntegerStatObjectFieldDefinition" value="200" />
         <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="-75" />
-        <field name="Armor" type="IntegerStatObjectFieldDefinition" value="30" />
-        <field name="MagicArmor" type="IntegerStatObjectFieldDefinition" value="30" />
-        <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Armor" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MagicArmor" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="AccuracyBoost" type="IntegerStatObjectFieldDefinition" value="20" />
-        <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="20" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

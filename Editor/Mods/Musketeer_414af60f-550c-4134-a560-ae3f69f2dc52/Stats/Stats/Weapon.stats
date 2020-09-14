@@ -21,7 +21,7 @@
         <field name="DurabilityDegradeSpeed" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="Qualifier" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="Weight" type="IntegerStatObjectFieldDefinition" value="3000" />
-        <field name="Movement" type="IntegerStatObjectFieldDefinition" value="-200" />
+        <field name="Movement" type="IntegerStatObjectFieldDefinition" value="-100" />
         <field name="WeaponType" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="WeaponType" />
         <field name="Slot" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="Itemslot" />
         <field name="Projectile" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
@@ -32,7 +32,7 @@
         <field name="ItemColor" type="StringStatObjectFieldDefinition" value="DefaultGray" />
         <field name="Skills" type="StringStatObjectFieldDefinition" value="Shout_Musketeer_Passive" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="4" />
-        <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="-2" />
+        <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="-1" />
         <field name="AnimType" type="EnumerationStatObjectFieldDefinition" value="9" enumeration_type_name="AnimType" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
         <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
@@ -155,6 +155,8 @@
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Medium" />
+        <field name="Movement" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="-1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -349,8 +351,6 @@
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="18" />
         <field name="Projectile" type="StringStatObjectFieldDefinition" value="465c6446-9031-4e70-93d4-6c84da8a48ed" />
         <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="POISONED,20,1" />
-        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="8" />
-        <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="8" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -452,8 +452,8 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="_Boost_Weapon_EmptyRuneSlot_Musk" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_BOOSTS_Weapon" />
-        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="9" />
-        <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="9" />
+        <field name="Charges" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="1" />
       </fields>
     </stat_object>
   </stat_objects>

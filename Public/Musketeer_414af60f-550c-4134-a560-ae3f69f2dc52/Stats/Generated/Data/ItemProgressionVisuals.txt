@@ -8,7 +8,7 @@ add levelgroup 3,3,"Common"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
 add namegroup "Shoddy Musket","",""
 
-add levelgroup 4,4,"Common"
+add levelgroup 4,4,"None"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
 add namegroup "Shoddy Musket 2","",""
 
@@ -16,7 +16,7 @@ add levelgroup 5,5,"Common"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
 add namegroup "Balanced Musket","",""
 
-add levelgroup 6,6,"Common"
+add levelgroup 6,6,"None"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
 add namegroup "Balanced Musket 2","",""
 
@@ -24,7 +24,7 @@ add levelgroup 7,7,"Common"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesShieldCommon"
 add namegroup "Sturdy Musket","",""
 
-add levelgroup 8,8,"Common"
+add levelgroup 8,8,"None"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesShieldCommon"
 add namegroup "Sturdy Musket 2","",""
 
@@ -32,7 +32,7 @@ add levelgroup 9,9,"Common"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesCommon"
 add namegroup "Heavy Musket","",""
 
-add levelgroup 10,10,"Common"
+add levelgroup 10,10,"None"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesCommon"
 add namegroup "Heavy Musket 2","",""
 
@@ -40,7 +40,7 @@ add levelgroup 11,12,"Common"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsCommon"
 add namegroup "Refined Musket","",""
 
-add levelgroup 11,12,"Common"
+add levelgroup 11,12,"None"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","LizardsCommon"
 add namegroup "Refined Musket 2","",""
 
@@ -48,7 +48,7 @@ add levelgroup 13,14,"Common"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesCommon"
 add namegroup "Marksman's Musket","",""
 
-add levelgroup 15,16,"Common"
+add levelgroup 15,16,"None"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesCommon"
 add namegroup "Marksman's Musket 2","",""
 
@@ -68,7 +68,7 @@ add levelgroup 5,6,"Uncommon"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesShieldUncommon"
 add namegroup "Balanced Musket","Cool",""
 
-add levelgroup 7,8,"Uncommon"
+add levelgroup 7,8,"None"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesUncommon"
 add namegroup "Sturdy Musket","Cool",""
 
@@ -80,7 +80,7 @@ add levelgroup 11,12,"Uncommon"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesUncommon"
 add namegroup "Refined Musket","Cool",""
 
-add levelgroup 13,14,"Uncommon"
+add levelgroup 13,14,"None"
 add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesUncommon"
 add namegroup "Marksman's Musket","Cool",""
 
@@ -158,7 +158,7 @@ add levelgroup 1,2,"Common"
 add rootgroup "739c8317-e448-42d6-8e47-828306b787a4",""
 add namegroup "Shoddy Blunderbuss","",""
 
-add levelgroup 3,3,"Common"
+add levelgroup 3,3,"None"
 add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","HumansCommon"
 add namegroup "Shoddy Blunderbuss","",""
 
@@ -166,7 +166,7 @@ add levelgroup 5,5,"Common"
 add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","HumansCommon"
 add namegroup "Sawed off Blunderbuss","",""
 
-add levelgroup 7,7,"Common"
+add levelgroup 7,7,"None"
 add rootgroup "739c8317-e448-42d6-8e47-828306b787a4","ElvesShieldCommon"
 add namegroup "Sawed off Blunderbuss","",""
 
@@ -276,6 +276,14 @@ add levelgroup 1,2,"Rare"
 add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9",""
 add namegroup "RG_Used_Matchlock","",""
 
+add levelgroup 1,6,"Common"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","ElvesShieldEpic"
+add namegroup "RG_Matchlock","",""
+
+add levelgroup 1,6,"Uncommon"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","ElvesShieldEpic"
+add namegroup "RG_Matchlock","",""
+
 add levelgroup 1,4,"Epic"
 add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","ElvesShieldEpic"
 add namegroup "RG_Matchlock","",""
@@ -284,7 +292,11 @@ add levelgroup 5,7,"Epic"
 add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","DwarvesEpic"
 add namegroup "RG_Matchlock","",""
 
-add levelgroup 11,12,"Epic"
+add levelgroup 4,7,"Common"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","DwarvesEpic"
+add namegroup "RG_Matchlock","",""
+
+add levelgroup 8,12,"Uncommon"
 add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","ElvesEpic"
 add namegroup "RG_Tanegashima","",""
 
@@ -301,22 +313,34 @@ add rootgroup "38497173-8924-49b3-b491-b3eebb3a5c5a","ElvesEpic"
 add namegroup "RG_Mayumi","",""
 
 add levelgroup 3,4,"Common"
-add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","HumansCommon"
 add namegroup "Shoddy Matchlock","",""
 
 add levelgroup 5,7,"Common"
-add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","HumansCommon"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","HumansCommon"
 add namegroup "Balanced Matchlock","",""
 
 add levelgroup 8,9,"Common"
-add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesShieldCommon"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","ElvesShieldCommon"
 add namegroup "Sturdy Matchlock 2","",""
 
 add levelgroup 10,12,"Common"
-add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","DwarvesCommon"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","DwarvesCommon"
 add namegroup "Heavy Matchlock 2","",""
 
 add levelgroup 13,16,"Common"
-add rootgroup "c04f63c0-428d-45a2-a567-a6bccd293908","ElvesCommon"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","ElvesCommon"
 add namegroup "Marksman's Matchlock","",""
+
+add levelgroup 11,12,"Epic"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","ElvesEpic"
+add namegroup "RG_Tanegashima","",""
+
+add levelgroup 13,15,"Rare"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","DwarvesEpic"
+add namegroup "RG_Tanegashima","",""
+
+add levelgroup 16,18,"Rare"
+add rootgroup "311d274a-e839-4020-bde4-38806cf5e0c9","LizardsEpic"
+add namegroup "RG_Tanegashima","",""
 

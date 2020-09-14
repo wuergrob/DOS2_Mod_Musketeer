@@ -813,7 +813,7 @@
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1;0,4" />
+        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1;0,3" />
       </fields>
     </stat_object>
   </stat_objects>

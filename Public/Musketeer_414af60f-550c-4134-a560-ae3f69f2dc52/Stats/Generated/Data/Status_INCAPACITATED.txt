@@ -10,6 +10,7 @@ data "DescriptionRef" "Character was blasted away by Buckshot. Cured by Magic Sh
 data "Icon" "statIcons_KnockedDown"
 data "FormatColor" "White"
 data "StatusEffect" "RS3_FX_GP_Status_KnockedDown_01:Dummy_StatusFX"
+data "SavingThrow" "PhysicalArmor"
 data "ImmuneFlag" "KnockdownImmunity"
 data "StatsId" "Stats_KnockedDown"
 data "FreezeTime" "0"

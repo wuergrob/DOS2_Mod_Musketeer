@@ -538,6 +538,7 @@ end
 local function RegisterBuiltInUIListeners() 
 	-- Listen to the hotbar for when the sheet opens
 	local hotbar = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+	local tooltip = Ext.GetBuiltinUI("Public/Game/GUI/tooltip.swf")
 	if hotbar ~= nil then
 		Ext.RegisterUICall(hotbar, "hideTooltip", BuiltInHotbarUIHideToolbar)
 		Ext.RegisterUICall(hotbar, "showTooltip", BuiltInHotbarUIShowTooltip)
@@ -552,7 +553,11 @@ local function RegisterBuiltInUIListeners()
 		Ext.RegisterUICall(hotbar, "hotbarBtnPressed", BuiltInHotbarUIButtonPressed)
 		Ext.RegisterUICall(hotbar, "SlotPressed", BuiltInHotbarUISlotPressed, "IsOnCooldown")
 		Ext.RegisterUICall(hotbar, "showCharTooltip", DebugStuffs2)
-		
+
+		if tooltip ~= nil then
+			Ext.Print("Tooltip.swf is not nil")
+			Ext.RegisterUICall(tooltip, "showCharTooltip", DebugStuffs2)
+		end
 		
 		Ext.RegisterUIInvokeListener(hotbar, "setCurrentHotbar", SetCurrentHotbar)
 		Ext.RegisterUIInvokeListener(hotbar, "setPlayerHandle", DebugStuffs2)
@@ -633,19 +638,7 @@ local function Reload_Override_DescriptionParams(status, statusSource, character
 end
 --Ext.RegisterListener("StatusGetDescriptionParam", Reload_Override_DescriptionParams)
 
---[[
-function Musketeer_Refresh_Hotbar()
-	print("[CLIENT] Custom Refresh Hotbar called")
-	local hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
-	print(hotbarUI)
-	if hotbarUI ~= nil then
-		--hotbarUI:Invoke("updateActionSkills")
-		local maxSlots = hotbarUI:GetValue("maxSlots", "number")
-		print(maxSlots)
-		hotbarUI:ExternalInterfaceCall("updateSlots", maxSlots)
-	end
-end
---]]
+
 
 local function Musketeer_Refresh_Hotbar()
 	DebugPrint("[CLIENT] Custom Refresh Hotbar called")
@@ -656,6 +649,93 @@ local function Musketeer_Refresh_Hotbar()
 end
 Ext.RegisterNetListener("Client_Refresh_Hotbar", Musketeer_Refresh_Hotbar)
 
+
+-- Experimental Tooltip Handling for displaying correct Rifle-Weapon Names
+local function SetTooltipHandler(arg1, ...)
+	--Ext.Print("addFormattedTooltip being called")
+	local tooltip_array = arg1:GetRoot().tooltip_array
+	local tooltip_compare_array = arg1:GetRoot().tooltipCompare_array
+
+	-- Normal Tooltip
+	if tooltip_array[1] ~= nil and type(tooltip_array[1]) == "string" and #tooltip_array <= 20 then
+		-- Unidentified Item
+		local unidentifiedName = ""
+		if type(tooltip_array[14]) == "string" and string.sub(tooltip_array[14], 0, 19) == "Featuring a smaller" then
+			unidentifiedName = "Blunderbuss"
+		elseif type(tooltip_array[14]) == "string" and string.sub(tooltip_array[14], 0, 21) == "Impressive yet clunky" then
+			unidentifiedName = "Musket"
+		elseif type(tooltip_array[14]) == "string" and (string.sub(tooltip_array[14], 0, 16) == "The exact origin" or string.sub(tooltip_array[10], 0, 16) == "I'm the only one") then
+			unidentifiedName = "Matchlock"
+		end
+		if unidentifiedName ~= "" then
+			local newName = string.gsub(tooltip_array[1], "Unidentified Crossbow", "Unidentified "..unidentifiedName)
+			arg1:GetRoot().tooltip_array[1] = newName
+		end
+	else
+		-- Identified Item
+		local rifleName = ""
+		for i=1, #tooltip_array do
+			if tooltip_array[i] == "Range" and tooltip_array[i+2] == "4m" then
+				rifleName = "Blunderbuss"
+			elseif tooltip_array[i] == "Range" and tooltip_array[i+2] == "8m" then
+				rifleName = "Matchlock"
+			elseif tooltip_array[i] == "Range" and tooltip_array[i+2] == "10m" then
+				rifleName = "Musket"
+			end
+
+			if tooltip_array[i] == "Crossbow" and rifleName ~= "" then
+				arg1:GetRoot().tooltip_array[i] = rifleName
+			end
+		end
+	end
+
+	-- Compare Tooltip
+	if tooltip_compare_array[1] ~= nil and type(tooltip_compare_array[1]) == "string" and #tooltip_compare_array <= 20 then
+		-- Unidentified Item
+		local unidentifiedName = ""
+		if type(tooltip_compare_array[14]) == "string" and string.sub(tooltip_compare_array[14], 0, 19) == "Featuring a smaller" then
+			unidentifiedName = "Blunderbuss"
+		elseif type(tooltip_compare_array[14]) == "string" and string.sub(tooltip_compare_array[14], 0, 21) == "Impressive yet clunky" then
+			unidentifiedName = "Musket"
+		elseif type(tooltip_compare_array[14]) == "string" and (string.sub(tooltip_compare_array[14], 0, 16) == "The exact origin" or string.sub(tooltip_compare_array[10], 0, 16) == "I'm the only one") then
+			unidentifiedName = "Matchlock"
+		end
+		if unidentifiedName ~= "" then
+			local newName = string.gsub(tooltip_compare_array[1], "Unidentified Crossbow", "Unidentified "..unidentifiedName)
+			arg1:GetRoot().tooltipCompare_array[1] = newName
+		end
+	else
+		--Ext.Print("Identified Item")
+		-- Identified Item
+		local rifleName = ""
+		for i=1, #tooltip_compare_array do
+			if tooltip_compare_array[i] == "Range" and tooltip_compare_array[i+2] == "4m" then
+				rifleName = "Blunderbuss"
+			elseif tooltip_compare_array[i] == "Range" and tooltip_compare_array[i+2] == "8m" then
+				rifleName = "Matchlock"
+			elseif tooltip_compare_array[i] == "Range" and tooltip_compare_array[i+2] == "10m" then
+				rifleName = "Musket"
+			end
+
+			if tooltip_compare_array[i] == "Crossbow" and rifleName ~= "" then
+				arg1:GetRoot().tooltipCompare_array[i] = rifleName
+			end
+		end
+	end
+end
+Ext.RegisterUINameInvokeListener("addFormattedTooltip", SetTooltipHandler)
+
+
+local function setCompareTooltipHandler(arg1, ...)
+	Ext.Print("Compare Tooltip stuff")
+	Ext.Print(arg1)
+	local args = (...)
+	for i=1, #args do
+		Ext.Print(args[i])
+	end
+
+end
+Ext.RegisterUINameInvokeListener("addCompareTooltip", setCompareTooltipHandler)
 -- NOTE ON TALENTS:
 -- characterSheet.swf Maintimeline has a "addTalent" function.
 -- Adding a talent with a "statid" out of bounds crashes the game. (Out of bounds means, "statid" is higher than max enum value here https://docs.larian.game/Scripting_talent_types)

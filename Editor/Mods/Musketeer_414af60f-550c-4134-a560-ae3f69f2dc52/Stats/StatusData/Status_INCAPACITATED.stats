@@ -14,6 +14,7 @@
         <field name="ImmuneFlag" type="EnumerationStatObjectFieldDefinition" value="7" enumeration_type_name="AttributeFlag" />
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_KnockedDown" />
         <field name="FreezeTime" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="33" enumeration_type_name="SavingThrow" />
       </fields>
     </stat_object>
   </stat_objects>
