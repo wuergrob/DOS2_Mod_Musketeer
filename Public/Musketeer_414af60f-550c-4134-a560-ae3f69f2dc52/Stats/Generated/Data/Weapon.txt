@@ -240,6 +240,11 @@ type "Weapon"
 using "Damage_Marked"
 data "ExtraProperties" "EXPLODE,100,0,Projectile_Musk_Mark_Dmg_Steady_Shot"
 
+new entry "Damage_Marked_Scattershot"
+type "Weapon"
+using "Damage_Marked"
+data "ExtraProperties" "EXPLODE,100,0,Projectile_Musk_Mark_Dmg_Scattershot;BLEEDING,100,1"
+
 new entry "Damage_Marked_LS_30"
 type "Weapon"
 

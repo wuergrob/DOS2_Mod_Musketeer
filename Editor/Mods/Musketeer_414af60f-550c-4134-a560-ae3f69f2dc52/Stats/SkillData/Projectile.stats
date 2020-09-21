@@ -27,7 +27,7 @@
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="SteadyShot_alpha" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Steady Shot" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off a shot with exceptional aim, exceeding normal range and dealing [1] &lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Deals additional [2] against Marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off a shot with exceptional aim, exceeding normal range and dealing [1] &lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Deals additional [2] against Marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage;Skill:Projectile_Musk_Mark_Dmg_Steady_Shot:Damage" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
@@ -42,10 +42,58 @@
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
-        <field name="ProjectileType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ProjectileType" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(HasStatus:MUSK_MARK_TARGET):MARK_DAMAGE_Steady_Shot,100,0;" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Rifle_Scattershot" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
+        <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="60" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="4" />
+        <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ForceTarget" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="NonSelf" />
+        <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="ProjectileCount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="ProjectileDelay" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Template" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
+        <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Scattershot" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Scattershot" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a high caliber round that splits into 5 smaller projectiles in a 30 degree arc. Each projectile deals [1].&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Inflicts Bleeding on Marked targets for 1 turn&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 2 Ammunition&lt;/font&gt;" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage;Skill:Projectile_Musk_Mark_Dmg_Steady_Shot:Damage" />
+        <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
+        <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Earth_Prepare_Weapon_ArrowFx_01:Dummy_ProjectileFX" />
+        <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="Musketeer_Rifle_Scattershot" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value="RangerLore 3" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_AtLeast_Two_Left" />
+        <field name="ProjectileTerrainOffset" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="shoot" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
+        <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
+        <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(HasStatus:MUSK_MARK_TARGET):MARK_DAMAGE_Scattershot,100,0;TARGET:IF(HasStatus:MUSK_MARK_TARGET):BLEEDING,100,1;" />
+        <field name="Angle" type="IntegerStatObjectFieldDefinition" value="30" />
+        <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -87,6 +135,7 @@
         <field name="Template" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Earth_Prepare_Weapon_ArrowFx_01:Dummy_ProjectileFX" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="shoot" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -155,7 +204,7 @@
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="RendMarked" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Rend the Marked" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off a splitting shot, attacking up to 3 &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; Characters around you, Dealing [1].&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Only targets Marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF8C34'&gt;Killing a target with this skill grants 1 &lt;font color='#7D71D9'&gt;Rend Stack&lt;/font&gt; for 2 turns. There is no stack limit.&lt;br&gt;&lt;br&gt;&lt;font color='#FF4D00'&gt;Each &lt;font color='#7D71D9'&gt;Rend Stack&lt;/font&gt; increases your &lt;font color='#FFFFFF'&gt;Finesse&lt;/font&gt;, &lt;font color='#FFFFFF'&gt;Wits&lt;/font&gt; and &lt;font color='#FFFFFF'&gt;Initiative&lt;/font&gt; by 2 points and boosts your &lt;font color='#FFFFFF'&gt;Damage&lt;/font&gt; by 7%.&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off a splitting shot, attacking up to 3 &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; Characters around you, Dealing [1].&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Only targets Marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF8C34'&gt;Killing a target with this skill grants 1 &lt;font color='#7D71D9'&gt;Rend Stack&lt;/font&gt; for 2 turns. There is no stack limit.&lt;br&gt;&lt;br&gt;&lt;font color='#FF4D00'&gt;Each &lt;font color='#7D71D9'&gt;Rend Stack&lt;/font&gt; increases your &lt;font color='#FFFFFF'&gt;Finesse&lt;/font&gt;, &lt;font color='#FFFFFF'&gt;Wits&lt;/font&gt; and &lt;font color='#FFFFFF'&gt;Initiative&lt;/font&gt; by 2 points and boosts your &lt;font color='#FFFFFF'&gt;Damage&lt;/font&gt; by 7%.&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
@@ -302,7 +351,6 @@
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Arrow_Fire_Cast_01:Dummy_ProjectileFX:cast" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
-        <field name="ProjectileType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ProjectileType" />
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="SkillTier" />
@@ -353,7 +401,6 @@
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_AtLeast_Two_Left" />
-        <field name="ProjectileType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ProjectileType" />
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Air_Prepare_Weapon_PiercingShot_Root_01:Dummy_BodyFX;RS3_FX_Skills_Air_Prepare_Weapon_PiercingShot_ArrowFX_01:Dummy_ProjectileFX" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
@@ -687,7 +734,7 @@
         <field name="CastAnimationCheck" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="CastCheckType" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Bullethell_Cast:Dummy_Root;" />
-        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="ProjectileTerrainOffset" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -807,7 +854,7 @@
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="TrackingShot" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Tracking Shot" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a tracking round on a target, dealing [1] and &lt;font color='#FF1500'&gt;Marking&lt;/font&gt; it.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks target character&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a tracking round on a target, dealing [1] and &lt;font color='#FF1500'&gt;Marking&lt;/font&gt; it.&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks target character&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
@@ -822,7 +869,6 @@
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_TrackingShot_CastEffect:Dummy_ProjectileFX:cast" />
-        <field name="ProjectileType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ProjectileType" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
       </fields>
@@ -853,7 +899,7 @@
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="FinalAct" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Final Act" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off your last remaining round, dealing [1]&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Only useable when you have exactly 1 Ammunition left. Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Deals 60% bonus damage against Marked targets &lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF8C34'&gt;If this skill kills a target, set &lt;font color='#7D71D9'&gt;Hasted&lt;/font&gt; for 1 turn and recover 1 AP. Killing a &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; target replaces &lt;font color='#7D71D9'&gt;Hasted&lt;/font&gt; with &lt;font color='#FFFF00'&gt;Euphoria&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FFFF00'&gt;Euphoria&lt;/font&gt;&lt;font color='#FF4D00'&gt; increases movement speed by 3m per AP, grants 2 AP recovery and 1 AP per turn. Additionally grants 25% Critical Chance and heals for 20% of your maximum vitality. &lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off your last remaining round, dealing [1]&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Deals 60% bonus damage against Marked targets &lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Only useable when you have exactly 1 Ammunition left. Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF8C34'&gt;If this skill kills a target, set &lt;font color='#7D71D9'&gt;Hasted&lt;/font&gt; for 1 turn and recover 1 AP. Killing a &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; target replaces &lt;font color='#7D71D9'&gt;Hasted&lt;/font&gt; with &lt;font color='#FFFF00'&gt;Euphoria&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FFFF00'&gt;Euphoria&lt;/font&gt;&lt;font color='#FF4D00'&gt; increases movement speed by 3m per AP, grants 2 AP recovery and 1 AP per turn. Additionally grants 25% Critical Chance and heals for 20% of your maximum vitality. &lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
@@ -868,7 +914,6 @@
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
-        <field name="ProjectileType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ProjectileType" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(HasStatus:MUSK_MARK_TARGET):MARK_DAMAGE_Final_Act,100,0;" />
@@ -968,6 +1013,13 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Mark_Dmg_Scattershot" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Mark_Dmg" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="12" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Incendiary_Ammo_Effect" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="20" />
@@ -1017,7 +1069,7 @@
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_TrackingShot_CastEffect:Dummy_BodyFX:cast" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Steady Shot" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off a shot with exceptional aim, exceeding normal range and dealing [1] &lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Deals 50% bonus damage against Marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off a shot with exceptional aim, exceeding normal range and dealing [1] &lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Deals 50% bonus damage against Marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

@@ -23,6 +23,7 @@
         <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="-75" />
         <field name="Duration" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="SavingThrow" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SavingThrow" />
+        <field name="DodgeBoost" type="IntegerStatObjectFieldDefinition" value="-15" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -195,6 +196,15 @@
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="BonusWeapon" type="StringStatObjectFieldDefinition" value="Status_Musk_Ammo_Incendiary" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Blitzkrieg" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="EarthResistance" type="IntegerStatObjectFieldDefinition" value="10" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="TARGET:AOEBOOST:MUSK_BLITZKRIEG_BUFF,100,1" />
       </fields>
     </stat_object>
   </stat_objects>

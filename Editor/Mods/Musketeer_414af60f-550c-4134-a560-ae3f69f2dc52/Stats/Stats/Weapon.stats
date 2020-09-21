@@ -295,6 +295,13 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_Scattershot" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Damage_Marked" />
+        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="EXPLODE,100,0,Projectile_Musk_Mark_Dmg_Scattershot;BLEEDING,100,1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Damage_Marked_LS_30" />
       </fields>
     </stat_object>

@@ -13,6 +13,6 @@ scale: "-"
 range: "-"
 markedtext: "-"
 ---
-Fully restore your <font color='#00EFFF'>Ammunition</font> next turn. Set <font color='#FFFFFF'>Muted</font>, <font
-                color='#FFFFFF'>Disarmed</font> and <font color='#FFFFFF'>Slowed</font> by 75% until your next turn.<br><br>
+Fully restore your <font color='#00EFFF'>Ammunition</font> next turn. Sets <font color='#FFFFFF'>Muted</font>, <font
+                color='#FFFFFF'>Disarmed</font> and <font color='#FFFFFF'>Slowed</font> by 75% and reduces your <font color='#FFFFFF'>Dodge Chance</font> by 15% until your next turn.<br><br>
                 <font color='#00EFFF'>Fully restores Ammunition at the beginning of your next turn</font>

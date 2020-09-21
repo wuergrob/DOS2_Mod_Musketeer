@@ -2,7 +2,7 @@
 name: Seeker Strikedown
 req: 
     huntsman: 5
-memcost: 1
+memcost: 3
 ammocost: "-"
 apcost: 3
 spcost: 2

@@ -30,7 +30,6 @@
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Mark_Status_Damage" />
-        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_MarkDmg" />
         <field name="DamageEvent" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="StatusEvent" />
         <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_100" />
         <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Death Type" />
@@ -163,6 +162,13 @@
         <field name="PermanentOnTorch" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="SpawnBlood" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Musk_Status_Renddummy" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MARK_DAMAGE_Scattershot" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="MARK_DAMAGE" />
+        <field name="DamageStats" type="StringStatObjectFieldDefinition" value="Damage_Marked_Steady_Shot" />
       </fields>
     </stat_object>
   </stat_objects>

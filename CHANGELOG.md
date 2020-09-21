@@ -137,3 +137,16 @@ Buckshot might be too strong again and will be monitored closely.
 - Slightly increased Droprate of `Rifles` and `Crossbows` to compensate for diluted Weapon-Pool
 - Increased `Crossbow` Weapon Droprate
 - Added additional `Matchlock Rifles` of various rarities to the Weapon-Pool
+
+## 0.9.2.1 - Scattershot
+
+### New Features
+- Introduced a new Source Skill: `Scattershot`! `Scattershot` fires 5 projectiles in a arc, dealing heavy damage. This Skill greatly benefits from special `Ammunition` types. Deals bonus damage and inflicts `Bleeding` on marked targets.
+
+### Bugfixes
+- Tooltips of `Rifles` were further improved and fixed when used in item comparisons
+
+### Balance & Design
+- `Reloading` now reduces a characters `Dodge Chance` by 15% for it's duration, along the other Debuffs
+- Skill-Descriptions structure equalized for all Rifle-Skills
+- `Seeker Strikedown` Skill now occupies 3 `Memory Slots`

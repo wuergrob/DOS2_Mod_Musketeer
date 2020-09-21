@@ -655,6 +655,7 @@ local function SetTooltipHandler(arg1, ...)
 	--Ext.Print("addFormattedTooltip being called")
 	local tooltip_array = arg1:GetRoot().tooltip_array
 	local tooltip_compare_array = arg1:GetRoot().tooltipCompare_array
+	local isRifle = false
 
 	-- Normal Tooltip
 	if tooltip_array[1] ~= nil and type(tooltip_array[1]) == "string" and #tooltip_array <= 20 then
@@ -670,7 +671,10 @@ local function SetTooltipHandler(arg1, ...)
 		if unidentifiedName ~= "" then
 			local newName = string.gsub(tooltip_array[1], "Unidentified Crossbow", "Unidentified "..unidentifiedName)
 			arg1:GetRoot().tooltip_array[1] = newName
+			isRifle = true
 		end
+
+		
 	else
 		-- Identified Item
 		local rifleName = ""
@@ -685,6 +689,7 @@ local function SetTooltipHandler(arg1, ...)
 
 			if tooltip_array[i] == "Crossbow" and rifleName ~= "" then
 				arg1:GetRoot().tooltip_array[i] = rifleName
+				isRifle = true
 			end
 		end
 	end
@@ -722,6 +727,29 @@ local function SetTooltipHandler(arg1, ...)
 			end
 		end
 	end
+
+	-- Rename "Number of Charges" to "Ammunition"
+	if isRifle then
+		for i = 1, #tooltip_array do
+			--Ext.Print("Index: " .. i)
+			--Ext.Print(tooltip_array[i])
+			if tooltip_array[i] == "Number of uses" then
+				arg1:GetRoot().tooltip_array[i] = "Ammunition:"
+			elseif tooltip_array[i] == "Grants skill" then
+				arg1:GetRoot().tooltip_array[i] = "Grants Musketeer Passive"
+			end
+		end
+
+		for i = 1, #tooltip_compare_array do
+			--Ext.Print("Index: " .. i)
+			--Ext.Print(tooltip_array[i])
+			if tooltip_compare_array[i] == "Number of uses" then
+				arg1:GetRoot().tooltip_compare_array[i] = "Ammunition:"
+			elseif tooltip_array[i] == "Grants skill" then
+				arg1:GetRoot().tooltip_array[i] = "Grants Musketeer Passive"
+			end
+		end
+	end
 end
 Ext.RegisterUINameInvokeListener("addFormattedTooltip", SetTooltipHandler)
 
@@ -735,7 +763,7 @@ local function setCompareTooltipHandler(arg1, ...)
 	end
 
 end
-Ext.RegisterUINameInvokeListener("addCompareTooltip", setCompareTooltipHandler)
+--Ext.RegisterUINameInvokeListener("addCompareTooltip", setCompareTooltipHandler)
 -- NOTE ON TALENTS:
 -- characterSheet.swf Maintimeline has a "addTalent" function.
 -- Adding a talent with a "statid" out of bounds crashes the game. (Out of bounds means, "statid" is higher than max enum value here https://docs.larian.game/Scripting_talent_types)

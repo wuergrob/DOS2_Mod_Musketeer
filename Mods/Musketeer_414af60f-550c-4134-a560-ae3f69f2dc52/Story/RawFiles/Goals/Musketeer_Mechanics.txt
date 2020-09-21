@@ -14,6 +14,7 @@ DB_Musketeer_Skillist("Projectile_Buckshot", -2);
 DB_Musketeer_Skillist("Projectile_Final_Act", -1);
 DB_Musketeer_Skillist("Projectile_Tracking_Shot", -1);
 DB_Musketeer_Skillist("Projectile_Rapidfire", -2);
+DB_Musketeer_Skillist("Projectile_Rifle_Scattershot", -2);
 DB_Musketeer_Skillist("Target_Musk_Flare_Test_Target", -1);
 //DB_Musketeer_Skillist("Target_Unload_Test", 0);
 DB_Musketeer_Skillist("Shout_Reload", 11);

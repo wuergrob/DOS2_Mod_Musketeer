@@ -7,7 +7,7 @@
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reloading" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Character is currently reloading and is muted, disarmed and slowed." />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Character is currently reloading and is muted, disarmed and slowed and more vulnerable to incoming damage." />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload" />
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="FormatStringColor" />
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Reload_Debuff" />
@@ -264,6 +264,20 @@
         <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="8" enumeration_type_name="FormatStringColor" />
         <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Musk_Test" />
         <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_Musk_AmmoTest" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="MUSK_BLITZKRIEG_BUFF" />
+        <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="InitiateCombat" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Blitzkrieg Buff" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Barrier of bone fragments protects the owner from physical damage" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Decay_BoneCage" />
+        <field name="FormatColor" type="EnumerationStatObjectFieldDefinition" value="8" enumeration_type_name="FormatStringColor" />
+        <field name="StatusEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_GP_Status_BoneCage_01,KeepRot:Dummy_BodyFX" />
+        <field name="StatsId" type="StringStatObjectFieldDefinition" value="Stats_Musk_Blitzkrieg" />
+        <field name="StackId" type="StringStatObjectFieldDefinition" value="Stack_BoneCage" />
       </fields>
     </stat_object>
   </stat_objects>
