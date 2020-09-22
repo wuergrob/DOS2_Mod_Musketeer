@@ -257,6 +257,14 @@
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
       </fields>
     </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_10" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_Scattershot" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
+      </fields>
+    </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
@@ -546,6 +554,15 @@
         <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
       </fields>
     </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat" />
+        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_Scattershot" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
+      </fields>
+    </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
@@ -714,6 +731,15 @@
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
         <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="true">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat" />
+        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_Scattershot" />
+        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

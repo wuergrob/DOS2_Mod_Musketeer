@@ -33,6 +33,7 @@ object category "I_SKILLBOOK_Musketeer_Reload_Freezing",1,0,0,0,0,0,0,0
 object category "I_SKILLBOOK_Musketeer_Reload_Schocking",1,0,0,0,0,0,0,0
 object category "I_SKILLBOOK_Musketeer_Reload_Piercing",1,0,0,0,0,0,0,0
 object category "I_SKILLBOOK_Musketeer_Reload_Doom",1,0,0,0,0,0,0,0
+object category "I_SKILLBOOK_Musketeer_Scattershot",1,0,0,0,0,0,0,0
 new treasuretable "ST_Skillbook_RangerTrainer"
 MinLevel "-30"
 MaxLevel "0"
@@ -100,6 +101,8 @@ new subtable "1,1"
 object category "I_SKILLBOOK_Musketeer_Reload_Piercing",1,0,0,0,0,0,0,0
 new subtable "1,1"
 object category "I_SKILLBOOK_Musketeer_Reload_Doom",1,0,0,0,0,0,0,0
+new subtable "1,1"
+object category "I_SKILLBOOK_Musketeer_Scattershot",1,0,0,0,0,0,0,0
 new treasuretable "FTJ_SkillbookRanger"
 new subtable "1,1"
 object category "I_SKILLBOOK_Ranger_Ricochet",1,0,0,0,0,0,0,0
@@ -139,6 +142,8 @@ new subtable "1,1"
 object category "I_SKILLBOOK_Musketeer_Reload_Piercing",1,0,0,0,0,0,0,0
 new subtable "1,1"
 object category "I_SKILLBOOK_Musketeer_Reload_Doom",1,0,0,0,0,0,0,0
+new subtable "1,1"
+object category "I_SKILLBOOK_Musketeer_Scattershot",1,0,0,0,0,0,0,0
 new treasuretable "FTJ_Skillbook_RangerTrainer"
 new subtable "1,1"
 object category "T_FTJ_SkillbookRanger",1,0,0,0,0,0,0,0
