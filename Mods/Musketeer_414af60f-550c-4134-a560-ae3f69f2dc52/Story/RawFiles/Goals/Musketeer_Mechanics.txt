@@ -25,52 +25,16 @@ IF
 GameStarted(_, _)
 THEN
 NRD_GameStarted();
-NRD_DebugLog("[WT_FS] Game Started. (ALSO CALLING NRD_GameStarted)");
+//NRD_DebugLog("[WT_FS] Game Started. (ALSO CALLING NRD_GameStarted)");
 
 IF
 SavegameLoaded(_, _, _, _)
 THEN
 NRD_DebugLog("[WT_FS] Savegame loaded.");
-// Instead of tracking Equip-Events of the weapon, we track when a player gets the Passive-skill that is automatically learned when equipping a rifle.
 
-// TEST STUFF, COMMENT OUT WHEN PLAYING NORMALLY
-/*
 IF
-SkillAdded(_Player, "Shout_Musketeer_Passive", 0)
-AND
-CharacterGetEquippedWeapon(_Player, _Weapon)
-THEN
-DisplayText(_Player, "<font color='#00FF00' size='30'>Armed with pew pew</font>");
-CharacterAddSkill(_Player, "Shout_Reload");
-//CharacterRemoveSkill(_Player, "Target_Unload_Test");
-//CharacterAddSkill(_Player, "Projectile_Unload");
-CharacterAddSkill(_Player, "Projectile_Rifle_Snipe");
-CharacterAddSkill(_Player, "Target_Mark_Target");
-CharacterAddSkill(_Player, "Projectile_Rend_The_Marked");
-//CharacterAddSkill(_Player, "Projectile_FlareStart");
-CharacterAddSkill(_Player, "Target_Musk_Flare_Test_Target");
-CharacterAddSkill(_Player, "Target_Unload_Test");
-CharacterAddSkill(_Player, "Projectile_Buckshot");
-CharacterAddSkill(_Player, "Projectile_Shoot_Flare");
-CharacterAddSkill(_Player, "Projectile_Rapidfire");
-CharacterAddSkill(_Player, "Projectile_Double_Up");
-CharacterAddSkill(_Player, "Shout_Reload_Incendiary");
-CharacterAddSkill(_Player, "Shout_Reload_Explosive");
-CharacterAddSkill(_Player, "Shout_Reload_Freezing");
-CharacterAddSkill(_Player, "Shout_Reload_Silver");
-CharacterAddSkill(_Player, "Shout_Reload_Holy");
-CharacterAddSkill(_Player, "Projectile_Bullethell");
-CharacterAddSkill(_Player, "Target_Musk_Steadfast");
-CharacterAddSkill(_Player, "Projectile_LaunchTripwireFlare");
-CharacterAddSkill(_Player, "Projectile_Tracking_Shot");
-CharacterAddSkill(_Player, "Projectile_Final_Act");
-CharacterLevelUpTo(_Player, 10);
-SetTag(_Player, "Rifle_Armed");
-DB_Musketeer_RifleEquipped(_Player, 1);
-Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Player);
-*/
-IF
-SkillAdded(_Player, "Shout_Musketeer_Passive", 0)
+//SkillAdded(_Player, "Shout_Musketeer_Passive", 0)
+CharacterItemEvent(_Player, _Item, "Musketeer_Rifle_Equipped")
 AND
 CharacterGetEquippedWeapon(_Player, _Weapon)
 THEN
@@ -80,19 +44,8 @@ DB_Musketeer_RifleEquipped(_Player, 1);
 NRD_AmmoBar_Set_GUI(_Player, "val", 1);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Player);
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
-//CharacterAddSkill(_Player, "Shout_Reload_Incendiary");
-//CharacterAddSkill(_Player, "Shout_Reload_Explosive");
-//CharacterAddSkill(_Player, "Shout_Reload_Freezing");
-//CharacterAddSkill(_Player, "Shout_Reload_Silver");
-//CharacterAddSkill(_Player, "Shout_Reload_Holy");
-// Test cone stuff for Rend The Marked skill rework
-//CharacterAddSkill(_Player, "Cone_Rend_Cone");
-NRD_DebugLog("[WT_FS] Musketeer Rifle equipped..");
-//CharacterAddAbility(_Player, "Repair", 5);
-//ApplyStatus(_Player, "MUSK_RANGE_10", -1.0, 1, _Player);
-//Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player);
-//NRD_EXT_TestLog("Hello there!");
-//Musketeer_Open_TestWindow();
+//NRD_DebugLog("[WT_FS] Musketeer Rifle equipped..");
+
 
 IF
 ObjectWasTagged(_Character, "Rifle_Armed")
@@ -134,7 +87,8 @@ CharacterLeveledUp(_Player)
 AND
 CharacterIsPlayer(_Player, 1)
 AND
-CharacterHasSkill(_Player, "Shout_Musketeer_Passive", 1)
+//CharacterHasSkill(_Player, "Shout_Musketeer_Passive", 1)
+IsTagged(_Player, "Rifle_Armed", 1)
 AND
 CharacterGetEquippedWeapon(_Player, _Weapon)
 THEN
@@ -145,9 +99,10 @@ Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
 // When a player no longer has the Passive-Skill, then we know he doesn't have a rifle equipped anymore.
 // We clear all rifle-tags, otherwise they would persist when equipping another rifle.
 IF
-SkillDeactivated(_Player, "Shout_Musketeer_Passive")
-AND
-CharacterHasSkill(_Player, "Shout_Musketeer_Passive", 0)
+CharacterItemEvent(_Player, _Item, "Musketeer_Rifle_Unequipped")
+//SkillDeactivated(_Player, "Shout_Musketeer_Passive")
+//AND
+//CharacterHasSkill(_Player, "Shout_Musketeer_Passive", 0)
 THEN
 //DisplayText(_Player, "<font color='#00FF00' size='30'>No longer pew pew ready</font>");
 //CharacterRemoveSkill(_Player, "Shout_Reload");
@@ -387,7 +342,8 @@ CharacterResurrected(_Character)
 AND
 CharacterIsPlayer(_Character, 1)
 AND
-CharacterHasSkill(_Character, "Shout_Musketeer_Passive", 1)
+//CharacterHasSkill(_Character, "Shout_Musketeer_Passive", 1)
+IsTagged(_Character, "Rifle_Armed", 1)
 AND
 CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN

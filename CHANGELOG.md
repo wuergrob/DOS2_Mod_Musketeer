@@ -150,3 +150,12 @@ Buckshot might be too strong again and will be monitored closely.
 - `Reloading` now reduces a characters `Dodge Chance` by 15% for it's duration, along the other Debuffs
 - Skill-Descriptions structure equalized for all Rifle-Skills
 - `Seeker Strikedown` Skill now occupies 3 `Memory Slots`
+
+## 0.9.2.2 - Mini Patch
+
+### Bugfixes
+- `Scattershot` Skill Skillbooks are now correctly included in the corresponding `Treasure Tables`
+
+### Balance & Design
+- `Rifles` no longer grant a passive skill that was inherently unusable
+- Added `Out of Ammunition` Info-Text on `Rifle` Tooltips

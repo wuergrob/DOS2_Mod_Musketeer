@@ -694,6 +694,9 @@ local function SetTooltipHandler(arg1, ...)
 		end
 	end
 
+	-- If no comparison is being made and compare array is empty, then do nothing
+	--if tooltip_compare_array == nil then return end
+
 	-- Compare Tooltip
 	if tooltip_compare_array[1] ~= nil and type(tooltip_compare_array[1]) == "string" and #tooltip_compare_array <= 20 then
 		-- Unidentified Item
@@ -735,18 +738,19 @@ local function SetTooltipHandler(arg1, ...)
 			--Ext.Print(tooltip_array[i])
 			if tooltip_array[i] == "Number of uses" then
 				arg1:GetRoot().tooltip_array[i] = "Ammunition:"
-			elseif tooltip_array[i] == "Grants skill" then
-				arg1:GetRoot().tooltip_array[i] = "Grants Musketeer Passive"
+			elseif tooltip_array[i] == "Item is out of charges<br>" then
+				arg1:GetRoot().tooltip_array[i] = "Weapon is out of Ammunition and needs to be reloaded"
 			end
 		end
 
 		for i = 1, #tooltip_compare_array do
+			--Ext.Print(tooltip_compare_array[i])
 			--Ext.Print("Index: " .. i)
 			--Ext.Print(tooltip_array[i])
 			if tooltip_compare_array[i] == "Number of uses" then
-				arg1:GetRoot().tooltip_compare_array[i] = "Ammunition:"
-			elseif tooltip_array[i] == "Grants skill" then
-				arg1:GetRoot().tooltip_array[i] = "Grants Musketeer Passive"
+				arg1:GetRoot().tooltipCompare_array[i] = "Ammunition:"
+			elseif tooltip_compare_array[i] == "Item is out of charges<br>" then
+				arg1:GetRoot().tooltipCompare_array[i] = "Weapon is out of Ammunition and needs to be reloaded"
 			end
 		end
 	end

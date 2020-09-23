@@ -1025,3 +1025,42 @@ local function Musketeer_Weapon_Generated(item)
     
 end
 Ext.RegisterListener("TreasureItemGenerated", Musketeer_Weapon_Generated)
+
+local function Musketeer_Check_Equipped_Item(itemGuid, charGuid)
+    local item = Ext.GetItem(itemGuid)
+    if item ~= nil and item.StatsId ~= nil then
+        if string.sub(item.StatsId, 1, #"WPN_Rifle") == "WPN_Rifle" or string.sub(item.StatsId, 1, #"_Rifles") == "_Rifles" or string.sub(item.StatsId, 1, #"_Npc_Rifles") == "_Npc_Rifles" then
+            --Ext.Print("A Rifle was equipped by someone.")
+            Ext.Print("Rifle Equipped Event")
+            CharacterItemSetEvent(charGuid, itemGuid, "Musketeer_Rifle_Equipped")
+        end
+        --Ext.Print(item)
+        --Ext.Print(item.StatsId) 
+    end
+    --[[
+    if tag ~= nil and type(tag) == "string" and string.sub(tag, 1, #"Musk_Rifle_") == "Musk_Rifle_" then
+        Ext.Print("Rifle was equipped.")
+    end
+    --]]
+end
+Ext.RegisterOsirisListener("ItemEquipped", 2, "before", Musketeer_Check_Equipped_Item)
+
+
+local function Musketeer_Check_Unequipped_Item(itemGuid, charGuid)
+    local item = Ext.GetItem(itemGuid)
+    if item ~= nil and item.StatsId ~= nil then
+        if string.sub(item.StatsId, 1, #"WPN_Rifle") == "WPN_Rifle" or string.sub(item.StatsId, 1, #"_Rifles") == "_Rifles" or string.sub(item.StatsId, 1, #"_Npc_Rifles") == "_Npc_Rifles" then
+            --Ext.Print("A Rifle was equipped by someone.")
+            Ext.Print("Rifle Unequipped Event")
+            CharacterItemSetEvent(charGuid, itemGuid, "Musketeer_Rifle_Unequipped")
+        end
+        --Ext.Print(item)
+        --Ext.Print(item.StatsId) 
+    end
+    --[[
+    if tag ~= nil and type(tag) == "string" and string.sub(tag, 1, #"Musk_Rifle_") == "Musk_Rifle_" then
+        Ext.Print("Rifle was equipped.")
+    end
+    --]]
+end
+Ext.RegisterOsirisListener("ItemUnEquipped", 2, "before", Musketeer_Check_Unequipped_Item)
