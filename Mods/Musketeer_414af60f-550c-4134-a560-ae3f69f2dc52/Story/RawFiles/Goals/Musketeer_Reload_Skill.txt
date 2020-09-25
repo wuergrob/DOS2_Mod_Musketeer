@@ -16,7 +16,7 @@ AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
 //ItemResetChargesToMax((ITEMGUID)_Weapon);
-Musketeer_Update_Ammo_Skills(_Character);
+//Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 //SetTag(_Character, "Musketeer_Reloading_State");
 // I don't dislike this effect, so the whole UI refresh is not a big deal.
@@ -31,7 +31,7 @@ AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
 //ItemResetChargesToMax((ITEMGUID)_Weapon);
-Musketeer_Update_Ammo_Skills(_Character);
+//Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
@@ -45,7 +45,7 @@ AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
 //ItemResetChargesToMax((ITEMGUID)_Weapon);
-Musketeer_Update_Ammo_Skills(_Character);
+//Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
@@ -59,7 +59,7 @@ AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
 //ItemResetChargesToMax((ITEMGUID)_Weapon);
-Musketeer_Update_Ammo_Skills(_Character);
+//Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
@@ -73,7 +73,7 @@ AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
 //ItemResetChargesToMax((ITEMGUID)_Weapon);
-Musketeer_Update_Ammo_Skills(_Character);
+//Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);
 
@@ -87,7 +87,7 @@ AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
 //ItemResetChargesToMax((ITEMGUID)_Weapon);
-Musketeer_Update_Ammo_Skills(_Character);
+//Musketeer_Update_Ammo_Skills(_Character);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 
 //ApplyStatus(_Character, "RELOAD_INCENDIARY", 4.0, 1, _Character);

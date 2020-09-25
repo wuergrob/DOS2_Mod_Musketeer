@@ -90,7 +90,7 @@
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(HasStatus:MUSK_MARK_TARGET):MARK_DAMAGE_Scattershot,100,0;TARGET:IF(HasStatus:MUSK_MARK_TARGET):BLEEDING,100,1;" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(HasStatus:MUSK_MARK_TARGET):MARK_DAMAGE_Scattershot,100,0;TARGET:IF(HasStatus:MUSK_MARK_TARGET):BLEEDING,100,2;" />
         <field name="Angle" type="IntegerStatObjectFieldDefinition" value="30" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />

@@ -85,8 +85,8 @@
         <field name="StatusIcon" type="StringStatObjectFieldDefinition" value="unknown" />
         <field name="RangeBoost" type="IntegerStatObjectFieldDefinition" value="200" />
         <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="-75" />
-        <field name="Armor" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="MagicArmor" type="IntegerStatObjectFieldDefinition" value="2" />
+        <field name="Armor" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="MagicArmor" type="IntegerStatObjectFieldDefinition" value="15" />
         <field name="AccuracyBoost" type="IntegerStatObjectFieldDefinition" value="20" />
       </fields>
     </stat_object>
@@ -203,8 +203,8 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Blitzkrieg" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
-        <field name="EarthResistance" type="IntegerStatObjectFieldDefinition" value="10" />
-        <field name="ExtraProperties" type="StringStatObjectFieldDefinition" value="TARGET:AOEBOOST:MUSK_BLITZKRIEG_BUFF,100,1" />
+        <field name="DamageBoost" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="Armor" type="IntegerStatObjectFieldDefinition" value="20" />
       </fields>
     </stat_object>
   </stat_objects>

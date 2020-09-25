@@ -1031,7 +1031,7 @@ local function Musketeer_Check_Equipped_Item(itemGuid, charGuid)
     if item ~= nil and item.StatsId ~= nil then
         if string.sub(item.StatsId, 1, #"WPN_Rifle") == "WPN_Rifle" or string.sub(item.StatsId, 1, #"_Rifles") == "_Rifles" or string.sub(item.StatsId, 1, #"_Npc_Rifles") == "_Npc_Rifles" then
             --Ext.Print("A Rifle was equipped by someone.")
-            Ext.Print("Rifle Equipped Event")
+            --Ext.Print("Rifle Equipped Event")
             CharacterItemSetEvent(charGuid, itemGuid, "Musketeer_Rifle_Equipped")
         end
         --Ext.Print(item)
@@ -1051,7 +1051,7 @@ local function Musketeer_Check_Unequipped_Item(itemGuid, charGuid)
     if item ~= nil and item.StatsId ~= nil then
         if string.sub(item.StatsId, 1, #"WPN_Rifle") == "WPN_Rifle" or string.sub(item.StatsId, 1, #"_Rifles") == "_Rifles" or string.sub(item.StatsId, 1, #"_Npc_Rifles") == "_Npc_Rifles" then
             --Ext.Print("A Rifle was equipped by someone.")
-            Ext.Print("Rifle Unequipped Event")
+            --Ext.Print("Rifle Unequipped Event")
             CharacterItemSetEvent(charGuid, itemGuid, "Musketeer_Rifle_Unequipped")
         end
         --Ext.Print(item)

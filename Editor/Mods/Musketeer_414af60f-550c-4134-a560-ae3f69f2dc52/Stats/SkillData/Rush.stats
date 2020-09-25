@@ -10,32 +10,27 @@
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
-        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
-        <field name="DeathType" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Death Type" />
         <field name="UseWeaponDamage" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="Icon" type="StringStatObjectFieldDefinition" value="Skill_Polymorph_BullRush" />
+        <field name="Icon" type="StringStatObjectFieldDefinition" value="Blitzkrieg" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Blitzkrieg" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Rush at your enemies, dealing [1] damage and setting Bleeding.|" />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage;TargetRadius" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Dash a short distance, performing a quick partial reload while dashing, restoring &lt;font color='#00EFFF'&gt;1 Ammunition&lt;/font&gt; and [1]. Additionally grants 15% increased damage and set &lt;font color=&quot;#7D71D9&quot;&gt;Hasted&lt;/font&gt; for 1 turn.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Restores 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Potion:Stats_Musk_Blitzkrieg:Armor" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_rush_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_rush_01_loop" />
-        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Air_Prepare_Rush_Root_01" />
+        <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Blitzkrieg_Prepare" />
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_rush_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
-        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Totem_Cast_Rush_Body_01:Dummy_CastFX;RS3_FX_Skills_Totem_Cast_Rush_Root_01:root" />
-        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
-        <field name="TargetHitEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Totem_Impact_Rush_01" />
-        <field name="Requirements" type="StringStatObjectFieldDefinition" value="!Immobile" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="!Immobile;Tag Rifle_Armed" />
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:MUSK_BLITZKRIEG_BUFF,100,1" />
-        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="8" />
-        <field name="HitRadius" type="IntegerStatObjectFieldDefinition" value="5" />
-        <field name="StartTextEvent" type="StringStatObjectFieldDefinition" value="MuskTestTextEvent" />
-        <field name="StopTextEvent" type="StringStatObjectFieldDefinition" value="MuskTestTextEvent" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="SELF:MUSK_BLITZKRIEG_BUFF,100,1;SELF:HASTED,100,1" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="HitRadius" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value="RangerLore 1" />
       </fields>
     </stat_object>
   </stat_objects>

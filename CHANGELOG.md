@@ -159,3 +159,17 @@ Buckshot might be too strong again and will be monitored closely.
 ### Balance & Design
 - `Rifles` no longer grant a passive skill that was inherently unusable
 - Added `Out of Ammunition` Info-Text on `Rifle` Tooltips
+
+## 1.0.0.0 - Initial Release Build
+
+The Musketeer Mod has finally reached V1.0 and is now released!
+
+- Introduced a new Skill: `Blitzkrieg`! Dash a short distance and reload 1 `Ammunition`. Additionally grants `Bonus Damage`, a small amount of `Physical Armor` and `Hasted` for 1 turn.
+
+### Bugfixes
+- `Steadfast` Skill stats updated
+
+### Balance & Design
+- `Musketeer` and `Headhunter` Class Presets improved
+- Increased `Bleeding` Status duration from `Scattershot` Skill from 1 to 2 turns
+- 

@@ -289,5 +289,21 @@
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="5" />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="SKILLBOOK_Musketeer_Blitzkrieg" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Skillbooks" />
+        <field name="RootTemplate" type="RootTemplateStatObjectFieldDefinition" value="7a367f74-fabd-4606-bee3-9d44df5d3472" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="ActPart" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="120" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="SkillbookRanger" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="RangerLore 1" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="SkillbookRangerStarter" />
+        <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>

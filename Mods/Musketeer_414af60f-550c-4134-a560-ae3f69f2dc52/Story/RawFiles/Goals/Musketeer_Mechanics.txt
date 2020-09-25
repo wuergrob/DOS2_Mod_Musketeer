@@ -18,7 +18,7 @@ DB_Musketeer_Skillist("Projectile_Rifle_Scattershot", -2);
 DB_Musketeer_Skillist("Target_Musk_Flare_Test_Target", -1);
 //DB_Musketeer_Skillist("Target_Unload_Test", 0);
 DB_Musketeer_Skillist("Shout_Reload", 11);
-
+DB_Musketeer_Skillist("Rush_Musk_Blitzkrieg", 1);
 
 KBSECTION
 IF
@@ -171,7 +171,7 @@ AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
 Musketeer_Consume_Ammo((ITEMGUID)_Weapon, (INTEGER)_Amount, _Character);
-Musketeer_Update_Ammo_Skills(_Character);
+//Musketeer_Update_Ammo_Skills(_Character);
 
 
 // Auto-Attacking also consumes Ammo. A player should not be able to basic attack when out of ammo.
@@ -239,7 +239,7 @@ CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN
 Musketeer_Consume_Ammo((ITEMGUID)_Weapon, -1, _Character);
 
-
+/*
 PROC 
 Musketeer_Update_Ammo_Skills((CHARACTERGUID)_Player)
 AND
@@ -247,8 +247,9 @@ DB_IsPlayer(_Player)
 THEN
 //DisplayText(_Player, "<font color='#00FF00' size='30'>Updating Ammo related stuff..</font>");
 //Deactivate
-DebugBreak("[WT_FS] Ammo Update PROC.");
-
+//DebugBreak("[WT_FS] Ammo Update PROC.");
+DB_NOOP(1);
+*/
 
 //REGION Musketeer_Ammo_Management
 
@@ -284,7 +285,7 @@ ClearTag(_Character, "Musketeer_AtLeast_One_Left");
 ClearTag(_Character, "Musketeer_AtLeast_Two_Left");
 ClearTag(_Character, "Musketeer_Exactly_One_Left");
 //ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
-DebugBreak("[WT_FS] No Ammo left.");
+//DebugBreak("[WT_FS] No Ammo left.");
 ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
 
 // When exactly 1 Ammo remaining, set armed, Atleast one and clear Atleast two.
@@ -300,7 +301,7 @@ SetTag(_Character, "Musketeer_AtLeast_One_Left");
 ClearTag(_Character, "Musketeer_AtLeast_Two_Left");
 //RemoveStatus(_Character, "DISARMED");
 ClearTag(_Character, "Musketeer_None_Left");
-DebugBreak("[WT_FS] Exactly 1 round left.");
+//DebugBreak("[WT_FS] Exactly 1 round left.");
 ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
 
 // When at least 2 Ammo remaining, set armed, Atleast one, Atleast two.
@@ -316,7 +317,7 @@ SetTag(_Character, "Musketeer_AtLeast_One_Left");
 //RemoveStatus(_Character, "DISARMED");
 ClearTag(_Character, "Musketeer_None_Left");
 ClearTag(_Character, "Musketeer_Exactly_One_Left");
-DebugBreak("[WT_FS] At least 2 rounds left.");
+//DebugBreak("[WT_FS] At least 2 rounds left.");
 ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
 
 // Send Ammo Update event for client-side AmmoBar

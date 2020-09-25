@@ -86,14 +86,14 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_0" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter" />
-        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Tracking_Shot" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Rush_Musk_Blitzkrieg" />
       </fields>
     </stat_object>
     <stat_object is_substat="true">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_0_substat_1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter" />
-        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Rend_The_Marked" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_Tracking_Shot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -141,7 +141,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="New_Stat_1_substat_5" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Class_Headhunter_Act2" />
-        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Projectile_LaunchTripwireFlare" />
+        <field name="Skills" type="StatReferenceStatObjectFieldDefinition" stat_name="Rush_Musk_Blitzkrieg" />
       </fields>
     </stat_object>
     <stat_object is_substat="true">

@@ -555,7 +555,7 @@ local function RegisterBuiltInUIListeners()
 		Ext.RegisterUICall(hotbar, "showCharTooltip", DebugStuffs2)
 
 		if tooltip ~= nil then
-			Ext.Print("Tooltip.swf is not nil")
+			--Ext.Print("Tooltip.swf is not nil")
 			Ext.RegisterUICall(tooltip, "showCharTooltip", DebugStuffs2)
 		end
 		

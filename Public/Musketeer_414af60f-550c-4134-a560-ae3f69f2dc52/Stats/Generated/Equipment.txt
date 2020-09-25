@@ -1,56 +1,56 @@
 new equipment "Class_Musketeer_Elves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Helmet"
+add equipment entry "ARM_Wayfarer_Helmet"
 add equipmentgroup
-add equipment entry "ARM_Ranger_UpperBody"
+add equipment entry "ARM_Shadowblade_UpperBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_LowerBody"
+add equipment entry "ARM_Shadowblade_LowerBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Gloves"
+add equipment entry "ARM_Shadowblade_Gloves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Boots"
+add equipment entry "ARM_Shadowblade_Boots"
 add equipmentgroup
 add equipment entry "WPN_Rifle_Start"
 
 new equipment "Class_Musketeer_Lizards"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Helmet"
+add equipment entry "ARM_Wayfarer_Helmet"
 add equipmentgroup
-add equipment entry "ARM_Ranger_UpperBody"
+add equipment entry "ARM_Shadowblade_UpperBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_LowerBody"
+add equipment entry "ARM_Shadowblade_LowerBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Gloves"
+add equipment entry "ARM_Shadowblade_Gloves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Boots"
+add equipment entry "ARM_Shadowblade_Boots"
 add equipmentgroup
 add equipment entry "WPN_Rifle_Start"
 
 new equipment "Class_Musketeer_Dwarves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Helmet"
+add equipment entry "ARM_Wayfarer_Helmet"
 add equipmentgroup
-add equipment entry "ARM_Ranger_UpperBody"
+add equipment entry "ARM_Shadowblade_UpperBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_LowerBody"
+add equipment entry "ARM_Shadowblade_LowerBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Gloves"
+add equipment entry "ARM_Shadowblade_Gloves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Boots"
+add equipment entry "ARM_Shadowblade_Boots"
 add equipmentgroup
 add equipment entry "WPN_Rifle_Start"
 
 new equipment "Class_Musketeer_Humans"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Helmet"
+add equipment entry "ARM_Wayfarer_Helmet"
 add equipmentgroup
-add equipment entry "ARM_Ranger_UpperBody"
+add equipment entry "ARM_Shadowblade_UpperBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_LowerBody"
+add equipment entry "ARM_Shadowblade_LowerBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Gloves"
+add equipment entry "ARM_Shadowblade_Gloves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Boots"
+add equipment entry "ARM_Shadowblade_Boots"
 add equipmentgroup
 add equipment entry "WPN_Rifle_Start"
 
@@ -124,57 +124,57 @@ add equipment entry "CONT_Backpack_A_SourceHunter"
 
 new equipment "Class_Headhunter_Elves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Helmet"
+add equipment entry "ARM_Witch_Helmet"
 add equipmentgroup
-add equipment entry "ARM_Ranger_UpperBody"
+add equipment entry "ARM_Inquisitor_UpperBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_LowerBody"
+add equipment entry "ARM_Inquisitor_LowerBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Gloves"
+add equipment entry "ARM_Inquisitor_Gloves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Boots"
+add equipment entry "ARM_Inquisitor_Boots"
 add equipmentgroup
 add equipment entry "WPN_Rifle_Start"
 
 new equipment "Class_Headhunter_Lizards"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Helmet"
+add equipment entry "ARM_Witch_Helmet"
 add equipmentgroup
-add equipment entry "ARM_Ranger_UpperBody"
+add equipment entry "ARM_Inquisitor_UpperBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_LowerBody"
+add equipment entry "ARM_Inquisitor_LowerBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Gloves"
+add equipment entry "ARM_Inquisitor_Gloves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Boots"
+add equipment entry "ARM_Inquisitor_Boots"
 add equipmentgroup
 add equipment entry "WPN_Rifle_Start"
 
 new equipment "Class_Headhunter_Dwarves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Helmet"
+add equipment entry "ARM_Witch_Helmet"
 add equipmentgroup
-add equipment entry "ARM_Ranger_UpperBody"
+add equipment entry "ARM_Inquisitor_UpperBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_LowerBody"
+add equipment entry "ARM_Inquisitor_LowerBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Gloves"
+add equipment entry "ARM_Inquisitor_Gloves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Boots"
+add equipment entry "ARM_Inquisitor_Boots"
 add equipmentgroup
 add equipment entry "WPN_Rifle_Start"
 
 new equipment "Class_Headhunter_Humans"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Helmet"
+add equipment entry "ARM_Witch_Helmet"
 add equipmentgroup
-add equipment entry "ARM_Ranger_UpperBody"
+add equipment entry "ARM_Inquisitor_UpperBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_LowerBody"
+add equipment entry "ARM_Inquisitor_LowerBody"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Gloves"
+add equipment entry "ARM_Inquisitor_Gloves"
 add equipmentgroup
-add equipment entry "ARM_Ranger_Boots"
+add equipment entry "ARM_Inquisitor_Boots"
 add equipmentgroup
 add equipment entry "WPN_Rifle_Start"
 

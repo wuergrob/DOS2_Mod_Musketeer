@@ -21,7 +21,7 @@ THEN
 ItemAddCharges((ITEMGUID)_Weapon, _NegAmmoCount);
 CharacterUseSkillAtPosition(_Character, "Target_Unload_Buffer", _X, _Y, _Z, 0, 1);
 Musketeer_Recursive_Unload(_Character, _AmmoCount, _Weapon, _X, _Y, _Z, _Distance);
-Musketeer_Update_Ammo_Skills(_Character);
+//Musketeer_Update_Ammo_Skills(_Character);
 
 IF
 CharacterUsedSkillOnTarget(_Character, _Target, "Target_Unload_Test", _, _)
@@ -41,7 +41,7 @@ THEN
 ItemAddCharges((ITEMGUID)_Weapon, _NegAmmoCount);
 CharacterUseSkillAtPosition(_Character, "Target_Unload_Buffer", _X, _Y, _Z, 0, 1);
 Musketeer_Recursive_Unload(_Character, _AmmoCount, _Weapon, _X, _Y, _Z, _Distance);
-Musketeer_Update_Ammo_Skills(_Character);
+//Musketeer_Update_Ammo_Skills(_Character);
 
 // The following handles the Unload Skill iterations.
 // Very unclean solution, but i didn't want to resort to storing local stuff on the
