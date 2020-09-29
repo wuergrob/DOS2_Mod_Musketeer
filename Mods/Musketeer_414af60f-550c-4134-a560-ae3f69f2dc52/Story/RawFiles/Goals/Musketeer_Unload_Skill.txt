@@ -8,8 +8,6 @@ KBSECTION
 IF
 CharacterUsedSkillAtPosition(_Character, _X, _Y, _Z, "Target_Unload_Test", _, _)
 AND
-DB_IsPlayer(_Character)
-AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 AND
 ItemGetCharges((ITEMGUID)_Weapon, _AmmoCount)
@@ -25,8 +23,6 @@ Musketeer_Recursive_Unload(_Character, _AmmoCount, _Weapon, _X, _Y, _Z, _Distanc
 
 IF
 CharacterUsedSkillOnTarget(_Character, _Target, "Target_Unload_Test", _, _)
-AND
-DB_IsPlayer(_Character)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 AND

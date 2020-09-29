@@ -287,6 +287,8 @@ end
 Ext.RegisterNetListener('clientReady', ReceivePlayerState)
 
 local function GameStartedEvent()
+    -- Until v53 need to explicitly enable Property Write support (Remove when v53 is released!)
+    Ext.EnableExperimentalPropertyWrites()
     InitPlayerTable()
     DebugPrint("[SERVER] GameStartedEvent")
 end
@@ -321,33 +323,51 @@ end
 
 -- Just for testing, sending seperate messages for each variable, but should probably be refactored into sending a single json string.
 local function ReceiveClientContextSwitch(call, charHandle)
-    DebugPrint("[SERVER] ReceiveClientContextSwitch, receives ClientContextSwitch Signal")
-    local getChar = GetFullPlayerCharacterHandle(charHandle)
-    DebugPrint("Comparing input and return value: ")
-    DebugPrint(charHandle)
-    DebugPrint(getChar)
-    local charWPN = CharacterGetEquippedWeapon(getChar)
+    --Ext.Print("ReceiveClientContextSwitch")
+    --Ext.Print(charHandle)
+    local charGuid = nil
+    if #charHandle < 30 then
+        local charHandleInt = NRD_StringToInt(charHandle)
+        local char = Ext.GetCharacter(charHandleInt)
+        --Ext.Print("NetID as charHandle")
+        --Ext.Print(char.MyGuid)
+        charGuid = char.MyGuid
+    else
+        --Ext.Print("[SERVER] ReceiveClientContextSwitch, receives ClientContextSwitch Signal")
+        charGuid = charHandle
+    end
+    local isSummon = CharacterIsSummon(charGuid)
+    if isSummon == 1 then
+        Ext.Print("Summon selected, hiding AmmoBar")
+        charGuid = CharacterGetOwner(charGuid)
+        Ext.PostMessageToClient(charGuid, "Musketeer_SetClientContext", charGuid)
+        Ext.PostMessageToClient(charGuid, "Musketeer_Set_AmmoBar_UI", "0")
+        return
+    end
+    --Ext.Print("charGuid:")
+    --Ext.Print(charGuid)
+    local charWPN = CharacterGetEquippedWeapon(charGuid)
     DebugPrint(charWPN)
-    Ext.PostMessageToClient(charHandle, "Musketeer_SetClientContext", getChar)
+    Ext.PostMessageToClient(charGuid, "Musketeer_SetClientContext", charGuid)
     -- If a character is unarmed, charWPN is nil.
     if charWPN == nil then
-        Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "0")
+        Ext.PostMessageToClient(charGuid, "Musketeer_Set_AmmoBar_UI", "0")
         return
     end
     local maxAmmo = ItemGetMaxCharges(charWPN)
     DebugPrint(maxAmmo)
     local currentAmmo = ItemGetCharges(charWPN)
     DebugPrint(currentAmmo)
-    local ammoTypeIndex = GetCharacterCurrentAmmoType(charHandle)
-    Ext.PostMessageToClient(charHandle, "Musketeer_Element_AmmoBar_UI", ammoTypeIndex)
-    Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "0")
+    local ammoTypeIndex = GetCharacterCurrentAmmoType(charGuid)
+    Ext.PostMessageToClient(charGuid, "Musketeer_Element_AmmoBar_UI", ammoTypeIndex)
+    Ext.PostMessageToClient(charGuid, "Musketeer_Set_AmmoBar_UI", "0")
     if maxAmmo == -1 and currentAmmo == -1 then
-        Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "0")
+        Ext.PostMessageToClient(charGuid, "Musketeer_Set_AmmoBar_UI", "0")
     else
-        Ext.PostMessageToClient(charHandle, "Musketeer_Set_AmmoBar_UI", "1")
+        Ext.PostMessageToClient(charGuid, "Musketeer_Set_AmmoBar_UI", "1")
     end
-    Ext.PostMessageToClient(charHandle, "Musketeer_SetMaxAmmo_AmmoBar_UI", maxAmmo)
-    Ext.PostMessageToClient(charHandle, "Musketeer_SetAmmo_AmmoBar_UI", currentAmmo)
+    Ext.PostMessageToClient(charGuid, "Musketeer_SetMaxAmmo_AmmoBar_UI", maxAmmo)
+    Ext.PostMessageToClient(charGuid, "Musketeer_SetAmmo_AmmoBar_UI", currentAmmo)
     
 end
 Ext.RegisterNetListener('clientContextSwitch', ReceiveClientContextSwitch)
@@ -947,7 +967,7 @@ local function Musketeer_Weapon_Generated(item)
     NRD_ItemCloneSetString("OriginalRootTemplate", rootTemplate)
     NRD_ItemCloneSetString("GenerationStatsId", item.Name)
     NRD_ItemCloneSetString("StatsEntryName", item.Name)
-    NRD_ItemCloneSetInt("StatsLevel", item.Level)
+    
 
     NRD_ItemCloneSetString("ItemType", "Unique")
     NRD_ItemCloneSetString("GenerationItemType", "Unique")
@@ -973,18 +993,30 @@ local function Musketeer_Weapon_Generated(item)
     --NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_EmptyRuneSlot_Musk")
     --NRD_ItemCloneAddBoost("Generation", "Boost_Weapon_Damage_Poison_Medium_Crossbow_Musk")
 
-    --NRD_ItemCloneSetString("RootTemplate", rootTemplate)
+    -- itemguid, rarity, level
+    local itemGenBase, itemGenType, itemGenLevel, itemGenRandom = NRD_ItemGetGenerationParams(item.MyGuid)
+
+    NRD_ItemCloneSetString("RootTemplate", rootTemplate)
     NRD_ItemCloneSetString("OriginalRootTemplate", rootTemplate)
     NRD_ItemCloneSetString("GenerationStatsId", item.Name)
     NRD_ItemCloneSetString("StatsEntryName", item.Name)
     NRD_ItemCloneSetInt("StatsLevel", item.Level)
     --NRD_ItemCloneSetString("GenerationItemType", item.Stats.ItemTypeReal)
-
-    NRD_ItemCloneSetString("ItemType", item.Stats.ItemTypeReal)
+    NRD_ItemCloneSetString("GenerationItemType", "Unique")
+    NRD_ItemCloneSetString("ItemType", itemGenType)
     NRD_ItemCloneSetInt("HasGeneratedStats", 1)
+    NRD_ItemCloneSetInt("GenerationLevel", item.Level)
+    NRD_ItemCloneSetInt("GMFolding", 0)
     --NRD_ItemCloneSetInt("IsIdentified", 1)
     local genItemGuid2 = NRD_ItemClone()
-
+    
+    local genItemObj = Ext.GetItem(genItemGuid2)
+    --genItemObj.UnsoldGenerated = true
+    --Ext.Print(genItemObj.UnsoldGenerated)
+    --Ext.Print(genItemObj.Stats.MaxCharges)
+    genItemObj.Stats.MaxCharges = maxCharges
+    genItemObj.Stats.Charges = currCharges
+    
     --ItemRemove(genItemGuid)
 
     SetVarObject(item.MyGuid, "MusketeerFinishCloning", genItemGuid2)
@@ -1025,6 +1057,36 @@ local function Musketeer_Weapon_Generated(item)
     
 end
 Ext.RegisterListener("TreasureItemGenerated", Musketeer_Weapon_Generated)
+
+local function Musketeer_Vendor_Delete_Old_Unsold(traderGuid)
+    --Ext.Print("I'm here too")
+    local traderObj = Ext.GetCharacter(traderGuid)
+    if traderObj.Trader then
+        --Ext.Print("Deleting old Inventory rifles...")
+        local traderItemList = traderObj:GetInventoryItems()
+        local closePlayerGuid, distance = GetClosestAlivePlayer(traderGuid)
+        local playerLvl = CharacterGetLevel(closePlayerGuid)
+        --Ext.Print(playerLvl)
+        local traderInventoryList = traderObj:GetInventoryItems()
+        local riflecount = 0
+        for i=1, #traderInventoryList do
+            local tempItem = Ext.GetItem(traderInventoryList[i])
+            if tempItem.UnsoldGenerated == false and tempItem.Stats.Level < playerLvl then
+                --Ext.Print("Found stale rifle in vendor inventory")
+                --Ext.Print(tempItem.DisplayName)
+                ItemRemove(tempItem.MyGuid)
+            elseif
+             tempItem.UnsoldGenerated == false and tempItem.Stats.Level >= playerLvl then
+                riflecount = riflecount + 1
+            end
+        end
+        --Ext.Print("Final Rifle Count:")
+        --Ext.Print(riflecount)
+        --Ext.Print(Ext.JsonStringify(traderObj:GetInventoryItems()))
+        MoveAllItemsTo(traderGuid, traderGuid, 0, 0, 0)
+    end
+end
+Ext.RegisterOsirisListener("TradeGenerationEnded", 1, "before", Musketeer_Vendor_Delete_Old_Unsold)
 
 local function Musketeer_Check_Equipped_Item(itemGuid, charGuid)
     local item = Ext.GetItem(itemGuid)

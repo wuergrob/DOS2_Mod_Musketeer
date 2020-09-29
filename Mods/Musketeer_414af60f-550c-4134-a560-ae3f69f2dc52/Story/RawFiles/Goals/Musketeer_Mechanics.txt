@@ -85,8 +85,6 @@ NRD_AmmoBar_Set_Ammo(_Player, "val",_Ammo);
 IF
 CharacterLeveledUp(_Player)
 AND
-CharacterIsPlayer(_Player, 1)
-AND
 //CharacterHasSkill(_Player, "Shout_Musketeer_Passive", 1)
 IsTagged(_Player, "Rifle_Armed", 1)
 AND
@@ -134,7 +132,7 @@ DB_IsPlayer(_Character)
 AND
 CharacterIsInCombat(_Character, 1)
 AND
-DB_Musketeer_RifleEquipped(_Character, 1)
+IsTagged(_Character, "Rifle_Armed", 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
@@ -150,7 +148,25 @@ ObjectIsCharacter(_Character, 1)
 AND
 DB_IsPlayer((CHARACTERGUID)_Character)
 AND
-DB_Musketeer_RifleEquipped(_Character, 1)
+IsTagged(_Character, "Rifle_Armed", 1)
+AND
+CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
+THEN
+ItemResetChargesToMax((ITEMGUID)_Weapon);
+Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
+
+
+// Reload when using a bedroll, QoL
+IF
+CharacterUsedItemTemplate(_Character,_Temp,_)
+AND
+DB_RestTemplates(_Temp,_Consume,_PartyRadius,_SafeRadius)
+AND
+DB_IsPlayer((CHARACTERGUID)_Character)
+AND
+CharacterIsInCombat(_Character, 0)
+AND
+IsTagged(_Character, "Rifle_Armed", 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
@@ -164,9 +180,7 @@ SKillCast(_Character, _Skill, _, _)
 AND
 DB_Musketeer_Skillist(_Skill, _Amount)
 AND
-DB_IsPlayer(_Character)
-AND
-DB_Musketeer_RifleEquipped(_Character, 1)
+IsTagged(_Character, "Rifle_Armed", 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
 THEN
@@ -181,8 +195,6 @@ IF
 CharacterStartAttackObject(_, _, _Character)
 AND
 IsTagged(_Character, "Musketeer_None_Left", 1)
-AND
-DB_IsPlayer(_Character)
 THEN
 //ApplyStatus(_Character, "DISARMED", 0.0);
 CharacterUseSkill(_Character, "Target_Unload_Buffer", _Character);
@@ -194,8 +206,6 @@ IF
 CharacterStartAttackPosition(_, _, _, _, _Character)
 AND
 IsTagged(_Character, "Musketeer_None_Left", 1)
-AND
-DB_IsPlayer(_Character)
 AND
 CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN
@@ -213,10 +223,6 @@ IsTagged(_Character, "Musketeer_None_Left", 0)
 AND
 IsTagged(_Character, "Musketeer_AtLeast_One_Left", 1)
 AND
-DB_IsPlayer(_Character)
-//AND
-//CharacterIsInCombat(_Character, 0)
-AND
 CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN
 //ApplyStatus(_Character, "DISARMED", 0.0);
@@ -230,10 +236,6 @@ AND
 IsTagged(_Character, "Musketeer_None_Left", 0)
 AND
 IsTagged(_Character, "Musketeer_AtLeast_One_Left", 1)
-AND
-DB_IsPlayer(_Character)
-//AND
-//CharacterIsInCombat(_Character, 0)
 AND
 CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN
@@ -341,8 +343,6 @@ NRD_DebugLog("[OSIRIS] Character's Dynamic Range Status changed, updating Dynami
 IF
 CharacterResurrected(_Character)
 AND
-CharacterIsPlayer(_Character, 1)
-AND
 //CharacterHasSkill(_Character, "Shout_Musketeer_Passive", 1)
 IsTagged(_Character, "Rifle_Armed", 1)
 AND
@@ -353,8 +353,6 @@ NRD_DebugLog("[OSIRIS] Character resurrected, Updating Dynamic Rifle-Range");
 
 IF
 CharacterResurrected(_Character)
-AND
-CharacterIsPlayer(_Character, 1)
 THEN
 NRD_DebugLog("[OSIRIS] Character resurrected, is Dynamic range being updated?");
 

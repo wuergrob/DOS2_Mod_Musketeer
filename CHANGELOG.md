@@ -172,4 +172,20 @@ The Musketeer Mod has finally reached V1.0 and is now released!
 ### Balance & Design
 - `Musketeer` and `Headhunter` Class Presets improved
 - Increased `Bleeding` Status duration from `Scattershot` Skill from 1 to 2 turns
-- 
+
+## 1.1.0.0 - Experimental Anti Freeze
+
+As multiple Players have reported freezes when rifle wielding characters get hit control removing statuses such as `Mad`, I've attempted to implement a possible fix for this. Along with this, a similiar freeze that was reported to happen after
+using a `Reload` should hopefully be fixed with this patch.
+
+### Bugfixes
+- [Experimental] Game-Freeze caused by reapplying Statuses fixed
+- Traders now correctly remove stale generated `Rifles` from their inventory
+- Improved consistency of AmmoBar visibility between characters
+- All `Enhanced Reload` cost 1 `Memory Slot` and should no longer be removed after respeccing
+- GM compatibility improved (Still WIP and not really tested)
+- AmmoBar UI is no longer visible when a summoned character or a party follower is selected
+
+### Balance & Design
+- All `Blunderbuss` variations base damage reduced, from 170 to 155 and from 180 to 165.
+- All `Blunderbuss` variations critical damage reduced from 185 to 175

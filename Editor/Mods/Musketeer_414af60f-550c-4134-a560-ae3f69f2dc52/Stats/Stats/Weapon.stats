@@ -107,8 +107,8 @@
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Blunderbuss" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="30" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="170" />
-        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="185" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="155" />
+        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="175" />
         <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="WeaponRange" type="IntegerStatObjectFieldDefinition" value="400" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="40" />
@@ -129,7 +129,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss_Var1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="180" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="165" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Short" />

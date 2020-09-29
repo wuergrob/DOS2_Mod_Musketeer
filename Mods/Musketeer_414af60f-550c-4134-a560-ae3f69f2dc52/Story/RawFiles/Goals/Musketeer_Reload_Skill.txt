@@ -2,14 +2,14 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 
+DB_Musketeer_ReloadDebuffTickLimit(0);
+
 KBSECTION
 // Special case when using Reload, as it restores the charges completely, and not by a fixed amount.
 // Turns out, the skillbar doesn't update after updating/clearing tags.
 // As it applies Statuses that cause a UI refresh, it's not a problem.
 IF
 CharacterUsedSkill(_Character, "Shout_Reload", _, _)
-AND
-DB_IsPlayer(_Character)
 AND
 DB_Musketeer_RifleEquipped(_Character, 1)
 AND
@@ -24,8 +24,6 @@ Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 IF
 CharacterUsedSkill(_Character, "Shout_Reload_Incendiary", _, _)
 AND
-DB_IsPlayer(_Character)
-AND
 DB_Musketeer_RifleEquipped(_Character, 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
@@ -37,8 +35,6 @@ Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 
 IF
 CharacterUsedSkill(_Character, "Shout_Reload_Explosive", _, _)
-AND
-DB_IsPlayer(_Character)
 AND
 DB_Musketeer_RifleEquipped(_Character, 1)
 AND
@@ -52,8 +48,6 @@ Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 IF
 CharacterUsedSkill(_Character, "Shout_Reload_Freezing", _, _)
 AND
-DB_IsPlayer(_Character)
-AND
 DB_Musketeer_RifleEquipped(_Character, 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
@@ -66,8 +60,6 @@ Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 IF
 CharacterUsedSkill(_Character, "Shout_Reload_Silver", _, _)
 AND
-DB_IsPlayer(_Character)
-AND
 DB_Musketeer_RifleEquipped(_Character, 1)
 AND
 CharacterGetEquippedItem(_Character, "Weapon" ,_Weapon)
@@ -79,8 +71,6 @@ Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 
 IF
 CharacterUsedSkill(_Character, "Shout_Reload_Holy", _, _)
-AND
-DB_IsPlayer(_Character)
 AND
 DB_Musketeer_RifleEquipped(_Character, 1)
 AND
@@ -140,16 +130,42 @@ NRD_DebugLog("[OSIRIS] Reload Debuff removed from Character, as his turn started
 IF
 CharacterStatusRemoved(_Character, "MUTED", _)
 AND
+DB_Musketeer_ReloadDebuffTickLimit(0)
+AND
 HasAppliedStatus(_Character, "RELOAD_DEBUFF", 1)
 THEN
 ApplyStatus(_Character, "MUTED", -1.0, 1, _Character);
+TimerLaunch("Musketeer_ReloadDebuff_Ticker", 150);
+DB_Musketeer_ReloadDebuffTickLimit(1);
 
 IF
 CharacterStatusRemoved(_Character, "DISARMED", _)
 AND
+DB_Musketeer_ReloadDebuffTickLimit(0)
+AND
 HasAppliedStatus(_Character, "RELOAD_DEBUFF", 1)
 THEN
 ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
+TimerLaunch("Musketeer_ReloadDebuff_Ticker", 150);
+DB_Musketeer_ReloadDebuffTickLimit(1);
+
+IF
+TimerFinished("Musketeer_ReloadDebuff_Ticker")
+THEN
+DB_Musketeer_ReloadDebuffTickLimit(0);
+
+IF
+TimerFinished("Musketeer_ReloadDebuff_Ticker")
+AND
+DB_Musketeer_RifleEquipped(_Character, 1)
+AND
+ObjectIsCharacter(_Character, 1)
+AND
+HasActiveStatus(_Character, "RELOAD_DEBUFF", 1)
+THEN
+ApplyStatus(_Character, "MUTED", -1.0, 1, _Character);
+ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
+
 
 IF
 CharacterStatusApplied(_Character, "RELOAD_INCENDIARY", _)

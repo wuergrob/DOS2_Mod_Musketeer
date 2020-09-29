@@ -1,7 +1,7 @@
 ---
 name: Installation Instruction
 ---
-<p>The Mod is currently not available on the Steam Workshop and requires manual installation.</p>
+<p>The Mod is available on the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2238914847">Steam Workshop</a>!.</p>
 
 <h3>The Mod has the following Requirements:</h3>
 <ul style="color: #ffffff; font-size: medium;">

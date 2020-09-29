@@ -511,13 +511,24 @@ local function DebugStuffs2(ui, event, handle, arg4, arg5)
 	--DebugPrint(Ext.HandleToDouble(param1))
 	local charHandle = Ext.DoubleToHandle(handle)
 	local char = Ext.GetCharacter(charHandle)
+	--Ext.Print(char)
+	--Ext.Print(charHandle)
+	--Ext.Print(char.NetID)
+	--Ext.Print(char.UserID)
+	--Ext.Print(char.MyGuid)
 	DebugPrint(charHandle)
 	DebugPrint(char)
 	DebugPrint(char.GetTags(char)[1])
 	DebugPrint(char.GetTags(char)[2])
 	DebugPrint(char.GetTags(char)[3])
-	DebugPrint("Sending payload: " .. char.MyGuid)
-	Ext.PostMessageToServer('clientContextSwitch', char.MyGuid)
+	if nil == char.MyGuid then 
+		--Ext.Print("Sending payload (NetID)")
+		Ext.PostMessageToServer('clientContextSwitch', char.NetID)
+	else
+		--Ext.Print("Sending MyGuid")
+		--Ext.Print("Sending payload: " .. char.MyGuid)
+		Ext.PostMessageToServer('clientContextSwitch', char.MyGuid)
+	end
 end
 
 local function SetCurrentHotbar(ui, event, index)

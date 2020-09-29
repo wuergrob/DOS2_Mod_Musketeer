@@ -2,6 +2,8 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 
+DB_Musketeer_DynamicRangeTickLimit(0);
+
 KBSECTION
 
 IF
@@ -29,8 +31,17 @@ Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
 // I'm gonna refactor this part and track weapon type by root template
 // instead of a tag.
 
+// Added a tick-timer to prevent infinite apply/remove loops, possibly caused by other mod interactions.
+IF
+TimerFinished("Musketeer_DynamicRange_Ticker")
+THEN
+NRD_DebugLog("[Musketeer] DynamicRange Tick Reset");
+DB_Musketeer_DynamicRangeTickLimit(0);
+
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+DB_Musketeer_DynamicRangeTickLimit(0)
 AND
 IsTagged(_Player, "Musk_Rifle_Long", 1)
 AND
@@ -39,10 +50,14 @@ AND
 HasActiveStatus(_Player, "MUSK_RANGE_LONG", 0)
 THEN
 //DebugBreak("[WT_FS] Normal Range Rifle equipped.");
+TimerLaunch("Musketeer_DynamicRange_Ticker", 150);
+DB_Musketeer_DynamicRangeTickLimit(1);
 ApplyStatus(_Player, "MUSK_RANGE_LONG", -1.0, 1, _Player);
 
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+DB_Musketeer_DynamicRangeTickLimit(0)
 AND
 IsTagged(_Player, "Musk_Rifle_Short", 1)
 AND
@@ -51,10 +66,14 @@ AND
 HasActiveStatus(_Player, "MUSK_RANGE_SHORT", 0)
 THEN
 //DebugBreak("[WT_FS] Blunderbuss equipped.");
+TimerLaunch("Musketeer_DynamicRange_Ticker", 150);
+DB_Musketeer_DynamicRangeTickLimit(1);
 ApplyStatus(_Player, "MUSK_RANGE_SHORT", -1.0, 1, _Player);
 
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+DB_Musketeer_DynamicRangeTickLimit(0)
 AND
 IsTagged(_Player, "Musk_Rifle_Medium", 1)
 AND
@@ -63,11 +82,15 @@ AND
 HasActiveStatus(_Player, "MUSK_RANGE_MEDIUM", 0)
 THEN
 //DebugBreak("[WT_FS] Matchlock Rifle equipped.");
+TimerLaunch("Musketeer_DynamicRange_Ticker", 150);
+DB_Musketeer_DynamicRangeTickLimit(1);
 ApplyStatus(_Player, "MUSK_RANGE_MEDIUM", -1.0, 1, _Player);
 
 
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+DB_Musketeer_DynamicRangeTickLimit(0)
 AND
 IsTagged(_Player, "Musk_Rifle_Long", 1)
 AND
@@ -76,11 +99,15 @@ AND
 HasActiveStatus(_Player, "MUSK_RANGE_LONG_LW", 0)
 THEN
 //DebugBreak("[WT_FS] Normal Rifle equipped. (LW)");
+TimerLaunch("Musketeer_DynamicRange_Ticker", 150);
+DB_Musketeer_DynamicRangeTickLimit(1);
 ApplyStatus(_Player, "MUSK_RANGE_LONG_LW", -1.0, 1, _Player);
 
 
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+DB_Musketeer_DynamicRangeTickLimit(0)
 AND
 IsTagged(_Player, "Musk_Rifle_Short", 1)
 AND
@@ -89,10 +116,14 @@ AND
 HasActiveStatus(_Player, "MUSK_RANGE_SHORT_LW", 0)
 THEN
 //DebugBreak("[WT_FS] Blunderbuss Rifle equipped. (LW)");
+TimerLaunch("Musketeer_DynamicRange_Ticker", 150);
+DB_Musketeer_DynamicRangeTickLimit(1);
 ApplyStatus(_Player, "MUSK_RANGE_SHORT_LW", -1.0, 1, _Player);
 
 PROC
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player)
+AND
+DB_Musketeer_DynamicRangeTickLimit(0)
 AND
 IsTagged(_Player, "Musk_Rifle_Medium", 1)
 AND
@@ -101,6 +132,8 @@ AND
 HasActiveStatus(_Player, "MUSK_RANGE_MEDIUM_LW", 0)
 THEN
 //DebugBreak("[WT_FS] Matchlock Rifle equipped. (LW)");
+TimerLaunch("Musketeer_DynamicRange_Ticker", 150);
+DB_Musketeer_DynamicRangeTickLimit(1);
 ApplyStatus(_Player, "MUSK_RANGE_MEDIUM_LW", -1.0, 1, _Player);
 
 //END_REGION
