@@ -183,7 +183,7 @@ using a `Reload` should hopefully be fixed with this patch.
 - Traders now correctly remove stale generated `Rifles` from their inventory
 - Improved consistency of AmmoBar visibility between characters
 - All `Enhanced Reload` cost 1 `Memory Slot` and should no longer be removed after respeccing
-- GM compatibility improved (Still WIP and not really tested)
+- GM compatibility improved
 - AmmoBar UI is no longer visible when a summoned character or a party follower is selected
 
 ### Balance & Design
