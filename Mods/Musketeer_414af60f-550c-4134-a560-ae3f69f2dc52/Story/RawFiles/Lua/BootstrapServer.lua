@@ -288,7 +288,7 @@ Ext.RegisterNetListener('clientReady', ReceivePlayerState)
 
 local function GameStartedEvent()
     -- Until v53 need to explicitly enable Property Write support (Remove when v53 is released!)
-    Ext.EnableExperimentalPropertyWrites()
+    --Ext.EnableExperimentalPropertyWrites()
     InitPlayerTable()
     DebugPrint("[SERVER] GameStartedEvent")
 end
@@ -1014,8 +1014,8 @@ local function Musketeer_Weapon_Generated(item)
     --genItemObj.UnsoldGenerated = true
     --Ext.Print(genItemObj.UnsoldGenerated)
     --Ext.Print(genItemObj.Stats.MaxCharges)
-    genItemObj.Stats.MaxCharges = maxCharges
-    genItemObj.Stats.Charges = currCharges
+    --genItemObj.Stats.MaxCharges = maxCharges
+    --genItemObj.Stats.Charges = currCharges
     
     --ItemRemove(genItemGuid)
 

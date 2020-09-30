@@ -550,6 +550,7 @@ local function RegisterBuiltInUIListeners()
 	-- Listen to the hotbar for when the sheet opens
 	local hotbar = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
 	local tooltip = Ext.GetBuiltinUI("Public/Game/GUI/tooltip.swf")
+	local GMPanelHUD = Ext.GetBuiltinUI("Public/Game/GUI/GM/GMPanelHUD.swf")
 	if hotbar ~= nil then
 		Ext.RegisterUICall(hotbar, "hideTooltip", BuiltInHotbarUIHideToolbar)
 		Ext.RegisterUICall(hotbar, "showTooltip", BuiltInHotbarUIShowTooltip)
@@ -570,6 +571,13 @@ local function RegisterBuiltInUIListeners()
 			Ext.RegisterUICall(tooltip, "showCharTooltip", DebugStuffs2)
 		end
 		
+		if GMPanelHUD ~= nil then
+			--Ext.Print("GMPanelHUD.swf is not nil")
+			--Ext.RegisterUICall(tooltip, "showCharTooltip", DebugStuffs2)
+			--Ext.RegisterUICall(GMPanelHUD, "hideTooltip", function () Musketeer_AmmoBar_Visibility("GM Disable AmmoBar", 0) end)
+			--Ext.RegisterUICall(GMPanelHUD, "possess", function () Ext.Print("Posess") end)
+			Ext.RegisterUIInvokeListener (GMPanelHUD, "showTargetBar", function (...)  Musketeer_AmmoBar_Visibility("GM Disable AmmoBar", 0) end)
+		end
 		Ext.RegisterUIInvokeListener(hotbar, "setCurrentHotbar", SetCurrentHotbar)
 		Ext.RegisterUIInvokeListener(hotbar, "setPlayerHandle", DebugStuffs2)
 		Ext.RegisterUIInvokeListener(hotbar, "showSkillBar", Musketeer_AmmoBar_Visibility_Hotbar)

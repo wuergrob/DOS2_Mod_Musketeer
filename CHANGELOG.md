@@ -189,3 +189,9 @@ using a `Reload` should hopefully be fixed with this patch.
 ### Balance & Design
 - All `Blunderbuss` variations base damage reduced, from 170 to 155 and from 180 to 165.
 - All `Blunderbuss` variations critical damage reduced from 185 to 175
+
+## 1.1.1.0 - GM Support, Skill-Range Fix
+
+### Bugfixes
+- Fixed a bug that caused `Rifle`-based Skill Ranges to be set to 4m
+- `AmmoBar` is no longer visible when returning to GM-Mode after possessing a character

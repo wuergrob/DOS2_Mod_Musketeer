@@ -2,7 +2,6 @@ Version 1
 SubGoalCombiner SGC_AND
 INITSECTION
 
-DB_Musketeer_ReloadDebuffTickLimit(0);
 
 KBSECTION
 // Special case when using Reload, as it restores the charges completely, and not by a fixed amount.
@@ -125,35 +124,47 @@ THEN
 RemoveStatus(_Character, "RELOAD_DEBUFF");
 NRD_DebugLog("[OSIRIS] Reload Debuff removed from Character, as his turn started");
 
+
+
+// Initialise Reload Debuff Tick DB for players that equip a rifle
+IF
+DB_Musketeer_RifleEquipped(_Player, 1)
+THEN
+DB_Musketeer_ReloadDebuffTickLimit(_Player, 0);
+
+PROC
+ProcObjectTimerFinished(_Player, "Musketeer_ReloadDebuff_Ticker")
+THEN
+DB_Musketeer_ReloadDebuffTickLimit((CHARACTERGUID)_Player, 0);
+
+
 // Make the Mute and Disarmed Status uncleansable by reapplying them when removed, if the character has the
 // Reload debuff.
 IF
 CharacterStatusRemoved(_Character, "MUTED", _)
 AND
-DB_Musketeer_ReloadDebuffTickLimit(0)
+DB_Musketeer_ReloadDebuffTickLimit(_Character, 0)
 AND
 HasAppliedStatus(_Character, "RELOAD_DEBUFF", 1)
 THEN
 ApplyStatus(_Character, "MUTED", -1.0, 1, _Character);
-TimerLaunch("Musketeer_ReloadDebuff_Ticker", 150);
-DB_Musketeer_ReloadDebuffTickLimit(1);
+ProcObjectTimer(_Character, "Musketeer_ReloadDebuff_Ticker", 150);
+DB_Musketeer_ReloadDebuffTickLimit(_Character, 1);
 
 IF
 CharacterStatusRemoved(_Character, "DISARMED", _)
 AND
-DB_Musketeer_ReloadDebuffTickLimit(0)
+DB_Musketeer_ReloadDebuffTickLimit(_Character, 0)
 AND
 HasAppliedStatus(_Character, "RELOAD_DEBUFF", 1)
 THEN
 ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
-TimerLaunch("Musketeer_ReloadDebuff_Ticker", 150);
-DB_Musketeer_ReloadDebuffTickLimit(1);
+ProcObjectTimer(_Character, "Musketeer_ReloadDebuff_Ticker", 150);
+DB_Musketeer_ReloadDebuffTickLimit(_Character, 1);
 
-IF
-TimerFinished("Musketeer_ReloadDebuff_Ticker")
-THEN
-DB_Musketeer_ReloadDebuffTickLimit(0);
-
+// Apply Reload Debuffs again after the Tick-Timer expired and a character is reloading.
+// Will essentially still cause an infinite loop if other sources continuously remove it, but
+// it will not cause a freeze.
 IF
 TimerFinished("Musketeer_ReloadDebuff_Ticker")
 AND
