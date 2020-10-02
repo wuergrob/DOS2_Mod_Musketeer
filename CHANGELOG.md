@@ -190,8 +190,26 @@ using a `Reload` should hopefully be fixed with this patch.
 - All `Blunderbuss` variations base damage reduced, from 170 to 155 and from 180 to 165.
 - All `Blunderbuss` variations critical damage reduced from 185 to 175
 
-## 1.1.1.0 - GM Support, Skill-Range Fix
+## 1.1.2.0 - GM Support, Skill-Range Fix
 
 ### Bugfixes
 - Fixed a bug that caused `Rifle`-based Skill Ranges to be set to 4m
 - `AmmoBar` is no longer visible when returning to GM-Mode after possessing a character
+
+## 1.1.3.0 - GM Support, Skill-Range Fix
+
+### Bugfixes
+-  Fixed a bug that could possibly cause `Rifle`-based Skill Ranges not to update due to stale Database entries.
+
+## 1.1.4.0 
+
+### Bugfixes
+- Updated required minimum Extender Version to correct value
+- Experimental Fixed a bug that caused Rifle rarities to change to `Unique` after loading a Savegame
+
+NOTE: Rifle's that were set to `Unique` will not be restored, but it should hopefully fix it for any rifle that was generated after this patch was applied. Was sadly not able to fully test this because of time constraints.
+
+## 1.1.5.0 - Experimental Deadlock/Freeze in Combat Fix
+
+### Bugfixes
+-  [Experimental] Fixed a bug that caused Deadlocks/Freezes during combat when control altering `Statuses` are active

@@ -995,6 +995,7 @@ local function Musketeer_Weapon_Generated(item)
 
     -- itemguid, rarity, level
     local itemGenBase, itemGenType, itemGenLevel, itemGenRandom = NRD_ItemGetGenerationParams(item.MyGuid)
+    --Ext.Print(itemGenType)
 
     NRD_ItemCloneSetString("RootTemplate", rootTemplate)
     NRD_ItemCloneSetString("OriginalRootTemplate", rootTemplate)
@@ -1002,7 +1003,7 @@ local function Musketeer_Weapon_Generated(item)
     NRD_ItemCloneSetString("StatsEntryName", item.Name)
     NRD_ItemCloneSetInt("StatsLevel", item.Level)
     --NRD_ItemCloneSetString("GenerationItemType", item.Stats.ItemTypeReal)
-    NRD_ItemCloneSetString("GenerationItemType", "Unique")
+    --NRD_ItemCloneSetString("GenerationItemType", "Unique")
     NRD_ItemCloneSetString("ItemType", itemGenType)
     NRD_ItemCloneSetInt("HasGeneratedStats", 1)
     NRD_ItemCloneSetInt("GenerationLevel", item.Level)

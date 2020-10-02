@@ -194,6 +194,16 @@ Musketeer_Consume_Ammo((ITEMGUID)_Weapon, (INTEGER)_Amount, _Character);
 IF
 CharacterStartAttackObject(_, _, _Character)
 AND
+HasActiveStatus(_Character, "CHARMED", _Charmed)
+AND
+HasActiveStatus(_Character, "MADNESS", _Mad)
+AND
+HasActiveStatus(_Character, "TAUNTED", _Taunted)
+AND
+IntegerMax(_Charmed, _Mad, _tempMax)
+AND
+IntegerMax(_tempMax, _Taunted, 0)
+AND
 IsTagged(_Character, "Musketeer_None_Left", 1)
 THEN
 //ApplyStatus(_Character, "DISARMED", 0.0);
@@ -205,6 +215,16 @@ CharacterAddActionPoints(_Character, 2);
 IF
 CharacterStartAttackPosition(_, _, _, _, _Character)
 AND
+HasActiveStatus(_Character, "CHARMED", _Charmed)
+AND
+HasActiveStatus(_Character, "MADNESS", _Mad)
+AND
+HasActiveStatus(_Character, "TAUNTED", _Taunted)
+AND
+IntegerMax(_Charmed, _Mad, _tempMax)
+AND
+IntegerMax(_tempMax, _Taunted, 0)
+AND
 IsTagged(_Character, "Musketeer_None_Left", 1)
 AND
 CharacterGetEquippedWeapon(_Character, _Weapon)
@@ -214,7 +234,25 @@ CharacterAddActionPoints(_Character, 2);
 Musketeer_Consume_Ammo((ITEMGUID)_Weapon, 1, _Character);
 //DisplayText(_Character, "<font color='#00FF00' size='30'>Out of Ammo!</font>");
 
+/*
+IF
+CharacterStartAttackObject(_, _, _Character)
+AND
+HasActiveStatus(_Character, "CHARMED", 1)
+AND
+IsTagged(_Character, "Musketeer_None_Left", 1)
+THEN
+NRD_DebugLog("[Musketeer] Character is charmed and out of Ammo, ignoring Ammo-check");
 
+IF
+CharacterStartAttackPosition(_, _, _, _, _Character)
+AND
+HasActiveStatus(_Character, "CHARMED", 1)
+AND
+IsTagged(_Character, "Musketeer_None_Left", 1)
+THEN
+NRD_DebugLog("[Musketeer] Character is charmed and out of Ammo, ignoring Ammo-check");
+*/
 // Consume 1 Ammo when Character uses basic attack.
 IF
 CharacterStartAttackObject(_, _, _Character)
