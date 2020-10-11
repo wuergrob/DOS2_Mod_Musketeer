@@ -3,7 +3,7 @@
   <stat_objects>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="_Rifles" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Rifles" />
         <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ModifierType" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
@@ -39,12 +39,14 @@
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
+        <field name="DamageBoost" type="IntegerStatObjectFieldDefinition" value="42" />
+        <field name="LifeSteal" type="IntegerStatObjectFieldDefinition" value="15" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="_Npc_Rifles" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
       </fields>
@@ -52,7 +54,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifles" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
         <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
@@ -87,7 +89,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Start" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="3" />
@@ -104,7 +106,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Blunderbuss" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="30" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="155" />
@@ -139,7 +141,7 @@
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Matchlock" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Rifles" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Matchlock" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="12" />
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="145" />
