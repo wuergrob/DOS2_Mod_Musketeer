@@ -39,8 +39,6 @@
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
-        <field name="DamageBoost" type="IntegerStatObjectFieldDefinition" value="42" />
-        <field name="LifeSteal" type="IntegerStatObjectFieldDefinition" value="15" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="Crossbow,Musk_Rifle" />
       </fields>
     </stat_object>
