@@ -117,47 +117,6 @@
                         </node>
                     </children>
                 </node>
-                <node id="Tag">
-                    <attribute id="Description" value="Item is a Rifle" type="23" />
-                    <attribute id="Name" value="Musk_Rifle" type="23" />
-                    <children>
-                        <node id="Categories">
-                            <children>
-                                <node id="Category">
-                                    <attribute id="Name" value="Code" type="23" />
-                                </node>
-                            </children>
-                        </node>
-                    </children>
-                </node>
-                <node id="Tag">
-                    <attribute id="Description" value="Item is a Musket Rifle" type="23" />
-                    <attribute id="Name" value="Musk_Rifle_Musket" type="23" />
-                    <children>
-                        <node id="Categories" />
-                    </children>
-                </node>
-                <node id="Tag">
-                    <attribute id="Description" value="Item is a Blunderbuss Rifle" type="23" />
-                    <attribute id="Name" value="Musk_Rifle_Blunderbuss" type="23" />
-                    <children>
-                        <node id="Categories" />
-                    </children>
-                </node>
-                <node id="Tag">
-                    <attribute id="Description" value="Item is a Matchlock Rifle" type="23" />
-                    <attribute id="Name" value="Musk_Rifle_Matchlock" type="23" />
-                    <children>
-                        <node id="Categories" />
-                    </children>
-                </node>
-                <node id="Tag">
-                    <attribute id="Description" value="" type="23" />
-                    <attribute id="Name" value="LLWEAPONEX_Firearm" type="23" />
-                    <children>
-                        <node id="Categories" />
-                    </children>
-                </node>
             </children>
         </node>
     </region>
