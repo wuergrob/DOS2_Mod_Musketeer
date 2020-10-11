@@ -41,6 +41,7 @@
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
         <field name="DamageBoost" type="IntegerStatObjectFieldDefinition" value="42" />
         <field name="LifeSteal" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="Crossbow,Musk_Rifle" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -55,7 +56,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifles" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
-        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
+        <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="Crossbow,Musk_Rifle" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
         <field name="MinAmount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
