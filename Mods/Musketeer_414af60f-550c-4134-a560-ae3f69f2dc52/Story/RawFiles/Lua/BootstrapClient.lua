@@ -671,6 +671,8 @@ Ext.RegisterNetListener("Client_Refresh_Hotbar", Musketeer_Refresh_Hotbar)
 
 -- Experimental Tooltip Handling for displaying correct Rifle-Weapon Names
 local function SetTooltipHandler(arg1, ...)
+	do return end
+
 	--Ext.Print("addFormattedTooltip being called")
 	local tooltip_array = arg1:GetRoot().tooltip_array
 	local tooltip_compare_array = arg1:GetRoot().tooltipCompare_array
@@ -774,7 +776,7 @@ local function SetTooltipHandler(arg1, ...)
 		end
 	end
 end
-Ext.RegisterUINameInvokeListener("addFormattedTooltip", SetTooltipHandler)
+--Ext.RegisterUINameInvokeListener("addFormattedTooltip", SetTooltipHandler)
 
 
 local function setCompareTooltipHandler(arg1, ...)
@@ -786,6 +788,161 @@ local function setCompareTooltipHandler(arg1, ...)
 	end
 
 end
+
+
+-- Overwrite the original function to set own character handle logic
+local function GetCompareItemOverride(ui, item, offHand)
+	local owner = nil
+	--Ext.Print(#ui)
+	--[[
+	local testithing = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+	Ext.Print("hotbar Playerhandle:")
+	Ext.Print(Ext.GetCharacter(Ext.DoubleToHandle(testithing:GetRoot().hotbar_mc.characterHandle)))
+	Ext.Print("hotbar GetPlayerHandle:")
+	Ext.Print(testithing.GetPlayerHandle())
+	Ext.Print(testithing:GetPlayerHandle())
+	--]]
+
+	if PersistentVars.PlayerCharacterGUID == nil then
+		owner = Ext.GetCharacter(Ext.DoubleToHandle(Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf"):GetRoot().hotbar_mc.characterHandle))
+		if owner == nil then
+			owner = ui:GetPlayerHandle()
+			if owner == nil then
+				owner = item:GetOwnerCharacter()
+			end
+		end
+	else
+		owner = PersistentVars.PlayerCharacterGUID
+	end
+
+    if owner == nil then
+		Ext.PrintError("No Owner for item, trying to set owner...")
+		if PersistentVars.PlayerCharacterGUID ~= nil then
+			owner = PersistentVars.PlayerCharacterGUID
+		end
+		--Ext.Print(PersistentVars.PlayerCharacterGUID)
+        if owner == nil then return nil end
+	end
+	
+    --- @type EclCharacter
+	local char = Ext.GetCharacter(owner)
+    if item.Stats.ItemSlot == "Weapon" then
+        if offHand then
+            return char:GetItemBySlot("Shield")
+        else
+            return char:GetItemBySlot("Weapon")
+        end
+    elseif item.Stats.ItemSlot == "Ring" or item.Stats.ItemSlot == "Ring2" then
+        if offHand then
+            return char:GetItemBySlot("Ring2")
+        else
+            return char:GetItemBySlot("Ring")
+        end
+    else
+        return char:GetItemBySlot(item.Stats.ItemSlot)
+    end
+end
+
+Game.Tooltip.TooltipHooks.GetCompareItem = GetCompareItemOverride
+
+local function OnRenderTooltipOverride(ui, method, ...)
+	if ui.GetValue == nil then
+		--Ext.Print("Setting ui to tooltip.swf file")
+		ui = Ext.GetBuiltinUI("Public/Game/GUI/tooltip.swf")
+	end
+    if Game.Tooltip.TooltipHooks.NextRequest == nil then
+        Ext.PrintError("Got tooltip render request, but did not find original tooltip info!")
+        return
+    end
+
+    local req = Game.Tooltip.TooltipHooks.NextRequest
+    Game.Tooltip.TooltipHooks:OnRenderSubTooltip(ui, "tooltip_array", req, method, ...)
+
+    if req.Type == "Item" then
+		local reqItem = req.Item
+
+        if ui:GetValue("tooltipCompare_array", nil, 0) ~= nil then
+            local compareItem = Game.Tooltip.TooltipHooks.GetCompareItem(ui, reqItem, false)
+            if compareItem ~= nil then
+                req.Item = Ext.GetItem(compareItem)
+                Game.Tooltip.TooltipHooks:OnRenderSubTooltip(ui, "tooltipCompare_array", req, method, ...)
+                req.Item = reqItem
+            else
+                Ext.PrintError("Tooltip compare render failed: Couldn't find item to compare")
+            end
+        end
+
+        if ui:GetValue("tooltipOffHand_array", nil, 0) ~= nil then
+            local compareItem = Game.Tooltip.TooltipHooks.GetCompareItem(ui, reqItem, true)
+            if compareItem ~= nil then
+                req.Item = Ext.GetItem(compareItem)
+                Game.Tooltip.TooltipHooks:OnRenderSubTooltip(ui, "tooltipOffHand_array", req, method, ...)
+                req.Item = reqItem
+            else
+                Ext.PrintError("Tooltip compare render failed: Couldn't find off-hand item to compare")
+            end
+        end
+	end
+	Game.Tooltip.TooltipHooks.NextRequest = nil
+end
+
+Game.Tooltip.TooltipHooks.OnRenderTooltip = OnRenderTooltipOverride
+
+--local Musketeer_WeaponType_Musket = Ext.GetTranslatedString("", "Musket")
+---@param item EclItem
+---@param tooltip TooltipData
+local function Musketeer_OnItemTooltip(item, tooltip)
+	if item:HasTag("Musk_Rifle") then
+		local rifleName = ""
+		if item:HasTag("Musk_Rifle_Musket") then
+			rifleName = "Musket"
+		elseif item:HasTag("Musk_Rifle_Blunderbuss") then
+			rifleName = "Blunderbuss"
+		elseif item:HasTag("Musk_Rifle_Matchlock") then
+			rifleName = "Matchlock"
+		end
+
+		local ammunitionCharges = tooltip:GetElement("WandCharges")
+		if ammunitionCharges ~= nil then
+			if ammunitionCharges.Value <= 0 then
+				ammunitionCharges.Label = "Out of Ammunition!"
+			else
+				ammunitionCharges.Label = "Ammunition"
+			end
+		end
+
+		if tooltip:GetElement("NeedsIdentifyLevel") ~= nil then
+			local unidentifiedName = tooltip:GetElement("ItemName")
+			local newUnidentifiedName = string.gsub(unidentifiedName.Label, ">.*<", ">Unidentified " .. rifleName .. "<")
+			unidentifiedName.Label = newUnidentifiedName
+		else
+			local element = tooltip:GetElement("ArmorSlotType")
+			if element == nil then
+				element = {
+					Type = "ArmorSlotType",
+					Label = ""
+				}
+			end		
+			--Ext.Print(Ext.JsonStringify(tooltip))
+			element.Label = rifleName
+		end
+    end
+end
+Ext.RegisterListener("SessionLoaded", function()
+    Game.Tooltip.RegisterListener("Item", nil, Musketeer_OnItemTooltip)
+end)
+
+
+
+--- @param ui UIObject
+--- @param item EclItem
+--- @param offHand boolean
+--- @return string|nil
+-- Game.Tooltip.TooltipHooks:GetCompareItem = GetCompareItemOverride
+
+
+
+
 --Ext.RegisterUINameInvokeListener("addCompareTooltip", setCompareTooltipHandler)
 -- NOTE ON TALENTS:
 -- characterSheet.swf Maintimeline has a "addTalent" function.
