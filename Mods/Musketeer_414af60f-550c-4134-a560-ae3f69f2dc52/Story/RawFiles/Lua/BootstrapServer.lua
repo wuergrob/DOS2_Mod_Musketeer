@@ -1,3 +1,21 @@
+Ext.Require("BootstrapShared.lua")
+
+PersistentVars = {
+    WeaponExMasteries = {},
+    Musketeer_Mod_Version = nil,
+}
+
+Ext.RegisterListener("SessionLoading", function ()
+    if PersistentVars.Musketeer_Mod_Version == nil then
+        --local major, minor, revision, build = Osi.SysStoryVersion()
+        --local versionString = string.format("%s.%s.%s.%s", major, minor, revision, build)
+        local modInfo = Ext.GetModInfo("414af60f-550c-4134-a560-ae3f69f2dc52")
+        local modVersion = modInfo.Version
+        Ext.Print("Musketeer Mod Version: ")
+        Ext.Print(modVersion)
+    end
+end)
+
 
 if PlayerTable == nil then
     PlayerTable = {}
@@ -6,7 +24,7 @@ end
 DebugMode = false
 function DebugPrint(...)
     if DebugMode then
-        DebugPrint(...)
+        Ext.Print(...)
     end
 end
 
@@ -243,6 +261,10 @@ local function Musketeer_Retrieve_Skillbar_Entry(channel, payload)
     --DebugPrint("[Server]: Retrieved " .. entry .. " from Skillbar.")
     if (entry == nil) then
         DebugPrint("[SERVER] Musketeer_Retrieve_Skillbar_Entry, entry was nil")
+    elseif entry == "Projectile_Tracking_Shot" then
+        Ext.Print("Special Tracking shot debug stuff")
+        local message = {entry, 0-math.random(1,5)}
+        Ext.PostMessageToClient(player, "skillbar_entry_answer_update_cost", Ext.JsonStringify(message))
     else
         Ext.PostMessageToClient(player, "skillbar_entry_answer", entry)
     end
@@ -924,6 +946,7 @@ Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
 end)
 
 local function Musketeer_Weapon_Generated(item)
+    do return end
     if #item:GetGeneratedBoosts() == 0 then return end
     --DebugPrint(item.Stats.ItemGroup)
     --DebugPrint(Ext.JsonStringify(item:GetTags()))
@@ -1072,7 +1095,7 @@ local function Musketeer_Vendor_Delete_Old_Unsold(traderGuid)
         local riflecount = 0
         for i=1, #traderInventoryList do
             local tempItem = Ext.GetItem(traderInventoryList[i])
-            if tempItem.UnsoldGenerated == false and tempItem.Stats.Level < playerLvl then
+            if tempItem:HasTag("Musk_Rifle") and tempItem.UnsoldGenerated == false and tempItem.Stats.Level < playerLvl then
                 --Ext.Print("Found stale rifle in vendor inventory")
                 --Ext.Print(tempItem.DisplayName)
                 ItemRemove(tempItem.MyGuid)
@@ -1087,7 +1110,7 @@ local function Musketeer_Vendor_Delete_Old_Unsold(traderGuid)
         MoveAllItemsTo(traderGuid, traderGuid, 0, 0, 0)
     end
 end
-Ext.RegisterOsirisListener("TradeGenerationEnded", 1, "before", Musketeer_Vendor_Delete_Old_Unsold)
+-- Ext.RegisterOsirisListener("TradeGenerationEnded", 1, "before", Musketeer_Vendor_Delete_Old_Unsold)
 
 local function Musketeer_Check_Equipped_Item(itemGuid, charGuid)
     local item = Ext.GetItem(itemGuid)
@@ -1127,3 +1150,50 @@ local function Musketeer_Check_Unequipped_Item(itemGuid, charGuid)
     --]]
 end
 Ext.RegisterOsirisListener("ItemUnEquipped", 2, "before", Musketeer_Check_Unequipped_Item)
+
+function Musketeer_WeaponEx_AddToPersistentVars(charGuid, key, value)
+    local persVarValue = 0
+    if value == "yes" then persVarValue = 1 end
+    Ext.Print("[Musketeer Server]: Send WeaponEx stuff to Client")
+    if not ObjectIsCharacter(charGuid) then Ext.Print("Trying to send message to invalid character") return end
+    local message = {key, value}
+    if PersistentVars.WeaponExMasteries[charGuid] == nil then PersistentVars.WeaponExMasteries[charGuid] = {} end
+    PersistentVars.WeaponExMasteries[charGuid]["Blunderbuss_Mastery1_Enhanced_Blitzkrieg"] = persVarValue
+    Ext.Print(Ext.JsonStringify(message))
+    Ext.PostMessageToClient(charGuid, "Musketeer_WeaponEx_Mastery_PersistentVars", Ext.JsonStringify(message))
+end
+
+Ext.Require("414af60f-550c-4134-a560-ae3f69f2dc52", "MusketeerMasteries/Server/Musketeer_Musket.lua")
+Ext.Require("414af60f-550c-4134-a560-ae3f69f2dc52", "MusketeerMasteries/Server/Musketeer_Blunderbuss.lua")
+Ext.Require("414af60f-550c-4134-a560-ae3f69f2dc52", "MusketeerMasteries/Server/Musketeer_Matchlock.lua")
+
+function Test()
+    --Ext.Print("Test here!")
+    local allCharacters = Ext.GetAllCharacters()
+    --Ext.Print(#allCharacters)
+    for i=1,#allCharacters,1 do
+        local characterInventory = Ext.GetCharacter(allCharacters[i]):GetInventoryItems()
+        for j=1,#characterInventory,1 do
+            local currentItem = Ext.GetItem(characterInventory[j])
+            if currentItem:HasTag("Musk_Rifle") and currentItem:HasTag("LLWEAPONEX_Crossbow") then
+                Ext.Print("Detected Musketeer Rifle with legacy WeaponType tag, removing WeaponEx Crossbow tag.")
+                ClearTag(characterInventory[j], "LLWEAPONEX_Crossbow")
+            end
+        end
+    end
+end
+Ext.RegisterOsirisListener("GameStarted", 2, "before", Test)
+
+local function Musketeer_Receive_Single_Skill_AmmoCost_Request(call, payload)
+    local message = Ext.JsonParse(payload)
+    local player = message[1]
+    local skillname = message[2]
+    
+    local dbEntry = Osi.DB_Musketeer_Skillist:Get(skillname, nil)
+    if dbEntry ~= nil and dbEntry[1] ~= nil and dbEntry[1][2] ~= nil then
+        Ext.PostMessageToClient(player, "Musketeer_Answer_AmmoCost_Single_Skill", dbEntry[1][2])
+    end
+end
+Ext.RegisterNetListener('Musketeer_Request_AmmoCost_Single_Skill', Musketeer_Receive_Single_Skill_AmmoCost_Request)
+
+

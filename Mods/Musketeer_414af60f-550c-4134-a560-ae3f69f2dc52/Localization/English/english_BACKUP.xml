@@ -1,0 +1,21 @@
+<contentList>
+	<content contentuid="hcf97a6e7ga0ebg4fe3ga4dcg393c9c87423f" Source="BOOK_Skill_Musketeer_BlazingFlare">Skillbooks</content>
+	<content contentuid="h75720fdag6640g4b86g8990g9a0d69360255" Source="Musk_Skill_Helperobject">Grenades</content>
+	<content contentuid="h8311eb63g89cfg41c1g961cgde31f8d79927" Source="Musk_Trap_TripwireFlare"></content>
+	<content contentuid="h98163163g695ag4813gb105g3ade9ea09050" Source="Musketeer_Talents.lsb" Key="Executioner">[1] gives you [2] extra Action Points after dealing a killing blow once per turn.&lt;br&gt;&lt;br&gt;&lt;font color=&apos;#00EFFF&apos;&gt;Additionally restores 1 Ammunition when a Rifle is equipped.&lt;/font&gt;</content>
+	<content contentuid="he68b89dcg0b76g46b6gb707g13dd91f4271b" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_BlazingFlare">Blazing Flare Skillbook</content>
+	<content contentuid="h2889fb0dg3802g4e73g9372g9b3c0fedb59a" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_Buckshot">Buckshot Skillbook</content>
+	<content contentuid="h4e2546c2g63b1g4e4bgbf56g21314f7a3281" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_CoveringFire">Covering Fire Skillbook</content>
+	<content contentuid="hb554230dge28ag49c6g9e82g98ce01bc4e92" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_DeathSentence">Death Sentence Skillbook</content>
+	<content contentuid="h23e62feeg1e09g4c2cgb89bg3b577a27a7f4" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_FinalAct">Final Act Skillbook</content>
+	<content contentuid="h6a61d303gcbfbg4d9eg9229gfeaa79c0a47e" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_RapidFire">Rapid Fire Skillbook</content>
+	<content contentuid="he46262b6g5893g44degb2e0g5629a8dc5bd1" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_RendTheMarked">Rend The Marked Skillbook</content>
+	<content contentuid="h014829e0gb5a5g456ag8dd6gb76993d27cd6" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_SeekerStrikedown">Seeker Strikedown</content>
+	<content contentuid="h470028d5g37f8g4da0ga488g6da056fb6764" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_Steadfast">Steadfast Skillbook</content>
+	<content contentuid="hcb42a7d4g470cg4c83g8a9cga31e6726670a" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_SteadyShot">Steady Shot Skillbook</content>
+	<content contentuid="h4a4c3671g429cg405egae0bg00c8a3eefa00" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_ThrowTripwireFlare">Throw Tripwire Flare Skillbook</content>
+	<content contentuid="hdd4eb621g5d7fg459ag933bgff901135d63b" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_TrackingShot">Tracking Shot Skillbook</content>
+	<content contentuid="ha3f71157ga32dg4745g8732g945f4256e48f" Source="WPN_Musketeer_Rifle_01">Crossbows</content>
+    <content contentuid="h67e90c1eg8eefg4313ga2efg34d42f163756" OT="tag" Comment="For replacing 'Requires tag' when using tag requirements (Thanks LL)"></content>
+	<content contentuid="h01718eadg9b60g4d0bg8250ga98a6296e5a0">Executed! +[1]AP and 1 Ammunition.</content>
+</contentList>

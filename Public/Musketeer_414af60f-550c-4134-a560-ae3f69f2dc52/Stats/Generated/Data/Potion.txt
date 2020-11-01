@@ -162,3 +162,8 @@ data "Act part" "0"
 data "DamageBoost" "15"
 data "Armor" "20"
 
+new entry "Stats_Musk_Blitzkrieg_Mastery1"
+type "Potion"
+data "Act" "1"
+data "Act part" "0"
+data "MagicArmor" "20"

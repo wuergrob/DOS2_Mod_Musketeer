@@ -105,7 +105,7 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="BlazingFlare" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Blazing Flare" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a Flare into the air, which explodes at peak altitude and applies &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; to all enemies in it's area. Reveals invisible enemies.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks all enemies in it's area&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a Flare into the air, which explodes at peak altitude and applies &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; to all enemies in it's area. Reveals invisible enemies.&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks all enemies in it's area&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />

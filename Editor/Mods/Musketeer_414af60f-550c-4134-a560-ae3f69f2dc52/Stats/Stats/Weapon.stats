@@ -22,7 +22,7 @@
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="Weight" type="IntegerStatObjectFieldDefinition" value="3000" />
         <field name="Movement" type="IntegerStatObjectFieldDefinition" value="-100" />
-        <field name="WeaponType" type="EnumerationStatObjectFieldDefinition" value="6" enumeration_type_name="WeaponType" />
+        <field name="WeaponType" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="WeaponType" />
         <field name="Slot" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="Itemslot" />
         <field name="Projectile" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -38,7 +38,7 @@
         <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long; Musk_Rifle_Musket_Equipped" />
         <field name="ComboCategory" type="StringStatObjectFieldDefinition" value="Crossbow,Musk_Rifle" />
       </fields>
     </stat_object>
@@ -47,7 +47,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="_Npc_Rifles" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long; Musk_Rifle_Musket_Equipped" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -62,7 +62,7 @@
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="5" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long; Musk_Rifle_Musket_Equipped" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -72,7 +72,7 @@
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="130" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="4" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long; Musk_Rifle_Musket_Equipped" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -82,7 +82,7 @@
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="110" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="6" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="6" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long; Musk_Rifle_Musket_Equipped" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -98,7 +98,7 @@
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="35" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long; Musk_Rifle_Musket_Equipped" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Finesse 10" />
       </fields>
     </stat_object>
@@ -120,7 +120,7 @@
         <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Short" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Short; Musk_Rifle_Blunderbuss_Equipped" />
         <field name="Weight" type="IntegerStatObjectFieldDefinition" value="2500" />
         <field name="Movement" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="0" />
@@ -133,7 +133,7 @@
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="165" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="2" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Short" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Short; Musk_Rifle_Blunderbuss_Equipped" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
       </fields>
     </stat_object>
@@ -154,7 +154,7 @@
         <field name="MaxAmount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Priority" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MinLevel" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Medium" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Medium; Musk_Rifle_Matchlock_Equipped" />
         <field name="Movement" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Initiative" type="IntegerStatObjectFieldDefinition" value="-1" />
       </fields>
@@ -166,7 +166,7 @@
         <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="140" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="7" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="7" />
-        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Medium" />
+        <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Medium; Musk_Rifle_Matchlock_Equipped" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
       </fields>
     </stat_object>

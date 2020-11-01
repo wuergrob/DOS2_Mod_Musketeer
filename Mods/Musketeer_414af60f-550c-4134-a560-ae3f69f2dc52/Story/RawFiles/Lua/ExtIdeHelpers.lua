@@ -3,6 +3,10 @@ ModuleUUID = "UUID"
 
 Osi = {}
 
+--- From v52 onwards object handles are a type of userdata (lightuserdata) 
+--- instead of integers.
+--- @class ObjectHandle
+
 --- @class DamageItem
 --- @field public DamageType string
 --- @field public Amount integer
@@ -55,6 +59,12 @@ function DamageList.ToTable (self) end
 
 
 --- @class AiGrid
+--- @field public OffsetX number X coordinate the grid starts at
+--- @field public OffsetY number Y coordinate the grid starts at
+--- @field public OffsetZ number Z coordinate the grid starts at
+--- @field public GridScale number Size of each cell in the grid
+--- @field public Width number Total width of the grid
+--- @field public Height number Total height of the grid
 local AiGrid = {}
 
 --- Scans the vicinity of the specified points for surfaces that match the specified flags.
@@ -67,7 +77,28 @@ local AiGrid = {}
 --- @param bias number Height bias
 --- @return boolean
 function AiGrid.SearchForCell (self, x, z, radius, flags, bias) end
-    
+
+--- Returns the contents (game objects, surfaces, etc.) of the specified cell
+--- @param self AiGrid
+--- @param x number X coordinate of point to search
+--- @param z number Z coordinate of point to search
+--- @return table
+function AiGrid.GetCellInfo (self, x, z) end
+
+--- Returns the AI flags (navigation info, surface flags) of the specified cell
+--- @param self AiGrid
+--- @param x number X coordinate of point to search
+--- @param z number Z coordinate of point to search
+--- @return integer
+function AiGrid.GetAiFlags (self, x, z) end
+
+--- Updates the AI flags (navigation info) of the specified cell
+--- @param self AiGrid
+--- @param x number X coordinate of point to search
+--- @param z number Z coordinate of point to search
+--- @param flags integer AI flags
+function AiGrid.SetAiFlags (self, x, z, flags) end
+
 
 --- @class CombatComponentTemplate
 --- @field public Alignment string
@@ -109,7 +140,7 @@ local CombatComponentTemplate = {}
 --- @field public FadeIn boolean
 --- @field public SeeThrough boolean
 --- @field public FadeGroup string
---- @field public GameMasterSpawnSection string
+--- @field public GameMasterSpawnSection integer
 --- @field public GameMasterSpawnSubSection string
 local EoCGameObjectTemplate = {}
 
@@ -266,6 +297,43 @@ local ItemTemplate = {}
 local ProjectileTemplate = {}
 
 
+--- @class SurfaceTemplateStatus
+--- @field public StatusId string
+--- @field public Chance number
+--- @field public Duration number
+--- @field public RemoveStatus boolean
+--- @field public OnlyWhileMoving boolean
+--- @field public ApplyToCharacters boolean
+--- @field public ApplyToItems boolean
+--- @field public KeepAlive boolean
+--- @field public VanishOnReapply boolean
+--- @field public ForceStatus boolean
+
+
+--- @class SurfaceTemplate : GameObjectTemplate
+--- @field public SurfaceTypeId integer
+--- @field public SurfaceType string
+--- @field public DisplayName string
+--- @field public Description string
+--- @field public DecalMaterial string
+--- @field public CanEnterCombat boolean
+--- @field public AlwaysUseDefaultLifeTime boolean
+--- @field public DefaultLifeTime number
+--- @field public SurfaceGrowTimer number
+--- @field public FadeInSpeed number
+--- @field public FadeOutSpeed number
+--- @field public Seed integer
+--- @field public Statuses SurfaceTemplateStatus[]
+--- @field public DamageWeapon string
+--- @field public Summon string
+--- @field public DamageCharacters boolean
+--- @field public DamageItems boolean
+--- @field public DamageTorches boolean
+--- @field public RemoveDestroyedItems boolean
+--- @field public CanSeeThrough boolean
+--- @field public CanShootThrough boolean
+
+
 -- FIXME EclStatus
 
 --- @class EsvStatus
@@ -279,9 +347,9 @@ local ProjectileTemplate = {}
 --- @field public Strength number
 --- @field public StatsMultiplier number
 --- @field public DamageSourceType string See CauseType enumeration
---- @field public StatusHandle integer
---- @field public TargetHandle integer Handle of game object this status was applied to
---- @field public StatusSourceHandle integer Handle of game object that caused this status
+--- @field public StatusHandle ObjectHandle
+--- @field public TargetHandle ObjectHandle Handle of game object this status was applied to
+--- @field public StatusSourceHandle ObjectHandle Handle of game object that caused this status
 ---
 --- StatusFlags0
 --- @field public KeepAlive boolean
@@ -299,16 +367,16 @@ local ProjectileTemplate = {}
 --- StatusFlags2
 --- @field public ForceStatus boolean
 --- @field public ForceFailStatus boolean
+--- @field public RequestClientSync boolean
 --- @field public RequestDelete boolean
 --- @field public RequestDeleteAtTurnEnd boolean
 --- @field public Started boolean
-local EsvStatus = {
-}
+local EsvStatus = {}
 
---- @class EsvStatusHIT : EsvStatus
---- @field public HitByHandle integer
---- @field public HitWithHandle integer
---- @field public WeaponHandle integer
+--- @class EsvStatusHit : EsvStatus
+--- @field public HitByHandle ObjectHandle
+--- @field public HitWithHandle ObjectHandle
+--- @field public WeaponHandle ObjectHandle
 --- @field public HitReason string
 --- @field public SkillId string
 --- @field public Interruption boolean
@@ -318,10 +386,9 @@ local EsvStatus = {
 --- @field public ImpactPosition number[]
 --- @field public ImpactOrigin number[]
 --- @field public ImpactDirection number[]
-local EsvStatusHIT = {
-}
+local EsvStatusHit = {}
 
---- @class EsvStatusCONSUME : EsvStatus
+--- @class EsvStatusConsumeBase : EsvStatus
 --- TODO - Skills, Items, ResetCooldownsSet, StatsIDs?
 --- @field public ResetAllCooldowns boolean
 --- @field public ResetOncePerCombat boolean
@@ -333,16 +400,59 @@ local EsvStatusHIT = {
 --- @field public StackId string
 --- @field public OriginalWeaponStatsId string
 --- @field public OverrideWeaponStatsId string
---- @field public OverrideWeaponHandle integer
+--- @field public OverrideWeaponHandle ObjectHandle
 --- @field public SavingThrow integer TODO enum + enum prop!
 --- @field public SourceDirection number[]
 --- @field public Turn integer
 --- @field public HealEffectOverride string See HealEffect enumeration
 --- @field public Poisoned boolean
-local EsvStatusCONSUME = {
-}
+local EsvStatusConsumeBase = {}
 
---- @class EsvStatusHEALING : EsvStatus
+--- @class EsvStatusDying : EsvStatus
+--- @field public SourceHandle ObjectHandle
+--- @field public SourceType integer
+--- @field public DeathType string See DeathType enumeration
+--- @field public AttackDirection integer
+--- @field public ImpactDirection number[]
+--- @field public IsAlreadyDead boolean
+--- @field public DieActionsCompleted boolean
+--- @field public ForceNoGhost boolean
+--- @field public SkipAnimation boolean
+--- @field public DontThrowDeathEvent boolean
+--- @field public InflicterHandle ObjectHandle
+--- @field public DisputeTargetHandle ObjectHandle
+--- @field public CombatId integer
+--- @field public IgnoreGodMode boolean
+local EsvStatusDying = {}
+
+--- @class EsvStatusHeal : EsvStatus
+--- @field public EffectTime number
+--- @field public HealAmount integer
+--- @field public HealEffect string See HealEffect enumeration
+--- @field public HealEffectId string
+--- @field public HealType string See StatusHealType enumeration
+--- @field public AbsorbSurfaceRange integer
+--- @field public TargetDependentHeal boolean
+local EsvStatusHeal = {}
+
+--- @class EsvStatusMuted : EsvStatusConsumeBase
+
+--- @class EsvStatusCharmed : EsvStatusConsumeBase
+--- @field public UserId integer
+--- @field public OriginalOwnerCharacterHandle ObjectHandle
+local EsvStatusCharmed = {}
+
+--- @class EsvStatusKnockedDown : EsvStatus
+--- @field public KnockedDownState integer
+--- @field public IsInstant boolean
+local EsvStatusKnockedDown = {}
+
+--- @class EsvStatusSummoning : EsvStatus
+--- @field public AnimationDuration number
+--- @field public SummonLevel integer
+local EsvStatusSummoning = {}
+
+--- @class EsvStatusHealing : EsvStatus
 --- @field public HealAmount integer
 --- @field public TimeElapsed number
 --- @field public HealEffect string See HealEffect enumeration
@@ -351,23 +461,277 @@ local EsvStatusCONSUME = {
 --- @field public HealingEvent number
 --- @field public HealStat string See StatusHealType enumeration
 --- @field public AbsorbSurfaceRange integer
-local EsvStatusHEALING = {
-}
+local EsvStatusHealing = {}
 
---- @class EsvStatusHEAL : EsvStatus
+--- @class EsvStatusThrown : EsvStatus
+--- @field public Level integer
+--- @field public CasterHandle ObjectHandle
+--- @field public AnimationDuration number
+--- @field public IsThrowingSelf boolean
+--- @field public LandingEstimate number
+--- @field public Landed boolean
+local EsvStatusThrown = {}
+
+--- @class EsvStatusTeleportFall : EsvStatus
+--- @field public Target number[]
+--- @field public ReappearTime number
+--- @field public SkillId string
+--- @field public HasDamage boolean
+--- @field public HasDamageBeenApplied boolean
+local EsvStatusTeleportFall = {}
+
+--- @class EsvStatusConsume : EsvStatusConsumeBase
+
+--- @class EsvStatusCombat : EsvStatus
+--- @field public ReadyForCombat boolean
+--- @field public OwnerTeamId integer
+local EsvStatusCombat = {}
+
+--- @class EsvStatusAoO : EsvStatus
+--- @field public SourceHandle ObjectHandle
+--- @field public TargetHandle ObjectHandle
+--- @field public PartnerHandle ObjectHandle
+--- @field public ActivateAoOBoost boolean
+--- @field public ShowOverhead boolean
+local EsvStatusAoO = {}
+
+--- @class EsvStatusStoryFrozen : EsvStatus
+
+--- @class EsvStatusSneaking : EsvStatus
+--- @field public ClientRequestStop boolean
+local EsvStatusSneaking = {}
+
+--- @class EsvStatusUnlock : EsvStatus
+--- @field public SourceHandle ObjectHandle
+--- @field public Key string
+--- @field public Level integer
+--- @field public Unlocked integer
+local EsvStatusUnlock = {}
+
+--- @class EsvStatusFear : EsvStatus
+
+--- @class EsvStatusBoost : EsvStatus
 --- @field public EffectTime number
---- @field public HealAmount integer
---- @field public HealEffect string See HealEffect enumeration
---- @field public HealEffectId string
---- @field public HealType string See StatusHealType enumeration
---- @field public AbsorbSurfaceRange integer
---- @field public TargetDependentHeal boolean
-local EsvStatusHEAL = {
-}
+--- @field public BoostId string
+local EsvStatusBoost = {}
+
+--- @class EsvStatusUnsheathed : EsvStatus
+--- @field public Force boolean
+local EsvStatusUnsheathed = {}
+
+--- @class EsvStatusStance : EsvStatusConsumeBase
+--- @field public SkillId string
+local EsvStatusStance = {}
+
+--- @class EsvStatusLying : EsvStatus
+--- @field public ItemHandle ObjectHandle
+--- @field public Position number[]
+--- @field public Index integer
+--- @field public TimeElapsed number
+--- @field public Heal number
+local EsvStatusLying = {}
+
+--- @class EsvStatusBlind : EsvStatusConsumeBase
+
+--- @class EsvStatusSmelly : EsvStatus
+
+--- @class EsvStatusClean : EsvStatus
+
+--- @class EsvStatusInfectiousDiseased : EsvStatusConsumeBase
+--- @field public Infections integer
+--- @field public InfectTimer number
+--- @field public Radius number
+--- @field public TargetHandle ObjectHandle
+local EsvStatusInfectiousDiseased = {}
+
+--- @class EsvStatusInvisible : EsvStatusConsumeBase
+--- @field public InvisiblePosition number[]
+local EsvStatusInvisible = {}
+
+--- @class EsvStatusRotate : EsvStatus
+--- @field public Yaw number
+--- @field public RotationSpeed number
+local EsvStatusRotate = {}
+
+--- @class EsvStatusEncumbered : EsvStatusConsumeBase
+
+--- @class EsvStatusIdentify : EsvStatus
+--- @field public Level integer
+--- @field public Identified integer
+--- @field public IdentifierHandle ObjectHandle
+local EsvStatusIdentify = {}
+
+--- @class EsvStatusRepair : EsvStatus
+--- @field public Level integer
+--- @field public Repaired integer
+--- @field public RepairerHandle ObjectHandle
+local EsvStatusRepair = {}
+
+--- @class EsvStatusMaterial : EsvStatus
+--- @field public MaterialUUID string
+--- @field public ApplyOnBody boolean
+--- @field public ApplyOnArmor boolean
+--- @field public ApplyOnWeapon boolean
+--- @field public ApplyOnWings boolean
+--- @field public ApplyOnHorns boolean
+--- @field public ApplyOnOverhead boolean
+--- @field public IsOverlayMaterial boolean
+--- @field public Fading boolean
+--- @field public ApplyNormalMap boolean
+--- @field public Force boolean
+local EsvStatusMaterial = {}
+
+--- @class EsvStatusLeadership : EsvStatusConsumeBase
+
+--- @class EsvStatusExplode : EsvStatus
+--- @field public Projectile string
+local EsvStatusExplode = {}
+
+--- @class EsvStatusAdrenaline : EsvStatusConsumeBase
+--- @field public InitialAPMod integer
+--- @field public SecondaryAPMod integer
+--- @field public CombatTurn integer
+local EsvStatusAdrenaline = {}
+
+--- @class EsvStatusShacklesOfPain : EsvStatusConsumeBase
+--- @field public CasterHandle ObjectHandle
+local EsvStatusShacklesOfPain = {}
+
+--- @class EsvStatusShacklesOfPainCaster : EsvStatusConsumeBase
+--- @field public VictimHandle ObjectHandle
+local EsvStatusShacklesOfPainCaster = {}
+
+--- @class EsvStatusWindWalker : EsvStatusConsumeBase
+
+--- @class EsvStatusDarkAvenger : EsvStatusConsumeBase
+
+--- @class EsvStatusRemorse : EsvStatusConsumeBase
+
+--- @class EsvStatusDecayingTouch : EsvStatusConsumeBase
+
+--- @class EsvStatusUnhealable : EsvStatus
+
+--- @class EsvStatusFlanked : EsvStatus
+
+--- @class EsvStatusChanneling : EsvStatusStance
+
+--- @class EsvStatusDrain : EsvStatus
+--- @field public Infused integer
+local EsvStatusDrain = {}
+
+--- @class EsvStatusLingeringWounds : EsvStatusConsumeBase
+
+--- @class EsvStatusInfused : EsvStatus
+
+--- @class EsvStatusSpiritVision : EsvStatusConsumeBase
+--- @field public SpiritVisionSkillId string
+local EsvStatusSpiritVision = {}
+
+--- @class EsvStatusSpirit : EsvStatus
+local EsvStatusSpirit = {}
+
+--- @class EsvStatusDamage : EsvStatusConsumeBase
+--- @field public DamageEvent integer
+--- @field public HitTimer number
+--- @field public TimeElapsed number
+--- @field public DamageLevel integer
+--- @field public DamageStats string
+--- @field public SpawnBlood boolean
+local EsvStatusDamage = {}
+
+--- @class EsvStatusForceMove : EsvStatusConsumeBase
+
+--- @class EsvStatusClimbing : EsvStatus
+--- @field public MoveDirection number[]
+--- @field public LadderHandle ObjectHandle
+--- @field public Level string
+--- @field public Status integer
+--- @field public Direction boolean
+local EsvStatusClimbing = {}
+
+--- @class EsvStatusIncapacitated : EsvStatusConsumeBase
+--- @field public CurrentFreezeTime number
+--- @field public FreezeTime number
+--- @field public FrozenFlag integer
+local EsvStatusIncapacitated = {}
+
+--- @class EsvStatusInSurface : EsvStatus
+--- @field public SurfaceTimerCheck number
+--- @field public SurfaceDistanceCheck number
+--- @field public Translate number[]
+--- @field public Force boolean
+--- TODO -- document surface layer flags!
+local EsvStatusInSurface = {}
+
+--- @class EsvStatusSourceMuted : EsvStatus
+
+--- @class EsvStatusOverpowered : EsvStatusConsumeBase
+
+--- @class EsvStatusCombustion : EsvStatusConsumeBase
+
+--- @class EsvStatusPolymorphed : EsvStatusConsumeBase
+--- @field public OriginalTemplate string
+--- @field public TransformedRace string
+--- @field public OriginalTemplateType integer
+--- @field public PolymorphResult string
+--- @field public DisableInteractions boolean
+local EsvStatusPolymorphed = {}
+
+--- @class EsvStatusDamageOnMove : EsvStatusDamage
+--- @field public DistancePerDamage number
+--- @field public DistanceTraveled number
+local EsvStatusDamageOnMove = {}
+
+--- @class EsvStatusDemonicBargain : EsvStatus
+
+--- @class EsvStatusGuardianAngel : EsvStatusConsumeBase
+
+--- @class EsvStatusFloating : EsvStatusConsumeBase
+
+--- @class EsvStatusChallenge : EsvStatusConsumeBase
+--- @field public SourceHandle ObjectHandle
+--- @field public Target boolean
+local EsvStatusChallenge = {}
+
+--- @class EsvStatusDisarmed : EsvStatusConsumeBase
+
+--- @class EsvStatusHealSharing : EsvStatusConsumeBase
+--- @field public CasterHandle ObjectHandle
+local EsvStatusHealSharing = {}
+
+--- @class EsvStatusHealSharingCaster : EsvStatusConsumeBase
+--- @field public TargetHandle ObjectHandle
+local EsvStatusHealSharingCaster = {}
+
+--- @class EsvStatusExtraTurn : EsvStatusConsumeBase
+
+--- @class EsvStatusActiveDefense : EsvStatusConsumeBase
+--- @field public Charges integer
+--- @field public TargetPos number[]
+--- @field public TargetHandle ObjectHandle
+--- @field public Radius number
+--- @field public Projectile string
+local EsvStatusActiveDefense = {}
+
+--- @class EsvStatusSpark : EsvStatusConsumeBase
+--- @field public Charges integer
+--- @field public Radius number
+--- @field public Projectile string
+local EsvStatusSpark = {}
+
+--- @class EsvStatusPlayDead : EsvStatusConsumeBase
+
+--- @class EsvStatusConstrained : EsvStatusLying
+
+--- @class EsvStatusEffect : EsvStatus
+
+--- @class EsvStatusDeactivated : EsvStatusConsumeBase
+
+--- @class EsvStatusTutorialBed : EsvStatus
 
 
 
---- @class StatCharacterDynamic
+--- @class StatCharacterDynamic : StatBase
 --- Properties from PropertyMap
 --- @field public SummonLifelinkModifier integer
 --- @field public Strength integer
@@ -800,7 +1164,7 @@ local StatCharacter = {
 }
 
 
---- @class StatItemDynamic
+--- @class StatItemDynamic : StatBase
 --- @field public Durability integer
 --- @field public DurabilityDegradeSpeed integer
 --- @field public StrengthBoost integer
@@ -935,6 +1299,16 @@ local StatPropertyGameAction = {}
 --- @field Chance number
 --- @field VitalityOnRevive integer
 local StatPropertyOsirisTask = {}
+
+--- @class StatPropertyExtender : StatProperty
+--- @field Type string Extender
+--- @field Action string Custom SkillProperties action name
+--- @field Arg1 number
+--- @field Arg2 number
+--- @field Arg3 string
+--- @field Arg4 integer
+--- @field Arg5 integer
+local StatPropertyExtender = {}
 
 
 --- @class StatItem : StatBase
@@ -1072,7 +1446,7 @@ local EclGameObject = {}
 --- @class EclItem : EclGameObject
 --- @field public RootTemplate ItemTemplate
 --- @field public Stats StatItem
---- @field public Handle integer
+--- @field public Handle ObjectHandle
 ---
 --- @field public WorldPos number[]
 --- @field public CurrentLevel string
@@ -1132,8 +1506,8 @@ function EclItem.GetStatusByType (self, type) end
 function EclItem.GetStatuses (self) end
 
 --- Returns all statuses on the item
---- @param self EsvItem
---- @return EsvStatus[]
+--- @param self EclItem
+--- @return EclStatus[]
 function EclItem.GetStatusObjects (self) end
 
 
@@ -1142,7 +1516,7 @@ function EclItem.GetStatusObjects (self) end
 --- @field public RootTemplate CharacterTemplate
 --- @field public PlayerCustomData PlayerCustomData
 --- @field public Stats StatCharacter
---- @field public Handle integer
+--- @field public Handle ObjectHandle
 ---
 --- @field public WorldPos number[]
 --- @field public CurrentLevel string
@@ -1218,7 +1592,7 @@ local EsvGameObject = {}
 
 
 --- @class EsvItem : EsvGameObject
---- @field public Handle integer
+--- @field public Handle ObjectHandle
 --- @field public RootTemplate ItemTemplate
 --- @field public WorldPos number[]
 --- @field public CurrentLevel string
@@ -1227,16 +1601,16 @@ local EsvGameObject = {}
 --- @field public CustomDescription string
 --- @field public CustomBookContent string
 --- @field public StatsId string
---- @field public InventoryHandle integer
---- @field public ParentInventoryHandle integer
+--- @field public InventoryHandle ObjectHandle
+--- @field public ParentInventoryHandle ObjectHandle
 --- @field public Slot integer
 --- @field public Amount integer
 --- @field public Vitality integer
 --- @field public Armor integer
---- @field public InUseByCharacterHandle integer
+--- @field public InUseByCharacterHandle ObjectHandle
 --- @field public Key string
 --- @field public LockLevel integer
---- @field public OwnerHandle integer
+--- @field public OwnerHandle ObjectHandle
 --- @field public ItemType string
 --- @field public GoldValueOverwrite integer
 --- @field public WeightValueOverwrite integer
@@ -1343,6 +1717,60 @@ function EsvItem.GetStatusObjects (self) end
 
 
 
+
+--- @class ItemDefinition
+--- @field public RootTemplate string
+--- @field public OriginalRootTemplate string
+--- @field public Slot integer
+--- @field public Amount integer
+--- @field public GoldValueOverwrite integer
+--- @field public WeightValueOverwrite integer
+--- @field public DamageTypeOverwrite string DamageType enumeration
+--- @field public ItemType string
+--- @field public CustomDisplayName string
+--- @field public CustomDescription string
+--- @field public CustomBookContent string
+--- @field public GenerationStatsId string
+--- @field public GenerationItemType string
+--- @field public GenerationRandom integer
+--- @field public GenerationLevel integer
+--- @field public StatsLevel integer
+--- @field public Key string
+--- @field public LockLevel integer
+--- @field public EquipmentStatsType integer
+--- @field public HasModifiedSkills boolean
+--- @field public Skills string
+--- @field public HasGeneratedStats boolean
+--- @field public IsIdentified boolean
+--- @field public GMFolding boolean
+--- @field public CanUseRemotely boolean
+--- @field public GenerationBoosts string[]
+--- @field public RuneBoosts string[]
+--- @field public DeltaMods string[]
+local ItemDefinition = {}
+
+--- Clears item progression data (name group, level group, etc.)
+--- @param self ItemDefinition
+function ItemDefinition.ResetProgression (self) end
+
+
+
+--- @class ItemConstructor
+--- Creates an item based on a parsed item or newly created item definition.
+--- Should be initialized using Ext.CreateItemConstructor(item/template) first.
+--- Item definitions can be accessed using c[1], c[2], etc.
+--- For non-recursive item cloning (i.e. creating a single item), there is only one item (c[1]).
+--- For container cloning, the contained items are accessible using c[2], c[3], etc.
+local ItemConstructor = {}
+
+--- Constructs an instance of the item contained in the constructor definition.
+--- The definition is cleared after the item is created.
+--- @param self ItemConstructor
+--- @return EsvItem|nil
+function ItemConstructor.Construct (self) end
+
+
+
 --- @class PlayerCustomData
 --- @field public CustomLookEnabled boolean
 --- @field public Name string
@@ -1380,7 +1808,7 @@ local EsvSkillInfo = {}
 --- @field public PlayerCustomData PlayerCustomData
 --- @field public Stats StatCharacter
 --- @field public DisplayName string
---- @field public Handle integer
+--- @field public Handle ObjectHandle
 ---
 --- @field public NetID integer
 --- @field public MyGuid string
@@ -1393,27 +1821,28 @@ local EsvSkillInfo = {}
 --- @field public NeedsUpdateCount integer
 --- @field public ScriptForceUpdateCount integer
 --- @field public ForceSynchCount integer
---- @field public InventoryHandle integer Not useful yet as you can't use inventory handles for any API
+--- @field public InventoryHandle ObjectHandle Not useful yet as you can't use inventory handles for any API
 --- @field public SkillBeingPrepared string Set while preparing a skill, cleared afterwards
 --- @field public LifeTime number Used for summons to indicate remaining lifetime
 --- @field public TurnTimer number
 --- @field public TriggerTrapsTimer number
 --- @field public UserID integer
---- @field public OwnerHandle integer Handle of owner character (in case of summons/followers)
---- @field public FollowCharacterHandle integer
---- @field public SpiritCharacterHandle integer
---- @field public CorpseCharacterHandle integer
+--- @field public ReservedUserID integer
+--- @field public OwnerHandle ObjectHandle Handle of owner character (in case of summons/followers)
+--- @field public FollowCharacterHandle ObjectHandle
+--- @field public SpiritCharacterHandle ObjectHandle
+--- @field public CorpseCharacterHandle ObjectHandle
 --- @field public PartialAP number Movement AP
 --- @field public AnimType integer
 --- @field public DelayDeathCount integer
 --- @field public AnimationSetOverride string
 --- @field public OriginalTransformDisplayName string
---- @field public PartyHandle integer
+--- @field public PartyHandle ObjectHandle
 --- @field public CustomTradeTreasure string
 --- @field public IsAlarmed boolean
 --- @field public CrimeWarningsEnabled boolean
 --- @field public CrimeInterrogationEnabled boolean
---- @field public MovingCasterHandle integer
+--- @field public MovingCasterHandle ObjectHandle
 --- @field public Archetype string
 --- @field public EquipmentColor string
 --- @field public ProjectileTemplate string
@@ -1433,6 +1862,7 @@ local EsvSkillInfo = {}
 --- @field public HasOwner boolean
 --- @field public InDialog boolean
 --- @field public Summon boolean
+--- @field public CannotDie boolean
 --- @field public CharacterControl boolean
 --- @field public Loaded boolean
 --- @field public InArena boolean
@@ -1446,6 +1876,7 @@ local EsvSkillInfo = {}
 --- @field public PartyFollower boolean
 --- @field public Totem boolean
 --- @field public NoRotate boolean
+--- @field public Deactivated boolean
 --- @field public IsHuge boolean
 --- @field public MadePlayer boolean
 --- @field public LevelTransitionPending boolean
@@ -1491,6 +1922,11 @@ function EsvCharacter.GetSkills (self) end
 --- @return string[]
 function EsvCharacter.GetNearbyCharacters (self, radius) end
 
+--- Returns the GUID of all summons owned by the character
+--- @param self EsvCharacter
+--- @return string[]
+function EsvCharacter.GetSummons (self) end
+
 --- Returns whether the character has the specified tag
 --- @param self EsvCharacter
 --- @param tag string
@@ -1532,11 +1968,26 @@ function EsvCharacter.SetScale (self, scale) end
 
 
 
+--- @class EsvSurface
+--- @field public NetId integer
+--- @field public MyHandle ObjectHandle
+--- @field public SurfaceType string See SurfaceType enumeration
+--- @field public RootTemplate SurfaceTemplate
+--- @field public Flags integer
+--- @field public TeamId integer
+--- @field public OwnerHandle ObjectHandle
+--- @field public LifeTime number
+--- @field public LifeTimeFromTemplate boolean
+--- @field public StatusChance number
+--- @field public Index integer
+--- @field public OwnershipTimer number
+
+
 --- @class EsvShootProjectileRequest
 --- @field public SkillId string
---- @field public Caster integer
---- @field public Source integer
---- @field public Target integer
+--- @field public Caster ObjectHandle
+--- @field public Source ObjectHandle
+--- @field public Target ObjectHandle
 --- @field public StartPosition number[]
 --- @field public EndPosition number[]
 --- @field public Random integer
@@ -1554,13 +2005,13 @@ local EsvShootProjectileRequest = {}
 
 --- @class EsvProjectile : EsvGameObject
 --- @field public RootTemplate ProjectileTemplate
---- @field public Handle integer
+--- @field public Handle ObjectHandle
 --- @field public NetID integer
 --- @field public MyGuid string
---- @field public CasterHandle integer
---- @field public SourceHandle integer
---- @field public TargetObjectHandle integer
---- @field public HitObjectHandle integer
+--- @field public CasterHandle ObjectHandle
+--- @field public SourceHandle ObjectHandle
+--- @field public TargetObjectHandle ObjectHandle
+--- @field public HitObjectHandle ObjectHandle
 --- @field public SourcePosition number[]
 --- @field public TargetPosition number[]
 --- @field public DamageType string
@@ -1571,8 +2022,8 @@ local EsvShootProjectileRequest = {}
 --- @field public ExplodeRadius1 number
 --- @field public DeathType string
 --- @field public SkillId string
---- @field public WeaponHandle integer
---- @field public MovingEffectHandle integer
+--- @field public WeaponHandle ObjectHandle
+--- @field public MovingEffectHandle ObjectHandle
 --- @field public SpawnEffect string
 --- @field public SpawnFXOverridesImpactFX boolean
 --- @field public EffectHandle string
@@ -1599,12 +2050,12 @@ local EsvProjectile = {}
 
 
 --- @class EsvSurfaceAction
---- @field public MyHandle integer
+--- @field public MyHandle ObjectHandle
 local EsvSurfaceAction = {}
 
 
 --- @class EsvCreateSurfaceActionBase : EsvSurfaceAction
---- @field public OwnerHandle integer
+--- @field public OwnerHandle ObjectHandle
 --- @field public Duration number
 --- @field public StatusChance number
 --- @field public Position number[]
@@ -1628,7 +2079,7 @@ local EsvCreateSurfaceAction = {}
 
 
 --- @class EsvChangeSurfaceOnPathAction : EsvCreateSurfaceActionBase
---- @field public FollowObject integer
+--- @field public FollowObject ObjectHandle
 --- @field public Radius number
 --- @field public IgnoreIrreplacableSurfaces boolean
 --- @field public CheckExistingSurfaces boolean
@@ -1708,17 +2159,17 @@ local EsvSwapSurfaceAction = {}
 --- @field public MaxHeight number
 --- @field public GrowTimer number
 --- @field public GrowStep integer
---- @field public GrowStep AiFlags
+--- @field public AiFlags integer
 --- @field public DeathType string
 local EsvZoneAction = {}
 
 
---- @class EsvTransformSurfaceAction : EsvCreateSurfaceActionBase
+--- @class EsvTransformSurfaceAction : EsvSurfaceAction
 --- @field public SurfaceTransformAction string
 --- @field public OriginSurface string
 --- @field public SurfaceLayer integer
 --- @field public GrowCellPerSecond number
---- @field public OwnerHandle2 integer
+--- @field public OwnerHandle2 ObjectHandle
 --- @field public Position number[]
 --- @field public SurfaceLifetime number
 --- @field public SurfaceStatusChance number
@@ -1736,6 +2187,25 @@ local EsvTransformSurfaceAction = {}
 --- @field public ModuleType string
 --- @field public Dependencies string[] Dependency mod UUID-s
 local ModInfo = {}
+
+
+--- @class CustomSkillProperty
+--- @field public GetDescription fun(property:StatPropertyExtender):string|nil
+--- @field public ExecuteOnPosition fun(property:StatPropertyExtender, attacker: EsvGameObject, position: number[], areaRadius: number, isFromItem: boolean, skill: StatEntrySkillData|nil, hit: HitRequest|nil)
+--- @field public ExecuteOnTarget fun(property:StatPropertyExtender, attacker: EsvGameObject, target: EsvGameObject, position: number[], isFromItem: boolean, skill: StatEntrySkillData|nil, hit: HitRequest|nil)
+
+
+--- @class StatSkillSet
+--- @field public Name string
+--- @field public Skills string[]
+
+--- @class StatEquipmentGroup
+--- @field public Name string
+--- @field public Equipment string[]
+
+--- @class StatEquipmentSet
+--- @field public Name string
+--- @field public Groups StatEquipmentGroup[]
 
 --- @class DeltaModBoost
 --- @field public Boost string
@@ -2974,13 +3444,13 @@ function UIObject.GetRoot (self) end
 function UIObject.GetTypeId (self) end
     
 --- @param self UIObject
---- @return integer
+--- @return ObjectHandle
 function UIObject.GetHandle (self) end
     
 --- Returns the handle of the player that this UI element is assigned to.
 --- (Only certain elements have a player assigned, like character sheet, inventory, etc.)
 --- @param self UIObject
---- @return integer|nil
+--- @return ObjectHandle|nil
 function UIObject.GetPlayerHandle (self) end
     
 --- @param self UIObject
@@ -2993,7 +3463,7 @@ function UIObject.Destroy (self) end
 local SurfaceInteractionSet = {}
 
 
---- @alias ExtEngineEvent "'SessionLoading'" | "'SessionLoaded'" | "'ModuleLoading'" | "'ModuleLoadStarted'" | "'ModuleResume'" | "'GameStateChanged'" | "'SkillGetDescriptionParam'" | "'StatusGetDescriptionParam'" | "'GetSkillDamage'" | "'GetSkillAPCost'" | "'ComputeCharacterHit'" | "'CalculateTurnOrder'" | "'GetHitChance'" | "'StatusGetEnterChance'" | '"StatusHitEnter"' | "'BeforeCharacterApplyDamage'" | "'UIInvoke'" | "'UICall'" | "'BeforeShootProjectile'" | "'ShootProjectile'" | "'ProjectileHit'" | "'GroundHit'"
+--- @alias ExtEngineEvent "'SessionLoading'" | "'SessionLoaded'" | "'ModuleLoading'" | "'ModuleLoadStarted'" | "'ModuleResume'" | "'GameStateChanged'" | "'SkillGetDescriptionParam'" | "'StatusGetDescriptionParam'" | "'GetSkillDamage'" | "'GetSkillAPCost'" | "'ComputeCharacterHit'" | "'CalculateTurnOrder'" | "'GetHitChance'" | "'StatusGetEnterChance'" | '"StatusHitEnter"' | "'BeforeCharacterApplyDamage'" | "'UIInvoke'" | "'UICall'" | "'AfterUIInvoke'" | "'AfterUICall'" | "'BeforeShootProjectile'" | "'ShootProjectile'" | "'ProjectileHit'" | "'GroundHit'"
 
 --- @alias ExtGameStateChangedCallback fun(fromState: string, toState: string)
 --- @alias ExtComputeCharacterHitCallback fun(target: StatCharacter, attacker: StatCharacter, weapon: StatItem, damageList: DamageList, hitType: string, noHitRoll: boolean, forceReduceDurability: boolean, hit: HitRequest, alwaysBackstab: boolean, highGroundFlag: string, criticalRoll: string): HitRequest
@@ -3329,6 +3799,24 @@ function Ext.GetStatEntries (type) end
 --- @return string[]
 function Ext.GetStatEntriesLoadedBefore (modId, type) end
 
+--- Returns an attribute of the specified stat entry
+--- @param stat string Stat entry name
+--- @param attribute string Stat attribute name
+--- @return any
+function Ext.StatGetAttribute (stat, attribute) end
+
+--- Updates an attribute of the specified stat entry
+--- @param stat string Stat entry name
+--- @param attribute string Stat attribute name
+--- @param value any New stat value
+function Ext.StatSetAttribute (stat, attribute, value) end
+
+--- Adds a property description to the specified stat entry
+--- @param stat string Stat entry name
+--- @param attribute string Property list attribute name
+--- @param description any Description to add
+function Ext.StatAddCustomDescription (stat, attribute, description) end
+
 --- Returns all skills from the specified skill set
 --- @param name string Name of skill set entry
 --- @return StatSkillSet|nil
@@ -3348,24 +3836,6 @@ function Ext.GetEquipmentSet (name) end
 --- The function expects a table in the same format as the one returned by GetEquipmentSet.
 --- @param equipmentSet StatEquipmentSet
 function Ext.UpdateEquipmentSet (equipmentSet) end
-
---- Returns an attribute of the specified stat entry
---- @param stat string Stat entry name
---- @param attribute string Stat attribute name
---- @return any
-function Ext.StatGetAttribute (stat, attribute) end
-
---- Updates an attribute of the specified stat entry
---- @param stat string Stat entry name
---- @param attribute string Stat attribute name
---- @param value any New stat value
-function Ext.StatSetAttribute (stat, attribute, value) end
-
---- Adds a property description to the specified stat entry
---- @param stat string Stat entry name
---- @param attribute string Property list attribute name
---- @param description any Description to add
-function Ext.StatAddCustomDescription (stat, attribute, description) end
 
 --- Returns the specified DeltaMod or nil on failure
 --- @param name string Name of delta mod
@@ -3439,6 +3909,15 @@ function Ext.GetItemGroup (name) end
 --- @return ItemNameGroup|nil
 function Ext.GetNameGroup (name) end
 
+--- Registers a new skill property that can be triggered via SkillProperties
+--- Stat syntax: data "SkillProperties" "EXT:<PROPERTY_NAME>[,<int>,<int>,<string>,<int>,<int>]"
+--- The property name must always be preceded by the string "EXT:". 
+--- Target contexts (SELF:, TARGET:, ...) and useing multiple actions in the same SkillProperties are supported.
+--- Conditions for EXT: properties (i.e. "IF(COND):") are _NOT YET_ supported.
+--- @param channel string Skill property name
+--- @param defn CustomSkillProperty Event handlers for the skill property
+function Ext.RegisterSkillProperty (name, defn) end
+
 --- Replaces level scaling formula for the specified stat
 --- @param statType string Stat entry type
 --- @param attribute string Stat attribute name
@@ -3481,9 +3960,32 @@ function Ext.EnumIndexToLabel (enum, index) end
 --- @return number|nil
 function Ext.EnumLabelToIndex (enum, label) end
 
+-- Execute the SkillProperties of the specified skill on a target character.
+--- @param skillId string Stats skill ID
+--- @param attacker ObjectHandle|int|string Attacker character handle/NetID/GUID
+--- @param target ObjectHandle|int|string Target character handle/NetID/GUID
+--- @param position number[]
+--- @param propertyContext string Target|AoE|Self|SelfOnHit|SelfOnEquip
+--- @param isFromItem boolean
+function Ext.ExecuteSkillPropertiesOnTarget(skillId, attacker, target, position, propertyContext, isFromItem)
+
+-- Execute the SkillProperties of the specified skill on a position.
+--- @param skillId string Stats skill ID
+--- @param attacker ObjectHandle|int|string Attacker character handle/NetID/GUID
+--- @param position number[]
+--- @param radius number
+--- @param propertyContext string Target|AoE|Self|SelfOnHit|SelfOnEquip
+--- @param isFromItem boolean
+function Ext.ExecuteSkillPropertiesOnPosition(skillId, attacker, position, radius, propertyContext, isFromItem)
+
 --- Returns the transformation rules that are applied when two neighbouring surfaces interact.
 --- @return SurfaceInteractionSet[][]
 function Ext.GetSurfaceTransformRules () end
+
+--- Returns the surface template for the specified surface type
+--- @param type string See SurfaceType enumeration
+--- @return SurfaceTemplate
+function Ext.GetSurfaceTemplate (type) end
 
 --- Updates the transformation rules that are applied when two neighbouring surfaces interact.
 --- @param rules SurfaceInteractionSet[][] New rules to apply
@@ -3501,6 +4003,12 @@ function Ext.ExecuteSurfaceAction (action) end
 --- CAncels a surface action
 --- @param actionHandle integer Action to cancel
 function Ext.CancelSurfaceAction (actionHandle) end
+
+--- Starts creating a new item using template GUID or cloning an existing item.
+--- @param from EsvItem|string Template GUID or item to clone
+--- @param recursive boolean|nil Copy items in container? (cloning only)
+--- @return ItemConstructor
+function Ext.CreateItemConstructor (from, recursive) end
 
 --- Returns the GUID of all characters on the specified level. 
 --- Uses the current level if no level name was specified.
@@ -3531,25 +4039,30 @@ function Ext.GetAllItems (level) end
 function Ext.GetItemsAroundPosition (x, y, z, distance) end
 
 --- Returns the property proxy of the specified character
---- @param id string|integer Character GUID or handle or NetID
+--- @param id string|integer|ObjectHandle Character GUID or handle or NetID
 --- @return EsvCharacter|EclCharacter
 function Ext.GetCharacter (id) end
 
 --- Returns the property proxy of the specified item
---- @param id string|integer Item GUID or handle or NetID
+--- @param id string|integer|ObjectHandle Item GUID or handle or NetID
 --- @return EsvItem|EclCharacter
 function Ext.GetItem (id) end
 
 --- Returns the property proxy of the specified item
---- @param handle integer Game object handle
+--- @param handle ObjectHandle Game object handle
 --- @return EsvGameObject|EclGameObject
 function Ext.GetGameObject (handle) end
 
+--- Returns the property proxy of the specified surface
+--- @param handle ObjectHandle Surface handle
+--- @return EsvSurface
+function Ext.GetSurface (handle) end
+
 --- Returns the property proxy of the specified status
---- @param characterGuid string Character GUID or handle
---- @param handle integer Status handle or NetID
+--- @param character string|integer|ObjectHandle Character GUID or handle or NetID
+--- @param handle integer|ObjectHandle Status handle or NetID
 --- @return EsvStatus
-function Ext.GetStatus (characterGuid, handle) end
+function Ext.GetStatus (character, handle) end
 
 --- Returns the specified turn-based combat
 --- @param combatId integer Combat ID
@@ -3624,7 +4137,7 @@ function Ext.PostMessageToServer (channel, payload) end
 function Ext.RegisterNetListener (channel, handler) end
 
 --- Registers a new dialog voice line for the specified speaker.
---- @param speakerGuid string Original path
+--- @param speakerGuid string Speaker character UUID
 --- @param textKey string Translated string key of text line
 --- @param path string Path to audio .WEM
 --- @param length number Length of audio in seconds
@@ -3687,44 +4200,55 @@ function Ext.GetUIByType (typeId) end
 --- @param name string User-defined unique name that identifies the UI element
 function Ext.DestroyUI (name) end
 
+--- Refresh the UI of the specified character
+--- @param character ObjectHandle Handle of character
+--- @param flags integer UI elements to refresh
+function Ext.UISetDirty (character, flags) end
+
 --- Registers a listener that is called when the specified function is called from Flash
 --- @param object UIObject UI object returned from Ext.CreateUI, Ext.GetUI or Ext.GetBuiltinUI
 --- @param name string ExternalInterface function name
 --- @param handler function Lua handler
-function Ext.RegisterUICall (object, name, handler) end
+--- @param type string|nil Event type - 'Before' or 'After'
+function Ext.RegisterUICall (object, name, handler, type) end
 
 --- Registers a listener that is called when the specified function is called from Flash.
 --- The event is triggered for every UI element with the specified type ID.
 --- @param typeId number Engine UI element type ID
 --- @param name string ExternalInterface function name
 --- @param handler function Lua handler
-function Ext.RegisterUITypeCall (typeId, name, handler) end
+--- @param type string|nil Event type - 'Before' or 'After'
+function Ext.RegisterUITypeCall (typeId, name, handler, type) end
 
 --- Registers a listener that is called when the specified function is called from Flash.
 --- The event is triggered regardless of which UI element it was called on.
 --- (Function call capture must be enabled for every element type that needs to monitored!)
 --- @param name string ExternalInterface function name
 --- @param handler function Lua handler
-function Ext.RegisterUINameCall (name, handler) end
+--- @param type string|nil Event type - 'Before' or 'After'
+function Ext.RegisterUINameCall (name, handler, type) end
 
 --- Registers a listener that is called when the specified method is called on the main timeline of the Flash object
 --- @param object UIObject UI object returned from Ext.CreateUI, Ext.GetUI or Ext.GetBuiltinUI
 --- @param method string Flash method name
 --- @param handler function Lua handler
-function Ext.RegisterUIInvokeListener (object, name, handler) end
+--- @param type string|nil Event type - 'Before' or 'After'
+function Ext.RegisterUIInvokeListener (object, name, handler, type) end
 
 --- Registers a listener that is called when the specified method is called on the main timeline of the Flash object
 --- The event is triggered for every UI element with the specified type ID.
 --- @param typeId number Engine UI element type ID
 --- @param method string Flash method name
 --- @param handler function Lua handler
-function Ext.RegisterUITypeInvokeListener (typeId, name, handler) end
+--- @param type string|nil Event type - 'Before' or 'After'
+function Ext.RegisterUITypeInvokeListener (typeId, name, handler, type) end
 
 --- Registers a listener that is called when the specified method is called on the main timeline of the Flash object
 --- The event is triggered regardless of which UI element it was called on.
 --- @param method string Flash method name
 --- @param handler function Lua handler
-function Ext.RegisterUINameInvokeListener (name, handler) end
+--- @param type string|nil Event type - 'Before' or 'After'
+function Ext.RegisterUINameInvokeListener (name, handler, type) end
 
 --- Registers a listener that is called when a console command is entered in the dev console
 --- @param cmd string Console command
@@ -3738,8 +4262,9 @@ function Ext.SaveFile (path, contents) end
 
 --- Read data from an external (persistent) file
 --- @param path string File path relative to Documents\Larian Studios\Divinity Original Sin 2 Definitive Edition\Osiris Data
+--- @param context string|nil Path context (nil or "user" means relative to the Osiris Data directory; "data" means relative to game data path)
 --- @return string File contents
-function Ext.LoadFile (path) end
+function Ext.LoadFile (path, context) end
 
 --- Returns a monotonic value representing the current time in milliseconds.
 --- Useful for performance measurements / measuring real world time.
@@ -3752,14 +4277,77 @@ function Ext.MonotonicTime () end
 --- @return boolean
 function Ext.PlayerHasExtender (playerGuid) end
 
+--- Triggers a breakpoint in the Lua debugger.
+--- If no debugger is connected, the function does nothing.
+function Ext.DebugBreak () end
+
 --- Handle to double conversion hack for use in Flash external interface calls
 --- (Some of the builtin functions treat handles as double values)
---- @param handle number Integer handle to cast
+--- @param handle ObjectHandle Handle to cast
 --- @return number Double handle
 function Ext.HandleToDouble (handle) end
 
 --- Double to handle conversion hack for use in Flash external interface calls
 --- (Some of the builtin functions treat handles as double values)
 --- @param handle number Double handle to cast
---- @return number Integer handle
+--- @return ObjectHandle Handle
 function Ext.DoubleToHandle (handle) end
+
+Ext.Audio = {}
+
+--- Set audio state switch
+--- @param gameObject ObjectHandle|string|nil Character handle, built-in sound object name or nil
+--- @param switchGroup string Switch group name
+--- @param state string Switch state
+--- @return boolean
+function Ext.Audio.SetSwitch (gameObject, switchGroup, state) end
+
+--- Set audio state
+--- @param stateGroup string State group name
+--- @param state string State
+--- @return boolean
+function Ext.Audio.SetState (stateGroup, state) end
+
+--- Set real-time parameter (RTPC) value
+--- @param gameObject ObjectHandle|string|nil Character handle, built-in sound object name or nil
+--- @param rtpc string Parameter name
+--- @param value number Parameter value
+--- @return boolean
+function Ext.Audio.SetRTPC (gameObject, rtpc, value) end
+
+--- Reset real-time parameter (RTPC) value
+--- @param gameObject ObjectHandle|string|nil Character handle, built-in sound object name or nil
+--- @param rtpc string Parameter Name
+--- @return boolean
+function Ext.Audio.ResetRTPC (gameObject, rtpc) end
+
+--- Get real-time parameter (RTPC) value
+--- @param gameObject ObjectHandle|string|nil Character handle, built-in sound object name or nil
+--- @param rtpc string Parameter name
+--- @return number
+function Ext.Audio.GetRTPC (gameObject, rtpc) end
+
+--- Stop audio
+--- @param gameObject ObjectHandle|string|nil Character handle, built-in sound object name or nil
+function Ext.Audio.Stop (gameObject) end
+
+--- Pause audio playback
+function Ext.Audio.PauseAllSounds () end
+
+--- Resume audio playback
+function Ext.Audio.ResumeAllSounds () end
+
+--- Trigger an audio event
+--- @param gameObject ObjectHandle|string|nil Character handle, built-in sound object name or nil
+--- @param eventName string Event to trigger
+--- @param positionSec number|nil Position in audio track
+--- @return boolean
+function Ext.Audio.PostEvent (gameObject, eventName, positionSec) end
+
+--- Trigger an audio event using an external audio file
+--- @param gameObject ObjectHandle|string|nil Character handle, built-in sound object name or nil
+--- @param eventName string Event to trigger
+--- @param path string Audio file path (relative to data directory)
+--- @param codecId integer Codec ID
+--- @return boolean
+function Ext.Audio.PlayExternalSound (gameObject, eventName, path, codecId) end

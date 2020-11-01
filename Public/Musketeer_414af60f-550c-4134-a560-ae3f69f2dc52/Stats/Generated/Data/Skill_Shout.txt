@@ -217,3 +217,10 @@ data "Magic Cost" "1"
 data "CanTargetCharacters" "Yes"
 data "CanTargetItems" "Yes"
 
+new entry "Shout_Musk_Musket_Mastery_Inspire"
+type "SkillData"
+data "SkillType" "Shout"
+using "Shout_InspireStart"
+data "SkillProperties" "ENCOURAGED,100,1"
+data "AreaRadius" "8"
+

@@ -1,6 +1,6 @@
 new deltamod "Boost_Musketeer_Test"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 param "BoostType" "BaseEpic"
@@ -9,7 +9,7 @@ new boost "_Boost_Weapon_Primary_Finesse_Large",1
 new deltamod "Boost_Weapon_Damage_Poison_Medium_Crossbow_Musk"
 param "BoostType" "Normal"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Poison_Medium_Musk",1
@@ -17,7 +17,7 @@ new boost "_Boost_Weapon_Damage_Poison_Medium_Musk",1
 new deltamod "Boost_Weapon_Skill_SkyShot_Crossbow_Musk"
 param "BoostType" "Legendary"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Primary_Finesse_Large",1
@@ -25,7 +25,7 @@ new boost "_Boost_Weapon_Primary_Finesse_Large",1
 new deltamod "Boost_Weapon_Ability_Ranged_Crossbow_Musk"
 param "BoostType" "Normal"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Ability_Ranged",1
@@ -33,49 +33,49 @@ new boost "_Boost_Weapon_Ability_Ranged",1
 new deltamod "Boost_Weapon_Ability_RangerLore_Crossbow_Musk"
 param "BoostType" "Legendary"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Ability_RangerLore",1
 
 new deltamod "Boost_Weapon_Damage_Poison_Small_Crossbow_Musk"
 param "BoostType" "ItemCombo"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Poison_Small_Musk",1
 
 new deltamod "Boost_Weapon_Damage_Water_Small_Crossbow_Musk"
 param "BoostType" "ItemCombo"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Water_Small_Musk",1
 
 new deltamod "Boost_Weapon_Damage_Fire_Small_Crossbow_Musk"
 param "BoostType" "ItemCombo"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Fire_Small_Musk",1
 
 new deltamod "Boost_Weapon_Damage_Earth_Small_Crossbow_Musk"
 param "BoostType" "ItemCombo"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Earth_Small_Musk",1
 
 new deltamod "Boost_Weapon_Damage_ArmourPiercing_Small_Crossbow_Musk"
 param "BoostType" "ItemCombo"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_ArmourPiercing_Small_Musk",1
 
 new deltamod "Boost_Weapon_Damage_Air_Small_Crossbow_Musk"
 param "BoostType" "ItemCombo"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Air_Small_Musk",1
@@ -83,7 +83,7 @@ new boost "_Boost_Weapon_Damage_Air_Small_Musk",1
 new deltamod "Boost_Weapon_Damage_Water_Medium_Crossbow_Musk"
 param "BoostType" "Normal"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Water_Medium_Musk",1
@@ -91,7 +91,7 @@ new boost "_Boost_Weapon_Damage_Water_Medium_Musk",1
 new deltamod "Boost_Weapon_Damage_Fire_Medium_Crossbow_Musk"
 param "BoostType" "Normal"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Fire_Medium_Musk",1
@@ -99,7 +99,7 @@ new boost "_Boost_Weapon_Damage_Fire_Medium_Musk",1
 new deltamod "Boost_Weapon_Damage_Earth_Medium_Crossbow_Musk"
 param "BoostType" "Normal"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Earth_Medium_Musk",1
@@ -107,7 +107,7 @@ new boost "_Boost_Weapon_Damage_Earth_Medium_Musk",1
 new deltamod "Boost_Weapon_Primary_Finesse_Medium_Bow_Musk"
 param "BoostType" "Primary"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Primary_Finesse_Medium",1
@@ -115,7 +115,7 @@ new boost "_Boost_Weapon_Primary_Finesse_Medium",1
 new deltamod "Boost_Weapon_Damage_Air_Medium_Crossbow_Musk"
 param "BoostType" "Normal"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_Damage_Air_Medium_Musk",1
@@ -123,7 +123,7 @@ new boost "_Boost_Weapon_Damage_Air_Medium_Musk",1
 new deltamod "Boost_Weapon_EmptyRuneSlot_Musk"
 param "BoostType" "RuneEmpty"
 param "MinLevel" "1"
-param "Frequency" "0"
+param "Frequency" "1"
 param "ModifierType" "Weapon"
 param "WeaponType" "Rifle"
 new boost "_Boost_Weapon_EmptyRuneSlot_Musk",1

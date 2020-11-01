@@ -213,3 +213,34 @@ NOTE: Rifle's that were set to `Unique` will not be restored, but it should hope
 
 ### Bugfixes
 -  [Experimental] Fixed a bug that caused Deadlocks/Freezes during combat when control altering `Statuses` are active
+
+## 1.2.0.0 - Partial WeaponEx Compatibility
+
+### Bugfixes 
+
+This patch aims to fix some compatibility issues with `WeaponEx`, most notably how Musketeer Weapons do count towards crossbow masteries instead of firearms.
+
+NOTE: There will be additional patches to further increase compatibility and fix additional bugs. Some bugs will be patched together with the v53 release of the Extender,
+this includes projectile trajectories from inserted runes and some other stuff.
+
+### Bugfixes
+
+- Musketeer Rifle `WeaponType` is now actually `Rifle`
+- Complete `Item Tooltip` logic rework
+
+## 1.2.1.0 - Vending Machine Inventory Deletion
+
+Concerns WeaponEx Vending machine stock/inventory
+
+### Bugfixes 
+
+- Vending machine items should no longer get deleted
+
+## 1.2.2.0 - Legacy Crossbow Tag
+
+Concerns WeaponEx Weapon Mastery
+
+### Bugfixes 
+
+- "Old" (Rifles that were generated before the release of v.1.2.0.0) no longer count towards the `Crossbow` Weapon-Mastery in WeaponEx
+- Fixed an error message that showed up when a session was loading

@@ -1,3 +1,5 @@
+Ext.Require("BootstrapShared.lua")
+
 -- TODO
 
 --[[
@@ -32,6 +34,7 @@ PersistentVars  = {
 	HotbarVisible = true,
 	AmmoBarEnabled = false,
 	PlayerIsInCC = false,
+	WeaponExMasteries = {},
 }
 
 function InitPlayerState()
@@ -371,16 +374,51 @@ local function BuiltInHotbarUIStartDragging(ui, call, arg1)
 	--Musketeer_Reset_Previews_AmmoBar()
 end
 
-local function BuiltInHotbarUIShowSkillTooltip(ui, call, handler, skillname)
+local function BuiltInHotbarUIShowSkillTooltip_Special(ui, call, handler, skillname)
+
 	Musketeer_Check_SkillList_Loaded()
 	DebugPrint("Hotbar Show Skill Tooltip event fired.")
 	--print(arg1)
 	--print(arg2)
 	DebugPrint(skillname)
-	local skillName = skillname
+	local message = {PersistentVars["PlayerCharacterGUID"], skillname}
+	Ext.PostMessageToServer("Musketeer_Request_AmmoCost_Single_Skill", Ext.JsonStringify(message))
+end
 
-	local amount = Musketeer_Ammo_Skills[skillName]
+local function BuiltInHotbarUIShowSkillTooltip_Special_ReceiveCost(call, amount)
+	--amount = string.format("%s", amount)
+	--Ext.Print(amount)
+	--Ext.Print(type(amount))
+	amount = math.tointeger(amount)
+	if amount ~= nil and type(amount) == string then
+		amount = tonumber(amount)
+		DebugPrint("converted number from string to number")
+	end
+    if amount ~= nil and amount ~= 0 then
+		DebugPrint("skillCheckForAmmoBarPreview check here, skill is present and doesn't cost 0");
+		Musketeer_AmmoBar_Difference_Preview(nil, amount)
+	else
+		Musketeer_Reset_Previews_AmmoBar()
+	end
+	DebugPrint("End of BuiltInHotbarUIShowSkillTooltip")
+end
+Ext.RegisterNetListener("Musketeer_Answer_AmmoCost_Single_Skill", BuiltInHotbarUIShowSkillTooltip_Special_ReceiveCost)
+
+local function BuiltInHotbarUIShowSkillTooltip(ui, call, handler, skillname)
+	
+
+	-- Trying to add dynamic ammo costs, so adding a second handler for now.
+	if skillname == "Projectile_Tracking_Shot" then BuiltInHotbarUIShowSkillTooltip_Special(ui, call, handler, skillname) return end
+
+	Musketeer_Check_SkillList_Loaded()
+	DebugPrint("Hotbar Show Skill Tooltip event fired.")
+	--print(arg1)
+	--print(arg2)
+	DebugPrint(skillname)
+	local amount = Musketeer_Ammo_Skills[skillname]
 	DebugPrint(amount)
+	Ext.Print(amount)
+	Ext.Print(type(amount))
 
 	if amount ~= nil and type(amount) == string then
 		amount = tonumber(amount)
@@ -439,13 +477,6 @@ local function BuiltInHotbarUIButtonPressed(ui, call, arg1)
 	DebugPrint(arg1)
 end
 
-local function BuiltInHotbarUISlotPressed(ui, call, arg1, arg2)
-	DebugPrint("----------------------------------")
-	DebugPrint("Hotbar UI Slot Pressed Event fired.")
-	DebugPrint(arg1)
-	DebugPrint(arg2)
-end
-
 -- We will need to send a json string over because we need to pass 2 variables;
 -- player and slotNumber.
 local function RequestServerSkillbarEntry(index)
@@ -463,6 +494,21 @@ local function ReceiveSkillbarEntry(call, entry)
 	end
 end
 Ext.RegisterNetListener("skillbar_entry_answer", ReceiveSkillbarEntry)
+
+local function ReceiveSkillbarEntryAndUpdate(call, message)
+	local messageTable = Ext.JsonParse(message)
+	local entry = messageTable[1]
+	local cost = messageTable[2]
+	Musketeer_Ammo_Skills[entry] = cost
+	DebugPrint("[Client]: Got SkillbarEntry (UPDATE) from Server, preview...")
+	if PersistentVars["PlayerActiveSkillPreview"] == true then
+		BuiltInHotbarUIShowSkillTooltip(nil, nil, nil, entry)
+	end
+end
+Ext.RegisterNetListener("skillbar_entry_answer_update_cost", ReceiveSkillbarEntryAndUpdate)
+
+
+
 
 local function BuiltInHotbarActiveSkill(ui, call, arg1, index)
 	DebugPrint("----------------------------------")
@@ -546,7 +592,7 @@ local function Musketeer_AmmoBar_Visibility_Hotbar(ui, event, handle)
 	Musketeer_AmmoBar_Visibility(nil, PersistentVars["AmmoBarEnabled"])
 end
 
-local function RegisterBuiltInUIListeners() 
+local function RegisterBuiltInUIListeners()
 	-- Listen to the hotbar for when the sheet opens
 	local hotbar = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
 	local tooltip = Ext.GetBuiltinUI("Public/Game/GUI/tooltip.swf")
@@ -563,7 +609,6 @@ local function RegisterBuiltInUIListeners()
 		Ext.RegisterUICall(hotbar, "useAction", BuiltInHotbarUIUseAction)
 		Ext.RegisterUICall(hotbar, "slotUpEnd", BuiltInHotbarUISlotUpEnd)
 		Ext.RegisterUICall(hotbar, "hotbarBtnPressed", BuiltInHotbarUIButtonPressed)
-		Ext.RegisterUICall(hotbar, "SlotPressed", BuiltInHotbarUISlotPressed, "IsOnCooldown")
 		Ext.RegisterUICall(hotbar, "showCharTooltip", DebugStuffs2)
 
 		if tooltip ~= nil then
@@ -789,7 +834,7 @@ local function setCompareTooltipHandler(arg1, ...)
 
 end
 
-
+--Item1 = nil
 -- Overwrite the original function to set own character handle logic
 local function GetCompareItemOverride(ui, item, offHand)
 	local owner = nil
@@ -802,7 +847,8 @@ local function GetCompareItemOverride(ui, item, offHand)
 	Ext.Print(testithing.GetPlayerHandle())
 	Ext.Print(testithing:GetPlayerHandle())
 	--]]
-
+	--Item1 = item
+	--Ext.Print(Item1)
 	if PersistentVars.PlayerCharacterGUID == nil then
 		owner = Ext.GetCharacter(Ext.DoubleToHandle(Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf"):GetRoot().hotbar_mc.characterHandle))
 		if owner == nil then
@@ -843,7 +889,7 @@ local function GetCompareItemOverride(ui, item, offHand)
     end
 end
 
-Game.Tooltip.TooltipHooks.GetCompareItem = GetCompareItemOverride
+
 
 local function OnRenderTooltipOverride(ui, method, ...)
 	if ui.GetValue == nil then
@@ -886,7 +932,7 @@ local function OnRenderTooltipOverride(ui, method, ...)
 	Game.Tooltip.TooltipHooks.NextRequest = nil
 end
 
-Game.Tooltip.TooltipHooks.OnRenderTooltip = OnRenderTooltipOverride
+
 
 --local Musketeer_WeaponType_Musket = Ext.GetTranslatedString("", "Musket")
 ---@param item EclItem
@@ -932,74 +978,38 @@ Ext.RegisterListener("SessionLoaded", function()
     Game.Tooltip.RegisterListener("Item", nil, Musketeer_OnItemTooltip)
 end)
 
+Ext.RegisterListener("SessionLoaded", function()
+	if not Ext.IsModLoaded("7e737d2f-31d2-4751-963f-be6ccc59cd0c") then
+		Ext.Print("LeaderLib not loaded yet, overriding tooltip item compare hooks.")
+		Game.Tooltip.TooltipHooks.OnRenderTooltip = OnRenderTooltipOverride
+		Game.Tooltip.TooltipHooks.GetCompareItem = GetCompareItemOverride
+	end
+end)
 
-
---- @param ui UIObject
---- @param item EclItem
---- @param offHand boolean
---- @return string|nil
--- Game.Tooltip.TooltipHooks:GetCompareItem = GetCompareItemOverride
-
-
-
-
---Ext.RegisterUINameInvokeListener("addCompareTooltip", setCompareTooltipHandler)
--- NOTE ON TALENTS:
--- characterSheet.swf Maintimeline has a "addTalent" function.
--- Adding a talent with a "statid" out of bounds crashes the game. (Out of bounds means, "statid" is higher than max enum value here https://docs.larian.game/Scripting_talent_types)
--- Script extender has a Game.Tooltip library, maybe this can be used to add more talents.
-
--- print(Ext.GetCharacter("ad9a3327-4456-42a7-9bf4-7ad60cc9e54f").Stats.TALENT_Bully) works server side.
-
-
---[[
-
-For talent_array formatting, consider this snippet from the extender discord:
-
-local function SessionLoaded()
-    Ext.RegisterUINameInvokeListener("updateArraySystem", function(ui, call, ...)
-        --PrintArray(ui, "tags_array")
-        local i = GetArrayIndexStart(ui, "talent_array", 1)
-        ui:SetValue("talent_array", "Undead", i)
-        ui:SetValue("talent_array", Data.TalentEnum.Zombie, i+1)
-        ui:SetValue("talent_array", 0, i+2)
-        ui:SetValue("talent_array", "Corpse Eater", i+3)
-        ui:SetValue("talent_array", Data.TalentEnum.Elf_CorpseEating, i+4)
-        ui:SetValue("talent_array", 0, i+5)
-        PrintArray(ui, "talent_array")
-    end)
+local function Musketeer_WeaponEx_AddToPersistentVars_Listener(channel, jsonString)
+	Ext.Print("[Musketeer Client]: Add WeaponEx stuff to PersistentVars")
+	local message = Ext.JsonParse(jsonString)
+	local key = message[1]
+	local value = message[2]
+	if #message == 2 and key ~= nil and value ~= nil then
+		if value == "yes" then
+			PersistentVars.WeaponExMasteries[key] = 1
+		elseif value == "no" then
+			PersistentVars.WeaponExMasteries[key] = 0
+		end
+	end
 end
+Ext.RegisterNetListener("Musketeer_WeaponEx_Mastery_PersistentVars", Musketeer_WeaponEx_AddToPersistentVars_Listener)
 
-Ext.RegisterListener("SessionLoaded", SessionLoaded)
-
-
-Also, use the following to reset the Lua VM (In server context):
-NRD_LuaReset(1,1,1)
-
-
-
---- Concerning updating the Hotbar for refreshing Skill Requirements:
-
-Three functions exist, that could possibly refresh the skills:
-
-
-      public function updateSlots() : *
-      {
-         this.hotbar_mc.slotholder_mc.updateSlots();
-      }
-
-      public function updateSlotData() : *
-      {
-         this.hotbar_mc.slotholder_mc.updateSlotData();
-      }
-
-      public function updateActionSkills() : *
-      {
-         this.actionSkillHolder_mc.update(this.actionSkillArray);
-      }
-
-
-
-	  "updateSlotData" is most probably the correct one.
-]]
-
+Ext.RegisterListener("GetSkillAPCost", function (skill, character, grid, position, radius)
+	if skill.Name ~= "Rush_Musk_Blitzkrieg" then return end
+	local calculatedCost, affinity = Game.Math.GetSkillAPCost(skill, character, grid, position, radius)
+    if PersistentVars.WeaponExMasteries.Blunderbuss_Mastery1_Enhanced_Blitzkrieg == 1 then
+        --Ext.Print("[Client] Blunderbuss Mastery1 PersVar is set")
+		if calculatedCost > 0 then
+			return calculatedCost - 1, affinity
+		end
+		return 0, affinity
+    end
+    --Ext.Print("GetSkillApCost with Blitzkrieg called, but cost was not modified.")
+end)

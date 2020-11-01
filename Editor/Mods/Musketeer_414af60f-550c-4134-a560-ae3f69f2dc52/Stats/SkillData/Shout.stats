@@ -206,5 +206,13 @@
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
       </fields>
     </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Musket_Mastery_Inspire" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="InspireStart" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="ENCOURAGED,100,1" />
+        <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="8" />
+      </fields>
+    </stat_object>
   </stat_objects>
 </stats>
