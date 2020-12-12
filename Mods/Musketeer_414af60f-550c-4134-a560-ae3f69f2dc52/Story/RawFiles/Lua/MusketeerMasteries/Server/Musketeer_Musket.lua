@@ -1,24 +1,23 @@
-Ext.Print("[Musketeer] Musket Weapon Mastery file loaded!")
-
-function Musketeer_GetRandomPosAround_Mastery(X, Y, Z, Radius)
-    local newX = X + ((math.random() - 0.5) * Radius)
-    local newY = Y + ((math.random() - 0.5) * Radius)
-    local newZ = Z + ((math.random() - 0.5) * Radius)
-    return newX, newY, newZ
-end
 
 if WeaponEx ~= nil then
 
+	Ext.Print("[Musketeer] Musket Weapon Mastery file loaded!")
+
 	WeaponEx.MasteryBonusManager.RegisterSkillListener({"Target_FirstAid"}, {"MUSK_MUSKET_FIRST_AID"}, function(bonuses, skill, char, state, skillData)
 		if state == WeaponEx.SKILL_STATE.CAST then
-			ApplyStatus(char, "MUSK_MASTERY_FIRST_AID", 0.0, 1, char)
 			ApplyStatus(skillData.TargetObjects[1], "MUSK_MASTERY_FIRST_AID", 0.0, 1, char)
+			if skillData.TargetObjects[1] ~= char then
+				ApplyStatus(char, "MUSK_MASTERY_FIRST_AID", 0.0, 1, char)
+			end
 		end
 	end)
 
 	WeaponEx.RegisterStatusListener("StatusRemoved", "RELOAD_DEBUFF", function(char, status)
 		local character = Ext.GetCharacter(char)
-		if not WeaponEx.MasteryBonusManager.HasMasteryBonuses(character.MyGuid, "MUSK_MUSKET_RELOAD_INSPIRE") then Ext.Print("Reload Debuff was removed, but Reload Mastery is not active") return end
+		if not WeaponEx.MasteryBonusManager.HasMasteryBonuses(character.MyGuid, "MUSK_MUSKET_RELOAD_INSPIRE") then 
+			--Ext.Print("Reload Debuff was removed, but Reload Mastery is not active") 
+			return
+		end
 		CharacterUseSkill(char, "Shout_Musk_Musket_Mastery_Inspire", char, 1, 1, 1)
 		PlayEffect(char, "RS3_FX_Skills_Divine_Cast_Shout_GuardianAngel_Root_01")
 	end)
@@ -26,13 +25,18 @@ if WeaponEx ~= nil then
 	WeaponEx.MasteryBonusManager.RegisterSkillListener({"Projectile_Musk_Grenade_GrenadeAssault"}, {"MUSK_MUSKET_GRENADE_ASSAULT"}, function(bonuses, skill, char, state, skillData)
 		if state == WeaponEx.SKILL_STATE.CAST then
 			--Ext.Print(Ext.JsonStringify(skillData))
+			--Ext.Print("Grenade Assault cast")
 			if #skillData.TargetPositions[1] >= 3 then
 				local targetPositions = skillData.TargetPositions[1]
 				for i,v in pairs(Ext.GetCharacter(char):GetNearbyCharacters(13)) do
+					--Ext.Print(i)
+					--Ext.Print(v)
 					--Ext.Print(CombatGetIDForCharacter(v))
-					if CharacterIsDead(v) == 0 and CharacterIsAlly(char, v) == 1 and CharacterIsEnemy(char, v) == 0 and v ~= char then
-							local x,y,z = Musketeer_GetRandomPosAround_Mastery(targetPositions[1], targetPositions[2], targetPositions[3], 5)
-							CharacterUseSkillAtPosition(v, "Projectile_Musk_Grenade_GrenadeAssault_Child", x, y, z, 1, 1)
+					if CharacterIsDead(v) == 0 and CharacterIsAlly(char, v) == 1 and v ~= char then
+						--Ext.Print(v)
+						local x,y,z = Musketeer_GetRandomPosAround_Mastery(targetPositions[1], targetPositions[2], targetPositions[3], 5)
+						--print(x, y, z)
+						CharacterUseSkillAtPosition(v, "Projectile_Musk_Grenade_GrenadeAssault_Child", x, targetPositions[2], z, 0, 1)
 					end
 				end
 			end
@@ -40,7 +44,7 @@ if WeaponEx ~= nil then
 	end)
 
 	function Musketeer_Musket_Mastery_Enable_Grenade_Assault(objectGuid, tag)
-		if tag == "Musk_Rifle_Musket_Mastery2" and ObjectIsCharacter(objectGuid) then
+		if tag == "Musk_Rifle_Musket_Mastery2" and ObjectIsCharacter(objectGuid) == 1 then
 			--local character = Ext.GetCharacter(objectGuid)
 			CharacterAddSkill(objectGuid, "Projectile_Musk_Grenade_GrenadeAssault", 1)
 		end
@@ -50,26 +54,45 @@ if WeaponEx ~= nil then
 	local function Musketeer_Musket_Mastery_Enable_Grenade_Assault_Check(...)
 		for i,db in pairs(Osi.DB_IsPlayer:Get(nil)) do
 			local player = db[1]
-			if IsTagged(player, "Musk_Rifle_Musket_Mastery2") then
+			if IsTagged(player, "Musk_Rifle_Musket_Mastery2") == 1 then
 				Musketeer_Musket_Mastery_Enable_Grenade_Assault(player, "Musk_Rifle_Musket_Mastery2")
 			end
 		end
 	end
-	Ext.RegisterOsirisListener("GameStarted", 2, "after", Musketeer_Musket_Mastery_Enable_Grenade_Assault_Check)
+	Ext.RegisterOsirisListener("SessionLoaded", 2, "after", Musketeer_Musket_Mastery_Enable_Grenade_Assault_Check)
 
 
 	local function Musketeer_Musket_Mastery_Blazing_Flare_Radius(projectile)
-		--Ext.Print("CANYOUTALK??")
-		if projectile.SkillId == "Projectile_Flare_Explosion" then
-			Ext.Print("Blazing Flare Projectile was launched.")
-			--Ext.Print("projectile.ExplodeRadius0 and projectile.ExplodeRadius1:")
-			--Ext.Print(projectile.ExplodeRadius0)
-			--Ext.Print(projectile.ExplodeRadius0)
-			projectile.ExplodeRadius0 = projectile.ExplodeRadius0 + 3
-			projectile.ExplodeRadius1 = projectile.ExplodeRadius1 + 3
+		if projectile.SkillId ~= "Projectile_Flare_Explosion" then return end
+		--Ext.PrintWarning("[Musketeer Blazing Flare Mastery] Tag checking added. Working correctly?")
+		local attacker = Ext.GetCharacter(projectile.CasterHandle)
+		--Ext.Print(PersistentVars.WeaponExMasteries[attacker.MyGuid])
+		--Ext.Print(PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Musket_Mastery4"])
+		-- TODO: add check for Mastery tag
+		if PersistentVars.WeaponExMasteries[attacker.MyGuid] ~= nil
+		and PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Musket_Mastery4"] == 1 then
+				--Ext.Print("Blazing Flare Projectile was launched.")
+				projectile.ExplodeRadius0 = projectile.ExplodeRadius0 + 3
+				projectile.ExplodeRadius1 = projectile.ExplodeRadius1 + 3
 		end
 	end
 	Ext.RegisterListener("ShootProjectile", Musketeer_Musket_Mastery_Blazing_Flare_Radius)
+
+	function Musketeer_Musket_Mastery_BlazingFlare(objectGuid, tag)
+		if tag ~= "Musk_Rifle_Musket_Mastery4" and tag ~= "Musk_Rifle_Musket_Equipped" then return end
+		local tagList = {"Musk_Rifle_Musket_Mastery4"}
+		for i = 1, #tagList, 1 do
+			if IsTagged(objectGuid, tagList[i]) == 1 and IsTagged(objectGuid, "Musk_Rifle_Musket_Equipped") == 1 then
+				Musketeer_WeaponEx_AddToPersistentVars(objectGuid, tagList[i], "yes")
+			end
+
+			if IsTagged(objectGuid, tagList[i]) == 0 or IsTagged(objectGuid, "Musk_Rifle_Musket_Equipped") == 0 then
+				Musketeer_WeaponEx_AddToPersistentVars(objectGuid, tagList[i], "no")
+			end
+		end
+	end
+	Ext.RegisterOsirisListener("ObjectWasTagged", 2, "before", Musketeer_Musket_Mastery_BlazingFlare)
+	Ext.RegisterOsirisListener("ObjectLostTag", 2, "before", Musketeer_Musket_Mastery_BlazingFlare)
 	--[[
 	WeaponEx.MasteryBonusManager.RegisterSkillListener({"Target_Musk_GrenadeAssault"}, {"MUSK_MUSKET_FIRST_AID"}, function(bonuses, skill, char, state, skillData)
 		if state == WeaponEx.SKILL_STATE.CAST then

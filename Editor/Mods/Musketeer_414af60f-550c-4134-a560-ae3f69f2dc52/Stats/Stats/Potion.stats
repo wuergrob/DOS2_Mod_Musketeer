@@ -92,6 +92,13 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Steadfast_Blunderbuss_Mastery" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Stats_Musk_Steadfast" />
+        <field name="MovementSpeedBoost" type="IntegerStatObjectFieldDefinition" value="-25" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_BOOST_TEST" />
         <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
@@ -205,6 +212,33 @@
         <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
         <field name="DamageBoost" type="IntegerStatObjectFieldDefinition" value="15" />
         <field name="Armor" type="IntegerStatObjectFieldDefinition" value="20" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Mastery_Counterstrike" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="BonusWeapon" type="StringStatObjectFieldDefinition" value="Status_Musk_Mastery_Counterstrike" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Empty_Stats_Param_Dummy" />
+        <field name="AuraRadius" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Repair" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="Comment" type="CommentStatObjectFieldDefinition" value="Used to hold values for other skills to refer as as stats params" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="Vitality" type="IntegerStatObjectFieldDefinition" value="20" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Stats_Musk_Blitzkrieg_Mastery_MagicArmor" />
+        <field name="Act" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Act" />
+        <field name="Act part" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ActPart" />
+        <field name="MagicArmor" type="IntegerStatObjectFieldDefinition" value="20" />
       </fields>
     </stat_object>
   </stat_objects>

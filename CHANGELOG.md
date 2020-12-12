@@ -244,3 +244,60 @@ Concerns WeaponEx Weapon Mastery
 
 - "Old" (Rifles that were generated before the release of v.1.2.0.0) no longer count towards the `Crossbow` Weapon-Mastery in WeaponEx
 - Fixed an error message that showed up when a session was loading
+
+------------------------------------------------------------------------------------------
+
+## 1.3.0.0 - Musketer Reloaded: WeaponExpansion Masteries
+
+Musketeer Masteries! Patch 1.3 adds advanced interactions with Laughing Leader's Weapon Mastery system, introducing a unique Mastery tree for each
+Musketeer Firearms. Each Mastery has been designed to highlight their weapon's characteristics and offer you more profound ways to unleash destruction upon your foes.
+
+Also, a big thank you to all players that have been so kind to take their time and write very detailed feedback and bugreports! You've been a huge help.
+
+### Weapon Expansion Masteries
+- Requires Laughing Leader's Weapon Expansion Mod to be loaded *before* the Musketeer Mod!
+- Muskets, Blunderbusses and Matchlocks count towards the `Firearm` Mastery
+- New Mastery category for each Musketeer weapon type!
+
+### Musket Mastery
+Control the battle and inspire your allies! Musket Mastery-Ranks grant your whole team an edge in combat by bolstering defensive and offensive options alike!
+
+### Blunderbuss Mastery
+Up close and personal. Blunderbuss Mastery-Ranks enable a aggressive playstyle from close range by increasing your lethality and giving you more tools for positioning and closing the gap!
+
+### Matchlock Mastery
+The hunter's choice. Obliterate your prey and shatter your enemies defenses with precise strikes and fire superiority.
+
+## Bugfixes
+
+- Rewrote `Covering Fire` logic, no longer does nothing when using it would leave you at 0 AP.
+`Ammunition` used by `Covering Fire` is no longer subtracted all at once, but instead whenever a shot is fired.
+- Fixed inconsistent naming for `Doom Ammunition`
+- Fixed `Reload` debuffs being removed at the end of the current turn, instead of at the beginning of the next turn.
+- Runes inserted into `Rifles` no longer change the trajectory to an arc
+- Fixed a bug that caused issues when identifying if a character is wielding a `Rifle` or not
+- [Experimental] Fixed a bug that caused softlocks when a character wielding a `Rifle` was charmed, taunted, mad or under similiar status influences
+
+### Balance & Design
+NOTE: `Damage` and `Critical Damage` value changes can defer slightly from the listed changes, as multiple variations with different stat baselines exist.
+
+From general observation, `Muskets`, `Blunderbusses` and `Matchlocks` appear to be overperforming quite a bit.
+The balance changes in this patch aim to reduce the overall damage output of Musketeer Firearm's and skills, whilst increasing
+bonus damage values from `Marked` interactions.
+
+The intention of this rebalancement is to bring the Musketeer Mod in line with the game's original classes in terms of strength and increase
+the importance of `Marked` interactions to encourage strategic decision making.
+
+
+- `Musket` Damage decreased from 120 to 110 and `Critical Damage` decreased from 160 to 155
+- `Blunderbuss` Damage decreased from 155 to 135 and `Critical Damage` decreased from 175 to 170
+- `Matchlock` Damage decreased from 145 to 120 and `Critical Damage` decreased from 165 to 160
+- Adjusted `Blunderbuss` and `Matchlock` price values to fit `Musket` price value stat
+- `Tracking Shot` Damage decreased from 110 to 80
+- `Buckshot` Damage decreased from 120 to 100
+- `Steady Shot` Damage decreased from 110 to 105, Damage on `Marked` targets increased from 50% to 65%
+- `Final Act` Damage decreased from 180 to 160, Damage on `Marked` targets increased from 60% to 75%
+- All `Reload` Variations do no longer break stealth when cast. 
+(Additionally, all `Reload` bonus effects gained from masteries can be cast from stealth)
+
+

@@ -404,11 +404,31 @@ local function BuiltInHotbarUIShowSkillTooltip_Special_ReceiveCost(call, amount)
 end
 Ext.RegisterNetListener("Musketeer_Answer_AmmoCost_Single_Skill", BuiltInHotbarUIShowSkillTooltip_Special_ReceiveCost)
 
+local function BuiltInHotbarUIShowSkillTooltip_Special_Fire_Up_ReceiveCost(call, amount)
+	--amount = string.format("%s", amount)
+	--Ext.Print(amount)
+	--Ext.Print(type(amount))
+	amount = math.tointeger(amount)
+	if amount ~= nil and type(amount) == string then
+		amount = tonumber(amount)
+		DebugPrint("converted number from string to number")
+	end
+    if amount ~= nil and amount ~= 0 then
+		DebugPrint("skillCheckForAmmoBarPreview check here, skill is present and doesn't cost 0");
+		Musketeer_AmmoBar_Difference_Preview(nil, amount)
+	else
+		Musketeer_Reset_Previews_AmmoBar()
+	end
+	DebugPrint("End of BuiltInHotbarUIShowSkillTooltip")
+end
+Ext.RegisterNetListener("Musketeer_Blunderbuss_Fire_Up_AmmoRefund", BuiltInHotbarUIShowSkillTooltip_Special_Fire_Up_ReceiveCost)
+
 local function BuiltInHotbarUIShowSkillTooltip(ui, call, handler, skillname)
 	
 
 	-- Trying to add dynamic ammo costs, so adding a second handler for now.
-	if skillname == "Projectile_Tracking_Shot" then BuiltInHotbarUIShowSkillTooltip_Special(ui, call, handler, skillname) return end
+	--if skillname == "Projectile_Tracking_Shot" then BuiltInHotbarUIShowSkillTooltip_Special(ui, call, handler, skillname) return end
+	if skillname == "Shout_Musk_Blunderbuss_Mastery_Fire_Up" then BuiltInHotbarUIShowSkillTooltip_Special(ui, call, handler, skillname) return end
 
 	Musketeer_Check_SkillList_Loaded()
 	DebugPrint("Hotbar Show Skill Tooltip event fired.")
@@ -417,8 +437,8 @@ local function BuiltInHotbarUIShowSkillTooltip(ui, call, handler, skillname)
 	DebugPrint(skillname)
 	local amount = Musketeer_Ammo_Skills[skillname]
 	DebugPrint(amount)
-	Ext.Print(amount)
-	Ext.Print(type(amount))
+	--Ext.Print(amount)
+	--Ext.Print(type(amount))
 
 	if amount ~= nil and type(amount) == string then
 		amount = tonumber(amount)
@@ -849,6 +869,7 @@ local function GetCompareItemOverride(ui, item, offHand)
 	--]]
 	--Item1 = item
 	--Ext.Print(Item1)
+	if item == nil or item.Stats == nil then print("item comparison: item stat is nil") return end
 	if PersistentVars.PlayerCharacterGUID == nil then
 		owner = Ext.GetCharacter(Ext.DoubleToHandle(Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf"):GetRoot().hotbar_mc.characterHandle))
 		if owner == nil then
@@ -987,29 +1008,109 @@ Ext.RegisterListener("SessionLoaded", function()
 end)
 
 local function Musketeer_WeaponEx_AddToPersistentVars_Listener(channel, jsonString)
-	Ext.Print("[Musketeer Client]: Add WeaponEx stuff to PersistentVars")
+	--Ext.Print("[Musketeer Client]: Add WeaponEx stuff to PersistentVars")
 	local message = Ext.JsonParse(jsonString)
 	local key = message[1]
-	local value = message[2]
-	if #message == 2 and key ~= nil and value ~= nil then
+	local guid = message[2]
+	local value = message[3]
+	if #message == 3 and key ~= nil and value ~= nil and guid ~= nil then
 		if value == "yes" then
-			PersistentVars.WeaponExMasteries[key] = 1
+			PersistentVars.WeaponExMasteries[guid][key] = 1
 		elseif value == "no" then
-			PersistentVars.WeaponExMasteries[key] = 0
+			PersistentVars.WeaponExMasteries[guid][key] = 0
 		end
 	end
 end
 Ext.RegisterNetListener("Musketeer_WeaponEx_Mastery_PersistentVars", Musketeer_WeaponEx_AddToPersistentVars_Listener)
 
+-- Mods.Musketeer.PersistentVars.WeaponExMasteries["bb932b13-8ebf-4ab4-aac0-83e6924e4295"]["Musk_Rifle_Matchlock_Mastery1"] = 1
+-- Mods.Musketeer.PersistentVars.WeaponExMasteries = {}
+-- Mods.Musketeer.PersistentVars.WeaponExMasteries["bb932b13-8ebf-4ab4-aac0-83e6924e4295"] = {}
+
 Ext.RegisterListener("GetSkillAPCost", function (skill, character, grid, position, radius)
 	if skill.Name ~= "Rush_Musk_Blitzkrieg" then return end
+	if PersistentVars.WeaponExMasteries == nil then
+		PersistentVars.WeaponExMasteries = {}
+	end
+	if 	PersistentVars.WeaponExMasteries[character.MyGuid] == nil then
+		PersistentVars.WeaponExMasteries[character.MyGuid] = {}
+	end
+	if PersistentVars.WeaponExMasteries[character.MyGuid].Blunderbuss_Mastery1_Enhanced_Blitzkrieg == nil then
+		PersistentVars.WeaponExMasteries[character.MyGuid].Blunderbuss_Mastery1_Enhanced_Blitzkrieg = 0
+	end
+	--print("Local Skill Cost Check")
+	--print(character.MyGuid)
+	--print(PersistentVars)
+	--print(PersistentVars.WeaponExMasteries)
 	local calculatedCost, affinity = Game.Math.GetSkillAPCost(skill, character, grid, position, radius)
-    if PersistentVars.WeaponExMasteries.Blunderbuss_Mastery1_Enhanced_Blitzkrieg == 1 then
+    if PersistentVars.WeaponExMasteries[character.MyGuid].Blunderbuss_Mastery1_Enhanced_Blitzkrieg == 1 then
         --Ext.Print("[Client] Blunderbuss Mastery1 PersVar is set")
 		if calculatedCost > 0 then
 			return calculatedCost - 1, affinity
 		end
 		return 0, affinity
-    end
+	end
+	--return calculatedCost
     --Ext.Print("GetSkillApCost with Blitzkrieg called, but cost was not modified.")
 end)
+
+Ext.RegisterListener("SkillGetDescriptionParam", function (skill, character, isFromItem, param)
+	if skill.Name == "Projectile_Bullethell" then
+		if PersistentVars.WeaponExMasteries == nil then
+			PersistentVars.WeaponExMasteries = {}
+		end
+		if 	PersistentVars.WeaponExMasteries[character.MyGuid] == nil then
+			PersistentVars.WeaponExMasteries[character.MyGuid] = {}
+		end
+		if PersistentVars.WeaponExMasteries[character.MyGuid].Musk_Rifle_Matchlock_Mastery4 == nil then
+			PersistentVars.WeaponExMasteries[character.MyGuid].Musk_Rifle_Matchlock_Mastery4 = 0
+		end
+		if PersistentVars.WeaponExMasteries[character.MyGuid].Musk_Rifle_Matchlock_Mastery4 == 1 and param == "Potion" then
+			return "11"
+		end
+
+	end
+end)
+
+Ext.RegisterSkillProperty("MUSKETEER_BUCKSHOT_SKILLPROP", {
+	GetDescription = function (property)
+		if PersistentVars.WeaponExMasteries ~= nil and
+		   PersistentVars.WeaponExMasteries[PersistentVars["PlayerCharacterGUID"]] ~= nil and 
+		   PersistentVars.WeaponExMasteries[PersistentVars["PlayerCharacterGUID"]].Musk_Rifle_Blunderbuss_Mastery4 == 1 then
+		   return "Causes a 6(+2)m long fire explosios behind the impact location"
+		end
+
+		local rand = math.random(0, 1337)
+        return "Causes a 6m long fire explosios behind the impact location"
+    end
+})
+
+
+Musketeer_Change_Rune_Projectile = function(channel, message)
+	local messageTable = Ext.JsonParse(message)
+	local character = messageTable[1]
+	local item = messageTable[2]
+	local projectile = messageTable[3]
+	local slot = messageTable[4]
+	--Ext.PrintWarning(character, item, projectile, slot)
+	--local item = Ext.GetItem(itemGuid)
+	--print(item)
+	--print(item.Stats)
+	--print(item.Stats.DynamicStats)
+	--Lit = item.Stats.DynamicStats
+	--item.Stats.DynamicStats[3].Projectile = projectile
+	--item.Stats.DynamicStats[1].Projectile = projectile
+	--item.Stats.DynamicStats[2].Projectile = projectile
+	--item.Stats.DynamicStats[4].Projectile = projectile
+	--item.Stats.DynamicStats[5].Projectile = projectile
+	Ext.GetItem(item).Stats.DynamicStats[slot].Projectile = projectile
+	--print(Ext.GetItem(item).Stats.DynamicStats[slot].Projectile)
+
+	--Ext.GetItem(itemGuid).Stats.DynamicStats[3].Projectile = Musketeer_Rune_Projectile["Fire"]
+	--print(Ext.GetItem(itemGuid).Stats.DynamicStats[3].Projectile)
+
+	--Ext.GetItem("WPN_Musketeer_Rifle_Tanegashima_c3e9a9dd-26cd-4903-9494-552ec84ff700").Stats.DynamicStats[3].Projectile = Musketeer_Rune_Projectile["Earth"]
+
+end
+Ext.RegisterNetListener("Musketeer_Sync_Rune_Projectile", Musketeer_Change_Rune_Projectile)
+

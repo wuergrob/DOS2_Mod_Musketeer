@@ -3,6 +3,7 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
+/*
 IF
 StoryEvent(_Original, "MusketeerFinishCloningEvent")
 AND
@@ -23,7 +24,7 @@ IF
 StoryEvent(_Item, "MusketeerDeleteItem")
 THEN
 ItemRemove((ITEMGUID)_Item);
-
+*/
 
 
 EXITSECTION

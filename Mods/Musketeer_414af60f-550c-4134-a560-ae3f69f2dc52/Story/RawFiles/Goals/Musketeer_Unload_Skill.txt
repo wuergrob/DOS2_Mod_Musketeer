@@ -3,6 +3,7 @@ SubGoalCombiner SGC_AND
 INITSECTION
 
 KBSECTION
+/*
 // Unload makes the user unload his whole magazine. Since loops don't appear to be available, i tried
 // a recursive approach.
 IF
@@ -15,10 +16,13 @@ AND
 IntegerProduct(-1, _AmmoCount, _NegAmmoCount)
 AND
 GetDistanceToPosition(_Character, _X, _Y, _Z, _Distance)
+AND
+NRD_CharacterGetStatInt(_Character, "CurrentAP", _CurrentAp)
 THEN
-ItemAddCharges((ITEMGUID)_Weapon, _NegAmmoCount);
+//Musketeer_Covering_Fire_Skip_Workaround(_Character, _CurrentAp);
+//ItemAddCharges((ITEMGUID)_Weapon, _NegAmmoCount);
 CharacterUseSkillAtPosition(_Character, "Target_Unload_Buffer", _X, _Y, _Z, 0, 1);
-Musketeer_Recursive_Unload(_Character, _AmmoCount, _Weapon, _X, _Y, _Z, _Distance);
+Musketeer_Recursive_Unload(_Character, _AmmoCount, _Weapon, _X, _Y, _Z, _Distance, _CurrentAp);
 //Musketeer_Update_Ammo_Skills(_Character);
 
 IF
@@ -33,72 +37,25 @@ AND
 GetPosition(_Target, _X, _Y, _Z)
 AND
 GetDistanceTo(_Character, _Target, _Distance)
+AND
+NRD_CharacterGetStatInt(_Character, "CurrentAP", _CurrentAp)
 THEN
-ItemAddCharges((ITEMGUID)_Weapon, _NegAmmoCount);
+//Musketeer_Covering_Fire_Skip_Workaround(_Character, _CurrentAp);
+//ItemAddCharges((ITEMGUID)_Weapon, _NegAmmoCount);
 CharacterUseSkillAtPosition(_Character, "Target_Unload_Buffer", _X, _Y, _Z, 0, 1);
-Musketeer_Recursive_Unload(_Character, _AmmoCount, _Weapon, _X, _Y, _Z, _Distance);
-//Musketeer_Update_Ammo_Skills(_Character);
+Musketeer_Recursive_Unload(_Character, _AmmoCount, _Weapon, _X, _Y, _Z, _Distance, _CurrentAp);
 
-// The following handles the Unload Skill iterations.
-// Very unclean solution, but i didn't want to resort to storing local stuff on the
-// global DB for this and custom Queries and Procs can't return values.
 
-// Every iteration subtracts 1 from _CurrentAmmo, and every iteration only executes when _CurrentAmmo is >= 1.
-// Distance based random offset from Target:
-// 1. Scale Distance up, convert to int so we can use Random. (Upscale so we lose less precision)
-// 2. Get a random offset between 0 and Distance100 (Once for X and once for Z)
-// 3. Convert back to Real and downscale back
-// 4. Subtract half of max Distance from the random X and Z, so we have a 50% chance of going Pos/Neg in Axis
-// 5. Divide by 2, so if we are 13m away, the maximum radius is 6.5m. 3.25m in Pos and Neg direction.
-//    Maybe i will use a DB stored value instead of a fixed scaling factor, so we can influence the
-//    spreading angle
-// 6. Add the offset to the original coordinates. Since we already subtracted (MaxDistance/2), we already
-//    Have a signed number. 50% of the time, it will add a negative number.
-/*
 PROC
-Musketeer_Recursive_Unload((CHARACTERGUID)_Character, (INTEGER)_CurrentAmmo, (ITEMGUID)_Weapon, (REAL)_X, (REAL)_Y, (REAL)_Z, (REAL)_Distance)
+Musketeer_Covering_Fire_Skip_Workaround((CHARACTERGUID)_Character, (INTEGER)_CurrentAp)
 AND
-_CurrentAmmo >= 1
-AND
-IntegerSubtract(_CurrentAmmo, 1, _ReducedAmmoCount)
-AND
-RealProduct(_Distance, 100.0, _Distance100Real)
-AND
-Integer(_Distance100Real, _Distance100Int)
-AND
-RealDivide(_Distance, 2.0, _DistanceHalfed)
-AND
-Random(_Distance100Int, _TargetSpreadXInt)
-AND
-Random(_Distance100Int, _TargetSpreadZInt)
-AND
-Real(_TargetSpreadXInt, _TargetSpreadXReal)
-AND
-Real(_TargetSpreadZInt, _TargetSpreadZReal)
-AND
-RealDivide(_TargetSpreadXReal, 100.0, _TargetSpreadXDownscale)
-AND
-RealDivide(_TargetSpreadZReal, 100.0, _TargetSpreadZDownscale)
-AND
-RealSubtract(_TargetSpreadXDownscale, _DistanceHalfed, _TargetSpreadXRealRadius)
-AND
-RealSubtract(_TargetSpreadZDownscale, _DistanceHalfed, _TargetSpreadZRealRadius)
-AND
-RealDivide(_TargetSpreadXRealRadius, 3.0, _TargetSpreadXRealRadiusScaled)
-AND
-RealDivide(_TargetSpreadZRealRadius, 3.0, _TargetSpreadZRealRadiusScaled)
-AND
-RealSum(_X, _TargetSpreadXRealRadiusScaled, _newX)
-AND
-RealSum(_Z, _TargetSpreadZRealRadiusScaled, _newZ)
+_CurrentAp == 0
 THEN
-CharacterUseSkillAtPosition(_Character, "Projectile_Unload_Instance", _newX, _Y, _newZ, 0, 1);
-Musketeer_Recursive_Unload(_Character, _ReducedAmmoCount, _Weapon, _X, _Y, _Z, _Distance);
-*/
+//CharacterAddActionPoints(_Character, 1);
+NRD_DebugLog("Adding placebo-AP from Covering Fire");
 
-// Rewritten in LUA, way more efficiently and with actual float precision.
 PROC
-Musketeer_Recursive_Unload((CHARACTERGUID)_Character, (INTEGER)_CurrentAmmo, (ITEMGUID)_Weapon, (REAL)_X, (REAL)_Y, (REAL)_Z, (REAL)_Distance)
+Musketeer_Recursive_Unload((CHARACTERGUID)_Character, (INTEGER)_CurrentAmmo, (ITEMGUID)_Weapon, (REAL)_X, (REAL)_Y, (REAL)_Z, (REAL)_Distance, (INTEGER)_APOnInitialCast)
 AND
 _CurrentAmmo >= 1
 AND
@@ -107,8 +64,18 @@ AND
 NRD_Musketeer_Get_Random_Pos(_X, _Y, _Z, _Distance, (REAL)_newX, (REAL)_newY, (REAL)_newZ)
 THEN
 CharacterUseSkillAtPosition(_Character, "Projectile_Unload_Instance", _newX, _Y, _newZ, 0, 1);
-Musketeer_Recursive_Unload(_Character, _ReducedAmmoCount, _Weapon, _X, _Y, _Z, _Distance);
+//Musketeer_Recursive_Unload(_Character, _ReducedAmmoCount, _Weapon, _X, _Y, _Z, _Distance, _APOnInitialCast);
 
+PROC
+Musketeer_Recursive_Unload((CHARACTERGUID)_Character, (INTEGER)_CurrentAmmo, (ITEMGUID)_Weapon, (REAL)_X, (REAL)_Y, (REAL)_Z, (REAL)_Distance, (INTEGER)_APOnInitialCast)
+AND
+_CurrentAmmo == 0
+AND
+_APOnInitialCast == 0
+THEN
+//CharacterAddActionPoints(_Character, -1);
+NRD_DebugLog("Removed placebo-AP from Covering Fire");
+*/
 EXITSECTION
 
 ENDEXITSECTION

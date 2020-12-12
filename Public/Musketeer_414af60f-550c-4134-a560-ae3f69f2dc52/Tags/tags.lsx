@@ -158,6 +158,20 @@
                         <node id="Categories" />
                     </children>
                 </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Character is invisible." type="23" />
+                    <attribute id="Name" value="Musketeer_Stealth_Tag" type="23" />
+                    <children>
+                        <node id="Categories" />
+                    </children>
+                </node>
+                <node id="Tag">
+                    <attribute id="Description" value="Seeker Strikedown enhanced" type="23" />
+                    <attribute id="Name" value="Musk_Rifle_Blunderbuss_Mastery4" type="23" />
+                    <children>
+                        <node id="Categories" />
+                    </children>
+                </node>
             </children>
         </node>
     </region>

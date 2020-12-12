@@ -7,34 +7,40 @@ Musk_Grenadier	King's Royal Musketeer	h31f914c1gab3bg42d1ga6c7gd33bc4043c07
 Musk_Blunderbuss	Blunderbuss	h2f4d621fg5904g4391g837cg864d414f6480
 Musk_Matchlock	Matchlock	h800072dcgad7ag4436gb1e6g9af5040217bf
 
-Musk_Rifle_Musket_Rank1_Description	<icon id='Target_FirstAid' icon='Skill_Ranger_FirstAid'/><font color='#006FFF' size='18'>Field Medic</font><br>Your [Key:Target_FirstAid_DisplayName] healing is increased by <font color='#00FFFF'>16 Vitality</font>.	h4becf9a3g96f0g41c9g8db9ga57ddd7f2c04
-Musk_Rifle_Musket_Rank2_Description	<icon id='Shout_Reload' icon='Reload'/><font color='#006FFF' size='18'>Field Officer</font><br>Your [Key:Shout_Reload_DisplayName] inspires you and allies in a 8m range around you after completion for 1 turn.	haa6c1ecfg7d95g45b3g80e8g33904400ab62
-Musk_Rifle_Musket_Rank3_Description	<icon id='Projectile_Musk_Grenade_GrenadeAssault' icon='Reload'/><font color='#FF5E00' size='18'>New Skill: Grenade Assault</font><br>Every ally in a radius of 13 meters around you will throw grenades around a target location, resulting in a large blast radius.	hb01d5b56g799ag4545ga221g12243f8c1bba
-Musk_Rifle_Musket_Rank4_Description	<icon id='Target_Musk_Flare_Test_Target' icon='BlazingFlare'/><font color='#006FFF' size='18'>No Escape!</font><br>Blazing Flare's explosion-radius is increased by 3m.	h8cdc4957g11c1g4a2bgb661g01e750ca214f
-Musk_Rifle_Musket_Rank5_Description	<icon id='Target_Musk_Flare_Test_Target' icon='BlazingFlare'/> Assault Grenades?.	h0a4e0072g4e14g4262gab55gaabe7a9ff92c
+Musk_Rifle_Musket_Rank1_Description	<icon id='Target_FirstAid' icon='Skill_Ranger_FirstAid'/><font color='#006FFF' size='18'>Field Medic</font><br>Your <font color='#FF5E00'>[Key:Target_FirstAid_DisplayName]</font> healing is increased by <font color='#00FFFF'>16 Vitality</font>.	h4becf9a3g96f0g41c9g8db9ga57ddd7f2c04
+Musk_Rifle_Musket_Rank2_Description	<icon id='Shout_Reload' icon='Musketeer_Reload'/><font color='#006FFF' size='18'>Field Officer</font><br>Your <font color='#FF5E00'>[Key:Shout_Reload_DisplayName]</font> inspires you and allies in a 8m range around you after completion for 1 turn.	haa6c1ecfg7d95g45b3g80e8g33904400ab62
+Musk_Rifle_Musket_Rank3_Description	<icon id='Projectile_Musk_Grenade_GrenadeAssault' icon='Musketeer_GrenadeAssault'/><font color='#FF5E00' size='18'>New Skill: Grenade Assault</font><br>Every ally in a radius of 13 meters around you will throw grenades around a target location, resulting in a large blast radius.	hb01d5b56g799ag4545ga221g12243f8c1bba
+Musk_Rifle_Musket_Rank4_Description	<icon id='Target_Musk_Flare_Test_Target' icon='Musketeer_BlazingFlare'/><font color='#006FFF' size='18'>No Escape!</font><br>Blazing Flare's explosion-radius is increased by 3m.	h8cdc4957g11c1g4a2bgb661g01e750ca214f
+Musk_Rifle_Musket_Rank5_Description	<icon id='Target_Musk_Flare_Test_Target' icon='Musketeer_BlazingFlare'/> Assault Grenades?.	h0a4e0072g4e14g4262gab55gaabe7a9ff92c
 
 Musk_Blunderbuss_Conscript	Conscript	h5abb1f7ag640bg4a82gabe8g981eb5616ab9
 Musk_Blunderbuss_Soldier	Frontline Soldier	h2a6efa27gc484g4dabg9c13ga2c7fcf3ac24
 Musk_Blunderbuss_Guerilla	Guerilla Riflemen	h0739d367g3e72g4606g842ag17373e497a58
 Musk_Blunderbuss_Veteran	Expert Infiltrator	hf96d760dg71b9g4173g8607g8161fba22470
 
-Musk_Rifle_Blunderbuss_Rank1_Description	<icon id='Rush_Musk_Blitzkrieg' icon='Blitzkrieg'/><font color='#006FFF' size='18'>Rapid Advance</font><br>Your [Key:Rush_Musk_Blitzkrieg_DisplayName] costs 1 AP to use and also grants <font color='#00FFFF'>[Stats:Stats_Musk_Blitzkrieg_Mastery1:MagicArmor] Magic Armor</font>.	hb9f904a2gd5d5g4329g97b9g905f627ce222
-Musk_Rifle_Blunderbuss_Rank2_Description	<icon id='Shout_Reload' icon='Reload'/><font color='#006FFF' size='18'>Locked and Loaded</font><br>Your [Key:Shout_Reload_DisplayName] invigorates you after completion and greats <font color='#00FFFF'>Hasted</font> for 1 turn.	h3fc0ca29g86aeg4891g93edga43bb03cca2a
-Musk_Rifle_Blunderbuss_Rank3_Description	<icon id='Projectile_Musk_Grenade_GrenadeAssault' icon='Reload'/><font color='#FF5E00' size='18'>New Skill: Grenade Assault</font><br>Every ally in a radius of 13 meters around you will throw grenades around a target location, resulting in a large blast radius.	h5d41910dga33eg4dbeg85a0ge4c27c41be29
-Musk_Rifle_Blunderbuss_Rank4_Description	<icon id='Target_Musk_Flare_Test_Target' icon='BlazingFlare'/><font color='#006FFF' size='18'>No Escape!</font><br>Blazing Flare's explosion-radius is increased by 2m.	h611bbf0fgaba2g486fga1aag6cd79816e8c5
-Musk_Rifle_Blunderbuss_Rank5_Description	<icon id='Target_Musk_Flare_Test_Target' icon='BlazingFlare'/> Assault Grenades?.	h0a4e0072g4e14g4262gab55gaabe7a9ff92c
+Musk_Rifle_Blunderbuss_Rank1_Description	<icon id='Rush_Musk_Blitzkrieg' icon='Musketeer_Blitzkrieg'/><font color='#006FFF' size='18'>Rapid Advance</font><br>Your <font color='#FF5E00'>[Key:Rush_Musk_Blitzkrieg_DisplayName]</font> costs 1 AP to use and also grants <font color='#00FFFF'>[Stats:Stats_Musk_Blitzkrieg_Mastery_MagicArmor:MagicArmor] Magic Armor</font>.	hb9f904a2gd5d5g4329g97b9g905f627ce222
+Musk_Rifle_Blunderbuss_Rank2_Description	<icon id='Shout_Reload' icon='Musketeer_Reload'/><font color='#006FFF' size='18'>Locked and Loaded</font><br>Your <font color='#FF5E00'>[Key:Shout_Reload_DisplayName]</font> invigorates you after completion and grants <font color='#00FFFF'>Hasted</font> for 1 turn.	h3fc0ca29g86aeg4891g93edga43bb03cca2a
+Musk_Rifle_Blunderbuss_Rank3_Description	<icon id='Target_Musk_Steadfast' icon='Musketeer_Steadfast'/><font color='#006FFF' size='18'>Born Athlete</font><br><font color='#FF5E00'>[Key:Target_Musk_Steadfast_DisplayName]</font> reduces movement speed by 25% instead of 75%.	h5d41910dga33eg4dbeg85a0ge4c27c41be29
+Musk_Rifle_Blunderbuss_Rank4_Description	<icon id='Projectile_Buckshot' icon='Musketeer_Buckshot'/><font color='#006FFF' size='18'>Lethal Stray</font><br>Buckshot's explosion effect on impact is extended by 2m.	hc7fb15efg7328g475dgab50g75bc572ff035
+Musk_Rifle_Blunderbuss_Rank5_Description	<icon id='Target_Musk_Flare_Test_Target' icon='Musketeer_BlazingFlare'/> Assault Grenades?.	h0a4e0072g4e14g4262gab55gaabe7a9ff92c
 
 Musk_Matchlock_Outlaw	Outlaw Musketeer	h0664b17agbe69g4b6dg9f60g1a3c4332fc62
 Musk_Matchlock_Mercenary	Soldier of Fortune	h8decc7e8g87b1g419bgb172ga566f83a0fca
 Musk_Matchlock_Hunter	Unrelenting Hunter	h555867ecg8549g46eag95acg55ffa4608eec
 Musk_Matchlock_Killer	Hunter Killer	h685509fcg5fedg4497g88f4g9d84ee879568
 
-Musk_Rifle_Matchlock_Rank1_Description	<icon id='Target_FirstAid' icon='Skill_Ranger_FirstAid'/><font color='#006FFF' size='18'>Field Medic</font><br>Your [Key:Target_FirstAid_DisplayName] healing is increased by <font color='#00FFFF'>16 Vitality</font> or do other fancy stuff.	h4becf9a3g96f0g41c9g8db9ga57ddd7f2c04
-Musk_Rifle_Matchlock_Rank2_Description	<icon id='Shout_Reload' icon='Reload'/><font color='#006FFF' size='18'>Field Officer</font><br>Your [Key:Shout_Reload_DisplayName] inspires you and allies in a 8m range around you after completion for 1 turn.	haa6c1ecfg7d95g45b3g80e8g33904400ab62
-Musk_Rifle_Matchlock_Rank3_Description	<icon id='Projectile_Musk_Grenade_GrenadeAssault' icon='Reload'/><font color='#FF5E00' size='18'>New Skill: Grenade Assault</font><br>Every ally in a radius of 13 meters around you will throw grenades around a target location, resulting in a large blast radius.	hb01d5b56g799ag4545ga221g12243f8c1bba
-Musk_Rifle_Matchlock_Rank4_Description	<icon id='Target_Musk_Flare_Test_Target' icon='BlazingFlare'/><font color='#006FFF' size='18'>No Escape!</font><br>Blazing Flare's explosion-radius is increased by 2m.	h8cdc4957g11c1g4a2bgb661g01e750ca214f
-Musk_Rifle_Matchlock_Rank5_Description	<icon id='Target_Musk_Flare_Test_Target' icon='BlazingFlare'/> Assault Grenades?.	h0a4e0072g4e14g4262gab55gaabe7a9ff92c
+Musk_Rifle_Matchlock_Rank1_Description	<icon id='Projectile_Rend_The_Marked' icon='Musketeer_RendMarked'/><font color='#006FFF' size='18'>All shall Perish!</font><br>Your <font color='#FF5E00'>[Key:Projectile_Rend_The_Marked_DisplayName]</font> maximum amount of targets is increased to 5.	h61c56431gc899g4ac6g872fg572d8faad661
+Musk_Rifle_Matchlock_Rank2_Description	<icon id='Shout_Reload' icon='Musketeer_Reload'/><font color='#006FFF' size='18'>Steady Breathing</font><br>Your <font color='#FF5E00'>[Key:Shout_Reload_DisplayName]</font> grants you bonus accuracy and critical chance for your next attack.	h5e016d87g9ec0g4810g97f1g011243de60e1
+Musk_Rifle_Matchlock_Rank3_Description	<icon id='Projectile_Musk_Matchlock_Concentrated_Terror' icon='Musketeer_ConcentratedTerror'/><font color='#FF5E00' size='18'>New Skill: Concentrated Terror</font><br>Only useable when stealthed. Fire off a round at an unsuspecting enemy, dealing [SkillDamage:Projectile_Musk_Matchlock_Concentrated_Terror] and causing it to take damage when moving for 1 turn.<br><font color='#FF1500'>Fears marked characters for 1 turn</font>	h9f862b96g9201g435bg8d44gba2110436c7b
+Musk_Rifle_Matchlock_Rank4_Description	<icon id='Projectile_Bullethell' icon='Musketeer_SeekerStrikedown'/><font color='#006FFF' size='18'>Bullethell</font><br><font color='#FF5E00'>[Key:Projectile_Bullethell_DisplayName]</font> now launches 11 missiles per target instead of 7.	hd8d398fbg624bg460cgbaa9gdbc1811dadd8
+Musk_Rifle_Matchlock_Rank5_Description	<icon id='Target_Musk_Flare_Test_Target' icon='Musketeer_BlazingFlare'/> Assault Grenades?.	h0a4e0072g4e14g4262gab55gaabe7a9ff92c
 
 Musk_Rifle_Musket	Musket	hc78372dag1065g4390g87a1g4ddcac9c9aca
 Musk_Rifle_Blunderbuss	Blunderbuss	hef23a85bg90f9g4182g9031g94036059545f
 Musk_Rifle_Matchlock	Matchlock	h68a7b44fg0425g460dg8630gfc9f00f7c22e
+
+Musketeer_Stealth_Tag	<font color='#00EFFF'>Stealth</font>	h35b77e39gafccg4708g8a3eg96582158da58
+
+Musk_Rifle_Musket_Equipped	<font color='#00EFFF'>Musket equipped</font>	hedae3017g5672g43c5g87d1ge1ff12486e0a
+Musk_Rifle_Blunderbuss_Equipped	<font color='#00EFFF'>Blunderbuss equipped</font>	h85e472caga2e1g4160gbaadg3fe393faa85c
+Musk_Rifle_Matchlock_Equipped	<font color='#00EFFF'>Matchlock equipped</font>	h22dd9b73g8abeg4194g9460g6c5931cd78bf

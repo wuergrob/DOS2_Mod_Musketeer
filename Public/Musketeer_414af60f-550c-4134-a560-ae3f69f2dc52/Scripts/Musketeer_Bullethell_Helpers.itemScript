@@ -7,6 +7,7 @@ SKILL:%ProjectileSkill=null
 CHARACTER:%Caster=null
 INT:%Exploded=0
 INT:%StrikeCount=7
+INT:%StrikeCountMastery=11
 INT:%StrikesLaunched=0
 
 EVENTS
@@ -55,21 +56,12 @@ ACTIONS
 		IsEqual(_hitObstacle,1)
 		IsGreaterThen(%LifeTime,0)
 	THEN
-		//GetRandomBetween(_delay, 0.0, 0.2)
-		/*
-		WHILE "c1"
-			IsLessThen(%StrikesLaunched, %StrikeCount)
-		DO
-			GetRandomBetween(_delay, 0.0, 0.2)
-			StartTimer("Helper_Launch_Tick", _delay, 0)
-			Add(%StrikesLaunched, 1)
-		ENDWHILE
-		*/
-		//PlayEffectAt(
-		//DebugText(%Caster,"Caster Level: [1]",%StrikeCount)
-		//DisplayText(%Caster, "hello?", 1.0)
+		IF "c1"
+			IsTagged(%Caster, "Musk_Rifle_Blunderbuss_Mastery4")
+		THEN
+			Set(%StrikeCount, %StrikeCountMastery)
+		ENDIF
 		StartTimer("Helper_Launch_Tick", 0.0, -1)
-			
 		//DebugText(%Caster, "Huiiiii")
 		//DisplayText(%Caster, "wuuuuuuuuuu", 2.0)
 		//CombatLogText(%Caster, "Uaaaah?", 2, 2)

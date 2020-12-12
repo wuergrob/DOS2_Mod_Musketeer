@@ -1,32 +1,25 @@
 
---- Split a version integer into separate values
----@param version integer
----@return integer,integer,integer,integer
-local function ParseVersion(version)
-    if type(version) == "string" then
-        version = math.floor(tonumber(version))
-    elseif type(version) == "number" then
-        version = math.tointeger(version)
-    end
-    local major = math.floor(version >> 28)
-    local minor = math.floor(version >> 24) & 0x0F
-    local revision = math.floor(version >> 16) & 0xFF
-    local build = math.floor(version & 0xFFFF)
-    return major,minor,revision,build
-end
+Musketeer_MarkDamage_Table = {
+    Projectile_Rifle_Snipe = 65,
+    Projectile_Final_Act = 75 ,
+    Projectile_Rifle_Scattershot = 20
+}
 
---- Turn a version integer into a string.
----@param version integer
----@return string
-local function VersionIntegerToVersionString(version)
-    if version == -1 then return "-1" end
-    local major,minor,revision,build = ParseVersion(version)
-    if major ~= -1 and minor ~= -1 and revision ~= -1 and build ~= -1 then
-        return string.format("%s.%s.%s.%s", major, minor, revision, build)
-    elseif major == -1 and minor == -1 and revision == -1 and build == -1 then
-        return "-1"
-    end
-    return nil
+-- TODO: Add different projectile styles for air and earth.
+Musketeer_Rune_Projectile = {
+    Default = "9bd7991d-7787-4390-a1b2-e56b37aa510f",
+    Poison = "465c6446-9031-4e70-93d4-6c84da8a48ed",
+    Air = "9bd7991d-7787-4390-a1b2-e56b37aa510f",
+    Earth = "9bd7991d-7787-4390-a1b2-e56b37aa510f",
+    Fire = "3b0acba6-db1c-4098-b0aa-70e9559bb118",
+    Water = "bb1943cb-15c9-48f8-8f70-77df652ad0c6"
+}
+
+function Musketeer_GetRandomPosAround_Mastery(X, Y, Z, Radius)
+    local newX = X + ((math.random() - 0.5) * Radius)
+    local newY = Y + ((math.random() - 0.5) * Radius)
+    local newZ = Z + ((math.random() - 0.5) * Radius)
+    return newX, newY, newZ
 end
 
 function TestWeaponExMasteryAddition()
@@ -36,31 +29,6 @@ function TestWeaponExMasteryAddition()
             Ext.Print("WeaponExpansion Mods table found")
             local WeaponEx = Mods["WeaponExpansion"]
             local TranslatedString = WeaponEx.LeaderLib.Classes["TranslatedString"]
-            --local hostCharacter = CharacterGetHostCharacter()
-            --local MasteryData = WeaponEx.MasteryDataClasses.MasteryData
-            --Mods["WeaponExpansion"].AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle_Musket", 100, true)
-
-            --Ext.CreateTranslatedStringKey("rlhaislzfizy5nc29yr1ptfdcmikmxsk9z0xi", )
-            --[[
-            Ext.CreateTranslatedStringKey("Musk_Rifle_Musket", "ha25146f2ge2bbg4af6ga0dcg8340a68e5a3c")
-            Ext.CreateTranslatedStringHandle("ha25146f2ge2bbg4af6ga0dcg8340a68e5a3c", "Musket")
-
-            Ext.CreateTranslatedStringKey("Strawberry lul", "hd40f14d5g4946g4462gac7bga65fda61ed27")
-            Ext.CreateTranslatedStringHandle("hd40f14d5g4946g4462gac7bga65fda61ed27", "Cranberry rofl")
-
-            Ext.CreateTranslatedStringKey("Rifle Mastery 1", "hd40f14d5g4946g8362gac7bga65fda61ed27")
-            Ext.CreateTranslatedStringHandle("hd40f14d5g4946g4462gac7bga35fda61ed27", "Rifle Wurstery")
-
-            Ext.CreateTranslatedStringKey("Musk_Rifle_Blunderbuss", "hef23a85bg90f9g4182g9031g94036059545f")
-            Ext.CreateTranslatedStringHandle("hef23a85bg90f9g4182g9031g94036059545f", "gagagaga")
-
-            Ext.CreateTranslatedStringKey("Musk_Rifle_Musket_Rank1_Description", "r1zr7dj295ovgk5c3eebmovf0fbfl6w2x10ak")
-            Ext.CreateTranslatedStringHandle("r1zr7dj295ovgk5c3eebmovf0fbfl6w2x10ak",
-             "<icon id='Target_FirstAid' icon='Skill_Ranger_FirstAid'/>Your [Key:Target_FirstAid_DisplayName] healing is increased by <font color='##00FFFF'>16 Vitality</font> or do other fancy stuff."
-            )
-            --]]
-            --Ext.StatSetAttribute("WPN_Rifles", "Tags", "Musk_Rifle_Musket_Equipped")
-            --Ext.SyncStat("WPN_Rifles", false)
 
             -- Musket Masteries
             Mods["WeaponExpansion"].Masteries.Musk_Rifle_Musket = Mods["WeaponExpansion"].MasteryDataClasses.MasteryData:Create("Musk_Rifle_Musket", TranslatedString:Create("ha25146f2ge2bbg4af6ga0dcg8340a68e5a3c", "Musket"), "#F5785A", {
@@ -88,38 +56,28 @@ function TestWeaponExMasteryAddition()
                 [3] = {Name = TranslatedString:Create("h555867ecg8549g46eag95acg55ffa4608eec", "Unrelenting Hunter"), Color="#DD3939"},
                 [4] = {Name = TranslatedString:Create("h685509fcg5fedg4497g88f4g9d84ee879568", "Hunter Killer"), Color="#FF1515"},
             })
-            --[[
-            Mods["WeaponExpansion"].Text.MasteryRankTagText["Musk_Rifle_Musket_Mastery1"] = TranslatedString:Create("hd40f14d5g4946g8362gac7bga65fda61ed27", "Rifle Mastery 1")
-            Mods["WeaponExpansion"].Text.MasteryRankTagText["Musk_Rifle_Musket_Mastery2"] = "Rifle Mastery 2"
-            Mods["WeaponExpansion"].Text.MasteryRankTagText["Musk_Rifle_Musket_Mastery3"] = "Rifle Mastery 3"
-            Mods["WeaponExpansion"].Text.MasteryRankTagText["Musk_Rifle_Musket_Mastery4"] = "Rifle Mastery 4"
-            Mods["WeaponExpansion"].Text.MasteryRankTagText["Musk_Rifle_Musket_Mastery5"] = "Rifle Mastery 5"
-            --]]
 
-            --Mods["WeaponExpansion"].Tags.WeaponTypeToTag.Musk_Rifle_Musket = "Musk_Rifle_Musket"
-            --Mods["WeaponExpansion"].Tags.RangedWeaponTags[(#Mods["WeaponExpansion"].Tags.RangedWeaponTags + 1)] = "Musk_Rifle_Musket"
-            --Mods["WeaponExpansion"].AddWeaponTypeTag("Musk_Rifle")
             Mods["WeaponExpansion"].AddWeaponTypeTag("Musk_Rifle_Musket")
             Mods["WeaponExpansion"].AddWeaponTypeTag("Musk_Rifle_Blunderbuss")
             Mods["WeaponExpansion"].AddWeaponTypeTag("Musk_Rifle_Matchlock")
             --Mods["WeaponExpansion"].Tags.WeaponTypes.Musk_Rifle_Musket = "Musk_Rifle_Musket"
+            local reloadSkillVariations = {"Shout_Reload", "Shout_Reload_Incendiary", "Shout_Reload_Explosive", "Shout_Reload_Freezing", "Shout_Reload_Silver", "Shout_Reload_Holy"}
 
             Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Musket_Mastery1"] = {	MUSK_MUSKET_FIRST_AID = {
                 Skills = {"Target_FirstAid"},
-                Param = TranslatedString:Create("h4becf9a3g96f0g41c9g8db9ga57ddd7f2c04", "<icon id='Target_FirstAid' icon='Skill_Ranger_FirstAid'/>Your [Key:Target_FirstAid_DisplayName] healing is increased by <font color='#00FFFF'>16 Vitality</font> or do other fancy stuff."),
-                NamePrefix = "<font color='#DD4444'>Field Medic's</font>"
+                Param = TranslatedString:Create("h62d5dc47g5c25g4501g8b7egf0b3d90a756d","<font color='#00FF99'>Additionally heals you and your target for <font color='#ff3300'>25%</font> of this skill's Healing effect. (Only applies once when cast on yourself)</font>")
             }}
             Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Musket_Mastery2"] = {	MUSK_MUSKET_RELOAD_INSPIRE = {
-                Skills = {"Shout_Reload"},
-                Param = TranslatedString:Create("haa6c1ecfg7d95g45b3g80e8g33904400ab62","<icon id='Shout_Reload' icon='Reload'/>Your [Key:Shout_Reload_DisplayName] inspires you and allies in a 8m range around you after completion for 1 turn.")
+                Skills = reloadSkillVariations,
+                Param = TranslatedString:Create("hffda4f23g4c7dg4b6cga0fbgddf8443a38d4","<font color='#00FF99'>After you finish reloading, <font color='#ff3300'>inspire</font> all allies and yourself in a [Stats:Shout_Musk_Musket_Mastery_Inspire:AreaRadius]m radius for 1 turn.</font>")
             }}
             Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Musket_Mastery3"] = {	MUSK_MUSKET_GRENADE_ASSAULT = {
-                Skills = {"Projectile_Musk_Grenade_GrenadeAssault"},
-                Param = TranslatedString:Create("hb01d5b56g799ag4545ga221g12243f8c1bba","Gain a new skill: Grenade Assault!. Every ally in a radius of 13 meters around you will throw grenades around a target location, resulting in a large blast radius.")
+                Skills = {"Projectile_Musk_Grenade_GrenadeAssault"}
+                --Param = TranslatedString:Create("hb01d5b56g799ag4545ga221g12243f8c1bba","")
             }}
-            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Musket_Mastery4"] = {	MUSK_MUSKET_UNUSED1 = {
-                Skills = {"Target_SingleHandedAttack", "Target_LLWEAPONEX_SinglehandedAttack"},
-                Param = TranslatedString:Create("hd40f14d5g4946g4462gac7bga35ffa61ed27","Gain a follow-up combo skill ([Key:Target_LLWEAPONEX_Rapier_SuckerCombo1_DisplayName]) after punching a target.<br><font color='#99FF22' size='22'>[ExtraData:LLWEAPONEX_MasteryBonus_SuckerPunch_KnockdownTurnExtensionChance]% chance to increase Knockdown by 1 turn.</font>")
+            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Musket_Mastery4"] = {	MUSK_MUSKET_BLAZING_FLARE = {
+                Skills = {"Target_Musk_Flare_Test_Target"},
+                Param = TranslatedString:Create("h2afdeab9g1831g42f2gb761g9ef997e4c681","<font color='#00FF99'>Explosion radius is increased by <font color='#ff3300'>3m</font></font>")
             }}
             Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Musket_Mastery5"] = {	MUSK_MUSKET_UNUSED2 = {
                 Skills = {"Target_SingleHandedAttack", "Target_LLWEAPONEX_SinglehandedAttack"},
@@ -127,61 +85,91 @@ function TestWeaponExMasteryAddition()
             }}
 
 
-            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery1"] = {	MUSK_Matchlock1 = {
-                Skills = {"Target_FirstAid"},
-                Param = TranslatedString:Create("hb9f904a2gd5d5g4329g97b9g905f627ce222", "<icon id='Rush_Musk_Blitzkrieg' icon='Blitzkrieg'/><font color='#006FFF' size='18'>Ammo Conservationist</font><br>Your [Key:Rush_Musk_Blitzkrieg_DisplayName] costs 1 AP to use and also increases <font color='#00FFFF'>Magic Armor</font>."),
-                NamePrefix = "<font color='#DD4444'>Field Medic's</font>"
-            }}
-            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery2"] = {	MUSK_Matchlock2 = {
-                Skills = {"Shout_Reload"},
-                Param = TranslatedString:Create("h3fc0ca29g86aeg4891g93edga43bb03cca2a","<icon id='Shout_Reload' icon='Reload'/>Your [Key:Shout_Reload_DisplayName] inspires you and allies in a 8m range around you after completion for 1 turn.")
-            }}
-            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery3"] = {	MUSK_Matchlock3 = {
-                Skills = {"Projectile_Musk_Grenade_GrenadeAssault"},
-                Param = TranslatedString:Create("h5d41910dga33eg4dbeg85a0ge4c27c41be29","Gain a new skill: Grenade Assault!. Every ally in a radius of 13 meters around you will throw grenades around a target location, resulting in a large blast radius.")
-            }}
-            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery4"] = {	MUSK_Matchlock4 = {
-                Skills = {"Target_SingleHandedAttack", "Target_LLWEAPONEX_SinglehandedAttack"},
-                Param = TranslatedString:Create("h611bbf0fgaba2g486fga1aag6cd79816e8c5","Gain a follow-up combo skill ([Key:Target_LLWEAPONEX_Rapier_SuckerCombo1_DisplayName]) after punching a target.<br><font color='#99FF22' size='22'>[ExtraData:LLWEAPONEX_MasteryBonus_SuckerPunch_KnockdownTurnExtensionChance]% chance to increase Knockdown by 1 turn.</font>")
-            }}
-            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery5"] = {	MUSK_Matchlock5 = {
-                Skills = {"Target_SingleHandedAttack", "Target_LLWEAPONEX_SinglehandedAttack"},
-                Param = TranslatedString:Create("h611bbf0fgaba2g486fga1aag6cd79816e8c5","Gain a follow-up combo skill ([Key:Target_LLWEAPONEX_Rapier_SuckerCombo1_DisplayName]) after punching a target.<br><font color='#99FF22' size='22'>[ExtraData:LLWEAPONEX_MasteryBonus_SuckerPunch_KnockdownTurnExtensionChance]% chance to increase Knockdown by 1 turn.</font>")
-            }}
-
 
             Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery1"] = {	MUSK_BLUNDERBUSS_BLITZKRIEG = {
                 Skills = {"Rush_Musk_Blitzkrieg"},
-                Param = TranslatedString:Create("h4becf9a3g96f0g41c9g8db9ga57ddd7f2c04", "<icon id='Target_FirstAid' icon='Skill_Ranger_FirstAid'/>Your [Key:Target_FirstAid_DisplayName] healing is increased by <font color='#00FFFF'>16 Vitality</font> or do other fancy stuff."),
-                NamePrefix = "<font color='#DD4444'>Field Medic's</font>"
+                Param = TranslatedString:Create("h1c1012afgdba4g49dagb1aeg43aae8b3e069", "<font color='#00FF99'><font color='#ff3300'>AP Cost</font> reduced by 1, additionally grants <font color='#97FBFF'>Magic Armor</font> to the same amount, scaling with <font color='#579CCA'>Hydrosophist</font></font>")
+                --NamePrefix = "<font color='#DD4444'>Field Medic's</font>"
             }}
             Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery2"] = {	MUSK_BLUNDERBUSS_RELOAD_INVIGORATE = {
-                Skills = {"Shout_Reload"},
-                Param = TranslatedString:Create("haa6c1ecfg7d95g45b3g80e8g33904400ab62","<icon id='Shout_Reload' icon='Reload'/>Your [Key:Shout_Reload_DisplayName] inspires you and allies in a 8m range around you after completion for 1 turn.")
+                Skills = reloadSkillVariations,
+                Param = TranslatedString:Create("h5cbb47bfgba39g4eaag8a1eg5dc993d4273b","<font color='#00FF99'>After you finish reloading, grants <font color='#00FFFF'>[Key:HASTED_DisplayName]</font> for 1 turn.</font>")
             }}
-            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery3"] = {	MUSK_MUSKET_GRENADE_ASSAULT = {
-                Skills = {"Projectile_Musk_Grenade_GrenadeAssault"},
-                Param = TranslatedString:Create("hb01d5b56g799ag4545ga221g12243f8c1bba","Gain a new skill: Grenade Assault!. Every ally in a radius of 13 meters around you will throw grenades around a target location, resulting in a large blast radius.")
+            -- Scrap the "Fire Up" Skill and instead add Ammo recovery effect to "Steadfast" skill.
+            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery3"] = {	MUSK_BLUNDERBUSS_FIRE_UP = {
+                Skills = {"Target_Musk_Steadfast"},
+                Param = TranslatedString:Create("he0976981gba25g484fg8901gfa0a74928729","<font color='#00FF99'>Movement speed reduction decreased from 75% to 25%.</font>")
             }}
-            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery4"] = {	MUSK_MUSKET_UNUSED1 = {
+            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery4"] = {	MUSK_BLUNDERBUSS_BUCKSHOT = {
+                Skills = {"Projectile_Buckshot"},
+                Param = TranslatedString:Create("h221a8ecdg8d9dg491bgba62gc704c6b49460","<font color='#00FF99'>Explosion effect on impact is extended by 2m.</font>")
+            }}
+            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery5"] = {	MUSK_BLUNDERBUSS_UNUSED2 = {
                 Skills = {"Target_SingleHandedAttack", "Target_LLWEAPONEX_SinglehandedAttack"},
                 Param = TranslatedString:Create("h8cdc4957g11c1g4a2bgb661g01e750ca214f","Gain a follow-up combo skill ([Key:Target_LLWEAPONEX_Rapier_SuckerCombo1_DisplayName]) after punching a target.<br><font color='#99FF22' size='22'>[ExtraData:LLWEAPONEX_MasteryBonus_SuckerPunch_KnockdownTurnExtensionChance]% chance to increase Knockdown by 1 turn.</font>")
             }}
-            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Blunderbuss_Mastery5"] = {	MUSK_MUSKET_UNUSED2 = {
+
+
+
+            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Matchlock_Mastery1"] = {	MUSK_MATCHLOCK_REND_THE_MARKED = {
+                Skills = {"Projectile_Rend_The_Marked"},
+                Param = TranslatedString:Create("h4ecd7428g0115g48bega393gfb4468faf9d0", "<font color='#00FF99'>Maximum amount of targets is increased from 3 to 5.</font>")
+                --NamePrefix = "<font color='#DD4444'>Field Medic's</font>"
+            }}
+            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Matchlock_Mastery2"] = {	MUSK_MATCHLOCK_RELOAD_STEADY_BREATHING = {
+                Skills = reloadSkillVariations,
+                Param = TranslatedString:Create("h521eed96gb2d4g4bafga208g65ead270fb1e","<font color='#00FF99'>After you finish reloading, grants bonus piercing damage and 10% critical chance on your next shot.</font>")
+            }}
+            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Matchlock_Mastery3"] = {	MUSK_MATCHLOCK_CONDENSED_TERROR = {
+                Skills = {"Projectile_Musk_Grenade_GrenadeAssault"}
+                --Param = TranslatedString:Create("h6ec72a83g2b1fg4433gaaf9gbb73649d511c","<icon id='Projectile_Musk_Condensed_Terror' icon='Reload'/><font color='#FF5E00' size='18'>New Skill: Condensed Terror</font><br>Only useable when stealthed. Fire off a round at an unsuspecting enemy, causing it to take damage upon trying to move.<br><font color='#FF1500'>Fears marked characters for 1 turn</font>")
+            }}
+            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Matchlock_Mastery4"] = {	MUSK_MATCHLOCK_BULLETHELL = {
+                Skills = {"Projectile_Bullethell"},
+                Param = TranslatedString:Create("hbd5f89d0gd8cbg454dgbb35g267017a15789","<font color='#00FF99'>Launches 11 missiles per target instead of 7.</font>")
+            }}
+            Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Matchlock_Mastery5"] = {	MUSK_MATCHLOCK_UNUSED2 = {
                 Skills = {"Target_SingleHandedAttack", "Target_LLWEAPONEX_SinglehandedAttack"},
-                Param = TranslatedString:Create("h8cdc4957g11c1g4a2bgb661g01e750ca214f","Gain a follow-up combo skill ([Key:Target_LLWEAPONEX_Rapier_SuckerCombo1_DisplayName]) after punching a target.<br><font color='#99FF22' size='22'>[ExtraData:LLWEAPONEX_MasteryBonus_SuckerPunch_KnockdownTurnExtensionChance]% chance to increase Knockdown by 1 turn.</font>")
+                Param = TranslatedString:Create("h611bbf0fgaba2g486fga1aag6cd79816e8c5","Gain a follow-up combo skill ([Key:Target_LLWEAPONEX_Rapier_SuckerCombo1_DisplayName]) after punching a target.<br><font color='#99FF22' size='22'>[ExtraData:LLWEAPONEX_MasteryBonus_SuckerPunch_KnockdownTurnExtensionChance]% chance to increase Knockdown by 1 turn.</font>")
             }}
 
 
-
-     
-            
-
-            --Ext.Print("OLAAAAAAAAAAAAAAAA")
             --WeaponEx.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle", 100, true)
             --Mods.WeaponExpansion.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle_Musket", 100, true)
-            
+            --Mods.WeaponExpansion.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle_Blunderbuss", 100, true)
+            --Mods.WeaponExpansion.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle_Matchlock", 100, true)
 
+            -- Register additional Mastery Bonuses to display NamePrefix
+            local BonusIDEntry = WeaponEx.MasteryDataClasses.BonusIDEntry
+
+            for tag,tbl in pairs(WeaponEx.Mastery.Bonuses) do
+                for bonusName,bonusEntry in pairs(tbl) do
+                    if WeaponEx.Mastery.BonusID[bonusName] == nil then
+                        WeaponEx.Mastery.BonusID[bonusName] = BonusIDEntry:Create(bonusName)
+                    end
+                    WeaponEx.Mastery.BonusID[bonusName].Tags[tag] = bonusEntry
+                    if bonusEntry.Skills ~= nil then
+                        for i,v in pairs(bonusEntry.Skills) do
+                            if WeaponEx.Mastery.Params.SkillData[v] == nil then
+                                WeaponEx.Mastery.Params.SkillData[v] = {
+                                    Tags = {}
+                                }
+                            end
+                            WeaponEx.Mastery.Params.SkillData[v].Tags[tag] = bonusEntry
+                        end
+                    end
+                    if bonusEntry.StatusParam ~= nil then
+                        for i,v in pairs(bonusEntry.StatusParam.Statuses) do
+                            if WeaponEx.Mastery.Params.StatusData[v] == nil then
+                                WeaponEx.Mastery.Params.StatusData[v] = {
+                                    Tags = {}
+                                }
+                            end
+                            WeaponEx.Mastery.Params.StatusData[v].Tags[tag] = bonusEntry.StatusParam
+                        end
+                    end
+                end
+            end
         end
     end
 end
@@ -190,61 +178,153 @@ Ext.RegisterListener('SessionLoaded', TestWeaponExMasteryAddition)
 
 WeaponEx = Mods.WeaponExpansion
 
+-- Ok, so this seems to work, at least the skill tooltip changes consistently.
+-- Never tested this Multiplayer, so this is very experimental.
+local testDynamicSkillStats = function (skill, attacker, isFromItem, stealthed, attackerPos, targetPos, level, noRandomization)
+    --print("hello")
+    --print(skill.Name)
+    if skill.Name == "Projectile_Rend_The_Marked" or string.sub(skill.Name, 1, string.len("Projectile_Rend_The_Marked")) == "Projectile_Rend_The_Marked" then
+        --print(attacker.MyGuid)
+        if PersistentVars.WeaponExMasteries == nil then
+            PersistentVars.WeaponExMasteries = {}
+        end
+        if PersistentVars.WeaponExMasteries[attacker.MyGuid] == nil then 
+            PersistentVars.WeaponExMasteries[attacker.MyGuid] = {}
+        end
+        if PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == nil then
+            PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] = 0
+        end
+        if  PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == nil
+            or PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == 0 then
+                --print("Rend Targetcount to 3")
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "AmountOfTargets", 3)
+                Ext.SyncStat("Projectile_Rend_The_Marked")
+        else
+            if PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == 1 then
+                --print("Rend Targetcount to 5")
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "AmountOfTargets", 5)
+                Ext.SyncStat("Projectile_Rend_The_Marked")
+            end
+            --Ext.SyncStat("Projectile_Rend_The_Marked")
+        end
+    end
+end
+--Ext.RegisterListener("GetSkillDamage", testDynamicSkillStats)
+
+Musketeer_WeaponEx_SkillStat_Bonus = {}
+
+function Musketeer_WeaponEx_Setup_SkillStat_Table()
+    -- Musket
+
+    -- Mastery 4, Blazing Flare (Actual projectile radius increase is handled on server)
+    table.insert(Musketeer_WeaponEx_SkillStat_Bonus, {
+        tag = "Musk_Rifle_Musket_Mastery4",
+        skillName = "Target_Musk_Flare_Test_Target",
+        attributeName = "AreaRadius",
+        originalVal = 6,
+        bonusVal = 8,
+        isApplied = false
+        })
+
+    -- Blunderbuss
+
+
+    -- Matchlock
+
+    -- Mastery 1, Rend the Marked
+    table.insert(Musketeer_WeaponEx_SkillStat_Bonus, {
+        tag = "Musk_Rifle_Matchlock_Mastery1",
+        skillName = "Projectile_Rend_The_Marked",
+        attributeName = "AmountOfTargets",
+        originalVal = 3,
+        bonusVal = 5,
+        isApplied = false
+        })
+
+end
+Musketeer_WeaponEx_Setup_SkillStat_Table()
+
+local function Musketeer_Covering_Fire_AutoTurnEnd_Workaround(skill, character, grid, position, radius)
+
+    local calculatedCost, affinity = Game.Math.GetSkillAPCost(skill, character, grid, position, radius)
+
+    if Ext.IsServer() then
+        return 0
+    end
+    return calculatedCost + 3, affinity
+end
+
+Ext.RegisterListener("GetSkillAPCost", function (skill, character, grid, position, radius)
+    if skill.Name == "Target_Unload_Test" then
+        return Musketeer_Covering_Fire_AutoTurnEnd_Workaround(skill, character, grid, position, radius)
+    end
+    --print(character.MyGuid)
+    if PersistentVars.WeaponExMasteries == nil then
+        PersistentVars.WeaponExMasteries = {}
+    end
+    if PersistentVars.WeaponExMasteries[character.MyGuid] == nil then
+        PersistentVars.WeaponExMasteries[character.MyGuid] = {}
+    end
+
+    local playerMasteries = PersistentVars.WeaponExMasteries[character.MyGuid]
+    local bonuses = Musketeer_WeaponEx_SkillStat_Bonus
+
+    for i = 1,#bonuses do
+        if playerMasteries[bonuses[i].tag] == 1 and bonuses[i].skillName == skill.Name then
+            if not bonuses[i].isApplied then
+                --Ext.PrintWarning("Experimental Skill-Stat override -> to new Value")
+                Ext.StatSetAttribute(skill.Name, bonuses[i].attributeName, bonuses[i].bonusVal)
+                Ext.SyncStat(skill.Name, false)
+                bonuses[i].isApplied = true
+            end
+        elseif bonuses[i].isApplied then
+            --Ext.PrintWarning("Experimental Skill-Stat override -> to default")
+            Ext.StatSetAttribute(skill.Name, bonuses[i].attributeName, bonuses[i].originalVal)
+            Ext.SyncStat(skill.Name, false)
+            bonuses[i].isApplied = false
+        end
+    end
+end)
 --[[
 Ext.RegisterListener("GetSkillAPCost", function (skill, character, grid, position, radius)
-    if skill.Name ~= "Rush_Musk_Blitzkrieg" then return end
-    if Ext.IsClient() then
-        if PersistentVars.WeaponExMasteries.Blunderbuss_Mastery1_Enhanced_Blitzkrieg == 1 then
-            Ext.Print("Blunderbuss Mastery1 PersVar is set")
-            return 1, false
+    if skill.Name == "Projectile_Rend_The_Marked" or string.sub(skill.Name, 1, string.len("Projectile_Rend_The_Marked")) == "Projectile_Rend_The_Marked" then
+        --print(character.MyGuid)
+        if PersistentVars.WeaponExMasteries == nil then
+            PersistentVars.WeaponExMasteries = {}
+        end
+        if PersistentVars.WeaponExMasteries[character.MyGuid] == nil then
+            PersistentVars.WeaponExMasteries[character.MyGuid] = {}
+        end
+        if PersistentVars.WeaponExMasteries[character.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == nil then
+            PersistentVars.WeaponExMasteries[character.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] = 0
+        end
+        if  PersistentVars.WeaponExMasteries[character.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == nil
+            or PersistentVars.WeaponExMasteries[character.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == 0 then
+                --print("Rend Targetcount to 3")
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "AmountOfTargets", 3)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "TargetRadius", 5)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "ExplodeRadius", 1)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "HitRadius", 1)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "AreaRadius", 2)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "Range", 2)
+                Ext.SyncStat("Projectile_Rend_The_Marked")
+        else
+            if PersistentVars.WeaponExMasteries[character.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == 1 then
+                --print("Rend Targetcount to 5")
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "AmountOfTargets", 5)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "TargetRadius", 15)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "ExplodeRadius", 3)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "HitRadius", 3)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "AreaRadius", 2)
+                Ext.StatSetAttribute("Projectile_Rend_The_Marked", "Range", 2)
+                Ext.SyncStat("Projectile_Rend_The_Marked")
+            end
+            --Ext.SyncStat("Projectile_Rend_The_Marked")
         end
     end
-
-    if Ext.IsServer() and character.MyGuid ~= nil then
-        local charGuid = character.MyGuid
-        if PersistentVars.WeaponExMasteries.charGuid.Blunderbuss_Mastery1_Enhanced_Blitzkrieg == 1 then
-            Ext.Print("Blunderbuss Mastery1 PersVar is set")
-            return 1, false
-        end
-    end
-
-    Ext.Print("GetSkillApCost with Blitzkrieg called, but cost was not modified.")
 end)
---]]
-
-
-
---[[
-
-Musketeer Masteries (Ideas):
-
-Musket:
-1. After reloading, inspire yourself and all allies around you for 1 turn
-    Fix Reload Debuffs getting cleansed after end of round.
-2. Increase Healing effect of First Aid skill and reduce it's cooldown by 1 turn
-    Create new Stat and implement Skill-Swap mechanic. (Actually, just use the same skill Listeners as LL is using in WeaponEx)
-3. New Skill: Rifle Grenade: Fire off a highly explosive grenade and deal heavy damage, blinding and causing concussion on targets hit
-    Create Stat and handle enable/disable logic
-4. Increase Radius of Blazing Flare by 2m
-    Use LL WeaponEx Listeners to do this
-
-
-Blunderbuss:
-1. Blitzkrieg cost reduced to 1 AP and also grants magic armor
-2. Buckshot Cone Range increased by 2m, pushback increased by 1m
-3. Gain damage reduction when at least 3 enemies are nearby
-4. Get a 25% chance to restore 1 Ammunition when killing an enemy in combat
-
-
-Matchlock:
-1. Deal 15% bonus damage when attacking from stealth
-2. Rend the Marked maximum target limit increased to 5
-3. New Skill: Hunter Killer: can only be cast from stealth, rupture a target and fear it if it's marked
-4. Seeker Strikedown missile count increased from 7 to 11
-
-Each has 1 AP reduction on something, or a similar effect
-
-
-
-
 ]]
+-- player = CharacterGetHostCharacter()
+-- Mods.Musketeer.Musketeer_WeaponEx_AddToPersistentVars(player, "Musk_Rifle_Matchlock_Mastery1", "yes")
+-- Mods.Musketeer.Musketeer_WeaponEx_AddToPersistentVars(player, "Musk_Rifle_Matchlock_Mastery1", "no")
+

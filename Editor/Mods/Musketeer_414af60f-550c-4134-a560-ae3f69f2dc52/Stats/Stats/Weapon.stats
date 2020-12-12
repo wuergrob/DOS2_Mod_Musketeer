@@ -13,8 +13,8 @@
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
         <field name="Damage" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="8" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="120" />
-        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="160" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="110" />
+        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="155" />
         <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="WeaponRange" type="IntegerStatObjectFieldDefinition" value="1000" />
         <field name="Durability" type="IntegerStatObjectFieldDefinition" value="0" />
@@ -46,7 +46,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="_Npc_Rifles" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
-        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long; Musk_Rifle_Musket_Equipped" />
       </fields>
     </stat_object>
@@ -69,7 +69,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifles_Var1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="WPN_Rifles" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="130" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="115" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long; Musk_Rifle_Musket_Equipped" />
@@ -79,7 +79,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifles_Var2" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="WPN_Rifles" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="110" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="105" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="6" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="6" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Long; Musk_Rifle_Musket_Equipped" />
@@ -107,12 +107,12 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Blunderbuss" />
-        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="30" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="155" />
-        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="175" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="20" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="135" />
+        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="170" />
         <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="WeaponRange" type="IntegerStatObjectFieldDefinition" value="400" />
-        <field name="Value" type="IntegerStatObjectFieldDefinition" value="40" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
@@ -130,7 +130,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss_Var1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="WPN_Rifle_Blunderbuss" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="165" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="145" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Short; Musk_Rifle_Blunderbuss_Equipped" />
@@ -143,10 +143,10 @@
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Matchlock" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="12" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="145" />
-        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="165" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="120" />
+        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="160" />
         <field name="WeaponRange" type="IntegerStatObjectFieldDefinition" value="800" />
-        <field name="Value" type="IntegerStatObjectFieldDefinition" value="80" />
+        <field name="Value" type="IntegerStatObjectFieldDefinition" value="105" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="6" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="6" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
@@ -163,7 +163,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Matchlock_Var1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="WPN_Rifle_Matchlock" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="140" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="115" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="7" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="7" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Medium; Musk_Rifle_Matchlock_Equipped" />
@@ -461,6 +461,17 @@
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_BOOSTS_Weapon" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Status_Musk_Mastery_Counterstrike" />
+        <field name="ModifierType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="ModifierType" />
+        <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Damage Type" />
+        <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="10" />
       </fields>
     </stat_object>
   </stat_objects>

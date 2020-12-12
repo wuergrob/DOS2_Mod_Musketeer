@@ -19,6 +19,8 @@ DB_Musketeer_Skillist("Target_Musk_Flare_Test_Target", -1);
 //DB_Musketeer_Skillist("Target_Unload_Test", 0);
 DB_Musketeer_Skillist("Shout_Reload", 11);
 DB_Musketeer_Skillist("Rush_Musk_Blitzkrieg", 1);
+DB_Musketeer_Skillist("Projectile_Musk_Matchlock_Concentrated_Terror", -1);
+DB_Musketeer_Skillist("Projectile_Musk_Mastery_Rifle_Grenade", 0);
 
 KBSECTION
 IF
@@ -33,6 +35,16 @@ THEN
 NRD_DebugLog("[WT_FS] Savegame loaded.");
 
 IF
+RuneInserted(_, _, _, _)
+THEN
+DB_NOOP(1);
+
+IF
+RuneRemoved(_, _, _, _)
+THEN
+DB_NOOP(1);
+
+IF
 //SkillAdded(_Player, "Shout_Musketeer_Passive", 0)
 CharacterItemEvent(_Player, _Item, "Musketeer_Rifle_Equipped")
 AND
@@ -41,6 +53,7 @@ THEN
 SetTag(_Player, "Rifle_Armed");
 CharacterAddSkill(_Player, "Shout_Reload");
 DB_Musketeer_RifleEquipped(_Player, 1);
+NOT DB_Musketeer_RifleEquipped(_Player, 0);
 NRD_AmmoBar_Set_GUI(_Player, "val", 1);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Player);
 Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, _Player);
@@ -105,6 +118,7 @@ THEN
 //DisplayText(_Player, "<font color='#00FF00' size='30'>No longer pew pew ready</font>");
 //CharacterRemoveSkill(_Player, "Shout_Reload");
 DB_Musketeer_RifleEquipped(_Player, 0);
+NOT DB_Musketeer_RifleEquipped(_Player, 1);
 ClearTag(_Player, "Rifle_Armed");
 ClearTag(_Player, "Musketeer_None_Left");
 ClearTag(_Player, "Musketeer_AtLeast_One_Left");
@@ -194,6 +208,8 @@ Musketeer_Consume_Ammo((ITEMGUID)_Weapon, (INTEGER)_Amount, _Character);
 IF
 CharacterStartAttackObject(_, _, _Character)
 AND
+CharacterIsControlled(_Character, 1)
+AND
 HasActiveStatus(_Character, "CHARMED", _Charmed)
 AND
 HasActiveStatus(_Character, "MADNESS", _Mad)
@@ -214,6 +230,8 @@ CharacterAddActionPoints(_Character, 2);
 
 IF
 CharacterStartAttackPosition(_, _, _, _, _Character)
+AND
+CharacterIsControlled(_Character, 1)
 AND
 HasActiveStatus(_Character, "CHARMED", _Charmed)
 AND
@@ -426,6 +444,65 @@ THEN
 NRD_AmmoBar_SetCC_Visibility(_UUID, 0);
 NRD_DebugLog("[OSIRIS] Character Creation is over for someone");
 
+
+// Custom Tag for making the statuses invisible and stealthed usable as skill requirements
+
+IF
+CharacterStatusApplied(_Character, "INVISIBLE", _Causee)
+AND
+HasActiveStatus(_Character, "SNEAKING", 0)
+THEN
+SetTag(_Character, "Musketeer_Stealth_Tag");
+NRD_Client_Refresh_Hotbar(_Character);
+
+IF
+CharacterStatusRemoved(_Character, "INVISIBLE", _Causee)
+AND
+HasActiveStatus(_Character, "SNEAKING", 0)
+THEN
+ClearTag(_Character, "Musketeer_Stealth_Tag");
+NRD_Client_Refresh_Hotbar(_Character);
+
+
+IF
+CharacterStatusApplied(_Character, "SNEAKING", _Causee)
+AND
+HasActiveStatus(_Character, "INVISIBLE", 0)
+THEN
+SetTag(_Character, "Musketeer_Stealth_Tag");
+NRD_Client_Refresh_Hotbar(_Character);
+
+IF
+CharacterStatusRemoved(_Character, "SNEAKING", _Causee)
+AND
+HasActiveStatus(_Character, "INVISIBLE", 0)
+THEN
+ClearTag(_Character, "Musketeer_Stealth_Tag");
+NRD_Client_Refresh_Hotbar(_Character);
+
+// Credit goes to Laughing Leader (Taken from LeaderLib mod)
+// Use to clear a player-casted skill so Osiris skill uses happen immediately.
+PROC
+Musketeer_ClearActionQueue((CHARACTERGUID)_Char)
+THEN
+Musketeer_ClearActionQueue(_Char, 0);
+
+PROC
+Musketeer_ClearActionQueue((CHARACTERGUID)_Char, 0)
+THEN
+CharacterFlushQueue(_Char);
+
+PROC
+Musketeer_ClearActionQueue((CHARACTERGUID)_Char, 1)
+THEN
+CharacterPurgeQueue(_Char);
+
+PROC
+Musketeer_ClearActionQueue((CHARACTERGUID)_Char, (INTEGER)_Purge)
+THEN
+CharacterMoveTo(_Char, _Char, 1, "", 1);
+CharacterSetStill(_Char);
+NRD_DebugLog("Action Queue Cleared");
 /*
 IF
 NRD_OnActionStateEnter(_Character, "Attack")
