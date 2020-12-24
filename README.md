@@ -5,7 +5,7 @@
 # Visit the official Musketeer Classmod Website!
 * [Musketeer Classmod Website](https://wuergrob.github.io/DOS2_Mod_Musketeer/)
 
-# Steam Workshop
+# Download on Steam Workshop
 * [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2238914847) 
 
 # Attribution
