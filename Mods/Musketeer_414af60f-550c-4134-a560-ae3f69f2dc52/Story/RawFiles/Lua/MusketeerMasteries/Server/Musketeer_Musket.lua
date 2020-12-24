@@ -44,7 +44,7 @@ if WeaponEx ~= nil then
 	end)
 
 	function Musketeer_Musket_Mastery_Enable_Grenade_Assault(objectGuid, tag)
-		if tag == "Musk_Rifle_Musket_Mastery2" and ObjectIsCharacter(objectGuid) == 1 then
+		if tag == "Musk_Rifle_Musket_Mastery3" and ObjectIsCharacter(objectGuid) == 1 then
 			--local character = Ext.GetCharacter(objectGuid)
 			CharacterAddSkill(objectGuid, "Projectile_Musk_Grenade_GrenadeAssault", 1)
 		end
@@ -54,12 +54,12 @@ if WeaponEx ~= nil then
 	local function Musketeer_Musket_Mastery_Enable_Grenade_Assault_Check(...)
 		for i,db in pairs(Osi.DB_IsPlayer:Get(nil)) do
 			local player = db[1]
-			if IsTagged(player, "Musk_Rifle_Musket_Mastery2") == 1 then
-				Musketeer_Musket_Mastery_Enable_Grenade_Assault(player, "Musk_Rifle_Musket_Mastery2")
+			if IsTagged(player, "Musk_Rifle_Musket_Mastery3") == 1 then
+				Musketeer_Musket_Mastery_Enable_Grenade_Assault(player, "Musk_Rifle_Musket_Mastery3")
 			end
 		end
 	end
-	Ext.RegisterOsirisListener("SessionLoaded", 2, "after", Musketeer_Musket_Mastery_Enable_Grenade_Assault_Check)
+	--Ext.RegisterOsirisListener("SessionLoaded", 2, "after", Musketeer_Musket_Mastery_Enable_Grenade_Assault_Check)
 
 
 	local function Musketeer_Musket_Mastery_Blazing_Flare_Radius(projectile)
@@ -71,7 +71,7 @@ if WeaponEx ~= nil then
 		-- TODO: add check for Mastery tag
 		if PersistentVars.WeaponExMasteries[attacker.MyGuid] ~= nil
 		and PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Musket_Mastery4"] == 1 then
-				--Ext.Print("Blazing Flare Projectile was launched.")
+				Ext.Print("Blazing Flare Explosion radius bonus added twice?")
 				projectile.ExplodeRadius0 = projectile.ExplodeRadius0 + 3
 				projectile.ExplodeRadius1 = projectile.ExplodeRadius1 + 3
 		end

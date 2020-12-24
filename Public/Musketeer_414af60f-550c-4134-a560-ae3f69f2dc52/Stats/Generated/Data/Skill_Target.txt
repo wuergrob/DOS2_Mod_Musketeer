@@ -163,5 +163,6 @@ new entry "Target_Musk_Blunderbuss_Mastery_Haste"
 type "SkillData"
 data "SkillType" "Target"
 using "Target_Haste"
+data "SkillProperties" "HASTED,100,1;"
 data "Stealth" "Yes"
 

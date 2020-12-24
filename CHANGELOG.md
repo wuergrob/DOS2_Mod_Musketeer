@@ -300,4 +300,11 @@ the importance of `Marked` interactions to encourage strategic decision making.
 - All `Reload` Variations do no longer break stealth when cast. 
 (Additionally, all `Reload` bonus effects gained from masteries can be cast from stealth)
 
+## 1.3.1.0 - Fixes and improved Mod Compatibility
+
+### Bugfixes
+- `Covering Fire` can target characters and items again
+
+### Balance & Design
+
 

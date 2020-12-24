@@ -66,9 +66,9 @@ if WeaponEx ~= nil then
 
 	local function Musketeer_Blunderbuss_Mastery_Steadfast(targetGuid, statusId, statusHandle, instigatorGuid)
 		if statusId ~= "MUSK_STEADFAST" then return end
-		if IsTagged(instigatorGuid, "Musk_Rifle_Blunderbuss_Mastery3") == 1 then
+		if IsTagged(instigatorGuid, "Musk_Rifle_Blunderbuss_Mastery3") == 1 and IsTagged(instigatorGuid, "Musk_Rifle_Blunderbuss_Equipped") == 1 then
 			NRD_StatusPreventApply(targetGuid, statusHandle, 1)
-			ApplyStatus(targetGuid, "MUSK_STEADFAST_BLUNDERBUSS_MASTERY", 18.0, 1, instigatorGuid)
+			ApplyStatus(targetGuid, "MUSK_STEADFAST_BLUNDERBUSS_MASTERY", 18.0, 0, instigatorGuid)
 			--Ext.Print("Applied enhanced Steadfast")
 		end
 		--Ext.Print("Blunderbuss Steadfast handler done")

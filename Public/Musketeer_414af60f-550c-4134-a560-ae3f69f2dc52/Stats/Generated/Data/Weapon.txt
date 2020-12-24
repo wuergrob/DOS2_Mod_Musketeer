@@ -375,6 +375,8 @@ type "Weapon"
 using "_BOOSTS_Weapon"
 data "Charges" "1"
 data "MaxCharges" "1"
+data "RuneSlots" "1"
+data "RuneSlots_V1" "1"
 
 new entry "Status_Musk_Mastery_Counterstrike"
 type "Weapon"

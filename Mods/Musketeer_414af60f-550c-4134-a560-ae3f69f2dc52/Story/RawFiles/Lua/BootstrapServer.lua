@@ -1464,23 +1464,40 @@ Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
     --Ext.PrintWarning("ProjectileHit: ", projectile, hitObject, position)
 end)
 
-Ext.RegisterOsirisListener("CharacterUsedSkillAtPosition", 7, "after", function (character, x, y, z, skill, skillType, skillElement)
-    if skill == "Projectile_Unload_Instance" then
-        --Ext.PrintWarning("Covering Fire Instance")
-    end
-    if skill ~= "Target_Unload_Test" then return end
-    --print(character)
+local function Musketeer_Handle_Covering_Fire_Cast(character, x, y, z, skill, skillType, skillElement)
     Musketeer_Covering_Fire_Initial_Position[Ext.GetCharacter(character).MyGuid] = {x, y, z}
     local position = {x, y, z}
     local distance = GetDistanceToPosition(character, position[1], position[2], position[3])
     local newx, newy, newz = Osi.NRD_Musketeer_Get_Random_Pos(position[1], position[2], position[3], distance)
     CharacterUseSkillAtPosition(character, "Target_Unload_Buffer", x, y, z, 0, 1);
     CharacterUseSkillAtPosition(character, "Projectile_Unload_Instance", newx, position[2], newz, 0, 1)
+end
+
+Ext.RegisterOsirisListener("CharacterUsedSkillAtPosition", 7, "after", function (character, x, y, z, skill, skillType, skillElement)
+    if skill ~= "Target_Unload_Test" then return end
+    Musketeer_Handle_Covering_Fire_Cast(character, x, y, z, skill, skillType, skillElement)
 end)
 
+Ext.RegisterOsirisListener("CharacterUsedSkillOnTarget", 7, "after", function (character, target, skill, skillType, skillElement)
+    if skill ~= "Target_Unload_Test" then return end
+    local x, y, z = GetPosition(target)
+    Musketeer_Handle_Covering_Fire_Cast(character, x, y, z, skill, skillType, skillElement)
+end)
+
+-- TODO:
+-- Check if Highground Damage is actually being added when attacking from high ground with Rifle skills
+-- Fix Blunderbuss custom Skillproperty typo
+
+--[[
+
+For appending TreasureTable entries:
+
+- Check LL's code in WeaponEx for TreasureTable category tables (e.g. ST_LLWEAPONEX_Trader_RangedNormal entry)
+- Don't overwrite TreasureTable and instead create a new category from the current overwrite (So we can append the whole table and append it)
+- Check LL's code again to see how to append such a new table to the existing ones
 
 
-
+]]
 
 --[[
 local function Musketeer_Covering_Fire_Use_Skill(characterguid, channel, payload)

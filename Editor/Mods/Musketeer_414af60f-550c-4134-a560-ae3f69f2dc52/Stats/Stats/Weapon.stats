@@ -461,6 +461,8 @@
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_BOOSTS_Weapon" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="RuneSlots" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="RuneSlots_V1" type="IntegerStatObjectFieldDefinition" value="1" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

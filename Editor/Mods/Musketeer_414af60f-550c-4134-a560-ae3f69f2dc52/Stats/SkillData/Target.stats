@@ -164,6 +164,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Blunderbuss_Mastery_Haste" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Haste" />
         <field name="Stealth" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="HASTED,100,1;" />
       </fields>
     </stat_object>
   </stat_objects>

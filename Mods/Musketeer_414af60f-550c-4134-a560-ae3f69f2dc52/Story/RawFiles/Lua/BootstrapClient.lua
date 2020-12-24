@@ -1077,11 +1077,11 @@ Ext.RegisterSkillProperty("MUSKETEER_BUCKSHOT_SKILLPROP", {
 		if PersistentVars.WeaponExMasteries ~= nil and
 		   PersistentVars.WeaponExMasteries[PersistentVars["PlayerCharacterGUID"]] ~= nil and 
 		   PersistentVars.WeaponExMasteries[PersistentVars["PlayerCharacterGUID"]].Musk_Rifle_Blunderbuss_Mastery4 == 1 then
-		   return "Causes a 6(+2)m long fire explosios behind the impact location"
+		   return "Causes a 6(+2)m long fire explosion behind the impact location"
 		end
 
 		local rand = math.random(0, 1337)
-        return "Causes a 6m long fire explosios behind the impact location"
+        return "Causes a 6m long fire explosion behind the impact location"
     end
 })
 

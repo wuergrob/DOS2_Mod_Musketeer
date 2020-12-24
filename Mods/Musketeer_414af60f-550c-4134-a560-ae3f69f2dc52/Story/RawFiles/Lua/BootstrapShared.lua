@@ -139,6 +139,10 @@ function TestWeaponExMasteryAddition()
             --Mods.WeaponExpansion.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle_Blunderbuss", 100, true)
             --Mods.WeaponExpansion.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle_Matchlock", 100, true)
 
+            --Mods.WeaponExpansion.AddMasteryExperience(CharacterGetHostCharacter(), "Musk_Rifle_Musket", 100, true)
+            --Mods.WeaponExpansion.AddMasteryExperience(CharacterGetHostCharacter(), "Musk_Rifle_Blunderbuss", 100, true)
+            --Mods.WeaponExpansion.AddMasteryExperience(CharacterGetHostCharacter(), "Musk_Rifle_Matchlock", 100, true)
+
             -- Register additional Mastery Bonuses to display NamePrefix
             local BonusIDEntry = WeaponEx.MasteryDataClasses.BonusIDEntry
 
@@ -196,12 +200,12 @@ local testDynamicSkillStats = function (skill, attacker, isFromItem, stealthed, 
         end
         if  PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == nil
             or PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == 0 then
-                --print("Rend Targetcount to 3")
+                print("Rend Targetcount to 3")
                 Ext.StatSetAttribute("Projectile_Rend_The_Marked", "AmountOfTargets", 3)
                 Ext.SyncStat("Projectile_Rend_The_Marked")
         else
             if PersistentVars.WeaponExMasteries[attacker.MyGuid]["Musk_Rifle_Matchlock_Mastery1"] == 1 then
-                --print("Rend Targetcount to 5")
+                print("Rend Targetcount to 5")
                 Ext.StatSetAttribute("Projectile_Rend_The_Marked", "AmountOfTargets", 5)
                 Ext.SyncStat("Projectile_Rend_The_Marked")
             end
@@ -258,6 +262,7 @@ Ext.RegisterListener("GetSkillAPCost", function (skill, character, grid, positio
     if skill.Name == "Target_Unload_Test" then
         return Musketeer_Covering_Fire_AutoTurnEnd_Workaround(skill, character, grid, position, radius)
     end
+    
     --print(character.MyGuid)
     if PersistentVars.WeaponExMasteries == nil then
         PersistentVars.WeaponExMasteries = {}
@@ -271,19 +276,23 @@ Ext.RegisterListener("GetSkillAPCost", function (skill, character, grid, positio
 
     for i = 1,#bonuses do
         if playerMasteries[bonuses[i].tag] == 1 and bonuses[i].skillName == skill.Name then
-            if not bonuses[i].isApplied then
+            if bonuses[i].isApplied == false then
                 --Ext.PrintWarning("Experimental Skill-Stat override -> to new Value")
-                Ext.StatSetAttribute(skill.Name, bonuses[i].attributeName, bonuses[i].bonusVal)
-                Ext.SyncStat(skill.Name, false)
+                --Ext.PrintWarning(bonuses[i].skillName)
+                Ext.StatSetAttribute(bonuses[i].skillName, bonuses[i].attributeName, bonuses[i].bonusVal)
+                --Ext.SyncStat(skill.Name, false)
                 bonuses[i].isApplied = true
             end
-        elseif bonuses[i].isApplied then
+        --else
+        elseif bonuses[i].isApplied == true then
             --Ext.PrintWarning("Experimental Skill-Stat override -> to default")
-            Ext.StatSetAttribute(skill.Name, bonuses[i].attributeName, bonuses[i].originalVal)
-            Ext.SyncStat(skill.Name, false)
+            --Ext.PrintWarning(bonuses[i].skillName)
+            Ext.StatSetAttribute(bonuses[i].skillName, bonuses[i].attributeName, bonuses[i].originalVal)
+            --Ext.SyncStat(skill.Name, false)
             bonuses[i].isApplied = false
         end
     end
+    
 end)
 --[[
 Ext.RegisterListener("GetSkillAPCost", function (skill, character, grid, position, radius)
