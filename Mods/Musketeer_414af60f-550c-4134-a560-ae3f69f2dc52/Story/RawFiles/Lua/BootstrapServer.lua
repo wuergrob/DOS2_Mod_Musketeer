@@ -1478,7 +1478,7 @@ Ext.RegisterOsirisListener("CharacterUsedSkillAtPosition", 7, "after", function 
     Musketeer_Handle_Covering_Fire_Cast(character, x, y, z, skill, skillType, skillElement)
 end)
 
-Ext.RegisterOsirisListener("CharacterUsedSkillOnTarget", 7, "after", function (character, target, skill, skillType, skillElement)
+Ext.RegisterOsirisListener("CharacterUsedSkillOnTarget", 5, "after", function (character, target, skill, skillType, skillElement)
     if skill ~= "Target_Unload_Test" then return end
     local x, y, z = GetPosition(target)
     Musketeer_Handle_Covering_Fire_Cast(character, x, y, z, skill, skillType, skillElement)
