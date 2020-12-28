@@ -303,7 +303,8 @@ the importance of `Marked` interactions to encourage strategic decision making.
 ## 1.3.1.0 - Fixes and improved Mod Compatibility
 
 ### Bugfixes
-- `Covering Fire` can target characters and items again
+- `Covering Fire` Skill can target characters and items again
+- `Rapidfire` no longer misses the target on the 2nd and 3rd shot on certain occasions
 
 ### Balance & Design
 

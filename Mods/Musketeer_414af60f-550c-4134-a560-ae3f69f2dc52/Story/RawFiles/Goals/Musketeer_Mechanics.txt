@@ -45,6 +45,11 @@ THEN
 DB_NOOP(1);
 
 IF
+NRD_OnActionStateExit(_, _)
+THEN
+DB_NOOP(1);
+
+IF
 //SkillAdded(_Player, "Shout_Musketeer_Passive", 0)
 CharacterItemEvent(_Player, _Item, "Musketeer_Rifle_Equipped")
 AND

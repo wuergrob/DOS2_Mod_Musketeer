@@ -1484,9 +1484,70 @@ Ext.RegisterOsirisListener("CharacterUsedSkillOnTarget", 5, "after", function (c
     Musketeer_Handle_Covering_Fire_Cast(character, x, y, z, skill, skillType, skillElement)
 end)
 
--- TODO:
--- Check if Highground Damage is actually being added when attacking from high ground with Rifle skills
--- Fix Blunderbuss custom Skillproperty typo
+
+Musketeer_Rapidfire_Path = {}
+
+-- Luckily, ProjectileHit is triggered when the attack misses too
+Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
+    if projectile.SkillId == "Projectile_Rapidfire" or projectile.SkillId == "Projectile_Rapidfire_-1" then
+        local attacker = Ext.GetGameObject(projectile.SourceHandle)
+        if attacker ~= nil and attacker.MyGuid ~= nil and Musketeer_Rapidfire_Path[attacker.MyGuid] == nil then
+            Musketeer_Rapidfire_Path[attacker.MyGuid] = {
+                selectedTarget = projectile.TargetObjectHandle,
+                attackedObject = hitObject.Handle,
+                hitPosition = position,
+                restCount = 2
+                }
+        elseif attacker ~= nil and attacker.MyGuid ~= nil and Musketeer_Rapidfire_Path[attacker.MyGuid] ~= nil then
+            if Musketeer_Rapidfire_Path[attacker.MyGuid].restCount > 0 then
+                hitObject = Ext.GetGameObject(Musketeer_Rapidfire_Path[attacker.MyGuid].selectedTarget)
+            elseif Musketeer_Rapidfire_Path[attacker.MyGuid].restCount <= 0 then
+                Musketeer_Rapidfire_Path[attacker.MyGuid] = nil
+            end
+        end
+    end
+end)
+
+Ext.RegisterListener("ShootProjectile", function (projectile)
+    --if nil == nil then return end
+    if projectile.SkillId == "Projectile_Rapidfire" or projectile.SkillId == "Projectile_Rapidfire_-1" then
+        local attacker = Ext.GetGameObject(projectile.SourceHandle)
+        local projectileInfo = Musketeer_Rapidfire_Path[attacker.MyGuid]
+        if projectileInfo ~= nil then        
+            if projectileInfo.selectedTarget == projectileInfo.attackedObject then
+                projectile.ForceTarget = true
+                projectileInfo.restCount = projectileInfo.restCount - 1
+            end
+        end
+    end
+end)
+
+Ext.RegisterOsirisListener("NRD_OnActionStateExit", 2, "after", function (character, action)
+    if NRD_CharacterGetCurrentAction(character) == "UseSkill" then
+        if NRD_ActionStateGetString(character, "SkillId") == "Projectile_Rapidfire" or NRD_ActionStateGetString(character, "SkillId") == "Projectile_Rapidfire_-1" then
+            local charObj = Ext.GetCharacter(character)
+            Musketeer_Rapidfire_Path[charObj.MyGuid] = nil
+            --Ext.Print("Cleared RapidFire table")
+        end
+    end
+end)
+
+local Musketeer_Treasure_Table =
+{
+    ST_SkillbookRanger = "ST_SkillbookRanger_Musketeer",
+    ST_Skillbook_RangerTrainer = "ST_Skillbook_RangerTrainer_Musketeer",
+    FTJ_SkillbookRanger = "FTJ_SkillbookRanger_Musketeer",
+    FTJ_Skillbook_RangerTrainer = "FTJ_Skillbook_RangerTrainer_Musketeer",
+    ST_RangedNormal = "ST_RangedNormal_Musketeer",
+    ST_Trader_WeaponNormal = "ST_Trader_WeaponNormal_Musketeer",
+}
+
+Ext.RegisterListener("SessionLoaded", function ()
+    for k, v in pairs(Musketeer_Treasure_Table) do
+        local tt = Ext.GetTreasureTable(k)
+        print(Ext.JsonStringify(tt))
+    end
+end)
 
 --[[
 
