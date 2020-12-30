@@ -143,8 +143,8 @@
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="_Musk_Rifles" />
         <field name="ItemGroup" type="StringStatObjectFieldDefinition" value="Musk_Matchlock" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="12" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="120" />
-        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="160" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="105" />
+        <field name="CriticalDamage" type="IntegerStatObjectFieldDefinition" value="150" />
         <field name="WeaponRange" type="IntegerStatObjectFieldDefinition" value="800" />
         <field name="Value" type="IntegerStatObjectFieldDefinition" value="105" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="6" />
@@ -163,7 +163,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="WPN_Rifle_Matchlock_Var1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="WPN_Rifle_Matchlock" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="115" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="Charges" type="IntegerStatObjectFieldDefinition" value="7" />
         <field name="MaxCharges" type="IntegerStatObjectFieldDefinition" value="7" />
         <field name="Tags" type="StringStatObjectFieldDefinition" value="Musk_Rifle_Medium; Musk_Rifle_Matchlock_Equipped" />

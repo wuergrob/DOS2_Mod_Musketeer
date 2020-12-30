@@ -49,5 +49,19 @@
 	<content contentuid="hcb42a7d4g470cg4c83g8a9cga31e6726670a" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_SteadyShot">Steady Shot Skillbook</content>
 	<content contentuid="h4a4c3671g429cg405egae0bg00c8a3eefa00" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_ThrowTripwireFlare">Throw Tripwire Flare Skillbook</content>
 	<content contentuid="hdd4eb621g5d7fg459ag933bgff901135d63b" Source="Stats.lsb" Key="SKILLBOOK_Musketeer_TrackingShot">Tracking Shot Skillbook</content>
+	<content contentuid="h375e03d3g438cg45a6gbdcaga165276cf3dc" Source="Tags.lsb" Key="Musketeer_AtLeast_One_Left">&lt;font color=&apos;#00EFFF&apos;&gt;At least 1 shot left&lt;/font&gt;</content>
+	<content contentuid="h18104385g253eg4b4agbbf7g5fae91d8a272" Source="Tags.lsb" Key="Musketeer_AtLeast_Three_Left">&lt;font color=&apos;#00EFFF&apos;&gt;At least 3 shots left&lt;/font&gt;</content>
+	<content contentuid="h7114f65fge9c9g44a3g8a7fgf9d40b0e7ed1" Source="Tags.lsb" Key="Musketeer_AtLeast_Two_Left">&lt;font color=&apos;#00EFFF&apos;&gt;At least 2 shots left&lt;/font&gt;</content>
+	<content contentuid="h81a6388eg9c73g41afg9fe6g2c1f0ef7d0f2" Source="Tags.lsb" Key="Musketeer_Exactly_One_Left">&lt;font color=&apos;#00EFFF&apos;&gt;Exactly 1 shot left&lt;/font&gt;</content>
+	<content contentuid="h5ea0a9b0g7c84g47bdga2d4g65e1a3ad8da2" Source="Tags.lsb" Key="Musketeer_Exactly_Two_Left">&lt;font color=&apos;#00EFFF&apos;&gt;Exactly 2 shots left&lt;/font&gt;</content>
+	<content contentuid="h71fe9f67g24b2g43f9gb6e0g5d468960df7d" Source="Tags.lsb" Key="Musketeer_None_Left">&lt;font color=&apos;#00EFFF&apos;&gt;Out of Ammunition&lt;/font&gt;</content>
+	<content contentuid="h91548be2gc4abg47aagadaeg6d355c3d3879" Source="Tags.lsb" Key="Rifle_Armed">&lt;font color=&apos;#00EFFF&apos;&gt;Rifle equipped&lt;/font&gt;</content>
 	<content contentuid="ha25146f2ge2bbg4af6ga0dcg8340a68e5a3c" Source="Tags_Tooltips.lsb" Key="Musk_Rifle_Musket">Musket</content>
+	<content contentuid="hd6cb5710gf689g4ec9g8e16g702747d53370" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_Atleast_One_Left">At least 1 Ammo remaining</content>
+	<content contentuid="h6bf1151ag9603g4b20gb776g8322cb117500" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_AtLeast_Three_Left">At least 3 Ammo remaining</content>
+	<content contentuid="hc5e65e18gb3a7g44f9gbe16gf599d5ac5cd4" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_AtLeast_Two_Left">At least 2 Ammo remaining</content>
+	<content contentuid="h8b0eea31g33d5g49a0gad92g9c6a78c6abcd" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_Exactly_One_Left">Exactly 1 Ammo left</content>
+	<content contentuid="hb90bb5f4g8e7eg40e8g9687g1c94fb04c09f" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_Exactly_Two_Left">Exactly 2 Ammo left</content>
+	<content contentuid="hf0e6dab6g49a9g45b8gba10g8ff17b4df67a" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_None_Left">Out of Ammunition</content>
+	<content contentuid="h043d667fge6bcg4196ga866g14bc6e2ebeb3" Source="Tags_Tooltips.lsb" Key="tagkey_Rifle_Armed">Character has a Rifle equipped.</content>
 </contentList>

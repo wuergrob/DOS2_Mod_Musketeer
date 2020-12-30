@@ -136,6 +136,7 @@ PROC
 ProcObjectTimerFinished(_Player, "Musketeer_ReloadDebuff_Ticker")
 THEN
 DB_Musketeer_ReloadDebuffTickLimit((CHARACTERGUID)_Player, 0);
+NOT DB_Musketeer_ReloadDebuffTickLimit(_Player, 1);
 
 
 // Make the Mute and Disarmed Status uncleansable by reapplying them when removed, if the character has the
@@ -150,6 +151,7 @@ THEN
 ApplyStatus(_Character, "MUTED", -1.0, 1, _Character);
 ProcObjectTimer(_Character, "Musketeer_ReloadDebuff_Ticker", 150);
 DB_Musketeer_ReloadDebuffTickLimit(_Character, 1);
+NOT DB_Musketeer_ReloadDebuffTickLimit(_Character, 0);
 
 IF
 CharacterStatusRemoved(_Character, "DISARMED", _)
@@ -161,6 +163,7 @@ THEN
 ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
 ProcObjectTimer(_Character, "Musketeer_ReloadDebuff_Ticker", 150);
 DB_Musketeer_ReloadDebuffTickLimit(_Character, 1);
+NOT DB_Musketeer_ReloadDebuffTickLimit(_Character, 0);
 
 // Apply Reload Debuffs again after the Tick-Timer expired and a character is reloading.
 // Will essentially still cause an infinite loop if other sources continuously remove it, but

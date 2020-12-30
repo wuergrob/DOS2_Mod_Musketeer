@@ -47,8 +47,9 @@ local function Musketeer_Version_Is_Newer(oldVersion, newVersion)
 end
 
 local function Musketeer_Update_Savegame(oldVersion, newVersion)
-    if Musketeer_Version_Is_Newer(oldVersion, newVersion) then
-        if VersionIntegerToVersionString(oldVersion) == "1.2.1.0" then
+    --if Musketeer_Version_Is_Newer(oldVersion, newVersion) then
+        --if VersionIntegerToVersionString(oldVersion) == "1.2.1.0" then
+        if Osi.DB_Musketeer_Skillist:Get("Projectile_Musk_Matchlock_Concentrated_Terror", nil)[1] == nil then
             Osi.DB_Musketeer_Skillist("Projectile_Musk_Matchlock_Concentrated_Terror", -1)
             Osi.DB_Musketeer_Skillist("Projectile_Musk_Mastery_Rifle_Grenade", 0)
 
@@ -62,7 +63,7 @@ local function Musketeer_Update_Savegame(oldVersion, newVersion)
             concat["ammocost"] = 0
             Ext.BroadcastMessage("Musketeer_Rifle_Skill", Ext.JsonStringify(concat))
         end
-    end
+    --end
 end
 
 --Ext.RegisterListener("SessionLoaded", function ()
@@ -576,7 +577,7 @@ local function IsRifleBasedSkill(statId)
     end
     
     -- Special case, Buckshot Impact Explosion instances have no req's but are obviously rifle based damage.
-    if statId == "Buckshot_Fire-1" or statId == "Buckshot_Fire" then
+    if string.sub(statId, 1, #"Projectile_Buckshot") == "Projectile_Buckshot" or statId == "Buckshot_Fire-1" or statId == "Buckshot_Fire" then
         DebugPrint("Killed by Buckshot Impact Fire")
         return true
     end
@@ -1529,23 +1530,6 @@ Ext.RegisterOsirisListener("NRD_OnActionStateExit", 2, "after", function (charac
             Musketeer_Rapidfire_Path[charObj.MyGuid] = nil
             --Ext.Print("Cleared RapidFire table")
         end
-    end
-end)
-
-local Musketeer_Treasure_Table =
-{
-    ST_SkillbookRanger = "ST_SkillbookRanger_Musketeer",
-    ST_Skillbook_RangerTrainer = "ST_Skillbook_RangerTrainer_Musketeer",
-    FTJ_SkillbookRanger = "FTJ_SkillbookRanger_Musketeer",
-    FTJ_Skillbook_RangerTrainer = "FTJ_Skillbook_RangerTrainer_Musketeer",
-    ST_RangedNormal = "ST_RangedNormal_Musketeer",
-    ST_Trader_WeaponNormal = "ST_Trader_WeaponNormal_Musketeer",
-}
-
-Ext.RegisterListener("SessionLoaded", function ()
-    for k, v in pairs(Musketeer_Treasure_Table) do
-        local tt = Ext.GetTreasureTable(k)
-        print(Ext.JsonStringify(tt))
     end
 end)
 

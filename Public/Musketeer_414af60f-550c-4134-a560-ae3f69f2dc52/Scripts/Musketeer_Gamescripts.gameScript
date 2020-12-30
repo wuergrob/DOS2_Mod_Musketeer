@@ -135,10 +135,11 @@ ON
 	OnCharacterStatusRemoved(_Character, MUSK_RANGE_SHORT)
 	OnCharacterStatusRemoved(_Character, MUSK_RANGE_SHORT_LW)
 ACTIONS
-	IF "c1&c2&c3"
+	IF "c1&c2&c3&!c4"
 		IsTagged(_Character, "Rifle_Armed")
 		CharacterGetAbility(_SourceryPoints, _Character, Sourcery)
 		IsEqual(_SourceryPoints, 0)
+		CharacterIsPolymorphInteractionDisabled(_Character)
 	THEN
 		CharacterEvent(_Character, "Musketeer_Check_Dynamic_Range")
 	ENDIF

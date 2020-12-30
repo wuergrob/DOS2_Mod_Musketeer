@@ -5,128 +5,9 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger" />
         <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Ricochet" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_0" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_FirstAid" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_PinDown" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_2" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_ElementalArrowheads" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_3" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_SkyShot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_4" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_TacticalRetreat" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_5" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Multishot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_6" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_ArrowSpray" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_7" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_PiercingShot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_8" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_ReactionShot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_9" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_BallisticShot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_10" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Farsight" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_11" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Snipe" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_12" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Mark" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat_13" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_RainOfArrows" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_SkillbookRanger_substat" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_SteadyShot" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="2" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_SkillbookRanger" />
+        <field name="CanMerge" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="true">
@@ -279,143 +160,9 @@
         <field name="MinLevelDiff" type="IntegerStatObjectFieldDefinition" value="-30" />
         <field name="MaxLevelDiff" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Ricochet" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_0" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_FirstAid" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Mark" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_2" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_PiercingShot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_3" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Snipe" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_4" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_TacticalRetreat" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_5" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_ArrowSpray" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_6" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_RainOfArrows" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_7" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_ElementalArrowheads" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_8" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_PinDown" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_9" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_SkyShot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_10" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Multishot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_11" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_ReactionShot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_12" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_BallisticShot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_13" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Farsight" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer_substat_14" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_SteadyShot" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
+        <field name="CanMerge" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="true">
@@ -584,71 +331,9 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
         <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Ricochet" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_0" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_FirstAid" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_PinDown" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_2" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_ElementalArrowheads" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_3" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_SkyShot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_4" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_TacticalRetreat" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_5" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Ranger_Multishot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_6" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_SteadyShot" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
+        <field name="CanMerge" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="true">
@@ -689,15 +374,6 @@
     </stat_object>
     <stat_object is_substat="true">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_11" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_CoveringFire" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_12" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_RapidFire" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
@@ -707,56 +383,11 @@
     </stat_object>
     <stat_object is_substat="true">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_13" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_Reload_Incendiary" />
+        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_11" />
+        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_CoveringFire" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
         <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_14" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_Reload_Freezing" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_15" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_Reload_Schocking" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_16" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_Reload_Piercing" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat_17" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_Reload_Doom" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_SkillbookRanger_substat" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="I_SKILLBOOK_Musketeer_Scattershot" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="FTJ_SkillbookRanger" />
       </fields>
     </stat_object>
     <stat_object is_substat="true">
@@ -770,102 +401,22 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="FTJ_Skillbook_RangerTrainer" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_FTJ_SkillbookRanger" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="ST_RangedNormal" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Bow" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_RangedNormal_substat_0" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_RangedNormal" />
+        <field name="DropCount" type="StringStatObjectFieldDefinition" value="2,1" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="2,1" />
+        <field name="CanMerge" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_OneHandedNormal" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="2" />
-        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_0" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Shield" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Dagger" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="2" />
-        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_2" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_WandNormal" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="2" />
-        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_3" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_TwoHandedNormal" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_4" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_StaffNormal" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat_5" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
-        <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="T_ST_Trader_RangedNormal" />
-        <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="true">
-      <fields>
-        <field name="Name" type="NameStatObjectFieldDefinition" value="ST_Trader_WeaponNormal_substat" />
+        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1;0,3" />
         <field name="ObjectCategory" type="StringStatObjectFieldDefinition" value="Crossbow" />
         <field name="Frequency" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Common" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="ST_Trader_WeaponNormal" />
-        <field name="DropCount" type="StringStatObjectFieldDefinition" value="1,1;0,3" />
+        <field name="CanMerge" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
       </fields>
     </stat_object>
   </stat_objects>

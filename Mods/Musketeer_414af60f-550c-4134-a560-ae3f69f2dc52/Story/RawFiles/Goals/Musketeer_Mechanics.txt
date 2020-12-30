@@ -347,9 +347,10 @@ SetTag(_Character, "Musketeer_None_Left");
 ClearTag(_Character, "Musketeer_AtLeast_One_Left");
 ClearTag(_Character, "Musketeer_AtLeast_Two_Left");
 ClearTag(_Character, "Musketeer_Exactly_One_Left");
+NRD_Client_Refresh_Hotbar(_Character);
 //ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
 //DebugBreak("[WT_FS] No Ammo left.");
-ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
+//ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
 
 // When exactly 1 Ammo remaining, set armed, Atleast one and clear Atleast two.
 PROC
@@ -364,8 +365,9 @@ SetTag(_Character, "Musketeer_AtLeast_One_Left");
 ClearTag(_Character, "Musketeer_AtLeast_Two_Left");
 //RemoveStatus(_Character, "DISARMED");
 ClearTag(_Character, "Musketeer_None_Left");
+NRD_Client_Refresh_Hotbar(_Character);
 //DebugBreak("[WT_FS] Exactly 1 round left.");
-ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
+//ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
 
 // When at least 2 Ammo remaining, set armed, Atleast one, Atleast two.
 PROC
@@ -380,8 +382,9 @@ SetTag(_Character, "Musketeer_AtLeast_One_Left");
 //RemoveStatus(_Character, "DISARMED");
 ClearTag(_Character, "Musketeer_None_Left");
 ClearTag(_Character, "Musketeer_Exactly_One_Left");
+NRD_Client_Refresh_Hotbar(_Character);
 //DebugBreak("[WT_FS] At least 2 rounds left.");
-ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
+//ApplyStatus(_Character, "MUSK_NULL_STATUS", 0.0, 1, _Character);
 
 // Send Ammo Update event for client-side AmmoBar
 PROC

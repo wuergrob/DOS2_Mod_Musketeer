@@ -29,6 +29,7 @@ IF
 DB_Musketeer_RifleEquipped(_Player, 1)
 THEN
 DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 0);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 1);
 
 IF
 DB_Musketeer_ModStarted(1)
@@ -36,6 +37,7 @@ AND
 DB_IsPlayer(_Player)
 THEN
 DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 0);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 1);
 TimerCancel("Musketeer_DynamicRange_Ticker");
 
 IF
@@ -44,6 +46,7 @@ AND
 DB_IsPlayer(_Player)
 THEN
 DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 0);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 1);
 
 
 //REGION Musketeer_Range_Status_Proc
@@ -67,6 +70,9 @@ PROC
 ProcObjectTimerFinished(_Player, "Musketeer_DynamicRange_Ticker")
 THEN
 DB_Musketeer_DynamicRangeTickLimit_Player((CHARACTERGUID)_Player, 0);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player((CHARACTERGUID)_Player, 1);
+//DebugBreak("[Musketeer Testing] Tick timer set to 0");
+//Musketeer_Rifle_Range_Tags((ITEMGUID)_Weapon, (CHARACTERGUID)_Player);
 //NRD_DebugLog("[Musketeer] DynamicRange Ticked");
 /*
 PROC
@@ -90,6 +96,7 @@ THEN
 //DebugBreak("[WT_FS] Normal Range Rifle equipped.");
 //TimerLaunch("Musketeer_DynamicRange_Ticker", 150);
 DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 1);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 0);
 ProcObjectTimer(_Player, "Musketeer_DynamicRange_Ticker", 150);
 ApplyStatus(_Player, "MUSK_RANGE_LONG", -1.0, 1, _Player);
 
@@ -107,6 +114,7 @@ THEN
 //DebugBreak("[WT_FS] Blunderbuss equipped.");
 ProcObjectTimer(_Player, "Musketeer_DynamicRange_Ticker", 150);
 DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 1);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 0);
 ApplyStatus(_Player, "MUSK_RANGE_SHORT", -1.0, 1, _Player);
 
 PROC
@@ -123,6 +131,7 @@ THEN
 //DebugBreak("[WT_FS] Matchlock Rifle equipped.");
 ProcObjectTimer(_Player, "Musketeer_DynamicRange_Ticker", 150);
 DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 1);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 0);
 ApplyStatus(_Player, "MUSK_RANGE_MEDIUM", -1.0, 1, _Player);
 
 
@@ -140,6 +149,7 @@ THEN
 //DebugBreak("[WT_FS] Normal Rifle equipped. (LW)");
 ProcObjectTimer(_Player, "Musketeer_DynamicRange_Ticker", 150);
 DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 1);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 0);
 ApplyStatus(_Player, "MUSK_RANGE_LONG_LW", -1.0, 1, _Player);
 
 
@@ -157,6 +167,7 @@ THEN
 //DebugBreak("[WT_FS] Blunderbuss Rifle equipped. (LW)");
 ProcObjectTimer(_Player, "Musketeer_DynamicRange_Ticker", 150);
 DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 1);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 0);
 ApplyStatus(_Player, "MUSK_RANGE_SHORT_LW", -1.0, 1, _Player);
 
 PROC
@@ -173,7 +184,11 @@ THEN
 //DebugBreak("[WT_FS] Matchlock Rifle equipped. (LW)");
 ProcObjectTimer(_Player, "Musketeer_DynamicRange_Ticker", 150);
 DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 1);
+NOT DB_Musketeer_DynamicRangeTickLimit_Player(_Player, 0);
 ApplyStatus(_Player, "MUSK_RANGE_MEDIUM_LW", -1.0, 1, _Player);
+
+// Test status loop tick timer
+
 
 //END_REGION
 

@@ -300,12 +300,19 @@ the importance of `Marked` interactions to encourage strategic decision making.
 - All `Reload` Variations do no longer break stealth when cast. 
 (Additionally, all `Reload` bonus effects gained from masteries can be cast from stealth)
 
-## 1.3.1.0 - Fixes and improved Mod Compatibility
+## 1.3.2.0 - Bugfixes, Compatibility, Balancing
 
 ### Bugfixes
 - `Covering Fire` Skill can target characters and items again
-- `Rapidfire` no longer misses the target on the 2nd and 3rd shot on certain occasions
+- `Rapidfire` Skill no longer misses the target on the 2nd and 3rd shot on certain occasions
+- `Buckshot` Skill now properly knocks down marked opponents for 1 turn
+- Musketeer Skill Requirement tooltips in languages other than english are now visible (not translated, but appearantly were completely missing before)
+- Musketeer `Source Skillbooks` are no longer available for purchase in Fort Joy
+- `Treasure Tables` are no longer overwritten and instead merged. (Improves compatibility with other mods that change the same `Treasure Tables`)
+- Fixed bad code that could possibly be causing freezes/softlocks when characters with `Rifles` equipped were Mad/Taunted/Polymorphed
 
 ### Balance & Design
+I think the balance changes introduced in 1.3.0.0 worked out pretty well and brought the damage values of `Musketeer` Weapons and Skills more in line with the vanilla classes. `Matchlocks` are still a bit too strong and are basically just better `Muskets` in nearly every aspect. `Matchlocks` have the highest `Ammunition` capacity of all 3 Firearms, thus I'm reducing the damage values of `Matchlocks` to balance them and distinguish them more from `Muskets`
 
+- `Matchlock` Damage decreased from 120 to 105 and `Critical Damage` decreased from 160 to 150
 
