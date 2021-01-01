@@ -316,3 +316,14 @@ I think the balance changes introduced in 1.3.0.0 worked out pretty well and bro
 
 - `Matchlock` Damage decreased from 120 to 105 and `Critical Damage` decreased from 160 to 150
 
+## 1.3.3.0 - AI Compatibility
+This patch completely reworks Ai-Behaviour with Musketeer weapons and skills. Ai-controlled characters now work properly and are compatible with this mod.
+There were quite a few crashes caused by incorrect Ai-Behaviour of Musketeer-Class characters that were fixed as well. 
+
+### Bugfixes
+- Fixed a bug that caused long lagspikes when a Ai-Controlled Character was calculating actions
+- Fixed a softlock that occured when a Ai-Controlled Chracter used any `Reload` Skill
+- Fixed a crash that occured when a Ai-Controlled tried to use the `Blitzkrieg` or `Covering Fire` Skill (Right now, those are simply disabled for Ai)
+- Fixed a bug that caused special versions of `Reload` to break stealth
+
+

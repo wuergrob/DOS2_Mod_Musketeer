@@ -6,7 +6,6 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Blitzkrieg" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="BatteringRam" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
-        <field name="IsEnemySkill" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
@@ -16,7 +15,7 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Blitzkrieg" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Blitzkrieg" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Dash a short distance, performing a quick partial reload while dashing, restoring &lt;font color='#00EFFF'&gt;1 Ammunition&lt;/font&gt; and [1]. Additionally grants 15% increased damage and set &lt;font color=&quot;#7D71D9&quot;&gt;Hasted&lt;/font&gt; for 1 turn.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Restores 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Dash a short distance, performing a quick partial reload, restoring &lt;font color='#00EFFF'&gt;1 Ammunition&lt;/font&gt; and [1]. Additionally grants 15% increased damage and set &lt;font color=&quot;#7D71D9&quot;&gt;Hasted&lt;/font&gt; for 1 turn.&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Restores 1 Ammunition&lt;/font&gt;" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Potion:Stats_Musk_Blitzkrieg:Armor" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_rush_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_rush_01_loop" />
@@ -31,6 +30,7 @@
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="HitRadius" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value="RangerLore 1" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="AIFlags" />
       </fields>
     </stat_object>
   </stat_objects>

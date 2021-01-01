@@ -50,6 +50,21 @@ THEN
 DB_NOOP(1);
 
 IF
+NRD_OnActionStateEnter(_, _)
+THEN
+DB_NOOP(1);
+
+IF
+CharacterStartAttackObject(_, _, _)
+THEN
+DB_NOOP(1);
+
+IF
+CharacterStartAttackPosition(_, _, _, _, _)
+THEN
+DB_NOOP(1);
+
+IF
 //SkillAdded(_Player, "Shout_Musketeer_Passive", 0)
 CharacterItemEvent(_Player, _Item, "Musketeer_Rifle_Equipped")
 AND
@@ -206,7 +221,7 @@ THEN
 Musketeer_Consume_Ammo((ITEMGUID)_Weapon, (INTEGER)_Amount, _Character);
 //Musketeer_Update_Ammo_Skills(_Character);
 
-
+/*
 // Auto-Attacking also consumes Ammo. A player should not be able to basic attack when out of ammo.
 
 // If Character has no ammo left, he cannot basic attack.
@@ -254,9 +269,9 @@ CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN
 CharacterUseSkill(_Character, "Target_Unload_Buffer", _Character);
 CharacterAddActionPoints(_Character, 2);
-Musketeer_Consume_Ammo((ITEMGUID)_Weapon, 1, _Character);
+//Musketeer_Consume_Ammo((ITEMGUID)_Weapon, 1, _Character);
 //DisplayText(_Character, "<font color='#00FF00' size='30'>Out of Ammo!</font>");
-
+*/
 /*
 IF
 CharacterStartAttackObject(_, _, _Character)
@@ -277,6 +292,8 @@ THEN
 NRD_DebugLog("[Musketeer] Character is charmed and out of Ammo, ignoring Ammo-check");
 */
 // Consume 1 Ammo when Character uses basic attack.
+
+/*
 IF
 CharacterStartAttackObject(_, _, _Character)
 AND
@@ -301,6 +318,8 @@ AND
 CharacterGetEquippedWeapon(_Character, _Weapon)
 THEN
 Musketeer_Consume_Ammo((ITEMGUID)_Weapon, -1, _Character);
+*/
+
 
 /*
 PROC 

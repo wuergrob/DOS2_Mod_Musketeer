@@ -44,6 +44,16 @@
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Rifle_Snipe_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Rifle_Snipe_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Rifle_Snipe" />
+        <field name="MovingObject" type="StringStatObjectFieldDefinition" value=";" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(HasStatus:MUSK_MARK_TARGET):BLEEDING,100,2;ACID,100,3;" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value=";" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -93,6 +103,15 @@
         <field name="Angle" type="IntegerStatObjectFieldDefinition" value="30" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Rifle_Scattershot_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Rifle_Scattershot_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Rifle_Scattershot" />
+        <field name="MovingObject" type="StringStatObjectFieldDefinition" value=";" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value=";" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -135,6 +154,7 @@
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Earth_Prepare_Weapon_ArrowFx_01:Dummy_ProjectileFX" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="shoot" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -175,6 +195,7 @@
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -222,16 +243,17 @@
         <field name="ProjectileTerrainOffset" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="AmountOfTargets" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="AutoAim" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Obliterate_The_Marked" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Obliterate_The_Marked" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Rend_The_Marked" />
-        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="AmountOfTargets" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Obliterate the Marked" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off a splitting shot, attacking up to 5 &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; Characters around you, Dealing [1].&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Only targets Marked targets&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF8C34'&gt;Killing a target with this skill grants 1 &lt;font color='#7D71D9'&gt;Rend Stack&lt;/font&gt; for 2 turns. There is no stack limit.&lt;br&gt;&lt;br&gt;&lt;font color='#FF4D00'&gt;Each &lt;font color='#7D71D9'&gt;Rend Stack&lt;/font&gt; increases your &lt;font color='#FFFFFF'&gt;Finesse&lt;/font&gt;, &lt;font color='#FFFFFF'&gt;Wits&lt;/font&gt; and &lt;font color='#FFFFFF'&gt;Initiative&lt;/font&gt; by 2 points and boosts your &lt;font color='#FFFFFF'&gt;Damage&lt;/font&gt; by 7%.&lt;/font&gt;&lt;/font&gt;" />
+        <field name="MovingObject" type="StringStatObjectFieldDefinition" value=";" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value=";" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -280,6 +302,17 @@
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="15" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Buckshot_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Buckshot_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Buckshot" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="120" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="Ignite;Melt;Force,2;TARGET:IF(HasStatus:MUSK_MARK_TARGET):BUCKSHOT_STUNNED,100,1" />
+        <field name="MovingObject" type="StringStatObjectFieldDefinition" value=";" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value=";" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -301,6 +334,7 @@
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="SkillTier" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -308,6 +342,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Buckshot_Fire_Blunderbuss_Mastery" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Buckshot_Fire" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateConeSurface,5,,Fire;Ignite;Melt;" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -315,6 +350,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Buckshot_Explosion_Cone_Dummy" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Buckshot" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateConeSurface,6,,ExplosionCloud" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -322,6 +358,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Buckshot_Explosion_Cone_Dummy_Mastery" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Buckshot" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateConeSurface,8,,ExplosionCloud" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -342,6 +379,7 @@
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetTerrain" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="4" enumeration_type_name="SkillTier" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -390,6 +428,7 @@
         <field name="SpawnFXOverridesImpactFX" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="SpawnLifetime" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -438,6 +477,15 @@
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(HasStatus:MUSK_MARK_TARGET):MUSK_MARK_HEAL_DUMMY,100,0" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Rapidfire_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Rapidfire_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Rapidfire" />
+        <field name="MovingObject" type="StringStatObjectFieldDefinition" value=";" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value=";" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -481,6 +529,7 @@
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -529,6 +578,7 @@
         <field name="MaxPierceCount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -539,6 +589,7 @@
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="Template" type="StringStatObjectFieldDefinition" value="05ef19e3-0d98-4d0a-b049-f52a11f47e5f" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -561,6 +612,7 @@
         <field name="Template" type="StringStatObjectFieldDefinition" value="9ed3c555-d1c8-418c-ad27-22f147145148" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -588,6 +640,7 @@
         <field name="AutoAim" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="ProjectileCount" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="ProjectileDelay" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -609,6 +662,7 @@
         <field name="Template" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -641,6 +695,7 @@
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="|Superconductor|" />
         <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="|Target is immune to Stun. Air damage received is instead spread in aoe with electric arcs.|" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -663,6 +718,7 @@
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="Freeze;CHILLED,100,2;CreateConeSurface,3,,WaterFrozen,100;" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -684,6 +740,7 @@
         <field name="Template" type="StringStatObjectFieldDefinition" value="9bd7991d-7787-4390-a1b2-e56b37aa510f" />
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="7" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -706,6 +763,7 @@
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="8" />
         <field name="ProjectileTerrainOffset" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="HeightOffset" type="IntegerStatObjectFieldDefinition" value="700" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -724,6 +782,7 @@
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="ProjectileTerrainOffset" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="HeightOffset" type="IntegerStatObjectFieldDefinition" value="700" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -775,6 +834,7 @@
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value="RangerLore 5" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_PyroclasticEruption" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -816,7 +876,6 @@
         <field name="ProjectileTerrainOffset" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="SpawnObject" type="StringStatObjectFieldDefinition" value="42eed714-a00d-4e42-b9c9-cd8ee959a0a9" />
-        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Target_DummyTargetSkill" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
       </fields>
     </stat_object>
@@ -901,6 +960,7 @@
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_TrackingShot_CastEffect:Dummy_ProjectileFX:cast" />
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Rifle_Snipe_Ai" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -947,6 +1007,15 @@
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="10" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Final_Act_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Final_Act_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Final_Act" />
+        <field name="MovingObject" type="StringStatObjectFieldDefinition" value=";" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value=";" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1227,12 +1296,14 @@
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateSurface,1,,ExplosionCloud;" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musk_Rifle_Musket_Mastery2" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Grenade_Nailbomb" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Grenade_GrenadeAssault_Child" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Grenade_GrenadeAssault" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Target_DummyTargetSkill" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1279,6 +1350,15 @@
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="DAMAGE_ON_MOVE,100,1,,75;TARGET:IF(HasStatus:MUSK_MARK_TARGET):FEAR,100,1" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Musk_Matchlock_Concentrated_Terror_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Matchlock_Concentrated_Terror_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Matchlock_Concentrated_Terror" />
+        <field name="MovingObject" type="StringStatObjectFieldDefinition" value=";" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value=";" />
       </fields>
     </stat_object>
   </stat_objects>

@@ -1466,6 +1466,7 @@ Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
 end)
 
 local function Musketeer_Handle_Covering_Fire_Cast(character, x, y, z, skill, skillType, skillElement)
+    Ext.PrintWarning("Covering Fire Used")
     Musketeer_Covering_Fire_Initial_Position[Ext.GetCharacter(character).MyGuid] = {x, y, z}
     local position = {x, y, z}
     local distance = GetDistanceToPosition(character, position[1], position[2], position[3])
@@ -1533,6 +1534,101 @@ Ext.RegisterOsirisListener("NRD_OnActionStateExit", 2, "after", function (charac
     end
 end)
 
+local function Musketeer_Character_Is_Ai_Controlled(characterguid)
+    if CharacterIsControlled(characterguid) == 0
+        or HasActiveStatus(characterguid, "MADNESS") == 1
+        or HasActiveStatus(characterguid, "TAUNTED") == 1
+        or HasActiveStatus(characterguid, "CHARMED") == 1
+        then
+            --Ext.PrintWarning("character is mad, taunted, charmed or not controlled") 
+            return true 
+        end
+    
+    local statuses = Ext.GetCharacter(characterguid):GetStatusObjects()
+    
+    for i=1,#statuses,1 do
+        if statuses[i].StatusType == "CONSUME" then
+            if statuses[i].LoseControl == true then
+                Ext.PrintWarning("character has status: ".. statuses[i].StatusId .." with LoseControl property set")
+                return true
+            end
+        end
+    end
+    return false
+end
+
+--Ext.RegisterOsirisListener("NRD_OnActionStateEnter", 2, "after", function (character, action)
+local function Musketeer_Weapon_Attack_Handler(character)
+    if ObjectIsCharacter(character) == 0 then return end
+    -- No Ammo usecase
+    if IsTagged(character, "Musketeer_None_Left") == 1 then
+        -- player tries to attack when out of ammo
+        if Musketeer_Character_Is_Ai_Controlled(character) == false then
+            --Ext.PrintWarning("Player tried to AA without Ammo, canceling AA")
+            CharacterUseSkill(character, "Target_Unload_Buffer", character)
+            CharacterMoveTo(character, character, 1, "", 1)
+            CharacterSetStill(character)
+            CharacterAddActionPoints(character, 2)
+        -- AI tries to attack when out of ammo
+        else
+            --Ext.PrintWarning("AI tried to AA without Ammo, forcing cast Reload")
+            Osi.Musketeer_ClearActionQueue(character)
+            CharacterUseSkill(character, "Shout_Reload", character, 1, 1)
+        end
+    -- At least 1 Ammo usecase
+    elseif IsTagged(character, "Musketeer_AtLeast_One_Left") == 1 then
+        --Ext.PrintWarning("At least 1 Ammo left, AutoAttack not cancelled.")
+        local weapon = CharacterGetEquippedWeapon(character)
+        Osi.Musketeer_Consume_Ammo(weapon, -1, character)
+    end
+end
+
+Ext.RegisterOsirisListener("CharacterStartAttackObject", 3, "after", function (defender, owner, attacker)
+    Musketeer_Weapon_Attack_Handler(attacker)
+end)
+
+Ext.RegisterOsirisListener("CharacterStartAttackPosition", 5, "after", function (x, y, z, owner, attacker)
+    Musketeer_Weapon_Attack_Handler(attacker)
+end)
+
+local Musketeer_Flush_AI_Queue = {}
+
+Ext.RegisterOsirisListener("CharacterStatusApplied", 3, "after", function (character, status, causee)
+    if Musketeer_Character_Is_Ai_Controlled(character) == true and status == "RELOAD_DEBUFF" then
+        table.insert(Musketeer_Flush_AI_Queue, character)
+        TimerLaunch("Musketeer_Flush_AI_Queue", 2000)
+    end
+end)
+
+Ext.RegisterOsirisListener("TimerFinished", 1, "after", function (timerName)
+    --print("Proc listener works")
+    --print(timerName)
+    if timerName == "Musketeer_Flush_AI_Queue" then
+        --Ext.Print("Syncing Rune Projectile Changes")
+        for i = 1, #Musketeer_Flush_AI_Queue, 1 do
+            --Ext.PrintWarning("AI character: ".. Musketeer_Flush_AI_Queue[i] .." action queue cleared")
+            Osi.Musketeer_ClearActionQueue(Musketeer_Flush_AI_Queue[i], 1)
+        end
+        --Ext.PostMessageToClient(character, "Musketeer_Sync_Rune_Projectile", Ext.JsonStringify(message))
+        Musketeer_Flush_AI_Queue = {}
+    end
+end)
+
+Guid = "ad9a3327-4456-42a7-9bf4-7ad60cc9e54f"
+function Musketeer_Cheat (mode)
+    if mode == 1 or mode == nil then
+        CharacterLevelUp(Guid)
+    end
+    if mode == 2 or mode == nil then
+        CharacterGiveReward(Guid, "ST_SkillbookRanger", 1)
+        CharacterAddSkill(Guid, "Target_Musk_Flare_Test_Target")
+    end
+    if mode == 3 or mode == nil then
+        RemoveStatus(Guid, "SOURCE_MUTED")
+        CharacterOverrideMaxSourcePoints(Guid, 3)
+        CharacterAddSourcePoints(Guid, 3)
+    end
+end
 --[[
 
 For appending TreasureTable entries:

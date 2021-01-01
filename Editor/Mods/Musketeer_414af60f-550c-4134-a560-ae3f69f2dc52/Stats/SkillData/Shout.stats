@@ -33,6 +33,16 @@
         <field name="StatusClearChance" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
         <field name="Stealth" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Shout_Reload_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Reload" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_None_Left" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="ENCOURAGED,100,10;FORTIFIED,100,10;HASTED,100,10" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="AIFlags" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -77,6 +87,17 @@
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_INCENDIARY,100,4;" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; FireSpecialist 2;" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="Stealth" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Shout_Reload_Incendiary_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Incendiary_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Reload_Incendiary" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_None_Left" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="SELF:ARROWHEAD_FIRE,100,10;ENCOURAGED,100,10;FORTIFIED,100,10;HASTED,100,10;" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="AIFlags" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -109,6 +130,17 @@
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_EXPLOSIVE,100,4" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; Necromancy 2;" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="Stealth" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Shout_Reload_Explosive_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Explosive_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Reload_Explosive" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_None_Left" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="SELF:ARROWHEAD_ELECTRIC,100,10;ENCOURAGED,100,10;FORTIFIED,100,10;HASTED,100,10;" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="AIFlags" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -141,6 +173,17 @@
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_FREEZING,100,4" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; WaterSpecialist 2;" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="Stealth" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Shout_Reload_Freezing_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Freezing_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Reload_Freezing" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_None_Left" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="SELF:ARROWHEAD_WATER,100,10;ENCOURAGED,100,10;FORTIFIED,100,10;HASTED,100,10;" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="AIFlags" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -173,6 +216,17 @@
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_SILVER,100,4" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; AirSpecialist 2;" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="Stealth" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Shout_Reload_Silver_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Silver_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Reload_Silver" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_None_Left" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="ENCOURAGED,100,5;FORTIFIED,100,5;HASTED,100,5;" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="AIFlags" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -205,6 +259,17 @@
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="RELOAD_DEBUFF,100,-2;RELOAD_HOLY,100,4" />
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value=" RangerLore 2; WarriorLore 2;" />
         <field name="StatsDescription" type="TranslatedStringStatObjectFieldDefinition" value="Range: [1]&lt;br&gt;Encouraged boosts target's Strength, Dexterity, Intelligence and Constitution stats by 1." />
+        <field name="Stealth" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Shout_Reload_Holy_Ai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Reload_Holy_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Reload_Holy" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_None_Left" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="SELF:ARROWHEAD_BLOOD,100,10;ENCOURAGED,100,10;FORTIFIED,100,10;HASTED,100,10;" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="AIFlags" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

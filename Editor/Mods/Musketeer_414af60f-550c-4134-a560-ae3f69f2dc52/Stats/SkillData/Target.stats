@@ -33,6 +33,8 @@
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="IsMelee" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; Tag Musketeer_AtLeast_One_Left" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="AIFlags" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -66,6 +68,7 @@
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Voodoo_Cast_Blood_Shout_Root_01;RS3_FX_Skills_Voodoo_Cast_Challenge_Icon_01:Dummy_OverheadFX:shout" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Target_Challenge" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -79,6 +82,7 @@
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="noprepare" />
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="noprepare" />
         <field name="CastSelfAnimation" type="StringStatObjectFieldDefinition" value="noprepare" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -118,6 +122,8 @@
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; Tag Musketeer_AtLeast_One_Left" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="AIFlags" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Target_Musk_Flare_Test_Target_Ai" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -157,6 +163,8 @@
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="Damage Type" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Potion:Stats_Musk_Steadfast:AccuracyBoost;Potion:Stats_Musk_Steadfast:Armor;Potion:Stats_Musk_Steadfast:MagicArmor" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Target_Fortify" />
+        <field name="AIFlags" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="AIFlags" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -165,6 +173,14 @@
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Haste" />
         <field name="Stealth" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="HASTED,100,1;" />
+        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_SkyShot" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Flare_Test_Target_Ai" />
+        <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Flare_Test_Target" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="MUSK_MARK_TARGET,100,3;CRIPPLED,100,1" />
       </fields>
     </stat_object>
   </stat_objects>
