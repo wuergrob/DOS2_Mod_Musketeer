@@ -326,4 +326,21 @@ There were quite a few crashes caused by incorrect Ai-Behaviour of Musketeer-Cla
 - Fixed a crash that occured when a Ai-Controlled tried to use the `Blitzkrieg` or `Covering Fire` Skill (Right now, those are simply disabled for Ai)
 - Fixed a bug that caused special versions of `Reload` to break stealth
 
+## 1.3.4.0 - Balancing
+`Musketeer` Skills deal a lot more damage than the game's original `Hunstsman` Skills. While they should do more damage due to the shorter range of Firearms and the `Ammunition` restriction, the damage values are still too high.
 
+### Balance & Design
+- `Steady Shot` Skill Damage decreased from 105 to 90 and Marked-Damage decreased from 65% to 35%
+- `Scattershot` Skill Damage decreased from 60 to 50 and Angle changed from 30 to 35 and Marked-Damage decreased from 20% to 10%
+- `Scattershot` Skill Description updated to display bonus damage against marked targets
+- `Buckshot` Skill Damage decreased from 100 to 80
+- `Rapidfire` Skill Damage decreased from 65 to 55
+- `Tracking Shot` Skill Damage decreased from 80 to 75
+- `Final Act` Skill Damage decreased from 160 to 120 and Marked-Damage decreased from 75% to 45%
+- `Final Act` Skill Description updated to display bonus damage values instead of percentage
+- `Grenade Assault` Mastery-Skill Damage decreased from 135 to 115
+
+These nerfs might seems to be quite extreme, but especially `Final Act` was simply extremely powerfull with it's high base damage and 75% bonus damage on marked targets.
+
+### Bugfixes
+- `Concentrated Terror` Mastery-Skill is no longer available during Character Creation

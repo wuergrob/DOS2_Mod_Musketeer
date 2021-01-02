@@ -10,7 +10,7 @@
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="2" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="105" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="90" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="7" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -65,7 +65,7 @@
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="5" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="60" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="50" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -82,8 +82,8 @@
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Scattershot" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Scattershot" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a high caliber round that splits into 5 smaller projectiles in a 30 degree arc. Each projectile deals [1].&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Inflicts Bleeding on Marked targets for 1 turn&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 2 Ammunition&lt;/font&gt;" />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage;Skill:Projectile_Musk_Mark_Dmg_Steady_Shot:Damage" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a high caliber round that splits into 5 smaller projectiles in a 35 degree arc. Each projectile deals [1].&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Deals additional [2] and inflicts Bleeding on Marked targets for 1 turn&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 2 Ammunition&lt;/font&gt;" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage;Skill:Projectile_Musk_Mark_Dmg_Scattershot:Damage" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Earth_Prepare_Weapon_ArrowFx_01:Dummy_ProjectileFX" />
@@ -100,7 +100,7 @@
         <field name="MovingObject" type="StringStatObjectFieldDefinition" value="05867e35-6844-4648-b21e-e776035ad0d6" />
         <field name="AddRangeFromAbility" type="EnumerationStatObjectFieldDefinition" value="11" enumeration_type_name="Ability" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(HasStatus:MUSK_MARK_TARGET):BLEEDING,100,2;" />
-        <field name="Angle" type="IntegerStatObjectFieldDefinition" value="30" />
+        <field name="Angle" type="IntegerStatObjectFieldDefinition" value="35" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
         <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Rifle_Scattershot_Ai" />
@@ -265,7 +265,7 @@
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="100" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="80" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -440,7 +440,7 @@
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="65" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="55" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -835,6 +835,7 @@
         <field name="MemorizationRequirements" type="StringStatObjectFieldDefinition" value="RangerLore 5" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed" />
         <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_PyroclasticEruption" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="3" enumeration_type_name="SkillTier" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -925,7 +926,7 @@
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="80" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="75" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(Character):MUSK_MARK_TARGET,100,3" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
@@ -972,7 +973,7 @@
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="160" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="120" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -989,8 +990,8 @@
         <field name="IgnoreVisionBlock" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="FinalAct" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Final Act" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off your last remaining round, dealing [1]&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Deals 75% bonus damage against Marked targets &lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Only useable when you have exactly 1 Ammunition left. Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF8C34'&gt;If this skill kills a target, set &lt;font color='#7D71D9'&gt;Hasted&lt;/font&gt; for 1 turn and recover 1 AP. Killing a &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; target replaces &lt;font color='#7D71D9'&gt;Hasted&lt;/font&gt; with &lt;font color='#FFFF00'&gt;Euphoria&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FFFF00'&gt;Euphoria&lt;/font&gt;&lt;font color='#FF4D00'&gt; increases movement speed by 3m per AP, grants 2 AP recovery and 1 AP per turn. Additionally grants 25% Critical Chance and heals for 20% of your maximum vitality. &lt;/font&gt;" />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire off your last remaining round, dealing [1]&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Deals [2] bonus damage against Marked targets &lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Only useable when you have exactly 1 Ammunition left. Consumes 1 Ammunition&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FF8C34'&gt;If this skill kills a target, set &lt;font color='#7D71D9'&gt;Hasted&lt;/font&gt; for 1 turn and recover 1 AP. Killing a &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; target replaces &lt;font color='#7D71D9'&gt;Hasted&lt;/font&gt; with &lt;font color='#FFFF00'&gt;Euphoria&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#FFFF00'&gt;Euphoria&lt;/font&gt;&lt;font color='#FF4D00'&gt; increases movement speed by 3m per AP, grants 2 AP recovery and 1 AP per turn. Additionally grants 25% Critical Chance and heals for 20% of your maximum vitality. &lt;/font&gt;" />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage;Skill:Projectile_Musk_Mark_Dmg_Final_Act:Damage" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Earth_Prepare_Weapon_ArrowFx_01:Dummy_ProjectileFX" />
@@ -1099,21 +1100,21 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Mark_Dmg_Final_Act" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Mark_Dmg" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="120" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="54" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Mark_Dmg_Steady_Shot" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Mark_Dmg" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="68" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="32" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Mark_Dmg_Scattershot" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Mark_Dmg" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="12" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="5" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1260,7 +1261,7 @@
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="5" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="135" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="115" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="35" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />
@@ -1311,7 +1312,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Matchlock_Concentrated_Terror" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
-        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="SkillTier" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="2" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="6" />

@@ -1,8 +1,8 @@
 
 Musketeer_MarkDamage_Table = {
-    Projectile_Rifle_Snipe = 65,
-    Projectile_Final_Act = 75 ,
-    Projectile_Rifle_Scattershot = 20
+    Projectile_Rifle_Snipe = 35,
+    Projectile_Final_Act = 45,
+    Projectile_Rifle_Scattershot = 10
 }
 
 -- TODO: Add different projectile styles for air and earth.
