@@ -1261,7 +1261,7 @@
         <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillAbility" />
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="5" />
-        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="115" />
+        <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="55" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="35" />
         <field name="DamageType" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="Damage Type" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="13" />

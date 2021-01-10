@@ -136,6 +136,7 @@ function TestWeaponExMasteryAddition()
 
             --WeaponEx.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle", 100, true)
             --Mods.WeaponExpansion.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle_Musket", 100, true)
+            --Mods.WeaponExpansion.AddMasteryExperience("ad9a3327-4456-42a7-9bf4-7ad60cc9e54f", "Musk_Rifle_Musket", 100, true)
             --Mods.WeaponExpansion.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle_Blunderbuss", 100, true)
             --Mods.WeaponExpansion.AddMasteryExperience("7b6c1f26-fe4e-40bd-a5d0-e6ff58cef4fe", "Musk_Rifle_Matchlock", 100, true)
 
@@ -294,6 +295,27 @@ Ext.RegisterListener("GetSkillAPCost", function (skill, character, grid, positio
     end
     
 end)
+
+local Musketeer_TranslatedString_Append =
+{
+    h54f2ea13g97dbg4b86g9d13geeb81186faca = "<br><br><font color='#00EFFF'>Also applies when using Rifles</font>",
+    h060e026bg5b59g4488gb987g3514e5f0f51c = "<br><br><font color='#00EFFF'>Also reloads your equipped Rifle when out of combat</font>",
+}
+
+Ext.RegisterListener("SessionLoaded", function ()
+    for k,v in pairs(Musketeer_TranslatedString_Append) do
+        local text = Ext.GetTranslatedString(k)
+        if text ~= nil and text ~= "" then
+            if not string.find(text, v) then
+            --Ext.PrintWarning("Translated Key stuff appended")
+            --print(text)
+            Ext.CreateTranslatedStringHandle(k, (text .. v))
+            end
+        end
+
+    end
+end)
+
 --[[
 Ext.RegisterListener("GetSkillAPCost", function (skill, character, grid, position, radius)
     if skill.Name == "Projectile_Rend_The_Marked" or string.sub(skill.Name, 1, string.len("Projectile_Rend_The_Marked")) == "Projectile_Rend_The_Marked" then

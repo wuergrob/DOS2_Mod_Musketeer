@@ -344,3 +344,13 @@ These nerfs might seems to be quite extreme, but especially `Final Act` was simp
 
 ### Bugfixes
 - `Concentrated Terror` Mastery-Skill is no longer available during Character Creation
+
+## 1.3.5.0 Tooltips and Grenade Assault
+
+### Balance & Design
+- `Bedroll` Tooltip updated to show information about auto-reloading your weapon when used out of combat
+- `Ranged` Combat-Ability Tooltip updated to show information about `Rifles` being affected by it as well
+- `Grenade Assault` Mastery-Skill Damage decreased from 115 to 35
+
+`Grenade Assault` scales with `Finesse`, that was something I forgot about when balancing it's damage values. I'm bringing it in line with other skills with this change.
+
