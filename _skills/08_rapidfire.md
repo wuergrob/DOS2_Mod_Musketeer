@@ -13,6 +13,6 @@ scale: Fin
 range: WPN
 markedtext: Each shot heals for 10% of your maximum vitality upon hitting a marked target
 ---
-Fire off 3 shots in rapid succession, quickly rechambering 1 round inbetween. Each shot deals 65% damage.<br><br>
+Fire off 3 shots in rapid succession, quickly rechambering 1 round inbetween. Each shot deals 55% damage.<br><br>
             <font color='#FF1500'>Each shot heals for 10% of your maximum vitality upon hitting a marked target</font><br><br>
             <font color='#00EFFF'>Consumes 2 Ammunition</font>

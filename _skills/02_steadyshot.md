@@ -13,6 +13,6 @@ scale: Fin
 range: WPN + 3m
 markedtext: Deals 50% bonus damage against Marked targets
 ---
-Fire off a shot with exceptional aim, exceeding normal range and dealing 110% damage<br><br>
+Fire off a shot with exceptional aim, exceeding normal range and dealing 90% damage<br><br>
             <font color='#00EFFF'>Consumes 1 Ammunition</font><br><br>
-            <font color='#FF1500'>Deals 50% bonus damage against Marked targets</font>
+            <font color='#FF1500'>Deals 35% bonus damage against Marked targets</font>
