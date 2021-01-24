@@ -1328,7 +1328,7 @@ data "PrepareEffect" "RS3_FX_Skills_Earth_Prepare_Weapon_ArrowFx_01:Dummy_Projec
 data "CastAnimation" "Musketeer_Rifle_Singleshot"
 data "CastTextEvent" "cast"
 data "CastEffect" "Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast"
-data "Requirements" "Tag Musketeer_AtLeast_One_Left; Tag Musketeer_Stealth_Tag; Tag Musk_Rifle_Matchlock_Mastery2"
+data "Requirements" "Tag Musketeer_AtLeast_One_Left; Tag Musketeer_Stealth_Tag; Tag Musk_Rifle_Matchlock_Mastery3"
 data "MemorizationRequirements" "RangerLore 1"
 data "Memory Cost" "1"
 data "Magic Cost" "0"

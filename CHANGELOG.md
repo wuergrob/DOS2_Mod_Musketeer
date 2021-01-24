@@ -354,3 +354,16 @@ These nerfs might seems to be quite extreme, but especially `Final Act` was simp
 
 `Grenade Assault` scales with `Finesse`, that was something I forgot about when balancing it's damage values. I'm bringing it in line with other skills with this change.
 
+## 1.3.6.0 Concentrated Terror Obtain Level
+
+### Balance & Design
+- `Concentrated Terror` Mastery-Skill is now properly granted at Mastery-Level 3 instead of Mastery-Level 2
+
+## 1.3.7.0 Controller Support
+The `AmmoBar` UI would not work correctly when playing with a controller and would overlap the skillbar of the player. This patch improves controller support by moving it next to the skillbar and fixing some related bugs.
+
+### Balance & Design
+- `Concentrated Terror` Mastery-Skill now correctly requires Mastery-Level 3 instead of Mastery-Level 2
+
+### Bugfixes
+- `AmmoBar` UI is placed next to the skillbar when using a controller

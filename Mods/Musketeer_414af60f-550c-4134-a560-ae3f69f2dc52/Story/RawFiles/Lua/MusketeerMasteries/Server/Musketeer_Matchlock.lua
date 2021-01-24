@@ -14,7 +14,7 @@ if WeaponEx ~= nil then
 	end)
 
 	function Musketeer_Matchlock_Mastery_Enable_Concentrated_Terror(objectGuid, tag)
-		if tag == "Musk_Rifle_Matchlock_Mastery2" and ObjectIsCharacter(objectGuid) then
+		if tag == "Musk_Rifle_Matchlock_Mastery3" and ObjectIsCharacter(objectGuid) then
 			--local character = Ext.GetCharacter(objectGuid)
 			CharacterAddSkill(objectGuid, "Projectile_Musk_Matchlock_Concentrated_Terror", 1)
 		end

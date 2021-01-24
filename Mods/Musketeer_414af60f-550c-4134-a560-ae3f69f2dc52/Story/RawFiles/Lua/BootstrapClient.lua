@@ -83,6 +83,17 @@ local function Musketeer_Check_SkillList_Loaded()
 	end
 end
 
+-- msgBox_c = UITypeId 75
+local function Musketeer_Create_AmmoBar()
+	local ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf",3)
+	if (Ext.GetBuiltinUI("Public/Game/GUI/msgBox_c.swf") or Ext.GetUIByType(75)) ~= nil then
+		Ext.Print("[Musketeer] Controller mode detected.")
+		--ui:SetValue("y", -300.0)
+		ui:SetPosition(-280, 60)
+	end
+	return ui
+end
+
 -- Try out positioning by setting x and y directly, as in:
 -- x = 200, y = 110 in MainTimeLine.
 -- For some reason, doing that by means of ui:SetValue("x", 200) makes the UI position
@@ -91,7 +102,7 @@ local function Musketeer_AmmoBar_Init()
     DebugPrint("Musketeer_Open_TestWindow called.")
 	local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf",3)
+		ui = Musketeer_Create_AmmoBar()
 		ui:Hide()
 		DebugPrint("ui was nil, thus looking with relative path.")
 	end
@@ -123,7 +134,7 @@ local function Musketeer_AmmoBar_ElementChange(call, value)
     DebugPrint("Musketeer_AmmoBar_ElementChange called.")
     local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
+		ui = Musketeer_Create_AmmoBar()
 		DebugPrint("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -132,65 +143,6 @@ local function Musketeer_AmmoBar_ElementChange(call, value)
 		ui:Invoke("setAmmoElement", value)
 	end
 	DebugPrint("AmmoBar Element changed.")
-end
-
--- Preview Ammo Restoration/Ammo Consumption
--- negative value -> consume preview
--- positive value -> restore preview
-local function Musketeer_AmmoBar_Difference_Preview(call, value)
-	DebugPrint("Musketeer_AmmoBar_Difference_Preview entry")
-	DebugPrint("value: " .. value)
-	if value ~= nil and type(value) == string then
-		DebugPrint("Musketeer_AmmoBar_Difference_Preview converted string to number")
-		value = tonumber(value)
-	end
-    DebugPrint("Musketeer_AmmoBar_Difference_Preview called.")
-    local ui = Ext.GetUI("AmmoBarGUIv1.swf")
-	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
-		DebugPrint("ui was nil, thus looking with relative path.")
-	end
-	if ui ~= nil and value ~= 0 then
-		DebugPrint("Should be previewing now...")
-		ui:Invoke("forceAmmoBarReset")
-		if value < 0 then
-			ui:Invoke("previewAmmoConsumption", (0 - value))
-		else
-			ui:Invoke("previewAmmoGain", value)
-		end
-	end
-	DebugPrint("Preview Ammo Difference.")
-end
-
-
-local function Musketeer_AmmoBar_SetAmmo(call, value)
-    DebugPrint("Musketeer_AmmoBar_SetAmmo called.")
-    local ui = Ext.GetUI("AmmoBarGUIv1.swf")
-	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
-		print("ui was nil, thus looking with relative path.")
-	end
-	if ui ~= nil then
-		--Ext.RegisterUICall(ui, "onEvent", LeaderLib_Debug_OnDebugUIEvent)
-		ui:Invoke("forceAmmoBarReset")
-		ui:Invoke("setAmmoCount", value)
-	end
-	DebugPrint("Set Ammo Count.")
-end
-
-local function Musketeer_AmmoBar_SetMaxAmmo(call, value)
-    DebugPrint("Musketeer_AmmoBar_SetMaxAmmo called.")
-    local ui = Ext.GetUI("AmmoBarGUIv1.swf")
-	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
-		DebugPrint("ui was nil, thus looking with relative path.")
-	end
-	if ui ~= nil then
-		--Ext.RegisterUICall(ui, "onEvent", LeaderLib_Debug_OnDebugUIEvent)
-		ui:Invoke("forceAmmoBarReset")
-		ui:Invoke("setMaxAmmoCount", value)
-	end
-	DebugPrint("Set Max Ammo Count.")
 end
 
 -- Currently extremely messy because of inconsistent parameter calls. (Some use "0" and "1", and now i also use true and false bools...)
@@ -212,7 +164,7 @@ local function Musketeer_AmmoBar_Visibility(call, value)
     DebugPrint("Musketeer_AmmoBar_Visibility called.")
     local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
+		ui = Musketeer_Create_AmmoBar()
 		DebugPrint("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -222,6 +174,11 @@ local function Musketeer_AmmoBar_Visibility(call, value)
 			ui:Hide()
 		elseif value == "1" then
 			ui:Show()
+			if (Ext.GetBuiltinUI("Public/Game/GUI/msgBox_c.swf") or Ext.GetUIByType(75)) ~= nil then
+				ui:SetPosition(-280, 60)
+			end
+			--ui:SetValue("y", -300.0)
+			--ui:SetPosition(-280, 60)
 		else
 			DebugPrint("Invalid Value, value should be a Boolean (0 or 1)")
 		end
@@ -237,8 +194,12 @@ local function Musketeer_AmmoBar_Visibility(call, value)
 		DebugPrint(characterCreation:GetRoot().isFinished)
 		doneWithCharacterCreation = characterCreation:GetRoot().isFinished
 	end
-
-	local hotbarRoot = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf"):GetRoot()
+	local hotbarRoot = nil
+	if Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf") ~= nil then
+		hotbarRoot = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf"):GetRoot()
+	elseif Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf") ~= nil then
+		hotbarRoot = Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf"):GetRoot()
+	end
 	local hotbarVisible = true
 	if hotbarRoot ~= nil then
 		DebugPrint("[CLIENT DEBUG] Hotbar exists, checking if it's visible:")
@@ -254,6 +215,67 @@ local function Musketeer_AmmoBar_Visibility(call, value)
 	end
 	DebugPrint("AmmoBar visibility set")
 end
+
+-- Preview Ammo Restoration/Ammo Consumption
+-- negative value -> consume preview
+-- positive value -> restore preview
+local function Musketeer_AmmoBar_Difference_Preview(call, value)
+	DebugPrint("Musketeer_AmmoBar_Difference_Preview entry")
+	DebugPrint("value: " .. value)
+	if value ~= nil and type(value) == string then
+		DebugPrint("Musketeer_AmmoBar_Difference_Preview converted string to number")
+		value = tonumber(value)
+	end
+    DebugPrint("Musketeer_AmmoBar_Difference_Preview called.")
+    local ui = Ext.GetUI("AmmoBarGUIv1.swf")
+	if ui == nil then
+		ui = Musketeer_Create_AmmoBar()
+		DebugPrint("ui was nil, thus looking with relative path.")
+	end
+	if ui ~= nil and value ~= 0 then
+		DebugPrint("Should be previewing now...")
+		ui:Invoke("forceAmmoBarReset")
+		if value < 0 then
+			ui:Invoke("previewAmmoConsumption", (0 - value))
+		else
+			ui:Invoke("previewAmmoGain", value)
+		end
+	end
+	DebugPrint("Preview Ammo Difference.")
+end
+
+
+local function Musketeer_AmmoBar_SetAmmo(call, value)
+    DebugPrint("Musketeer_AmmoBar_SetAmmo called.")
+    local ui = Ext.GetUI("AmmoBarGUIv1.swf")
+	if ui == nil then
+		ui = Musketeer_Create_AmmoBar()
+		print("ui was nil, thus looking with relative path.")
+	end
+	if ui ~= nil then
+		--Ext.RegisterUICall(ui, "onEvent", LeaderLib_Debug_OnDebugUIEvent)
+		ui:Invoke("forceAmmoBarReset")
+		ui:Invoke("setAmmoCount", value)
+	end
+	DebugPrint("Set Ammo Count.")
+end
+
+local function Musketeer_AmmoBar_SetMaxAmmo(call, value)
+    DebugPrint("Musketeer_AmmoBar_SetMaxAmmo called.")
+    local ui = Ext.GetUI("AmmoBarGUIv1.swf")
+	if ui == nil then
+		ui = Musketeer_Create_AmmoBar()
+		DebugPrint("ui was nil, thus looking with relative path.")
+	end
+	if ui ~= nil then
+		--Ext.RegisterUICall(ui, "onEvent", LeaderLib_Debug_OnDebugUIEvent)
+		ui:Invoke("forceAmmoBarReset")
+		ui:Invoke("setMaxAmmoCount", value)
+	end
+	DebugPrint("Set Max Ammo Count.")
+end
+
+
 
 local function Musketeer_Set_Player_CC_State(channel, bool)
 	if bool == "1" then bool = true elseif bool == "0" then bool = false end
@@ -271,7 +293,7 @@ local function Musketeer_Reset_Previews_AmmoBar(force)
 		DebugPrint("Musketeer_Reset_AmmoBar called.")
 		local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 		if ui == nil then
-			ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
+			ui = Musketeer_Create_AmmoBar()
 			DebugPrint("ui was nil, thus looking with relative path.")
 		end
 		if ui ~= nil then
@@ -285,7 +307,7 @@ local function Musketeer_AmmoBar_BreathingMode(call, value)
     DebugPrint("Musketeer_AmmoBar_BreathingMode called.")
 	local ui = Ext.GetUI("AmmoBarGUIv1.swf")
 	if ui == nil then
-		ui = Ext.CreateUI("AmmoBarGUIv1.swf", "Public/Musketeer_414af60f-550c-4134-a560-ae3f69f2dc52/GUI/AmmoBarGUIv1.swf", 2)
+		ui = Musketeer_Create_AmmoBar()
 		DebugPrint("ui was nil, thus looking with relative path.")
 	end
 	if ui ~= nil then
@@ -614,7 +636,13 @@ end
 
 local function RegisterBuiltInUIListeners()
 	-- Listen to the hotbar for when the sheet opens
-	local hotbar = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+	local hotbar = nil
+	if Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf") ~= nil then
+		hotbar = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+	elseif Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf") ~= nil then
+		hotbar = Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf")
+	end
+	--local hotbar = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
 	local tooltip = Ext.GetBuiltinUI("Public/Game/GUI/tooltip.swf")
 	local GMPanelHUD = Ext.GetBuiltinUI("Public/Game/GUI/GM/GMPanelHUD.swf")
 	if hotbar ~= nil then
@@ -726,9 +754,17 @@ end
 
 local function Musketeer_Refresh_Hotbar()
 	DebugPrint("[CLIENT] Custom Refresh Hotbar called")
-	local hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+	local hotbarUI = nil
+	local msg = 29
+	if Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf") ~= nil then
+		hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
+		msg = hotbarUI:GetValue("maxSlots", "number")
+	elseif Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf") ~= nil then
+		hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf")
+		msg = 29
+	end
 	if hotbarUI ~= nil then
-		hotbarUI:ExternalInterfaceCall("updateSlots", hotbarUI:GetValue("maxSlots", "number"))
+		hotbarUI:ExternalInterfaceCall("updateSlots", msg)
 	end
 end
 Ext.RegisterNetListener("Client_Refresh_Hotbar", Musketeer_Refresh_Hotbar)
@@ -871,7 +907,13 @@ local function GetCompareItemOverride(ui, item, offHand)
 	--Ext.Print(Item1)
 	if item == nil or item.Stats == nil then print("item comparison: item stat is nil") return end
 	if PersistentVars.PlayerCharacterGUID == nil then
-		owner = Ext.GetCharacter(Ext.DoubleToHandle(Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf"):GetRoot().hotbar_mc.characterHandle))
+
+		if Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf") ~= nil then
+			owner = Ext.GetCharacter(Ext.DoubleToHandle(Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf"):GetRoot().hotbar_mc.characterHandle))
+		elseif Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf") ~= nil then
+			owner = Ext.GetCharacter(Ext.DoubleToHandle(Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf"):GetRoot().characterHandle))
+		end
+		
 		if owner == nil then
 			owner = ui:GetPlayerHandle()
 			if owner == nil then

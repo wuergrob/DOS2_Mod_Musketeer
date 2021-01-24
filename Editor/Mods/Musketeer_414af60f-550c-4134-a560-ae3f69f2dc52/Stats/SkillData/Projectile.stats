@@ -1343,7 +1343,7 @@
         <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
-        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_AtLeast_One_Left; Tag Musketeer_Stealth_Tag; Tag Musk_Rifle_Matchlock_Mastery2" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musketeer_AtLeast_One_Left; Tag Musketeer_Stealth_Tag; Tag Musk_Rifle_Matchlock_Mastery3" />
         <field name="ProjectileTerrainOffset" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="OverrideMinAP" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
