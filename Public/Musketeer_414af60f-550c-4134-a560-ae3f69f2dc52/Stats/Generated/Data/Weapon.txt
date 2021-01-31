@@ -384,6 +384,6 @@ data "ModifierType" "Item"
 data "Damage Type" "Piercing"
 data "Damage" "1"
 data "Damage Range" "5"
-data "DamageFromBase" "15"
+data "DamageFromBase" "30"
 data "CriticalChance" "10"
 

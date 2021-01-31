@@ -335,7 +335,7 @@ DB_NOOP(1);
 
 //REGION Musketeer_Ammo_Management
 
-// Use this PROC to consume the specified amount of charges when a Ammunition consuming Skill is used.
+// Use this PROC to consume the specified amount of charges when a Ammunition consuming Skill is used (Positive value adds Ammo, negative consumes ammo. Wtf was I thinking...).
 PROC
 Musketeer_Consume_Ammo((ITEMGUID)_Weapon, (INTEGER)_Amount, (CHARACTERGUID)_Character)
 THEN

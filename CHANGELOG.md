@@ -367,3 +367,21 @@ The `AmmoBar` UI would not work correctly when playing with a controller and wou
 
 ### Bugfixes
 - `AmmoBar` UI is placed next to the skillbar when using a controller
+
+## 1.3.8.0 Balance, Controller, Bugfixes, Talents
+The duration of the `Marked` status matched the cooldown of skills such as `Tracking Shot` and `Death Sentence`, meaning you could always apply a new `Marked`
+status as soon as the old one expired.
+
+### New Features
+- New Talent-Interaction for `Glass Cannon`: Restore 1 `Ammunition` at the start of your combat round, if you are out of `Ammunition` and have a Rifle equipped.
+
+### Balance & Design
+- `Marked` Status from `Tracking Shot`, `Death Sentence` and `Blazing Flare` duration reduced from 3 to 2 
+- `Marked` Status from `Piercing Ammunition + Tracking Shot` duration reduced from 2 to 1
+- `Counterstrike` Mastery-Status bonus damage increased from 15% to 30%
+
+### Bugfixes
+- Positioning of the `AmmoBar` UI in controller-mode improved, will no longer cause issues with some resolutions
+- The `Reload-Debuff` from special `Reload` Variations now correctly persists until the start of your next turn
+- `Grenade Assault` Mastery-Skill is now properly granted at Mastery-Level 3 instead of Mastery-Level 2
+- Updated tooltips for some Mastery-Skill requirements

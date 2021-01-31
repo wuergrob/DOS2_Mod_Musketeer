@@ -21,6 +21,43 @@ THEN
 Musketeer_Consume_Ammo((ITEMGUID)_Weapon, 1, _Player);
 //RemoveStatus(_Player, "MUSK_EXECUTIONER");
 
+
+// Glass Cannon Modification:
+// Grant 1 Ammunition at the beginning of your turn, if you are out of Ammunition and have a Rifle equipped.
+
+IF
+ObjectTurnStarted(_Character)
+AND
+ObjectIsCharacter(_Character, 1)
+AND
+CharacterHasTalent((CHARACTERGUID)_Character, "Raistlin", 1)
+AND
+IsTagged(_Character, "Musketeer_None_Left", 1)
+AND
+CharacterGetEquippedWeapon(_Character, _Weapon)
+THEN
+Musketeer_Consume_Ammo((ITEMGUID)_Weapon, 1, _Character);
+CharacterStatusText(_Character, "+1 Ammunition from Glass Cannon!");
+//NRD_DebugLog("+1 Ammunition from Glass Cannon!");
+
+/*
+
+Notes for custom talents:
+
+Core issue: tooltip requests for talents with an Id higher than 127 cause a crash
+
+Intended solution: Intercept tooltip requests with a Id higher than 127 and run custom logic to handle them
+
+Need to research:
+- Possible to intercept tooltip requests with necessary info?
+- Possible to return a working tooltip using custom logic to be shown in the Ui?
+
+Notes:
+- The AddTalent function is in stats_1.as file
+
+*/
+
+
 EXITSECTION
 
 ENDEXITSECTION

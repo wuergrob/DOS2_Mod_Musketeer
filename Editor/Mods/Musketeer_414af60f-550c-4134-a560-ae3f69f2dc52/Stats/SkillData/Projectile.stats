@@ -748,7 +748,7 @@
         <field name="Name" type="NameStatObjectFieldDefinition" value="Flare_Explosion" />
         <field name="ForGameMaster" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="IsEnemySkill" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="MUSK_MARK_TARGET,100,3;" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="MUSK_MARK_TARGET,100,2;" />
         <field name="AreaRadius" type="IntegerStatObjectFieldDefinition" value="8" />
         <field name="TargetConditions" type="StringStatObjectFieldDefinition" value="NonSelf;!Ally;Character" />
         <field name="UseCharacterStats" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
@@ -927,7 +927,7 @@
         <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="3" />
         <field name="Damage Multiplier" type="IntegerStatObjectFieldDefinition" value="75" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(Character):MUSK_MARK_TARGET,100,3" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(Character):MUSK_MARK_TARGET,100,2" />
         <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="4" />
         <field name="ExplodeRadius" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
@@ -1181,7 +1181,7 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Piercing_Ammo_Tracking" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Piercing_Ammo_Effect" />
-        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(Character):MUSK_MARK_TARGET,100,2" />
+        <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="TARGET:IF(Character):MUSK_MARK_TARGET,100,1" />
         <field name="Template" type="StringStatObjectFieldDefinition" value="583e5bef-6f8e-41bd-b6b9-dce0d4e09526" />
       </fields>
     </stat_object>
@@ -1296,7 +1296,7 @@
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
         <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillTier" />
         <field name="SkillProperties" type="StringStatObjectFieldDefinition" value="CreateSurface,1,,ExplosionCloud;" />
-        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Musk_Rifle_Musket_Mastery2" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; Tag Musk_Rifle_Musket_Mastery3" />
         <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Projectile_Grenade_Nailbomb" />
       </fields>
     </stat_object>

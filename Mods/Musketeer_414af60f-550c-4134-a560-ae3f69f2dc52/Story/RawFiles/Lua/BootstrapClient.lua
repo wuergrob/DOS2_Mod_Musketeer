@@ -89,7 +89,9 @@ local function Musketeer_Create_AmmoBar()
 	if (Ext.GetBuiltinUI("Public/Game/GUI/msgBox_c.swf") or Ext.GetUIByType(75)) ~= nil then
 		Ext.Print("[Musketeer] Controller mode detected.")
 		--ui:SetValue("y", -300.0)
-		ui:SetPosition(-280, 60)
+		--ui:SetPosition(-280, 60)
+		ui:GetRoot().ammocounter_inst.x = 70
+		ui:GetRoot().ammocounter_inst.y = 883
 	end
 	return ui
 end
@@ -175,7 +177,9 @@ local function Musketeer_AmmoBar_Visibility(call, value)
 		elseif value == "1" then
 			ui:Show()
 			if (Ext.GetBuiltinUI("Public/Game/GUI/msgBox_c.swf") or Ext.GetUIByType(75)) ~= nil then
-				ui:SetPosition(-280, 60)
+				--ui:SetPosition(-280, 60)
+				ui:GetRoot().ammocounter_inst.x = 70
+				ui:GetRoot().ammocounter_inst.y = 883
 			end
 			--ui:SetValue("y", -300.0)
 			--ui:SetPosition(-280, 60)

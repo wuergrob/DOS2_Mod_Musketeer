@@ -300,6 +300,7 @@ local Musketeer_TranslatedString_Append =
 {
     h54f2ea13g97dbg4b86g9d13geeb81186faca = "<br><br><font color='#00EFFF'>Also applies when using Rifles</font>",
     h060e026bg5b59g4488gb987g3514e5f0f51c = "<br><br><font color='#00EFFF'>Also reloads your equipped Rifle when out of combat</font>",
+    h46770f2agdbb8g47eag9e0eg65ac47bde918 = "<br><br><font color='#00EFFF'>Restores 1 Ammunition at the start of your combat round, if you are out of Ammunition and have a Rifle equipped.</font>",
 }
 
 Ext.RegisterListener("SessionLoaded", function ()

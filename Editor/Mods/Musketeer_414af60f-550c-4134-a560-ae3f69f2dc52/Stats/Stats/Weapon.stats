@@ -472,7 +472,7 @@
         <field name="Damage Type" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="Damage Type" />
         <field name="Damage" type="IntegerStatObjectFieldDefinition" value="1" />
         <field name="Damage Range" type="IntegerStatObjectFieldDefinition" value="5" />
-        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="15" />
+        <field name="DamageFromBase" type="IntegerStatObjectFieldDefinition" value="30" />
         <field name="CriticalChance" type="IntegerStatObjectFieldDefinition" value="10" />
       </fields>
     </stat_object>

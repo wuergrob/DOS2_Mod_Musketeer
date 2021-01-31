@@ -1493,10 +1493,12 @@ Musketeer_Rapidfire_Path = {}
 Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
     if projectile.SkillId == "Projectile_Rapidfire" or projectile.SkillId == "Projectile_Rapidfire_-1" then
         local attacker = Ext.GetGameObject(projectile.SourceHandle)
+        local hitObjectHandle = nil
+        if hitObject ~= nil then hitObjectHandle = hitObject.Handle end
         if attacker ~= nil and attacker.MyGuid ~= nil and Musketeer_Rapidfire_Path[attacker.MyGuid] == nil then
             Musketeer_Rapidfire_Path[attacker.MyGuid] = {
                 selectedTarget = projectile.TargetObjectHandle,
-                attackedObject = hitObject.Handle,
+                attackedObject = hitObjectHandle,
                 hitPosition = position,
                 restCount = 2
                 }
@@ -1665,3 +1667,101 @@ TODO: For Release of Musketeer: Reloaded
 
 ]]
 
+--[[
+    local function GetOverShootPositionFromProjectile(ProjectileSourcePosition, projectileHitPosition, overshootDistance)
+    --DebugPrint("Piercing Ammo stuffs")
+    local attackerX, attackerY, attackerZ = ProjectileSourcePosition[1], ProjectileSourcePosition[2], ProjectileSourcePosition[3]
+    local targetX, targetY, targetZ = projectileHitPosition[1], projectileHitPosition[2], projectileHitPosition[3]
+
+    local dist = ((targetZ - attackerZ)^2 + (targetX - attackerX)^2)^(1/2)
+
+    local newZ = attackerZ + ((targetZ - attackerZ)/(dist)) * (dist+overshootDistance)
+    local newX = attackerX + ((targetX - attackerX)/(dist)) * (dist+overshootDistance)
+    local newY = targetY + 0.2
+    return newX, newY, newZ
+end
+
+local function Musketeer_Get_Closest_Object_Around_Position(x, y, z)
+    local minDist = nil
+    local minDistGuid = nil
+    local charsAndItems = { Ext.GetCharactersAroundPosition(x, y, z, 15), Ext.GetCharactersAroundPosition(x, y, z, 15)}
+    for i=1, #charsAndItems, 1 do
+        for j=1,#charsAndItems[i], 1 do
+            print(charsAndItems[i][j])
+            local dist = GetDistanceToPosition(charsAndItems[i][j], x, y, z)
+            print(dist)
+            if minDist == nil then
+                minDist = dist
+            end
+            if minDist > dist then
+                minDist = dist
+                minDistGuid = charsAndItems[i][j]
+            end
+        end
+    end
+    Ext.Print(minDistGuid)
+    return minDistGuid
+end
+
+Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
+    local piercingAmmoSkill = "Projectile_Musk_Piercing_Ammo_"
+    if projectile == nil or string.sub(projectile.SkillId, 1, #piercingAmmoSkill) == piercingAmmoSkill then return end
+    local attacker = Ext.GetGameObject(projectile.CasterHandle)
+    local ammoType = GetCharacterAmmoType(attacker.MyGuid)
+    if ammoType == Musketeer_Ammo_Statuses[6] and attacker:HasTag("Rifle_Armed") and IsRifleBasedSkill(projectile.SkillId) then
+        Ext.Print("Piercing Ammo procced")
+        local piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_Effect"
+        if projectile.SkillId == "Projectile_Rend_The_Marked" then
+            piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_Rend"
+        elseif projectile.SkillId == "Projectile_Tracking_Shot" then
+            piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_Tracking"
+        elseif projectile.SkillId == "Projectile_Rapidfire" then
+            piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_RapidFire"
+        end
+        Ext.Print("hitObject")
+        Ext.Print(hitObject)
+        Ext.Print(projectile.TargetObjectHandle)
+        Ext.Print(projectile.HitObjectHandle)
+        local target = nil
+        if hitObject ~= nil then
+            target = Ext.GetGameObject(hitObject.Handle)
+        else
+            target = Ext.GetGameObject(projectile.TargetObjectHandle)
+        end
+
+        local newX, newY, newZ = GetOverShootPositionFromProjectile(attacker.WorldPos, projectile.Position, 5)
+        Ext.Print(newX, newY, newZ)
+        Ext.Print(projectile.Position[1])
+        Ext.Print(projectile.Position[2])
+        Ext.Print(projectile.Position[3])
+        Ext.Print(projectile.TargetPosition[1], projectile.TargetPosition[2], projectile.TargetPosition[3])
+        --[[
+        SetVarFloat3(attacker.MyGuid, "Piercing_TargetLocation2", newX, newY, newZ)
+        SetVarFloat3(attacker.MyGuid, "Piercing_OriginLocation2", projectile.Position[1], projectile.Position[2], projectile.Position[3])
+        --SetVarObject(attacker.MyGuid, "Piercing_OriginLocation", target.MyGuid)
+        SetVarFixedString(attacker.MyGuid, "Piercing_Projectile_Skill2", piercingAmmoSkillName)
+        SetStoryEvent(attacker.MyGuid, "Musketeer_Pierce_Ammo_Event2")
+        --]
+        local origin = {projectile.Position[1], projectile.Position[2], projectile.Position[3]}
+        NRD_ProjectilePrepareLaunch()
+        NRD_ProjectileSetString("SkillId", "Projectile_Musk_Piercing_Ammo_Effect")
+        NRD_ProjectileSetInt("CasterLevel", attacker.Stats.Level)
+        --NRD_ProjectileSetGuidString("SourcePosition", projectile.Position)
+        --NRD_ProjectileSetVector3("SourcePosition", projectile.Position[1], projectile.Position[2], projectile.Position[3])
+        NRD_ProjectileSetVector3("TargetPosition", newX, newY, newZ)
+        --NRD_ProjectileSetGuidString("TargetPosition", Sandbox_Market_Ernest_Herringway_da8d55ba-0855-4147-b706-46bbc67ec8b6);
+        
+        local sourceGuid = Musketeer_Get_Closest_Object_Around_Position(projectile.Position[1], projectile.Position[2], projectile.Position[3])
+        if sourceGuid ~= nil then
+            --NRD_ProjectileSetGuidString("Source", closeChar)
+            NRD_ProjectileSetGuidString("SourcePosition", sourceGuid)
+            Ext.Print("sourceObj")
+            Ext.Print(sourceGuid)
+        else
+            NRD_ProjectileSetVector3("SourcePosition", projectile.Position[1], projectile.Position[2], projectile.Position[3])
+            Ext.Print("sourceVec3")
+        end
+        NRD_ProjectileLaunch()
+    end
+end)
+]]
