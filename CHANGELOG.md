@@ -385,3 +385,17 @@ status as soon as the old one expired.
 - The `Reload-Debuff` from special `Reload` Variations now correctly persists until the start of your next turn
 - `Grenade Assault` Mastery-Skill is now properly granted at Mastery-Level 3 instead of Mastery-Level 2
 - Updated tooltips for some Mastery-Skill requirements
+
+## 1.3.9.0 Balance, Bugfixes, Tooltip Update
+
+### Balance & Design
+`Rend the Marked` is very finnicky to use at the moment. Actually executing enemies with it to obtain `Rend` Stacks is frustrating, as the skill itself doesn't do a lot of damage. Players thus have to "prepare" the kill in advance, which can often lead to accidental kills, ruining the setup. I've thus increased the damage and AP cost in order to make it more fun to use.
+
+- `Rend the Marked` Skill Damage increased from 70 to 90, AP cost increased from 2 to 3, Cooldown increased from 3 to 4
+- `Incendiary Ammunition` On-Kill effect damage increased from 20 to 35
+- Updated Tooltips of all `Reload Variations` to more accurately describe their bonus effects
+
+### Bugfixes
+- `Grenade Assault` Mastery-Skill now works correctly when used in combat. Previously, allies would not cast `Grenade Assault` even if they were in range due to a bug
+- `Rend Stack` SFX emitted on scoring a kill no longer stops prematurely
+- Fixed an incorrect scaling parameter for `Doom Ammunition` bonus damage, causing it to deal more damage than intended

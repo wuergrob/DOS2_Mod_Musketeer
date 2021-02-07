@@ -1632,6 +1632,11 @@ function Musketeer_Cheat (mode)
     end
 end
 
+function Musketeer_Weapon_Add_Max_Ammo(weaponguid, amount)
+    local weapon = Ext.GetItem(weaponguid)
+    weapon.Stats.MaxCharges = weapon.Stats.MaxCharges + 1
+end
+
 --[[
 
 For appending TreasureTable entries:

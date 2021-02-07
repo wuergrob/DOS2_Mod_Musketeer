@@ -71,8 +71,8 @@
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Incendiary" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Incendiary" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with incendiary &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal additional [1].&lt;br&gt;Rifle based skills will also cause a fire surface behind the impact and ignite enemies." />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Incendiary:Damage" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your Rifle with incendiary &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, adding [1] to every shot.&lt;br&gt;&lt;br&gt;Creates a cone-shaped &lt;font color='#FE6E27'&gt;incendiary Blast&lt;/font&gt; on impact, burning objects behind the target.&lt;br&gt;&lt;br&gt;Killing a character will cause it to errupt in a &lt;font color='#FE6E27'&gt;fiery Explosion&lt;/font&gt;, dealing [2] in a [3] radius." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Incendiary:Damage;Skill:Projectile_Musk_Incendiary_Ammo_Effect:Damage;Skill:Projectile_Musk_Incendiary_Ammo_Effect:ExplodeRadius" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
@@ -114,8 +114,8 @@
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Piercing" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Piercing" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle withpiercing &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal additional [1].&lt;br&gt;Shots from rifles will pierce through their initial targets continue traveling for a small distance." />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Explosive:Damage" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with piercing &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, adding [1] to every shot.&lt;br&gt;&lt;br&gt;Shots will pierce objects on hit, and travel up to 5m beyond the initial target.&lt;br&gt;&lt;br&gt;Piercing projectiles deal [2] and will retain the On-Hit effects of most skills, albeit in a slightly weaker form." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Explosive:Damage;Skill:Projectile_Musk_Piercing_Ammo_Effect:Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
@@ -157,7 +157,7 @@
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Freezing" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Freezing" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with freezing &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal additional [1].&lt;br&gt;Rifle based skills will cause a ice surface behind the impact and have a chance to freeze enemies." />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with freezing &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, adding [1] to every shot.&lt;br&gt;&lt;br&gt;&lt;font color='#4197E2'&gt;Chills&lt;/font&gt; objects on hit and creates a cone-shaped &lt;font color='#4197E2'&gt;Ice Surface&lt;/font&gt; behind the target." />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Freezing:Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
@@ -200,8 +200,8 @@
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Shocking" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Shocking" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with shock &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks and rifle based skills to deal additional [1] and electrify characters." />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Shock:Damage" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with shock &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, adding [1] to every shot.&lt;br&gt;&lt;br&gt;&lt;font color='#7D71D9'&gt;Shocks&lt;/font&gt; objects on hit and shoots forking spikes at up to 3 additional objects in a [2] radius." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:Projectile_Ammo_Shock:Damage;Skill:Projectile_Ammo_Shock:AreaRadius" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
@@ -242,9 +242,9 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Autocast" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Reload_Explosive" />
-        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Holy" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with experimental Doom &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing your basic attacks to deal additional [1]&lt;br&gt;Shots from rifles will cause big explosions on impact." />
-        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:ProjectileStrike_Musk_AmmoType_Doom:Damage" />
+        <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Reload Doom" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Reload your rifle with experimental Doom &lt;font color='#00EFFF'&gt;Ammunition&lt;/font&gt;, causing every shot to explode, dealing an additional [1] in a [2] radius around the impact location." />
+        <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Skill:ProjectileStrike_Musk_AmmoType_Doom:Damage;Skill:ProjectileStrike_Musk_AmmoType_Doom:ExplodeRadius" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_shout_01_loop" />
