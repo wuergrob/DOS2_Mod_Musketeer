@@ -1631,6 +1631,7 @@ function Musketeer_Cheat (mode)
         CharacterAddSourcePoints(Guid, 3)
     end
 end
+
 --[[
 
 For appending TreasureTable entries:
@@ -1639,33 +1640,6 @@ For appending TreasureTable entries:
 - Don't overwrite TreasureTable and instead create a new category from the current overwrite (So we can append the whole table and append it)
 - Check LL's code again to see how to append such a new table to the existing ones
 
-
-]]
-
---[[
-local function Musketeer_Covering_Fire_Use_Skill(characterguid, channel, payload)
-    Ext.PostMessageToClient(characterguid, "Musketeer_Set_AmmoBar_UI", payload)
-end
-Ext.NewCall(Musketeer_Covering_Fire_Use_Skill, "Musketeer_Use_Covering_Fire", "(CHARACTERGUID)_Character, (STRING)_Channel, (INTEGER)_Bool");
-]]
---[[
-
-TODO: For Release of Musketeer: Reloaded
-
-- Fix Buckshot SkillProperty Description                                    DONE
-- Fix tag names (Concentrated Terror stealth tag, specific rifle tags)      DONE
-- Cleanup code, remove console print messages                               DONE
-- Add patching by checking mod version differences                          (DONE)
-- Add ammocost to Concentrated Terror                                       DONE
-- Fix Blazing Flare Mastery                                                 DONE
-- Replace "Target_Haste" with own implementation (Blunderbuss Reload Mastery) DONE
-- Check if skills learned from Masteries work correctly                     (DONE)
-- Check if mod works correctly when LeaderLib and WeaponEx are not loaded   X
-- Playtest a bit                                                            X
-
-
-
-]]
 
 --[[
     local function GetOverShootPositionFromProjectile(ProjectileSourcePosition, projectileHitPosition, overshootDistance)

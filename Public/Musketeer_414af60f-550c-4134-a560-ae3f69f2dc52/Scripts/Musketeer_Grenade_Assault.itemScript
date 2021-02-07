@@ -1,0 +1,76 @@
+INIT
+
+ITEM:__Me
+EXTERN FLOAT:%LifeTime=5
+
+SKILL:%ProjectileSkill=null
+CHARACTER:%Caster=null
+INT:%Exploded=0
+
+EVENTS
+
+EVENT ItemMoved
+ON
+	OnItemEvent("Musk_Grenade_Assault_Helper_Moved"
+ACTIONS
+	StartTimer("GrenadeTick",%LifeTime,-1)
+	DisplayText(__Me, "Huiiiiii", 5)
+	
+
+EVENT GrenadeInit
+ON 
+	OnInit()
+ACTIONS
+	IF "c1"
+		ItemGetSkillId(__Me,%ProjectileSkill)
+	THEN	
+		//DisplayText(__Me, "Huiiiiii", 5)
+	ENDIF
+	//DebugText(__Me, "uuuuu")
+	
+EVENT GrenadeDestroy
+VARS
+	ITEM:_ItemSource
+ON
+	OnItemDestroyed(__Me)
+	OnFunction("GrenadeDestroy")
+	OnDamage(_,_,_,_ItemSource)
+ACTIONS
+	IF "!c1&!c2"
+		IsEqual(__Me,_ItemSource)
+		IsEqual(%Exploded,1)
+	THEN
+		StopTimer("GrenadeTick")
+		//ExplodeAt(__Me,%ProjectileSkill, -1,%Caster)
+		Set(%Exploded,1)
+		ItemDestroy(__Me)
+		//ItemDie(__Me)
+	ENDIF
+
+EVENT GrenadeLand
+VARS 
+	INT:_hitObstacle
+	CHARACTER:_caster	
+ON
+	OnGrenadeLand(_hitObstacle, _caster)
+ACTIONS
+	Set(%Caster, _caster)
+	//CharacterItemEvent(_caster, __Me, "Musketeer_Grenade_Assault_Target")
+	//DisplayText(_caster, "caster", 5)
+	//DisplayText(__Me, "grenade", 5)
+	IF "c1|!c2"
+		IsEqual(_hitObstacle,1)
+		IsGreaterThen(%LifeTime,0)
+	THEN
+		//CallFunction("GrenadeDestroy")
+		
+		StartTimer("GrenadeTick",%LifeTime,-1)
+	ENDIF
+
+EVENT GrenadeTimer
+ON
+	OnTimer("GrenadeTick")
+ACTIONS
+	StopTimer("GrenadeTick")	
+	CallFunction("GrenadeDestroy")
+	

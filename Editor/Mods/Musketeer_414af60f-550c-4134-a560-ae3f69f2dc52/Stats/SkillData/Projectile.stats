@@ -1304,7 +1304,13 @@
       <fields>
         <field name="Name" type="NameStatObjectFieldDefinition" value="Musk_Grenade_GrenadeAssault_Child" />
         <field name="Using" type="BaseClassStatObjectFieldDefinition" value="Musk_Grenade_GrenadeAssault" />
-        <field name="AiCalculationSkillOverride" type="StringStatObjectFieldDefinition" value="Target_DummyTargetSkill" />
+        <field name="Ability" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SkillAbility" />
+        <field name="Tier" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SkillTier" />
+        <field name="Requirements" type="StringStatObjectFieldDefinition" value=";" />
+        <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="SkillRequirement" />
+        <field name="ActionPoints" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Cooldown" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="TargetRadius" type="IntegerStatObjectFieldDefinition" value="35" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
