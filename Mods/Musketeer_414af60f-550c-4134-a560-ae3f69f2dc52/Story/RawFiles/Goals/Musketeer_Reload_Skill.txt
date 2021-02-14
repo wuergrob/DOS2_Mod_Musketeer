@@ -85,9 +85,20 @@ Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 IF
 //ObjectWasTagged(_Character, "Musketeer_Reloading_State")
 CharacterStatusApplied(_Character, "RELOAD_DEBUFF", _)
+AND
+CharacterIsInCombat(_Character, 1)
 THEN
 ApplyStatus(_Character, "MUTED", -1.0, 1, _Character);
 ApplyStatus(_Character, "DISARMED", -1.0, 1, _Character);
+SetTag(_Character, "Rifle_Reloading");
+
+IF
+//ObjectWasTagged(_Character, "Musketeer_Reloading_State")
+CharacterStatusApplied(_Character, "RELOAD_DEBUFF", _)
+AND
+CharacterIsInCombat(_Character, 0)
+THEN
+RemoveStatus(_Character, "RELOAD_DEBUFF");
 
 IF
 //ObjectLostTag(_Character, "Musketeer_Reloading_State")
@@ -99,6 +110,7 @@ IsTagged(_Character, "Rifle_Armed", 1)
 THEN
 RemoveStatus(_Character, "MUTED");
 RemoveStatus(_Character, "DISARMED");
+ClearTag(_Character, "Rifle_Reloading");
 ItemResetChargesToMax((ITEMGUID)_Weapon);
 Musketeer_Ammo_Requirement_Tags((ITEMGUID)_Weapon, _Character);
 
@@ -110,6 +122,7 @@ IsTagged(_Character, "Rifle_Armed", 0)
 THEN
 RemoveStatus(_Character, "MUTED");
 RemoveStatus(_Character, "DISARMED");
+ClearTag(_Character, "Rifle_Reloading");
 
 // Casting Reload and instantly ending your turn can cause the Reload Debuff status to be applied after the turn ends, 
 // making it persist for a whole additional turn.
@@ -123,6 +136,7 @@ HasActiveStatus(_Character, "RELOAD_DEBUFF", 1)
 THEN
 RemoveStatus(_Character, "RELOAD_DEBUFF");
 NRD_DebugLog("[OSIRIS] Reload Debuff removed from Character, as his turn started");
+
 
 
 

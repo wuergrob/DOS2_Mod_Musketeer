@@ -56,6 +56,7 @@
 	<content contentuid="h5ea0a9b0g7c84g47bdga2d4g65e1a3ad8da2" Source="Tags.lsb" Key="Musketeer_Exactly_Two_Left">&lt;font color=&apos;#00EFFF&apos;&gt;Exactly 2 shots left&lt;/font&gt;</content>
 	<content contentuid="h71fe9f67g24b2g43f9gb6e0g5d468960df7d" Source="Tags.lsb" Key="Musketeer_None_Left">&lt;font color=&apos;#00EFFF&apos;&gt;Out of Ammunition&lt;/font&gt;</content>
 	<content contentuid="h91548be2gc4abg47aagadaeg6d355c3d3879" Source="Tags.lsb" Key="Rifle_Armed">&lt;font color=&apos;#00EFFF&apos;&gt;Rifle equipped&lt;/font&gt;</content>
+	<content contentuid="hf5dc394eg00e6g4513g8b00gd255f3701808" Source="Tags.lsb" Key="Rifle_Reloading">&lt;font color=&apos;#00EFFF&apos;&gt;Character is Reloading&lt;/font&gt;</content>
 	<content contentuid="ha25146f2ge2bbg4af6ga0dcg8340a68e5a3c" Source="Tags_Tooltips.lsb" Key="Musk_Rifle_Musket">Musket</content>
 	<content contentuid="hd6cb5710gf689g4ec9g8e16g702747d53370" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_Atleast_One_Left">At least 1 Ammo remaining</content>
 	<content contentuid="h6bf1151ag9603g4b20gb776g8322cb117500" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_AtLeast_Three_Left">At least 3 Ammo remaining</content>

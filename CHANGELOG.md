@@ -399,3 +399,20 @@ status as soon as the old one expired.
 - `Grenade Assault` Mastery-Skill now works correctly when used in combat. Previously, allies would not cast `Grenade Assault` even if they were in range due to a bug
 - `Rend Stack` SFX emitted on scoring a kill no longer stops prematurely
 - Fixed an incorrect scaling parameter for `Doom Ammunition` bonus damage, causing it to deal more damage than intended
+
+## 1.4.0.0 Balance, Reload, Controller Support
+
+### Balance & Design
+`Rend the Marked` is still a hassle to use and often not worth thinking about. I've changed it to better fit it's role as a Execution-Skill by making it deal double damage against enemies at 40% or less `Vitality`.
+
+- `Rend the Marked` Skill Damage decreased from 90 to 75
+- `Rend the Marked` New bonus effect: Deals 200% damage against targets at 40% or less of their `Maximum Vitality`
+- All `Reload` Skills can now be cast when silenced
+- Casting any `Reload` Skill outside of combat will remove the `Reload Debuff` directly instead of persisting for 1 turn (Use the `Bedroll` to reload out of combat!)
+
+### Bugfixes
+Making the `AmmoBar` UI split-screen compatible is probably not going to happen, due to the problems complexity. I have spent some time to fix the positioning during split-screen gameplay, but it is not a officially supported feature of mine. (You can still message me about it, but it's not a high priority topic.)
+
+- Positioning of the `AmmoBar` UI in Split-Screen improved, it is now located above the right side of the Skillbar
+- Fixed a bug that caused the `AmmoBar` to not show `Ammunition` Consumption/Gain Previews when switching Skillbars in controller-mode
+- Improved `AmmoBar` stability in controller-mode

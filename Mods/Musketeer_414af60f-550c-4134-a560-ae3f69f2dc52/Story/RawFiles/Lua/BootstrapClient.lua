@@ -1,16 +1,37 @@
 Ext.Require("BootstrapShared.lua")
 
--- TODO
+SplitScreenMode = false
 
---[[
-Refactoring
------
-Code is a absolut mess. Notably:
-* Use a shared table for storing reload variant info
-* Clean up calls. Too many unnecessary Lua calls from Osiris code.
------
 
---]]
+
+Ext.RegisterUITypeCall (59, "setAnchor", function (ui, anchor, pos, screen, pos2)
+	--Ext.Print(ui, anchor, pos, screen, pos2)
+	--ExternalInterface.call("setAnchor","bottom","splitscreen","bottom");
+	if screen == "splitscreen" and not SplitScreenMode then
+		Ext.Print("Splitscreen mode detected.")
+		SplitScreenMode = true
+	end
+end, "Before")
+
+
+
+
+function Musketeer_AmmoBar_InitPosition(ui, controllerMode)
+	if ui == nil then
+		Ext.PrintWarning("Error during AmmoBar initial positioning, ui parameter is nil.")
+		return
+	end
+	if controllerMode and not SplitScreenMode then
+		ui:GetRoot().ammocounter_inst.x = 70
+		ui:GetRoot().ammocounter_inst.y = 883
+	elseif controllerMode and SplitScreenMode then
+		ui:ExternalInterfaceCall("setAnchor","bottom","splitscreen","bottom")
+		ui:GetRoot().ammocounter_inst.x = 1160
+		ui:GetRoot().ammocounter_inst.y = 735
+		ui:GetRoot().ammocounter_inst.scaleX = 0.7
+		ui:GetRoot().ammocounter_inst.scaleY = 0.7
+	end
+end
 
 
 DebugMode = false
@@ -48,6 +69,18 @@ function InitPlayerState()
     --DebugPrint("InitPlayerState. Handshake is: " .. PersistentVars["HandshakeCompleted"])
 end
 Ext.RegisterListener("SessionLoaded", InitPlayerState)
+
+
+Ext.RegisterUINameInvokeListener ("setPlayerHandle", function (ui, handle)
+	--Ext.Print("SetPlayerHandle")
+	if Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf") ~= nil then
+		PersistentVars["PlayerCharacterGUID"] = Ext.GetCharacter(Ext.DoubleToHandle(Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf"):GetRoot().hotbar_mc.characterHandle))
+	elseif Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf") ~= nil then
+		PersistentVars["PlayerCharacterGUID"] = Ext.GetCharacter(Ext.DoubleToHandle(Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf"):GetRoot().characterHandle))
+	end
+end, "Before")
+
+
 
 
 function PrintPlayerState()
@@ -90,8 +123,9 @@ local function Musketeer_Create_AmmoBar()
 		Ext.Print("[Musketeer] Controller mode detected.")
 		--ui:SetValue("y", -300.0)
 		--ui:SetPosition(-280, 60)
-		ui:GetRoot().ammocounter_inst.x = 70
-		ui:GetRoot().ammocounter_inst.y = 883
+		--ui:GetRoot().ammocounter_inst.x = 70
+		--ui:GetRoot().ammocounter_inst.y = 883
+		Musketeer_AmmoBar_InitPosition(ui, true)
 	end
 	return ui
 end
@@ -178,8 +212,9 @@ local function Musketeer_AmmoBar_Visibility(call, value)
 			ui:Show()
 			if (Ext.GetBuiltinUI("Public/Game/GUI/msgBox_c.swf") or Ext.GetUIByType(75)) ~= nil then
 				--ui:SetPosition(-280, 60)
-				ui:GetRoot().ammocounter_inst.x = 70
-				ui:GetRoot().ammocounter_inst.y = 883
+				--ui:GetRoot().ammocounter_inst.x = 70
+				--ui:GetRoot().ammocounter_inst.y = 883
+				Musketeer_AmmoBar_InitPosition(ui, true)
 			end
 			--ui:SetValue("y", -300.0)
 			--ui:SetPosition(-280, 60)
@@ -566,8 +601,15 @@ local function BuiltInHotbarActiveSkill(ui, call, arg1, index)
 	if arg1 >= 0 then
 		local hotbarUI = Ext.GetBuiltinUI("Public/Game/GUI/hotBar.swf")
 		DebugPrint(hotbarUI)
+		local maxSlots = 29
+		if hotbarUI == nil then
+			local hotbarUI_c = Ext.GetBuiltinUI("Public/Game/GUI/bottomBar_c.swf")
+			if hotbarUI_c ~= nil and hotbarUI_c:GetRoot().slotAmount > 0 then
+				maxSlots = hotbarUI_c:GetRoot().slotAmount
+			end
+		end
 
-		arg1 = arg1 + (PersistentVars["CurrentHotbar"]-1) * 29
+		arg1 = arg1 + (PersistentVars["CurrentHotbar"]-1) * maxSlots
 		DebugPrint("Multiplied Skillbar Slot index with current Skillbar index.")
 		DebugPrint(arg1)
 

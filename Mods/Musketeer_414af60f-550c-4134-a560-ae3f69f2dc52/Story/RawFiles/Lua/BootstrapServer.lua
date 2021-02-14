@@ -1287,24 +1287,39 @@ local function Musketeer_Add_Mark_Damage_Handler(target, attacker, damage, hitSt
     local hitStatus = Ext.GetStatus(target, hitStatus)
     --print(hitStatus.SkillId)
     if ObjectIsCharacter(target) == 1 and HasActiveStatus(target, "MUSK_MARK_TARGET") == 1 then
-        if Musketeer_MarkDamage_Table[hitStatus.SkillId] ~= nil then
+        local skillBonus = Musketeer_MarkDamage_Table[hitStatus.SkillId] or Musketeer_MarkDamage_Table[string.sub(hitStatus.SkillId, 1, (#hitStatus.SkillId - 3))]
+
+        if skillBonus ~= nil then
             --print("Marked Damage of Skill:", hitStatus.SkillId)
             local markDamageHit = NRD_HitPrepare(target, attacker)
-            NRD_HitAddDamage(markDamageHit, "Physical", damage * ( Musketeer_MarkDamage_Table[hitStatus.SkillId] / 100 ))
+            NRD_HitAddDamage(markDamageHit, "Physical", damage * ( skillBonus / 100 ))
             NRD_HitSetInt(markDamageHit, "SimulateHit", 1)
             NRD_HitSetInt(markDamageHit, "NoEvents", 1)
             NRD_HitExecute(markDamageHit);
-        elseif Musketeer_MarkDamage_Table[string.sub(hitStatus.SkillId, 1, (#hitStatus.SkillId - 3))] ~= nil then
-                --print("Marked Damage of Skill:", hitStatus.SkillId)
-                local markDamageHit = NRD_HitPrepare(target, attacker)
-                NRD_HitAddDamage(markDamageHit, "Physical", damage * ( Musketeer_MarkDamage_Table[string.sub(hitStatus.SkillId, 1, (#hitStatus.SkillId - 3))] / 100 ))
-                NRD_HitSetInt(markDamageHit, "SimulateHit", 1)
-                NRD_HitSetInt(markDamageHit, "NoEvents", 1)
-                NRD_HitExecute(markDamageHit);
         end
     end
 end
 Ext.RegisterOsirisListener("NRD_OnHit", 4, "before", Musketeer_Add_Mark_Damage_Handler)
+
+local function Musketeer_Add_Rend_Bonus_Damage(target, attacker, damage, hitStatus)
+    local hitStatus = Ext.GetStatus(target, hitStatus)
+    --print(hitStatus.SkillId)
+    if ObjectIsCharacter(target) == 1 and (hitStatus.SkillId == "Projectile_Rend_The_Marked" or hitStatus.SkillId == "Projectile_Rend_The_Marked_-1")  then
+        
+        local targetMaxHealth = NRD_CharacterGetStatInt(target, "MaxVitality")
+        local targetCurrentHealth = NRD_CharacterGetStatInt(target, "CurrentVitality")
+
+        if targetCurrentHealth <= targetMaxHealth * 0.4 then
+            --Ext.Print("Rend The Marked Double Damage!")
+            local rendBonusDamage = NRD_HitPrepare(target, attacker)
+            NRD_HitAddDamage(rendBonusDamage, "Physical", damage)
+            NRD_HitSetInt(rendBonusDamage, "SimulateHit", 1)
+            NRD_HitSetInt(rendBonusDamage, "NoEvents", 1)
+            NRD_HitExecute(rendBonusDamage);
+        end
+    end
+end
+Ext.RegisterOsirisListener("NRD_OnHit", 4, "before", Musketeer_Add_Rend_Bonus_Damage)
 
 
 Musketeer_Rune_Update_Pending = {}
