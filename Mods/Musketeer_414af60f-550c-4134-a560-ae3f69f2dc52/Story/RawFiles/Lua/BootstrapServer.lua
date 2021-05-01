@@ -1321,7 +1321,6 @@ local function Musketeer_Add_Rend_Bonus_Damage(target, attacker, damage, hitStat
 end
 Ext.RegisterOsirisListener("NRD_OnHit", 4, "before", Musketeer_Add_Rend_Bonus_Damage)
 
-
 Musketeer_Rune_Update_Pending = {}
 --Item = nil
 local function Musketeer_Rune_Projectile_Handler(character, item, runeItemTemplate, slot)
