@@ -416,3 +416,16 @@ Making the `AmmoBar` UI split-screen compatible is probably not going to happen,
 - Positioning of the `AmmoBar` UI in Split-Screen improved, it is now located above the right side of the Skillbar
 - Fixed a bug that caused the `AmmoBar` to not show `Ammunition` Consumption/Gain Previews when switching Skillbars in controller-mode
 - Improved `AmmoBar` stability in controller-mode
+
+## 1.5.0.0 New Weapon Model
+
+This patch replaced the previous Kar98k weapon model with a new Musket model. No other significant changes are included in this patch.
+
+You can check out the new Musket model on sketchfab as well:
+https://sketchfab.com/3d-models/flintlock-musket-dos2-musketeer-mod-73af1826f8574746815b34c5c1f3ebb3
+
+Concerning balance, I do think the mod is in a pretty good spot at the moment, leaning slightly towards the weaker side. I'm planning on introducing some minor buffs, along with some completely new custom talents in the next patch.
+
+### Balance & Design
+- Replaced the previous weapon model with a new one that fits the setting and timeline of the game better
+- Fixed some typos

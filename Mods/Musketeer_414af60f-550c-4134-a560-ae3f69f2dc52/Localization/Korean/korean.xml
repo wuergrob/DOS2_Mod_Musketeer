@@ -1,4 +1,7 @@
 <contentList>
+	<content contentuid="hcf97a6e7ga0ebg4fe3ga4dcg393c9c87423f" Source="BOOK_Skill_Musketeer_BlazingFlare">Skillbooks</content>
+	<content contentuid="h85f3246dg3b28g4736gbb82gbfe321c7d5a3" Source="Musk_Grenade_Assault_Helper">Grenades</content>
+	<content contentuid="h75720fdag6640g4b86g8990g9a0d69360255" Source="Musk_Skill_Helperobject">Grenades</content>
 	<content contentuid="h8311eb63g89cfg41c1g961cgde31f8d79927" Source="Musk_Trap_TripwireFlare"></content>
 	<content contentuid="h2f4d621fg5904g4391g837cg864d414f6480" Source="Musketeer_Masteries.lsb" Key="Musk_Blunderbuss">Blunderbuss</content>
 	<content contentuid="h5abb1f7ag640bg4a82gabe8g981eb5616ab9" Source="Musketeer_Masteries.lsb" Key="Musk_Blunderbuss_Conscript">Conscript</content>
@@ -65,4 +68,5 @@
 	<content contentuid="hb90bb5f4g8e7eg40e8g9687g1c94fb04c09f" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_Exactly_Two_Left">Exactly 2 Ammo left</content>
 	<content contentuid="hf0e6dab6g49a9g45b8gba10g8ff17b4df67a" Source="Tags_Tooltips.lsb" Key="tagkey_Musketeer_None_Left">Out of Ammunition</content>
 	<content contentuid="h043d667fge6bcg4196ga866g14bc6e2ebeb3" Source="Tags_Tooltips.lsb" Key="tagkey_Rifle_Armed">Character has a Rifle equipped.</content>
+	<content contentuid="ha3f71157ga32dg4745g8732g945f4256e48f" Source="WPN_Musketeer_Rifle_01">Crossbows</content>
 </contentList>
