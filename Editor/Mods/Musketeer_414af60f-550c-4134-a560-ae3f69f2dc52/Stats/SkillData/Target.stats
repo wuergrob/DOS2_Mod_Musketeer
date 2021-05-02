@@ -58,7 +58,7 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="MarkTarget" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Mark Target" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="&lt;font color='#FF1500'&gt;Mark&lt;/font&gt; a target, lowering it's resistances and reducing it's dodge chance.&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks target character&lt;/font&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="&lt;font color='#FF1500'&gt;Mark&lt;/font&gt; a target, lowering its resistances and reducing its dodge chance.&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks target character&lt;/font&gt;" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_lash_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_lash_01_loop" />
@@ -109,7 +109,7 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="BlazingFlare" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Blazing Flare" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a Flare into the air, which explodes at peak altitude and applies &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; to all enemies in it's area. Reveals invisible enemies.&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks all enemies in it's area&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Fire a Flare into the air, which explodes at peak altitude and applies &lt;font color='#FF1500'&gt;Marked&lt;/font&gt; to all enemies in its area. Reveals invisible enemies.&lt;br&gt;&lt;br&gt;&lt;font color='#FF1500'&gt;Marks all enemies in its area&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color='#00EFFF'&gt;Consumes 1 Ammunition&lt;/font&gt;" />
         <field name="StatsDescriptionParams" type="StringStatObjectFieldDefinition" value="Damage" />
         <field name="FXScale" type="IntegerStatObjectFieldDefinition" value="100" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
@@ -118,7 +118,7 @@
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="Musketeer_Rifle_Singleshot" />
         <field name="CastSelfAnimation" type="StringStatObjectFieldDefinition" value="Musketeer_Rifle_Singleshot" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
-        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast" />
+        <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_shoot_test2:Dummy_ProjectileFX:cast;Musketeer_FX_Musket_Gunpowder_Ignite:Dummy_FX_02:cast" />
         <field name="CycleConditions" type="StringStatObjectFieldDefinition" value="Enemy;!Dead" />
         <field name="Requirement" type="EnumerationStatObjectFieldDefinition" value="2" enumeration_type_name="SkillRequirement" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; Tag Musketeer_AtLeast_One_Left" />
@@ -151,7 +151,7 @@
         <field name="UseWeaponProperties" type="EnumerationStatObjectFieldDefinition" value="0" enumeration_type_name="YesNo" />
         <field name="Icon" type="StringStatObjectFieldDefinition" value="Steadfast" />
         <field name="DisplayName" type="TranslatedStringStatObjectFieldDefinition" value="Steadfast" />
-        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Increases the range of a targeted character's ranged attacks and skills by 2m. Also increases accuracy by [1]% and grants [2] and [3]. &lt;br&gt;&lt;br&gt;&lt;font color='#8b4513'&gt;Decreases movement speed by 75% while active.&lt;/font&gt;" />
+        <field name="Description" type="TranslatedStringStatObjectFieldDefinition" value="Increases the range of a targeted characters ranged attacks and skills by 2m. Also increases accuracy by [1]% and grants [2] and [3]. &lt;br&gt;&lt;br&gt;&lt;font color='#8b4513'&gt;Decreases movement speed by 75% while active.&lt;/font&gt;" />
         <field name="PrepareAnimationInit" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_start" />
         <field name="PrepareAnimationLoop" type="StringStatObjectFieldDefinition" value="skill_prepare_weapon_01_loop" />
         <field name="PrepareEffect" type="StringStatObjectFieldDefinition" value="RS3_FX_Skills_Voodoo_Prepare_Weapon_Purple_Hand_01:Dummy_R_HandFX,Dummy_L_HandFX;RS3_FX_Skills_Voodoo_Prepare_Weapon_Purple_Root_01,KeepRot:Dummy_Root" />
