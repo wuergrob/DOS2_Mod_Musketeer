@@ -121,7 +121,7 @@ function TestWeaponExMasteryAddition()
                 Param = TranslatedString:Create("h521eed96gb2d4g4bafga208g65ead270fb1e","<font color='#00FF99'>After you finish reloading, grants bonus piercing damage and 10% critical chance on your next shot.</font>")
             }}
             Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Matchlock_Mastery3"] = {	MUSK_MATCHLOCK_CONDENSED_TERROR = {
-                Skills = {"Projectile_Musk_Grenade_GrenadeAssault"}
+                Skills = {"Projectile_Musk_Matchlock_Concentrated_Terror"}
                 --Param = TranslatedString:Create("h6ec72a83g2b1fg4433gaaf9gbb73649d511c","<icon id='Projectile_Musk_Condensed_Terror' icon='Reload'/><font color='#FF5E00' size='18'>New Skill: Condensed Terror</font><br>Only useable when stealthed. Fire off a round at an unsuspecting enemy, causing it to take damage upon trying to move.<br><font color='#FF1500'>Fears marked characters for 1 turn</font>")
             }}
             Mods["WeaponExpansion"].Mastery.Bonuses["Musk_Rifle_Matchlock_Mastery4"] = {	MUSK_MATCHLOCK_BULLETHELL = {

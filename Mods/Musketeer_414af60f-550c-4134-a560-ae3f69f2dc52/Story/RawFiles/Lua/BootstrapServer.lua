@@ -733,7 +733,11 @@ local function Musketeer_OnHit_Handler(defender, attacker, damageAmount, statusH
     local fromBasicAttack = false
     local hitIsValid = false
     DebugPrint("NRD_OnHit OsirisListener triggered")
-    local statusObj = Ext.GetStatus(defender, statusHandle)
+    
+    local statusObj = nil
+    if ObjectIsCharacter(defender) == 1 then
+        statusObj = Ext.GetStatus(defender, statusHandle)
+    end
     local statusObjStatuses = nil
     local StatusSkillId = nil
     local attackerObj = Ext.GetCharacter(attacker)
@@ -1283,7 +1287,9 @@ Ext.RegisterSkillProperty("MUSKETEER_BUCKSHOT_SKILLPROP", {
 
 
 local function Musketeer_Add_Mark_Damage_Handler(target, attacker, damage, hitStatus)
-    --print("Ola")
+    
+    if (ObjectIsCharacter(target) == 0) then return end
+
     local hitStatus = Ext.GetStatus(target, hitStatus)
     --print(hitStatus.SkillId)
     if ObjectIsCharacter(target) == 1 and HasActiveStatus(target, "MUSK_MARK_TARGET") == 1 then
@@ -1302,6 +1308,9 @@ end
 Ext.RegisterOsirisListener("NRD_OnHit", 4, "before", Musketeer_Add_Mark_Damage_Handler)
 
 local function Musketeer_Add_Rend_Bonus_Damage(target, attacker, damage, hitStatus)
+
+    if (ObjectIsCharacter(target) == 0) then return end
+
     local hitStatus = Ext.GetStatus(target, hitStatus)
     --print(hitStatus.SkillId)
     if ObjectIsCharacter(target) == 1 and (hitStatus.SkillId == "Projectile_Rend_The_Marked" or hitStatus.SkillId == "Projectile_Rend_The_Marked_-1")  then
@@ -1405,36 +1414,6 @@ Ext.RegisterOsirisListener("TimerFinished", 1, "after", function (timerName)
         Musketeer_Rune_Update_Pending = {}
     end
 end)
-
---[[
-Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
-    if projectile == nil then return end
-    if projectile.SkillId == "Projectile_Unload_Instance_-1" or projectile.SkillId == "Projectile_Unload_Instance" then
-        if projectile.CasterHandle ~= nil then
-            local attacker = Ext.GetCharacter(projectile.CasterHandle)
-            print(attacker.Stats)
-            print(attacker.Stats:GetItemBySlot("Weapon"))
-            print(attacker.Stats.MainWeapon)
-            print(attacker.Stats.MainWeapon.Charges)
-            print(attacker.Stats.CurrentAP)
-            if attacker.Stats.MainWeapon.Charges > 0 then
-                attacker.Stats.MainWeapon.Charges = attacker.Stats.MainWeapon.Charges -1
-                Osi.Musketeer_Ammo_Requirement_Tags(CharacterGetEquippedWeapon(attacker.MyGuid), attacker.MyGuid)
-                --print(IsTagged(attacker.MyGuid, "Rifle_Armed"))
-                --Musketeer_AmmoBar_SetAmmo(attacker.MyGuid, "Musketeer_SetAmmo_AmmoBar_UI", attacker.Stats.MainWeapon.Charges)
-            end
-            if attacker.Stats.MainWeapon.Charges <= 0 then
-                if attacker.Stats.CurrentAP >= 3 then
-                    attacker.Stats.CurrentAP = attacker.Stats.CurrentAP - 3
-                else
-                    attacker.Stats.CurrentAP = 0
-                end
-            end
-        end
-    end
-    --Ext.PrintWarning("ProjectileHit: ", projectile, hitObject, position)
-end)
---]]
 
 Musketeer_Covering_Fire_Initial_Position = {}
 
@@ -1651,110 +1630,37 @@ function Musketeer_Weapon_Add_Max_Ammo(weaponguid, amount)
     weapon.Stats.MaxCharges = weapon.Stats.MaxCharges + 1
 end
 
---[[
-
-For appending TreasureTable entries:
-
-- Check LL's code in WeaponEx for TreasureTable category tables (e.g. ST_LLWEAPONEX_Trader_RangedNormal entry)
-- Don't overwrite TreasureTable and instead create a new category from the current overwrite (So we can append the whole table and append it)
-- Check LL's code again to see how to append such a new table to the existing ones
-
-
---[[
-    local function GetOverShootPositionFromProjectile(ProjectileSourcePosition, projectileHitPosition, overshootDistance)
-    --DebugPrint("Piercing Ammo stuffs")
-    local attackerX, attackerY, attackerZ = ProjectileSourcePosition[1], ProjectileSourcePosition[2], ProjectileSourcePosition[3]
-    local targetX, targetY, targetZ = projectileHitPosition[1], projectileHitPosition[2], projectileHitPosition[3]
-
-    local dist = ((targetZ - attackerZ)^2 + (targetX - attackerX)^2)^(1/2)
-
-    local newZ = attackerZ + ((targetZ - attackerZ)/(dist)) * (dist+overshootDistance)
-    local newX = attackerX + ((targetX - attackerX)/(dist)) * (dist+overshootDistance)
-    local newY = targetY + 0.2
-    return newX, newY, newZ
-end
-
-local function Musketeer_Get_Closest_Object_Around_Position(x, y, z)
-    local minDist = nil
-    local minDistGuid = nil
-    local charsAndItems = { Ext.GetCharactersAroundPosition(x, y, z, 15), Ext.GetCharactersAroundPosition(x, y, z, 15)}
-    for i=1, #charsAndItems, 1 do
-        for j=1,#charsAndItems[i], 1 do
-            print(charsAndItems[i][j])
-            local dist = GetDistanceToPosition(charsAndItems[i][j], x, y, z)
-            print(dist)
-            if minDist == nil then
-                minDist = dist
-            end
-            if minDist > dist then
-                minDist = dist
-                minDistGuid = charsAndItems[i][j]
-            end
-        end
-    end
-    Ext.Print(minDistGuid)
-    return minDistGuid
-end
-
-Ext.RegisterListener("ProjectileHit", function (projectile, hitObject, position)
-    local piercingAmmoSkill = "Projectile_Musk_Piercing_Ammo_"
-    if projectile == nil or string.sub(projectile.SkillId, 1, #piercingAmmoSkill) == piercingAmmoSkill then return end
-    local attacker = Ext.GetGameObject(projectile.CasterHandle)
-    local ammoType = GetCharacterAmmoType(attacker.MyGuid)
-    if ammoType == Musketeer_Ammo_Statuses[6] and attacker:HasTag("Rifle_Armed") and IsRifleBasedSkill(projectile.SkillId) then
-        Ext.Print("Piercing Ammo procced")
-        local piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_Effect"
-        if projectile.SkillId == "Projectile_Rend_The_Marked" then
-            piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_Rend"
-        elseif projectile.SkillId == "Projectile_Tracking_Shot" then
-            piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_Tracking"
-        elseif projectile.SkillId == "Projectile_Rapidfire" then
-            piercingAmmoSkillName = "Projectile_Musk_Piercing_Ammo_RapidFire"
-        end
-        Ext.Print("hitObject")
-        Ext.Print(hitObject)
-        Ext.Print(projectile.TargetObjectHandle)
-        Ext.Print(projectile.HitObjectHandle)
-        local target = nil
-        if hitObject ~= nil then
-            target = Ext.GetGameObject(hitObject.Handle)
-        else
-            target = Ext.GetGameObject(projectile.TargetObjectHandle)
-        end
-
-        local newX, newY, newZ = GetOverShootPositionFromProjectile(attacker.WorldPos, projectile.Position, 5)
-        Ext.Print(newX, newY, newZ)
-        Ext.Print(projectile.Position[1])
-        Ext.Print(projectile.Position[2])
-        Ext.Print(projectile.Position[3])
-        Ext.Print(projectile.TargetPosition[1], projectile.TargetPosition[2], projectile.TargetPosition[3])
-        --[[
-        SetVarFloat3(attacker.MyGuid, "Piercing_TargetLocation2", newX, newY, newZ)
-        SetVarFloat3(attacker.MyGuid, "Piercing_OriginLocation2", projectile.Position[1], projectile.Position[2], projectile.Position[3])
-        --SetVarObject(attacker.MyGuid, "Piercing_OriginLocation", target.MyGuid)
-        SetVarFixedString(attacker.MyGuid, "Piercing_Projectile_Skill2", piercingAmmoSkillName)
-        SetStoryEvent(attacker.MyGuid, "Musketeer_Pierce_Ammo_Event2")
-        --]
-        local origin = {projectile.Position[1], projectile.Position[2], projectile.Position[3]}
-        NRD_ProjectilePrepareLaunch()
-        NRD_ProjectileSetString("SkillId", "Projectile_Musk_Piercing_Ammo_Effect")
-        NRD_ProjectileSetInt("CasterLevel", attacker.Stats.Level)
-        --NRD_ProjectileSetGuidString("SourcePosition", projectile.Position)
-        --NRD_ProjectileSetVector3("SourcePosition", projectile.Position[1], projectile.Position[2], projectile.Position[3])
-        NRD_ProjectileSetVector3("TargetPosition", newX, newY, newZ)
-        --NRD_ProjectileSetGuidString("TargetPosition", Sandbox_Market_Ernest_Herringway_da8d55ba-0855-4147-b706-46bbc67ec8b6);
-        
-        local sourceGuid = Musketeer_Get_Closest_Object_Around_Position(projectile.Position[1], projectile.Position[2], projectile.Position[3])
-        if sourceGuid ~= nil then
-            --NRD_ProjectileSetGuidString("Source", closeChar)
-            NRD_ProjectileSetGuidString("SourcePosition", sourceGuid)
-            Ext.Print("sourceObj")
-            Ext.Print(sourceGuid)
-        else
-            NRD_ProjectileSetVector3("SourcePosition", projectile.Position[1], projectile.Position[2], projectile.Position[3])
-            Ext.Print("sourceVec3")
-        end
-        NRD_ProjectileLaunch()
+Ext.RegisterOsirisListener("CharacterUsedSkill", 4, "after", function (character, skill, skillType, skillElement)
+    if skill == "Rush_Musk_Blitzkrieg" then
+        ApplyStatus(character, "MUSK_BLITZKRIEG_BUFF", 6)
+        ApplyStatus(character, "HASTED", 6)
     end
 end)
-]]
+
+local function Musketeer_Add_Mark_Damage_Handler(target, attacker, damage, hitStatus)
+    
+    if (ObjectIsItem(target) == 1) then return end
+
+    local hitStatus = Ext.GetStatus(target, hitStatus)
+    --print(hitStatus.SkillId)
+    if ObjectIsCharacter(target) == 1 and HasActiveStatus(target, "MUSK_MARK_TARGET") == 1 then
+        local skillBonus = Musketeer_MarkDamage_Table[hitStatus.SkillId] or Musketeer_MarkDamage_Table[string.sub(hitStatus.SkillId, 1, (#hitStatus.SkillId - 3))]
+
+        if skillBonus ~= nil then
+            --print("Marked Damage of Skill:", hitStatus.SkillId)
+            local markDamageHit = NRD_HitPrepare(target, attacker)
+            NRD_HitAddDamage(markDamageHit, "Physical", damage * ( skillBonus / 100 ))
+            NRD_HitSetInt(markDamageHit, "SimulateHit", 1)
+            NRD_HitSetInt(markDamageHit, "NoEvents", 1)
+            NRD_HitExecute(markDamageHit);
+        end
+    end
+end
+
+Ext.RegisterOsirisListener("NRD_OnHit", 4, "before", function (target, attacker, damageNumber, statusHandle)  
+    if damageNumber <= 0 or ObjectIsCharacter(target) == 0 or attacker == nil then return end
+    local hitStatus = Ext.GetStatus(target, statusHandle)
+    if (string.gsub(hitStatus.SkillId, "%_%-%d+", "") == "Projectile_Buckshot") and HasActiveStatus(target, "MUSK_MARK_TARGET") == 1 then
+        ApplyStatus(target, "BUCKSHOT_STUNNED", 6, 0, attacker)
+    end
+end)

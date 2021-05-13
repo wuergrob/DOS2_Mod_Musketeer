@@ -1,45 +1,53 @@
-## Musketeer Mod - Roadmap
+Fixes:
+- Font color for mastery texts (Teal text on white background -> very bad contrast and thus hard readability)
+- Covering Fire and Final Act not usable when muted? Inconsistent...
+- Increase radius of rifle fire SFX?
+- Blunderbuss fire surface is finnicky to use...
 
-### WIP Features
+Balance Changes:
 
-- Unload skill (Currently, first iteration has no Animation)
+Mastery Changes:
 
-- Mark Target spells (Actually already mostly works!)
-    - 2 different Statuses are employed:
-        - Mark Target, simply a debuff that stays on the target for its duration
-        - Mark Target Damage, (Uses different name) Status that is applied to cause damage. You check if "Mark Target" is true, and then apply "Mark Target Damage" to get deal damage once
-        - Damage is based on the Mark Damage Weapon Stat.
+Musket:
+- Mastery 1:
+    - Gain Your skills deal 5% bonus damage against marked targets for every ally in a 5m radius around you
+- Mastery 2:
+	- Rapidfire now also restores 15% of your Physical and Magic Armor per hit
+- Mastery 3:
+    - 
+- Mastery 4:
+    - Killing an enemy in combat reduces the cooldown of all your rifle skills by 1
+    - Blazing Flare now also blinds affected enemies
 
-- Spell: "Buckshot" (Already works, but the fire cone is only created when you actually hit a character)
-    - Fire a shell on your target, exploding on impact and dealing damage to all targets behind it in a cone
-        - Also creates a fire surface in said cone area. (Dragon Breath Cone style)
-        
-### New Features
+Blunderbuss:
+- Mastery 2:
+	- Scoring a kill grants Physical Armor and Magical Armor
+- Mastery 3:
+	- Steadfast grants bonus damage. This bonus effect is multiplied by the amount of enemies in close proximity
+- Mastery 4:
+	- Increase Buckshot bonus Cone-Range from 2m to 3m, grant bonus damage against Marked targets (+20%)
 
-- Reload drawback Implementation. Reloading should be a impactful decision you face in your turn. Reloading should basically cost you a turn.
-    - Add "Reloading" as a debuff status that has a duration of 1 turn and is triggered upon casing "Reload".
-        - You cannot cast spells while reloading.
-        - You cannot attack while reloading.
-        - This debuff can only be cleansed by death.
-        - Your movement speed is reduced by 75% while reloading.
 
-- New Visual Assets
-    - Rifle
-        - New Rifle Model (use kar98k)
-        - New Rifle-Projectile (bullet)
-        - New Rifle Sound-Effects
-        - New Rifle Icon
-        - New Rifle-Ability Icon's
-    - Hat
-        - Inspired by AoE3 Musketeers
-        - New Riflemen-Hat Icon
+Matchlock:
+- Mastery 1:
+	- Deal bonus damage against targets that are at least 5 meters away from their closest ally
+- Mastery 2:
+	- Skills that deal additional damage against Marked Targets have their bonus damage by 25%.
+- Mastery 3:
+	- Ending your turn whilst being stealthed restores 2 Ammunition for your currently equipped weapon.
+
+### New Talents:
+
+- Polished and Oiled
+    Skills that deal additional damage against Marked Targets have their bonus damage increased by 25%. (Maybe good enough, minimalistic, but impactfull.)
+- Doubled Edged Sword
+    Deal 15% bonus damage against targets that have more HP than you. Receive 10% more damage from targets with less HP than you. (Kinda boring, needs more flavour)
+- The Three Musketeers
+    [1] restores <font color='#00EFFF'>1 Ammunition</font> to all members of your party whenever you restore at least <font color='#00EFFF'>1 Ammunition</font> yourself. (<font color='#00EFFF'>1 Ammunition</font> restored by [1] or other Talents excluded)<br>Additionally provides +2 to both the Ranged and the Single-Handed Combat Ability, but decreases your Constitution by 2 points and your Warfare Skill by 1 point. All effects of this talent are temporarily disabled while there are more than three members in the current party. (NEEDS TO BE REWORKED)
 
 
 
 ### Things to consider Adding/Changing
-
-- Spell: "Mass Mark Target"
-    - Mark 1-3 targets in one go (Same as original Mark Target spell, but for multiple targets)
 
 - Spell: "Divine Flagellation"
     - Select a marked target and make it rain 7-10 small bullets on him.
@@ -47,28 +55,8 @@
 - Spell: "Mass Divine Flagellation"
     - Casts "Divine Flagellation" on all marked enemies in a zone
 
-- Spell: "Silver Bullet"
-    Select 3 locations, a silver bullet will fly from one to the other, damaging all in it's path
-    (Maybe consider just making a piercing shot with bigger "Search-Angle"?)
-
-- Spell: "Flare Shot"
-    - Reveal any cloaked characters in target area
-    - Maybe mark targets in target area too?
-
 - Spell: "Bola Shot"
     - Select 2 characters, fire a bola that hits them both, pulling them to each other and entangle(Stun?) them.
 
 - Spell "Lock and Load"
     Fire a lesser shot, instantly reloading 2 bullets. (Costs 1 bullet to use)
-
-- Spell "Rifle Grenade"
-    Fire a projectile, knockdown enemies in area.
-
-- Spell "Coup de Grâce"
-    - Close range execute on knockdown character.
-
-- Spell: "Bundled Shot"
-    Medium range, knock you and target down.
-
-- Spell: "Warning Shot"
-    25% Chance of Fearing Enemies around you. 

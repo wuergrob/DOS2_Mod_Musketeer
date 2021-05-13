@@ -429,3 +429,17 @@ Concerning balance, I do think the mod is in a pretty good spot at the moment, l
 ### Balance & Design
 - Replaced the previous weapon model with a new one that fits the setting and timeline of the game better
 - Fixed some typos
+
+## 1.5.1.0 Squashing Bugs
+Small patch to fix some bugs and add some QoL changes (Thanks to Nazatur for reporting the bugs).
+Also buffing `Scattershot` a bit, other balance changes will be added in a bigger balance patch that I'm working on.
+
+### Balance & Design
+- `Scattershot` Skill Base Damage increased from 50 to 55
+- Changed font color for some text in the Mastery Menu to improve readability
+
+### Bugfixes
+- `Tripwire Flare` Skill Explosion Radius increased from 1 to 2 (Now matches skill preview radius)
+- `Blitzkrieg` Skill now always grants `Blitzkrieg` and `Hasted` Status
+- `Buckshot` Skill now properly knocks down all `Marked` targets it hits. (Previously only knocked down on direct hit)
+- `Rend The Marked` Skill can cause game crashes in rare instances, so I've added a experimental fix for it
