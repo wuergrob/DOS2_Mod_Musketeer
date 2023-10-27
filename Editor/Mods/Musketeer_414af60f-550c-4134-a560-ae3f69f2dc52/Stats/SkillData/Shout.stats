@@ -82,8 +82,8 @@
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
-        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; !Tag Rifle_Reloading" />
@@ -127,8 +127,8 @@
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
-        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; !Tag Rifle_Reloading" />
@@ -172,8 +172,8 @@
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
-        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; !Tag Rifle_Reloading" />
@@ -217,8 +217,8 @@
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
-        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; !Tag Rifle_Reloading" />
@@ -262,8 +262,8 @@
         <field name="CastAnimation" type="StringStatObjectFieldDefinition" value="skill_cast_shout_01_cast" />
         <field name="CastTextEvent" type="StringStatObjectFieldDefinition" value="cast" />
         <field name="CastEffect" type="StringStatObjectFieldDefinition" value="Musketeer_FX_Reload:Dummy_Root:cast" />
-        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="1" />
-        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="1" />
+        <field name="Memory Cost" type="IntegerStatObjectFieldDefinition" value="0" />
+        <field name="Magic Cost" type="IntegerStatObjectFieldDefinition" value="0" />
         <field name="CanTargetCharacters" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="CanTargetItems" type="EnumerationStatObjectFieldDefinition" value="1" enumeration_type_name="YesNo" />
         <field name="Requirements" type="StringStatObjectFieldDefinition" value="Tag Rifle_Armed; !Tag Rifle_Reloading" />

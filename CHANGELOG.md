@@ -443,3 +443,11 @@ Also buffing `Scattershot` a bit, other balance changes will be added in a bigge
 - `Blitzkrieg` Skill now always grants `Blitzkrieg` and `Hasted` Status
 - `Buckshot` Skill now properly knocks down all `Marked` targets it hits. (Previously only knocked down on direct hit)
 - `Rend The Marked` Skill can cause game crashes in rare instances, so I've added a experimental fix for it
+
+## 1.5.2.0 Quality of Life
+I'm not actively maintaining this mod anymore (Sorry about that), but this small patch adds some frequently asked for changes.
+
+### Balance & Design
+- All `Special Reload` Skill-Variations no longer cost 1 SP to cast (SP costs reduced from 1 to 0)
+- All `Special Reload` Skill-Variations no longer cost Memory Slots
+- [Experimental] Reduced the sound-volume for all Firearm "Fire" SFX
